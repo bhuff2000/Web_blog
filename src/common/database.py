@@ -1,14 +1,15 @@
+import os
 
 import pymongo
 
 class Database(object):
-    URI ="mongodb://127.0.0.1:27017"
+    URI = os.environ.get("MONGODB_URI")
     DATABASE = None
 
     @staticmethod
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client['fullstack']
+        Database.DATABASE = client['heroku_m56h929h']
 
     @staticmethod
     def insert(collection, data):
