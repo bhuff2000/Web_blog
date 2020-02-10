@@ -10,6 +10,7 @@ from src.models.user import User
 
 
 app = Flask(__name__)
+app.config.from_object('src.config')
 app.secret_key = "jose"
 
 @app.route('/')
@@ -98,5 +99,5 @@ def create_new_post(blog_id):
         return make_response(blog_posts(blog_id))
 
 if __name__ == '__main__':
-    app.run(port=4995)
+    app.run()
 
