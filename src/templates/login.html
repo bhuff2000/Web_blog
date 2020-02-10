@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form id="login-form" action="/auth/login" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" name="email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="password">Password</label>
+            <input type="password" id="password" class = "form-control" name="password">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" >Log in</button>
+    <a href="/"></a><button type="submit" class="btn btn-primary" >Home</button></a>
+</form>
+{% endblock %}
+
