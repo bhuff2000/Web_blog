@@ -98,6 +98,6 @@ def create_new_post(blog_id):
 
         return make_response(blog_posts(blog_id))
 
-if __name__ == '__main__':
-    app.run()
+#if __name__ == '__main__':
+#    app.run()
 
