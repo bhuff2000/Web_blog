@@ -17,7 +17,7 @@ class User(object):
 
     @classmethod
     def get_by_email(cls, email):
-        data = Database.find_one("users", {"email": email})
+        data = Database.find_one("users", {" email": email})
         if data is not None:
             return cls(**data)
 
@@ -31,7 +31,7 @@ class User(object):
     def login_valid(email, password):
         user = User.get_by_email(email)
         if user is not None:
-            return user.password == Utils.hash_password(password)
+            return user.password == password
         return False
 
     @classmethod
