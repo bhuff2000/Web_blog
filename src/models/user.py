@@ -1,8 +1,11 @@
 from flask import session
+
+from src.common import utils
 from src.common.database import Database
 import uuid
 import datetime
 
+from src.common.utils import Utils
 from src.models.blog import Blog
 
 
@@ -28,14 +31,14 @@ class User(object):
     def login_valid(email, password):
         user = User.get_by_email(email)
         if user is not None:
-            return user.password == password
+            return user.password == Utils.hash_password(password)
         return False
 
     @classmethod
     def register(cls, email, password):
         user = cls.get_by_email(email)
         if user is None:
-            new_user = cls(email, password)
+            new_user = cls(email, Utils.hash_password(password))
             new_user.save_to_mongo()
             session['email'] = email
             return True
