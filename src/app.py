@@ -41,7 +41,7 @@ def login_user():
     else:
         session['email'] = None
 
-    return render_template("profile.html", email=session['email'], user1pw=user1.password)
+    return render_template("profile.html", email=session['email'], user1pw=user1)
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():
