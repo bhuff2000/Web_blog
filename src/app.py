@@ -34,14 +34,13 @@ def initialize_database():
 def login_user():
     email = request.form['email']
     password = request.form['password']
-   # user1 = User.get_by_email(email)
-
+   
     if User.login_valid(email, password):
         User.login(email)
     else:
         session['email'] = None
 
-    return render_template("profile.html", email=session['email'], user1pw=user1)
+    return render_template("profile.html", email=session['email'])
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():
