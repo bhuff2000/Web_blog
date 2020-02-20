@@ -34,7 +34,7 @@ def initialize_database():
 def login_user():
     email = request.form['email']
     password = request.form['password']
-   
+
     if User.login_valid(email, password):
         User.login(email)
     else:
