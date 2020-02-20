@@ -31,7 +31,7 @@ class User(object):
     def login_valid(email, password):
         user = User.get_by_email(email)
         if user is not None:
-            return user.password == Utils.hash_password(password)
+            return Utils.check_hashed_password(password, user.password)
         return False
 
     @classmethod
