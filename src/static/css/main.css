@@ -1,11 +1,12 @@
+body{
+background-color: red;
+}
+
 #login-form{
-margin-top: 25px;
+margin-top: 100px;
 }
 
 .page-form{
     max-width: 480px;
 }
 
-body{
-    background-color: coral;
-}
