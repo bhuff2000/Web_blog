@@ -102,6 +102,10 @@ def create_new_post(blog_id):
 def nascar_template():
     return render_template('nascar_home.html')
 
+@app.route('/nascar/admin')
+def nascar_template():
+    return render_template('nascar_admin.html')
+
 
 if __name__ == '__main__':
    app.run(debug=app.config['DEBUG'], port=4990)
