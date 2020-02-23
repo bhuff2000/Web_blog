@@ -98,6 +98,11 @@ def create_new_post(blog_id):
 
         return make_response(blog_posts(blog_id))
 
+@app.route('/nascar')
+def nascar_template():
+    return render_template('nascar_home.html')
+
+
 if __name__ == '__main__':
    app.run(debug=app.config['DEBUG'], port=4990)
 
