@@ -104,7 +104,7 @@ def nascar_template():
 
 
 @app.route('/nascar/admin')
-def nascar_template():
+def nascar_admin_template():
     return render_template('nascar_admin.html')
 
 
