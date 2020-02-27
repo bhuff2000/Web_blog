@@ -109,9 +109,9 @@ def nascar_admin_template():
 
 @app.route('nascar/load')
 def nascar_load():
-    type = request.form("admin-select")
-    type_html = type + '.html'
-    return render_template(type_html)
+    #type = request.form("admin-select")
+    #type_html = type + '.html'
+    return render_template('schedule.html')
 
 if __name__ == '__main__':
    app.run(debug=app.config['DEBUG'], port=4990)
