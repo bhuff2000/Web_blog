@@ -7,7 +7,3 @@ from src.common.database import Database
 import uuid
 import datetime
 
-
-def Race(object):
-
-         )
