@@ -107,6 +107,11 @@ def nascar_template():
 def nascar_admin_template():
     return render_template('nascar_admin.html')
 
+@app.route('nascar/load')
+def nascar_load():
+    type = request.form("admin-select")
+    type_html = type + '.html'
+    return render_template(type_html)
 
 if __name__ == '__main__':
    app.run(debug=app.config['DEBUG'], port=4990)
