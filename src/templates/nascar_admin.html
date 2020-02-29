@@ -1,38 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-
-<form id="nascar-admin" action="/nascar/load" method="post">
-    <div class="container">
+<div class="container">
+    <form id="new-blog" action="/nascar/load" method="post">
         <div class="form-row">
-            <div class="input-group">
-                <select name="admin-select" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                    <option selected>Choose...</option>
-                    <option value="Drivers">Drivers</option>
-                    <option value="Tracks">Tracks</option>
-                    <option value="Schedule">Schedule</option>
-                    <option value="Playoff">Playoff</option>
-                    <option value="Entry_list">Entry List</option>
-                    <option value="Practice">Practice</option>
-                    <option value="Qualifying">Qualifying</option>
-                </select>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button">Load</button>
-                </div>
+            <div class="form-group col-md-6">
+                <label for="title">Type of data to load</label>
+                <input type="text" id="type" class="form-control" name="type">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">Year</label>
+                <input type="text" id="year" class = "form-control" name="year">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">Series</label>
+                <input type="text" id="series" class = "form-control" name="series">
             </div>
         </div>
-        <div class="form-row">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Year
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">2020</button>
-                    <button class="dropdown-item" type="button">2019</button>
-                    <button class="dropdown-item" type="button">2018</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        <button type="submit" class="btn btn-success" >Load Data</button>
 </form>
-<a href="/"><button type="submit" class="btn btn-primary" >Home</button></a>
+</div>
 {% endblock %}

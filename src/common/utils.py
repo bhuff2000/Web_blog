@@ -21,12 +21,12 @@ class Utils:
         return pbkdf2_sha512.verify(password, hashed_password)
 
     @staticmethod
-    def get_from_sportradar():
+    def get_from_sportradar(type, year, series):
         key = os.environ.get("SPORTRADAR_KEY")
         conn = http.client.HTTPSConnection("api.sportradar.us")
-        conn.request("GET", "/nascar-ot3/sc/2014/races/schedule.json?api_key=key")
+        url = '/nascar-ot3/' + series + '/' + year + '/' + type + '/schedule.json?api_key=' + key
+        conn.request("GET", url)
         res = conn.getresponse()
         data = res.read()
-        tracks = json.loads(data)
-        return tracks
+        return json.loads(data)
 

@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, session, make_response
 
 from src.common.database import Database
+from src.common.utils import Utils
 from src.models import user
 from src.models.blog import Blog
 from src.models.post import Post
+from src.models.races import Sched_Event
 
 from src.models.user import User
 
@@ -110,9 +112,15 @@ def nascar_admin_template():
 
 @app.route('nascar/load')
 def nascar_load():
-    type = request.form.get['admin-select']
-    type_html = type + '.html'
-    return render_template(type_html)
+    type = request.form['type']
+    year = request.form['year']
+    series = request.form['series']
+    data = Utils.get_from_sportradar(type, year, series)
+    race_list = Sched_Event.extract_sportradar_data(data)
+    for race in race_list:
+        race.save_to_mongo()
+    races = Sched_Event.find_by_year(year)
+    return render_template('races_list.html', races=races)
 
 
 if __name__ == '__main__':
