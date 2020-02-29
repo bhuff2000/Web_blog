@@ -31,8 +31,8 @@ class Sched_Event(object):
             'race_start': self.race_start
          }
 
- #   def save_to_mongo(self):
- #       Database.insert("races", self.json())
+    def save_to_mongo(self):
+        Database.insert("races", self.json())
 
  #   @classmethod
  #   def extract_sportradar_data(cls, data):
