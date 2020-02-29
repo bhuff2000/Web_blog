@@ -34,28 +34,28 @@ class Sched_Event(object):
     def save_to_mongo(self):
         Database.insert("races", self.json())
 
- #   @classmethod
- #   def extract_sportradar_data(cls, data):
- #       sr_data = []
- #       json_file = json.loads(data)
- #       json_file2 = json_file['events']
- #       series = json_file['series']['alias']
- #       year = json_file['season']['year']
- #       for event in json_file2:
- #           event_id = event['id']
- #           event_name = event['name']
- #           event_date = event['start_date']
- #           track = event['track']['name']
- #           races = event['races']
- #           for race in races:
- #               race_name = race['name']
- #               race_id = race['id']
- #               race_status = race['status']
- #               race_start = race['scheduled']
- #               race_ev = Sched_Event(series, year, event_id, event_name, event_date, track, race_name, race_id,
- #                                  race_status, race_start)
- #               sr_data.append(race_ev)
- #       return sr_data
+    @classmethod
+    def extract_sportradar_data(cls, data):
+        sr_data = []
+        json_file = json.loads(data)
+        json_file2 = json_file['events']
+        series = json_file['series']['alias']
+        year = json_file['season']['year']
+        for event in json_file2:
+            event_id = event['id']
+            event_name = event['name']
+            event_date = event['start_date']
+            track = event['track']['name']
+            races = event['races']
+            for race in races:
+                race_name = race['name']
+                race_id = race['id']
+                race_status = race['status']
+                race_start = race['scheduled']
+                race_ev = Sched_Event(series, year, event_id, event_name, event_date, track, race_name, race_id,
+                                   race_status, race_start)
+                sr_data.append(race_ev)
+        return sr_data
 
 #    @classmethod
 #    def find_by_year(cls, year):
