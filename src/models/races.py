@@ -57,8 +57,8 @@ class Sched_Event(object):
                 sr_data.append(race_ev)
         return sr_data
 
-#    @classmethod
-#    def find_by_year(cls, year):
-#        races = Database.find(collection='races',
-#                              query={'year': year})
-#        return [cls(**race) for race in races]
+    @classmethod
+    def find_by_year(cls, year):
+        races = Database.find(collection='races',
+                              query={'year': year})
+        return [cls(**race) for race in races]
