@@ -110,17 +110,17 @@ def nascar_admin_template():
     return render_template('nascar_admin.html')
 
 
-@app.route('nascar/load', methods=['POST', 'GET'])
+@app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
     type1 = request.form['type']
     year = request.form['year']
     series = request.form['series']
-#    data = Utils.get_from_sportradar(type1, year, series)
-#    race_list = Sched_Event.extract_sportradar_data(data)
-#    for race in race_list:
-#        race.save_to_mongo()
-#    races = Sched_Event.find_by_year(year)
-    return render_template('home.html')
+    data = Utils.get_from_sportradar(type1, year, series)
+    race_list = Sched_Event.extract_sportradar_data(data)
+    for race in race_list:
+        race.save_to_mongo()
+    races = Sched_Event.find_by_year(year)
+    return render_template('races_list.html', races=races)
 
 
 
