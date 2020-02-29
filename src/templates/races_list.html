@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="'container">
-    <h2>{{ data }}</h2>
+    <h2>Races List</h2>
+    {% for race in races %}
+    <li>{{ race }}</li>
+    {% endfor %}
 
 </div>
 {% endblock %}
