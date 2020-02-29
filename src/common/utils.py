@@ -20,13 +20,13 @@ class Utils:
     def check_hashed_password(password: str, hashed_password: str) -> bool:
         return pbkdf2_sha512.verify(password, hashed_password)
 
-    @staticmethod
-    def get_from_sportradar(type, year, series):
-        key = os.environ.get("SPORTRADAR_KEY")
-        conn = http.client.HTTPSConnection("api.sportradar.us")
-        url = '/nascar-ot3/' + series + '/' + year + '/' + type + '/schedule.json?api_key=' + key
-        conn.request("GET", url)
-        res = conn.getresponse()
-        data = res.read()
-        return json.loads(data)
+ #   @staticmethod
+ #   def get_from_sportradar(type, year, series):
+ #       key = os.environ.get("SPORTRADAR_KEY")
+ #       conn = http.client.HTTPSConnection("api.sportradar.us")
+  #      url = '/nascar-ot3/' + series + '/' + year + '/' + type + '/schedule.json?api_key=' + key
+  #      conn.request("GET", url)
+  #      res = conn.getresponse()
+  #      data = res.read()
+  #      return json.loads(data)
 
