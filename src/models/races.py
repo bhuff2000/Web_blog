@@ -37,7 +37,7 @@ class Sched_Event(object):
     @classmethod
     def extract_sportradar_data(cls, data):
         sr_data = []
-        json_file = json.loads(data)
+        json_file = data
         json_file2 = json_file['events']
         series = json_file['series']['alias']
         year = json_file['season']['year']

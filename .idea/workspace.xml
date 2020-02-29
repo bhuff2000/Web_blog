@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc9b75ce-29a8-45ee-89b3-ecc3496d6192" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/races_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/races_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/races.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/races.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="122" column="59" lean-forward="true" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
+            <state relative-caret-position="487">
+              <caret line="116" column="35" lean-forward="true" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
               </folding>
@@ -50,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/src/templates/races_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -70,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/common/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="561">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#22#60#0" expanded="true" />
               </folding>
@@ -118,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/races.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="266">
+              <caret line="42" column="42" lean-forward="true" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -174,10 +175,10 @@
         <option value="$PROJECT_DIR$/src/models/sportradar.py" />
         <option value="$PROJECT_DIR$/src/templates/schedule.html" />
         <option value="$PROJECT_DIR$/src/templates/nascar_admin.html" />
-        <option value="$PROJECT_DIR$/src/models/races.py" />
-        <option value="$PROJECT_DIR$/src/common/utils.py" />
-        <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/races_list.html" />
+        <option value="$PROJECT_DIR$/src/common/utils.py" />
+        <option value="$PROJECT_DIR$/src/models/races.py" />
+        <option value="$PROJECT_DIR$/src/app.py" />
       </list>
     </option>
   </component>
@@ -625,8 +626,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/races.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="266">
+          <caret line="42" column="42" lean-forward="true" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -635,8 +636,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="561">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#22#60#0" expanded="true" />
           </folding>
@@ -645,8 +646,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="122" column="59" lean-forward="true" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
+        <state relative-caret-position="487">
+          <caret line="116" column="35" lean-forward="true" selection-start-line="116" selection-start-column="35" selection-end-line="116" selection-end-column="35" />
           <folding>
             <element signature="e#0#73#0" expanded="true" />
           </folding>
@@ -656,7 +657,7 @@
     <entry file="file://$PROJECT_DIR$/src/templates/races_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
