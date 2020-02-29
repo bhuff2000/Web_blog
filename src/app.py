@@ -118,10 +118,10 @@ def nascar_load_template():
     data = Utils.get_from_sportradar(type1, year, series)
     race_list = Sched_Event.extract_sportradar_data(data)
     for race in race_list:
-        race.save_to_mongo()
+       race.save_to_mongo()
     races = Sched_Event.find_by_year(year)
     return render_template('races_list.html', races=races)
-  #  return render_template('races_list.html', data=data)
+#    return render_template('races_list.html', race_list = race_list)
 
 
 if __name__ == '__main__':
