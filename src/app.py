@@ -120,7 +120,8 @@ def nascar_load_template():
     for race in race_list:
        race.save_to_mongo()
     races = Sched_Event.find_by_year(series)
-    return render_template('races_list.html', races=races)
+    text = "load successful"
+    return render_template('races_list.html', text=text, races=races)
   #  return render_template('races_list.html', data=data)
 
 
