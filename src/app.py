@@ -121,7 +121,7 @@ def nascar_load_template():
     #if len(load_list) == 0:
     #    load_list = "none"
     for race in race_list:
-     #   test = race["race_id"]
+        test = race.get_race_id()
         race.save_to_mongo()
     #races_loaded = load_list[0]
     races = Database.find(collection="races", query={"year": int(year)})

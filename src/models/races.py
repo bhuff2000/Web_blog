@@ -34,6 +34,9 @@ class Sched_Event(object):
     def save_to_mongo(self):
         Database.insert("races", self.json())
 
+    def get_race_id(self):
+        return self.race_id
+
     @classmethod
     def extract_sportradar_data(cls, data):
         sr_data = []
