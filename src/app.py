@@ -120,10 +120,11 @@ def nascar_load_template():
     for race in race_list:
        race.save_to_mongo()
     races = Database.find(collection='races', query={'year': year})
+    races_count = races.count()
     race_lst = [race for race in races]
     text = "load successful"
 #    race1=['line1', 'line2', 'line3', 'line4']
-    return render_template('races_list.html', text=text, races=race_lst)
+    return render_template('races_list.html', text=races_count, races=race_lst)
   #  return render_template('races_list.html', data=data)
 
 
