@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="'container">
+<div class="container">
     <h2>{{ text }}</h2>
-    {% for race in races %}
-        <p>{{ race['race_name'] }}</p>
+    <table class=""table>
+        <thead>
+            <tr>
+                <th scope"col">Race Name</th>
+                <th scope"col">Track</th>
+                <th scope"col">Date</th>
+                <th scope"col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for race in races %}
+            <tr>
+                <td>{{ race['race_name'] }}</td>
+                <td>{{ race['track'] }}</td>
+                <td>{{ race['race_start'] }}</td>
+                <td>{{ race['race_status'] }}</td>
+            </tr>
         <hr>
-    {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}
