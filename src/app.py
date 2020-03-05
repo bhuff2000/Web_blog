@@ -121,8 +121,8 @@ def nascar_load_template():
     #if len(load_list) == 0:
     #    load_list = "none"
     for race in race_list:
-        if Sched_Event.find_by_race_id(race['race_id']):
-           race.save_to_mongo()
+    #    if Sched_Event.find_by_race_id(race['race_id']):
+        race.save_to_mongo()
     #races_loaded = load_list[0]
     races = Database.find(collection="races", query={"year": int(year)})
     #races_ignored = load_list[1]
