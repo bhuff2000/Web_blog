@@ -6,6 +6,7 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col">Race Name</th>
+                <th scope="col">Series</th>
                 <th scope="col">Track</th>
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
@@ -15,6 +16,7 @@
         {% for race in races %}
             <tr>
                 <td>{{ race['race_name'] }}</td>
+                <td>{{ race['series'] }}</td>
                 <td>{{ race['track'] }}</td>
                 <td>{{ race['race_start'] }}</td>
                 <td>{{ race['race_status'] }}</td>

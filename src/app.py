@@ -122,7 +122,7 @@ def nascar_load_template():
     races = Database.find(collection="races", query={"year": int(year)})
     text = "load successful"
 #    race1=['line1', 'line2', 'line3', 'line4']
-    return render_template('races_list.html', text=year, races=races)
+    return render_template('races_list.html', text=text, races=races)
   #  return render_template('races_list.html', data=data)
 
 
