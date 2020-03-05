@@ -57,9 +57,8 @@ class Sched_Event(object):
                 sr_data.append(race_ev)
         return sr_data
 
-
-    def find_by_race_id(self, race_id):
-        self.race_id = race_id
+    @classmethod
+    def find_by_race_id(cls, race_id):
         data = Database.find_one("races", {"race_id": race_id})
         if data is None:
             return True
