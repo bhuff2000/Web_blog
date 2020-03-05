@@ -119,7 +119,7 @@ def nascar_load_template():
     race_list = Sched_Event.extract_sportradar_data(data)
     for race in race_list:
        race.save_to_mongo()
-    races = Database.find_one(collection="races", query={"event_id": "4e901f7d-4a99-474a-b04b-70c559897065"})
+    races = Database.find(collection="races", query={"series": "CUP"})
     #races_count = races.count()
     #race_lst = [race for race in races]
     text = "load successful"
