@@ -57,9 +57,10 @@ class Sched_Event(object):
                 sr_data.append(race_ev)
         return sr_data
 
-    @classmethod
-    def find_by_race_id(cls, race_id):
-        data = Database.find_one("races", {"race_id": str(race_id)})
+
+    def find_by_race_id(self, race_id):
+        self.race_id = race_id
+        data = Database.find_one("races", {"race_id": race_id})
         if data is None:
             return True
         else:
@@ -74,8 +75,8 @@ class Sched_Event(object):
         load_list = sr_data
         for item in load_list:
             pop_item = item.pop()
-            race_id = pop_item["race_id"]
-            if Sched_Event.find_by_race_id(race_id) is True:
+            race_id = pop_item.race_id
+            if item.find_by_race_id(race_id) is True:
                 to_be_loaded.append(pop_item)
             else:
                 loaded.append(pop_item)

@@ -118,6 +118,8 @@ def nascar_load_template():
     data = Utils.get_from_sportradar(type1, year, series)
     race_list = Sched_Event.extract_sportradar_data(data)
     load_list = Sched_Event.define_load_list(race_list)
+    if len(load_list) == 0:
+        load_list = "none"
     for race in race_list:
        race.save_to_mongo()
     #races_loaded = load_list[0]
