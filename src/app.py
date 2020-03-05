@@ -127,7 +127,7 @@ def nascar_load_template():
     #races_ignored = load_list[1]
     text = "load successful"
 #    race1=['line1', 'line2', 'line3', 'line4']
-    return render_template('races_list.html', text=text, races=races, load_list=load_list)
+    return render_template('races_list.html', text=text, races=races)
   #  return render_template('races_list.html', data=data)
 
 
