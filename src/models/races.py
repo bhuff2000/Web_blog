@@ -58,6 +58,31 @@ class Sched_Event(object):
         return sr_data
 
     @classmethod
+    def find_by_race_id(cls, race_id):
+        data = Database.find_one("races", {"race_id": race_id})
+        if data is None:
+            return True
+        else:
+            return False
+
+
+
+    @classmethod
+    def define_load_list(cls, sr_data):
+        loaded = []
+        to_be_loaded = []
+        load_list = sr_data
+        for item in load_list:
+            pop_item = item.pop()
+            race_id = pop_item['race_id']
+            if Sched_Event.find_by_race_id(race_id) is True:
+                to_be_loaded.append(pop_item)
+            else:
+                loaded.append(pop_item)
+        return to_be_loaded, loaded
+
+
+    @classmethod
     def find_by_year(cls, series):
         races = Database.find(collection='races',
                               query={'series': series})

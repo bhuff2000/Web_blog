@@ -117,12 +117,14 @@ def nascar_load_template():
     series = request.form['series']
     data = Utils.get_from_sportradar(type1, year, series)
     race_list = Sched_Event.extract_sportradar_data(data)
-    for race in race_list:
+    load_list = Sched_Event.define_load_list(race_list)
+    for race in load_list[0]:
        race.save_to_mongo()
-    races = Database.find(collection="races", query={"year": int(year)})
+    races_loaded = load_list[0]
+    races_ignored = load_list[1]
     text = "load successful"
 #    race1=['line1', 'line2', 'line3', 'line4']
-    return render_template('races_list.html', text=text, races=races)
+    return render_template('races_list.html', text=text, races_loaded=races_loaded, races_ignored = races_ignored)
   #  return render_template('races_list.html', data=data)
 
 
