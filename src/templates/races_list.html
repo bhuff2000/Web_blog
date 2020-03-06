@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <h2>{{ test }}</h2>
+    <h2>Races Loaded</h2>
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
@@ -25,6 +25,29 @@
         </tbody>
 
     </table>
+    <h2>Races Ignored (already loaded)</h2>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Race Name</th>
+                <th scope="col">Series</th>
+                <th scope="col">Track</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for race in ignore_list %}
+            <tr>
+                <td>{{ race['race_name'] }}</td>
+                <td>{{ race['series'] }}</td>
+                <td>{{ race['track'] }}</td>
+                <td>{{ race['race_start'] }}</td>
+                <td>{{ race['race_status'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
 
+    </table>
 </div>
 {% endblock %}
