@@ -77,8 +77,8 @@ class Sched_Event(object):
         load_list = sr_data
         for item in load_list:
             pop_item = item.pop()
-            race_id = pop_item.race_id
-            if item.find_by_race_id(race_id) is True:
+            race_id = pop_item.get_race_id()
+            if Sched_Event.find_by_race_id(race_id) is True:
                 to_be_loaded.append(pop_item)
             else:
                 loaded.append(pop_item)
