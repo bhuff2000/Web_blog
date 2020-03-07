@@ -115,7 +115,8 @@ def nascar_load_template():
     type1 = request.form['type']
     year = request.form['year']
     series = request.form['series']
-    data = Utils.get_from_sportradar(type1, year, series)
+    file = request.form['file']
+    data = Utils.get_from_sportradar(type1, year, series, file)
     race_list = Sched_Event.extract_sportradar_data(data)
     #load_list = Sched_Event.define_load_list(race_list)
     #if len(load_list) == 0:
