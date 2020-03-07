@@ -52,7 +52,7 @@
                 <select class="custom-select" id="inputGroupSelect01">
                     <option selected>Choose Race</option>
                     {% for race in races %}
-                    <option value="{{ race['race_id'] }}">{{ race['race_name']  }}</option>
+                    <option value="{{ race['race_id'] }}">{{ race['race_name']  }} @ {{  race['track']  }}</option>
                     {% endfor %}
                 </select>
             </div>
