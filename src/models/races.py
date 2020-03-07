@@ -86,7 +86,7 @@ class Sched_Event(object):
 
 
     @classmethod
-    def find_by_year(cls, series):
+    def find_by_year(cls, year):
         races = Database.find(collection='races',
-                              query={'series': series})
+                              query={'year': int(year)})
         return [cls(**race) for race in races]
