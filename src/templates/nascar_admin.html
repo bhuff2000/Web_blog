@@ -47,13 +47,26 @@
                 <label for="description">Type Parameter</label>
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
-            <div class="form-group col-md-6" id="entrant_race_id">
-                <label for="description">Race_ID</label>
-                <input type="text" id="race_IDEntrant" class = "form-control" name="race_ID" value="2020">
+            <div class="dropdown" id="entrant_race_id">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% for race in races %}
+                    <a class="dropdown-item" href="#" value="{{ race['race_id']  }}">{{ race['race_name'} }}</a>
+                    {% endfor %}
+
+                </div>
             </div>
-            <div class="form-group col-md-6" id="entrant_series">
-                <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
-                <input type="text" id="seriesEntrant" class = "form-control" name="series" value="sc">
+            <<div class="dropdown" id="entrant_series">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choose Series
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">CUP</a>
+                    <a class="dropdown-item" href="#">XFINITY</a>
+                    <a class="dropdown-item" href="#">TRUCK</a>
+                </div>
             </div>
             <div class="form-group col-md-6" id="entrant_file">
                 <label for="description">File</label>
@@ -99,7 +112,7 @@ $('#loadQualify').hide();
     $('#loadRaces').hide();
     $('#loadEntrants').show();
     $('#loadQualify').hide();
-    $('#entrant_race_id').hide();
+    //$('#entrant_race_id').hide();
     $('#entrant_file').hide();
     $('#entrant_type').hide();
     } else if (checkedValue == "Qualify") {
