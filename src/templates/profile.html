@@ -12,19 +12,19 @@
 <div class="container">
    <h1>Test jQuery Area</h1>
    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Races" >
         <label class="form-check-label" for="exampleRadios1">
         Load Race Events
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Entrants">
         <label class="form-check-label" for="exampleRadios2">
-        Load Drivers for Each Race
+        Load Drivers Entered for a Race
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Qualify" >
         <label class="form-check-label" for="exampleRadios3">
         Load Qualifying Results
         </label>
@@ -33,19 +33,61 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="description">Type Parameter</label>
-                <input type="text" id="type" class="form-control" name="type" value="races" readonly>
+                <input type="text" id="typeRace" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="form-group col-md-6">
                 <label for="description">Year</label>
-                <input type="text" id="year" class = "form-control" name="year">
+                <input type="text" id="yearRace" class = "form-control" name="year" value="2020">
             </div>
             <div class="form-group col-md-6">
-                <label for="description">Series</label>
-                <input type="text" id="series" class = "form-control" name="series">
+                <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
+                <input type="text" id="seriesRace" class = "form-control" name="series" value="sc">
             </div>
             <div class="form-group col-md-6">
-                <label for="description">Series</label>
-                <input type="text" id="file" class = "form-control" name="series" value="schedule.json" readonly>
+                <label for="description">File</label>
+                <input type="text" id="fileRace" class = "form-control" name="series" value="schedule.json" readonly>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" >Load Data</button>
+    </form>
+    <form id="loadEntrants" action="/nascar/load" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="description">Type Parameter</label>
+                <input type="text" id="typeOther" class="form-control" name="type" value="races" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">Year</label>
+                <input type="text" id="yearOther" class = "form-control" name="year" value="2020">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
+                <input type="text" id="seriesOther" class = "form-control" name="series" value="sc">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">File</label>
+                <input type="text" id="fileOther" class = "form-control" name="series" value="entry_list.json" readonly>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" >Load Data</button>
+    </form>
+    <form id="loadQualify" action="/nascar/load" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="description">Type Parameter</label>
+                <input type="text" id="typeQual" class="form-control" name="type" value="races" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">Race ID</label>
+                <input type="text" id="yearQual" class = "form-control" name="race_ID">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
+                <input type="text" id="seriesQual" class = "form-control" name="series">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="description">File</label>
+                <input type="text" id="fileQual" class = "form-control" name="series" value="qualifying.json" readonly>
             </div>
         </div>
         <button type="submit" class="btn btn-success" >Load Data</button>
@@ -54,16 +96,23 @@
 <script>
 $(document).ready(function() {
 $('#loadRaces').hide();
+$('#loadEntrants').hide();
+$('#loadQualify').hide();
     $(':radio').click(function() {
     var checkedValue = $('input[name="exampleRadios"]:checked').val()
-    if (checkedValue == "option1") {
+    if (checkedValue == "Races") {
     $('#loadRaces').show();
-    } else if (checkedValue == "option2") {
+    $('#loadEntrants').hide();
+    $('#loadQualify').hide();
+    } else if (checkedValue == "Entrants") {
     $('#loadRaces').hide();
-    alert ("Option 2 was choosen")
-    } else if (checkedValue == "option3") {
+    $('#loadEntrants').show();
+    $('#loadQualify').hide();
+    } else if (checkedValue == "Qualify") {
     $('#loadRaces').hide();
-    alert ("Option 3 was choosen")
+    $('#loadEntrants').hide();
+    $('#loadQualify').show();
+   
     } else {
     alert ("Nothing was chosen which shouldnt happen")
     }
