@@ -52,9 +52,9 @@
                 Dropdown button
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {% for race in races %}
-                    <a class="dropdown-item" href="#">{{ race['race_name'} }}</a>
-                    {% endfor %}
+
+                    <a class="dropdown-item" href="#">Race 1</a>
+
 
                 </div>
             </div>
@@ -112,7 +112,7 @@ $('#loadQualify').hide();
     $('#loadRaces').hide();
     $('#loadEntrants').show();
     $('#loadQualify').hide();
-    //$('#entrant_race_id').hide();
+    $('#entrant_race_id').hide();
     $('#entrant_file').hide();
     $('#entrant_type').hide();
     } else if (checkedValue == "Qualify") {
