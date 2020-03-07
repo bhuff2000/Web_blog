@@ -135,7 +135,6 @@ def nascar_load_template():
     races = Database.find(collection="races", query={"year": int(year)})
     #races_ignored = load_list[1]
     text = "load successful"
-#    race1=['line1', 'line2', 'line3', 'line4']
     return render_template('races_list.html', text=text, races=load_list, ignore_list = ignore_list)
   #  return render_template('races_list.html', data=data)
 

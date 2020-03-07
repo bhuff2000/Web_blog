@@ -9,4 +9,33 @@
         <a href="/"><button type="submit" class="btn btn-success" >Home</button></a>
         <a href="/nascar"><button type="submit" class="btn btn-success" >Nascar</button></a>
 
+<div class="container">
+   <h1>Test jQuery Area</h1>
+   <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+        Load Race Events
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+        Load Drivers for Each Race
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+        <label class="form-check-label" for="exampleRadios3">
+        Load Qualifying Results
+        </label>
+    </div>
+</div>
+<script>
+$(function() {
+var checkedValue = $('input[name="exampleRadios"]:checked').val()
+if (checkedValue == "option1")
+alert ("Option 1 was choosen")
+
+}); //end ready
+</script>
 {% endblock %}
