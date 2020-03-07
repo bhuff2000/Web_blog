@@ -48,7 +48,7 @@
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="input-group mb-3">
-                <select class="custom-select" id="series_drop_down">
+                <select class="custom-select" id="series_drop_down" name="series_drop_down">
                     <option>Choose Series</option>
                     <option selected value="CUP">CUP</option>
                     <option value="XFINITY">XFINITY</option>
@@ -59,7 +59,7 @@
                 <select class="custom-select" id="races_drop_down">
                     <option selected>Choose Race</option>
                     {% for race in races %}
-                       {% if request.form.get('#series_drop_down') == race['series'] %}
+                       {% if request.form.get('series_drop_down') == race['series'] %}
                     <option value="{{ race['race_id'] }}">{{ race['race_name']  }} @ {{  race['track']  }}</option>
                        {% endif %}
                     {% endfor %}
