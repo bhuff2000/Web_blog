@@ -48,14 +48,12 @@
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
-                </div>
+
                 <select class="custom-select" id="inputGroupSelect01">
                     <option selected>Choose Race</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {% for race in races %}
+                    <option value="{{ race['race_id'] }}">{{ race['race_name']  }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <<div class="dropdown" id="entrant_series">
