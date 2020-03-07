@@ -47,16 +47,16 @@
                 <label for="description">Type Parameter</label>
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
-            <div class="dropdown" id="entrant_race_id">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                    <a class="dropdown-item" href="#">Race 1</a>
-
-
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
                 </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choose Race</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
             </div>
             <<div class="dropdown" id="entrant_series">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -112,14 +112,12 @@ $('#loadQualify').hide();
     $('#loadRaces').hide();
     $('#loadEntrants').show();
     $('#loadQualify').hide();
-    $('#entrant_race_id').hide();
     $('#entrant_file').hide();
     $('#entrant_type').hide();
     } else if (checkedValue == "Qualify") {
     $('#loadRaces').hide();
     $('#loadEntrants').hide();
     $('#loadQualify').show();
-    $('#qual_race_id').hide();
     $('#qual_file').hide();
     $('#qual_type').hide();
     } else {
