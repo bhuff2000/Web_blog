@@ -107,7 +107,7 @@ def nascar_template():
 
 @app.route('/nascar/admin')
 def nascar_admin_template():
-    races = Sched_Event.find_by_year(2020)
+    races = Sched_Event.find_by_year('2020')
     return render_template('nascar_admin.html', races=races)
 
 
