@@ -48,23 +48,22 @@
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="input-group mb-3">
-
-                <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="races_drop_down">
                     <option selected>Choose Race</option>
                     {% for race in races %}
                     <option value="{{ race['race_id'] }}">{{ race['race_name']  }} @ {{  race['track']  }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <<div class="dropdown" id="entrant_series">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Choose Series
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">CUP</a>
-                    <a class="dropdown-item" href="#">XFINITY</a>
-                    <a class="dropdown-item" href="#">TRUCK</a>
-                </div>
+            <div class="input-group mb-3">
+                <select class="custom-select" id="series_drop_down">
+                    <option selected>Choose Race</option>
+                    {% for race in races %}
+                       {% if request.form.get('series_drop_down') == race['series'] %}
+                    <option value="{{ race['race_id'] }}">{{ race['race_name']  }} @ {{  race['track']  }}</option>
+                       {% endif %}
+                    {% endfor %}
+                </select>
             </div>
             <div class="form-group col-md-6" id="entrant_file">
                 <label for="description">File</label>
