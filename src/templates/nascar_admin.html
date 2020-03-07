@@ -47,7 +47,7 @@
                 <label for="description">Type Parameter</label>
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6" id="entrant_race_id">
                 <label for="description">Race_ID</label>
                 <input type="text" id="race_IDEntrant" class = "form-control" name="race_ID" value="2020">
             </div>
@@ -68,7 +68,7 @@
                 <label for="description">Type Parameter</label>
                 <input type="text" id="typeQual" class="form-control" name="type" value="races" readonly>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6" id="Qual_race_id">
                 <label for="description">Race ID</label>
                 <input type="text" id="race_IDQual" class = "form-control" name="race_ID">
             </div>
@@ -99,12 +99,12 @@ $('#loadQualify').hide();
     $('#loadRaces').hide();
     $('#loadEntrants').show();
     $('#loadQualify').hide();
-    $('#race_IDEntrant').hide();
+    $('#entrant_race_id').hide();
     } else if (checkedValue == "Qualify") {
     $('#loadRaces').hide();
     $('#loadEntrants').hide();
     $('#loadQualify').show();
-    $('#race_IDQual').hide();
+    $('#Qual_race_id').hide();
 
     } else {
     alert ("Nothing was chosen which shouldnt happen")
