@@ -45,19 +45,19 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="description">Type Parameter</label>
-                <input type="text" id="typeOther" class="form-control" name="type" value="races" readonly>
+                <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="form-group col-md-6">
-                <label for="description">Year</label>
-                <input type="text" id="yearOther" class = "form-control" name="year" value="2020">
+                <label for="description">Race_ID</label>
+                <input type="text" id="race_IDEntrant" class = "form-control" name="race_ID" value="2020">
             </div>
             <div class="form-group col-md-6">
                 <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
-                <input type="text" id="seriesOther" class = "form-control" name="series" value="sc">
+                <input type="text" id="seriesEntrant" class = "form-control" name="series" value="sc">
             </div>
             <div class="form-group col-md-6">
                 <label for="description">File</label>
-                <input type="text" id="fileOther" class = "form-control" name="file" value="entry_list.json" readonly>
+                <input type="text" id="fileEntrant" class = "form-control" name="file" value="entry_list.json" readonly>
             </div>
         </div>
         <button type="submit" class="btn btn-success" >Load Data</button>
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="description">Race ID</label>
-                <input type="text" id="yearQual" class = "form-control" name="race_ID">
+                <input type="text" id="race_IDQual" class = "form-control" name="race_ID">
             </div>
             <div class="form-group col-md-6">
                 <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
@@ -99,10 +99,12 @@ $('#loadQualify').hide();
     $('#loadRaces').hide();
     $('#loadEntrants').show();
     $('#loadQualify').hide();
+    $('#race_IDEntrant').hide();
     } else if (checkedValue == "Qualify") {
     $('#loadRaces').hide();
     $('#loadEntrants').hide();
     $('#loadQualify').show();
+    $('#race_IDQual').hide();
 
     } else {
     alert ("Nothing was chosen which shouldnt happen")
