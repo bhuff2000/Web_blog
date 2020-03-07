@@ -59,7 +59,7 @@
                 <select class="custom-select" id="races_drop_down">
                     <option selected>Choose Race</option>
                     {% for race in races %}
-                       {% if race['series'] == request.form("series_drop_down").val() %}
+                       {% if race['series'] == request.form.get['series_drop_down'] %}
                     <option value="{{ race['race_id'] }}">{{ race['race_name']  }} @ {{  race['track']  }}</option>
                        {% endif %}
                     {% endfor %}
