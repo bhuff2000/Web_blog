@@ -31,11 +31,12 @@
     </div>
 </div>
 <script>
-$(function() {
-var checkedValue = $('input[name="exampleRadios"]:checked').val()
-if (checkedValue == "option1")
-alert ("Option 1 was choosen")
-
+$(document).ready(function() {
+    $(':radio').click(function() {
+    var checkedValue = $('input[name="exampleRadios"]:checked').val()
+    if (checkedValue == "option1")
+    alert ("Option 1 was choosen")
+}); //end radio
 }); //end ready
 </script>
 {% endblock %}
