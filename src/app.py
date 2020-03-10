@@ -123,6 +123,7 @@ def background_process():
         return str(e)
 
 
+
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
     type1 = request.form['type']

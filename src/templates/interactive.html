@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
+<head>
+    <script>
+    $(document).ready(function() {
+    $('a#process_input').bind('click', function() {
+    $.getJSON('/background_process', {
+    "proglang" : $('input[name="proglang"]').val(),
+    }, function(data) {
+    $('#result').text(data.result);
+    });
+    return false
+    });
+    });
+    </script>
+</head>
 
 <body>
 
@@ -9,21 +23,9 @@
                 <input type="text" size="5" name="proglang">
                 <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
             </form>
-        <p id="result"></p>
+        <p id="result">here it is</p>
     </div>
-<script>
-$(document).ready(function() {
-    $('a#process_input').bind('click', function() {
-    $.getJSON('/background_process', {
-    "proglang" : $('input[name="proglang"]').val(),
-    }, function(data) {
-    $('#result').text(data.result);
-    alert ("Nothing was chosen which shouldnt happen"  data.result)
-    });
-    return false
-  });
-});
-</script>
+
 </body>
 
 
