@@ -113,7 +113,7 @@ def nascar_admin_template():
 
 @app.route('/background_process')
 def background_process():
-    series = request.args.get('prolang', 0, type=str)
+    series = request.args.get('proglang', 0, type=str)
     race_list = Sched_Event.find_by_series(series)
     one_race = race_list[0]
     race_name= series

@@ -63,7 +63,7 @@
 
                 </select>
         <form>
-            <input type="text" size="5" name="prolang">
+            <input type="text" size="5" name="proglang">
             <a href="#" id="process_input"><button class="btn btn=default">Submit</button></a>
         </form>
    <p id="result"></p>
@@ -125,9 +125,9 @@ $('#loadQualify').hide();
     }
 }); //end radio
 $(function() {
-    $('a#process_input').bind('change', function() {
+    $('a#process_input').bind('click', function() {
         $.getJSON('/background_process', {
-        series_choice: $('#series_drop_down:selected').val(),
+        proglang: $('input[name="proglang"]').val(),
         }, function(data) {
         $("#result").text(data.result);
         });
