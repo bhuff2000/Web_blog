@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+
+    <div class="container">
+        <h3>Welcome!  Best programming language</h3>
+            <form>
+                <input type="text" size="5" name="proglang">
+                <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
+            </form>
+        <p id="result"></p>
+    </div>
+<script>
+$(document).ready(function() {
+    $('a#process_input').bind('click', function() {
+    $.getJSON('/background_process', {
+    proglang: $('input[name="proglang"]').val(),
+    }, function(data) {
+    $("#result").text(data.result):
+    });
+    return false
+  });
+});
+</script>
+</body>
+
+
+{% endblock %}

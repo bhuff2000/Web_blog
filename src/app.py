@@ -113,11 +113,15 @@ def nascar_admin_template():
 
 @app.route('/background_process')
 def background_process():
-    series = request.args.get('stuff', 0, type=str)
-    race_list = Sched_Event.find_by_series(series)
-    one_race = race_list[0]
-    race_name= series
-    return jsonify(result=race_name)
+    try:
+        lang = request.args.get('proglang', 0, type=str)
+        if lang.lower() == 'python':
+            return jsonify(result='you are correct')
+        else:
+            return jsonify(result='try again')
+    except Exception as e:
+        return str(e)
+
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
@@ -147,6 +151,12 @@ def nascar_load_template():
     text = "load successful"
     return render_template('races_list.html', text=text, races=load_list, ignore_list = ignore_list)
   #  return render_template('races_list.html', data=data)
+
+
+@app.route('/interactive')
+def interactive():
+    return render_template('interactive.html')
+
 
 
 if __name__ == '__main__':
