@@ -62,6 +62,7 @@
                     <option selected value="na"></option>
 
                 </select>
+   <p id="result"></p>
             </div>
             <div class="form-group col-md-6" id="entrant_file">
                 <label for="description">File</label>
@@ -124,7 +125,7 @@ $(function() {
         $.getJSON('/background_process', {
         series_choice: $('#series_drop_down:selected').val(),
         }, function(data) {
-        $("#races_drop_down:selected").val(data.result);
+        $("#result").text(data.result);
         });
         return false;
     });
