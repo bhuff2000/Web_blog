@@ -3,7 +3,7 @@
 <head>
     <script>
     $(document).ready(function() {
-    $('a#process_input').bind('click', function() {
+    $('#process_input').bind('click', function() {
     $.getJSON('/background_process', {
     "proglang" : $('input[name="proglang"]').val(),
     }, function(data) {
