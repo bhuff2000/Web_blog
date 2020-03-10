@@ -116,7 +116,7 @@ def background_process():
     series = request.args.get('series_choice', 0, type=str)
     race_list = Sched_Event.find_by_series(series)
     one_race = race_list[0]
-    race_name= one_race['race_name']
+    race_name= "good race"
     return jsonify(result=race_name)
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
