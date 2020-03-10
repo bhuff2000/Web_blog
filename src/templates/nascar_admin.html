@@ -125,7 +125,7 @@ $('#loadQualify').hide();
     }
 }); //end radio
 $(function() {
-    $('a#process_input').bind('click', function() {
+    $('#process_input').bind('click', function() {
         $.getJSON('/background_process', {
         "stuff": $('input[name="stuff"]').val(),
         }, function(data) {
