@@ -17,7 +17,7 @@ $(document).ready(function() {
     $.getJSON('/background_process', {
     proglang: $('input[name="proglang"]').val(),
     }, function(data) {
-    $('#result').text(data.result);
+    $('#result').title(data.result);
     });
     return false
   });
