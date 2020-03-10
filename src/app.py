@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, make_response
+from flask import Flask, render_template, request, session, make_response, jsonify
 
 from src.common.database import Database
 from src.common.utils import Utils
@@ -110,6 +110,14 @@ def nascar_admin_template():
     races = Sched_Event.find_by_year('2020')
     return render_template('nascar_admin.html', races=races)
 
+
+@app.route('/background_process')
+def background_process():
+    series = request.args.get('series_choice', 0, type=str)
+    race_list = Sched_Event.find_by_series(series)
+    one_race = race_list[0]
+    race_name= one_race['race_name']
+    return jsonify(result=race_name)
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():

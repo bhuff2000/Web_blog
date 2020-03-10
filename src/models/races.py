@@ -93,3 +93,12 @@ class Sched_Event(object):
         for race in races:
             races_list.append(race)
         return races_list
+
+    @classmethod
+    def find_by_series(cls, series):
+        races = Database.find(collection='races',
+                              query={'series': series})
+        races_list = []
+        for race in races:
+            races_list.append(race)
+        return races_list
