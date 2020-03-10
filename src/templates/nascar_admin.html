@@ -126,12 +126,12 @@ $('#loadQualify').hide();
 }); //end radio
 $(function() {
     $('#process_input').bind('click', function() {
-        $.getJSON("/background_process", {
-        "stuff": $("#stuff_inp").val(),
+        $.getJSON('/background_process', {
+        "stuff": $('#stuff_inp').val(),
         }, function(data) {
-        $("#result").text(data.result);
+        $('#result').text(data.result);
         });
-        return false;
+        //return false;
     });
 });
 }); //end ready
