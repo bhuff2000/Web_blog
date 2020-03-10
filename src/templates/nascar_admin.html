@@ -63,7 +63,7 @@
 
                 </select>
         <form>
-            <input type="text" size="5" name="stuff">
+            <input type="text" size="5" name="stuff" id="stuff_inp">
             <a href="#" id="process_input"><button class="btn btn=default">Submit</button></a>
         </form>
    <p id="result"></p>
@@ -126,8 +126,8 @@ $('#loadQualify').hide();
 }); //end radio
 $(function() {
     $('#process_input').bind('click', function() {
-        $.getJSON('/background_process', {
-        "stuff": $('input[name="stuff"]').val(),
+        $.getJSON("/background_process", {
+        "stuff": $("#stuff_inp").val(),
         }, function(data) {
         $("#result").text(data.result);
         });
