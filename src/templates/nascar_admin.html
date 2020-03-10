@@ -63,7 +63,7 @@
 
                 </select>
         <form>
-            <input type="text" size="5" name="proglang">
+            <input type="text" size="5" name="stuff">
             <a href="#" id="process_input"><button class="btn btn=default">Submit</button></a>
         </form>
    <p id="result"></p>
@@ -127,7 +127,7 @@ $('#loadQualify').hide();
 $(function() {
     $('a#process_input').bind('click', function() {
         $.getJSON('/background_process', {
-        proglang: $('input[name="proglang"]').val(),
+        "stuff": $('input[name="stuff"]').val(),
         }, function(data) {
         $("#result").text(data.result);
         });
