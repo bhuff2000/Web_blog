@@ -124,7 +124,7 @@ $(function() {
         $.getJSON('/background_process', {
         series_choice: $('#series_drop_down:selected').val(),
         }, function(data) {
-        $("#races_drop_down:selected").text(data.result);
+        $("#races_drop_down:selected").val(data.result);
         });
         return false;
     });
