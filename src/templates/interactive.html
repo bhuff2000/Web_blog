@@ -9,13 +9,13 @@
                 <input type="text" size="5" name="proglang">
                 <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
             </form>
-        <h3 id="result"></h3>
+        <p id="result"></p>
     </div>
 <script>
 $(document).ready(function() {
     $('a#process_input').bind('click', function() {
     $.getJSON('/background_process', {
-    'proglang' : $('input[name="proglang"]').val(),
+    "proglang" : $('input[name="proglang"]').val(),
     }, function(data) {
     $('#result').innerText(data.result);
     });
