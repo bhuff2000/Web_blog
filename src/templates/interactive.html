@@ -3,7 +3,7 @@
 <head>
     <script>
     $(document).ready(function() {
-    $('#process_input').bind('click', function() {
+    $('#text_input').change(function() {
     $.getJSON('/background_process', {
     'proglang' : $('input[name="proglang"]').val(),
     }, function(data) {
@@ -20,7 +20,7 @@
     <div class="container">
         <h3>Welcome!  Best programming language</h3>
             <form>
-                <input type="text" size="5" name="proglang">
+                <input type="text" size="5" name="proglang" id="text_input">
                 <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
             </form>
         <p id="result">here it is</p>
