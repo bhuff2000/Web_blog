@@ -7,7 +7,7 @@
     $.getJSON('/background_process', {
     'proglang' : $('input[name="proglang"]').val(),
     }, function(data) {
-    $('#result').text(data.result);
+    $('#result').text(data['result']);
     });
     return false
     });
