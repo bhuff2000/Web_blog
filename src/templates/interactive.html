@@ -4,12 +4,27 @@
     <script>
     $(document).ready(function() {
     $('#process_input').bind('click', function() {
-    $.getJSON('/background_process', {
-    'proglang' : $('input[name="proglang"]').val(),
-    }, function(data) {
-    $("#result").text(data.result);
-
+    $.ajax({
+    type: GET
+    url: "/background_process",
+    processData = true,
+    data: {},
+    dataType:"json",
+    success: function(json) {
+    alert("success");
+    },
+    error: function(x,y,z) {
+    console.log(x);
+    console.log(y);
+    console.log(z);
+    }
     });
+   // $.getJSON('/background_process', {
+   // 'proglang' : $('input[name="proglang"]').val(),
+   // }, function(data) {
+   // $("#result").text(data.result);
+
+    //});
     return false;
     });
     });
