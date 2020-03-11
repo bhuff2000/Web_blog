@@ -5,7 +5,7 @@
     $(document).ready(function() {
     $('#process_input').bind('click', function() {
     $.getJSON('/background_process', {
-    "proglang" : $('input[name="proglang"]').val(),
+    'proglang' : $('input[name="proglang"]').val(),
     }, function(data) {
     $('#result').text(data.result);
     });
