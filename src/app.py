@@ -116,9 +116,9 @@ def background_process():
     try:
         lang = request.args.get('proglang', 0, type=str)
         if lang.lower() == 'python':
-            return jsonify(result='you are correct')
+            return jsonify(result="you are correct")
         else:
-            return jsonify(result='try again')
+            return jsonify(result="try again")
     except Exception as e:
         return str(e)
 
