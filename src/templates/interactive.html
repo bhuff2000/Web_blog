@@ -4,7 +4,7 @@
     <script>
     $(document).ready(function() {
     $('#text_input').change(function() {
-    $.getJSON('/background_process', {
+    $.get('/background_process', {
     'proglang' : $('input[name="proglang"]').val(),
     }, function(data) {
     $("#result").text(data.result);
