@@ -7,7 +7,7 @@
     $.getJSON('/background_process', {
     'proglang' : $('input[name="proglang"]').val(),
     }, function(data) {
-    $('#result').value(data.result);
+    $('#result').text(data.result);
     });
     return false
     });
@@ -23,7 +23,7 @@
                 <input type="text" size="5" name="proglang" id="text_input">
                 <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
             </form>
-        <p id="result">here it is</p>
+        <p id="result"></p>
     </div>
 
 </body>
