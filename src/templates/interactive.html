@@ -6,8 +6,8 @@
     $('#text_input').change(function() {
     $.getJSON('/background_process', {
     'proglang' : $('input[name="proglang"]').val(),
-    }, function(data) {
-    $('#result').text(data.result)
+    }, function(result) {
+    $("#result").text(result)
     });
     return false
     });
