@@ -125,7 +125,7 @@ def background_process():
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return result3
+    return result
 
 
 
@@ -161,7 +161,10 @@ def nascar_load_template():
 
 @app.route('/interactive')
 def interactive():
-    return render_template('interactive.html')
+    race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
+    race_name=Sched_Event.find_one_race(race_id)
+    race_name = str(race_name)
+    return render_template('interactive.html', race_name=race_name)
 
 
 
