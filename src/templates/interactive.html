@@ -6,8 +6,8 @@
     $('#process_input').bind('click', function() {
     $.ajax({
     type: "GET",
-    url: '/backgroundProcess',
-    processData = true,
+    url: "/backgroundProcess",
+    processData = "true",
     data: {},
     dataType:"json",
     success: function(json) {
