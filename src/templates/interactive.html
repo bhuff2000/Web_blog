@@ -19,7 +19,7 @@
     type: "GET",
     url: "/backgroundProcess",
     processData: "true",
-    data: $('input[name="proglang"]').val(),
+    data: proglang: $('input[name="proglang"]').val(),
     dataType:"text",
     success: function(data) {
     $("#result").text(data.result);
