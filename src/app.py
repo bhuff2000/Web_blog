@@ -120,12 +120,13 @@ def background_process():
     #result1= Sched_Event.find_by_series(lang)
     result2= Sched_Event.find_one_race(lang)
     result3= str(result2)
+    to_ajax = json.dumps(result2)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return result3
+    return to_ajax
 
 
 
