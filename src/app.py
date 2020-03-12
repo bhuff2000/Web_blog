@@ -115,7 +115,7 @@ def nascar_admin_template():
 def background_process():
     try:
         lang = request.args.get('proglang', 0, type=str)
-        if lang.lower() == 'python':
+        if lang == 'python':
             return jsonify(result="you are correct")
         else:
             return jsonify(result="try again")
