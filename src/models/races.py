@@ -104,3 +104,10 @@ class Sched_Event(object):
         one_race = races_list[0]
         #race_name = {"race_name":one_race["race_name"]}
         return one_race
+
+
+    @classmethod
+    def find_one_race(cls,race_id):
+        one_race = Database.find(collection='races',
+                                 query={'race_id':race_id})
+        return one_race

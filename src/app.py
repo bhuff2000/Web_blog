@@ -115,15 +115,16 @@ def nascar_admin_template():
 def background_process():
     #try:
     lang = request.args.get('proglang', 0, type=str)
-
+    #race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
     result = str(lang)
-    result1= Sched_Event.find_by_series(result)
+    #result1= Sched_Event.find_by_series(lang)
+    result2= Sched_Event.find_one_race(lang)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return jsonify(result1)
+    return jsonify(result2)
 
 
 
