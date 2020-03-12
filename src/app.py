@@ -117,13 +117,13 @@ def background_process():
     lang = request.args.get('proglang', 0, type=str)
 
     result = str(lang)
-    #result= Sched_Event.find_by_series(lang1)
+    result1= Sched_Event.find_by_series(result)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return result
+    return jsonify(result)
 
 
 

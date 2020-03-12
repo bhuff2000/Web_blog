@@ -20,7 +20,7 @@
     url: "/backgroundProcess",
     processData: "true",
     data: {proglang: $('input[name="proglang"]').val()},
-    dataType:"text",
+    dataType:"json",
     success: function(data) {
     $("#result").text(data);
     },
