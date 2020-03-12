@@ -116,7 +116,8 @@ def background_process():
     #try:
         lang = request.args.get('proglang', 0, type=str)
         lang1 = "CUP"
-        result= Sched_Event.find_by_series(lang1)
+        result ="Daytona 500"
+        #result= Sched_Event.find_by_series(lang1)
         #if lang == 'python':
         #    return jsonify(result="you are correct")
         #else:
