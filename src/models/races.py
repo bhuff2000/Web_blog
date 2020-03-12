@@ -101,4 +101,5 @@ class Sched_Event(object):
         races_list = []
         for race in races:
             races_list.append(race)
-        return races_list
+        one_race = {"race_name":races_list[1]}
+        return one_race
