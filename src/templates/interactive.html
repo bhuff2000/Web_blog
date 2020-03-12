@@ -10,8 +10,8 @@
     processData: "true",
     data: "result",
     dataType:"json",
-    success: function(json) {
-    alert("success");
+    success: function(data) {
+    $("#result").text(data.result);
     },
     error: function(x,y,z) {
     console.log(x);
