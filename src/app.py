@@ -122,7 +122,7 @@ def background_process():
         #else:
         #    return jsonify(result="try again")
     #except Exception as e:
-        return jsonify(result)
+        return result
 
 
 
