@@ -114,16 +114,16 @@ def nascar_admin_template():
 @app.route('/backgroundProcess')
 def background_process():
     #try:
-        lang = request.args.get('proglang', 0, type=str)
+    lang = request.args.get('proglang', 0, type=str)
 
-        result = str(lang)
-        #result= Sched_Event.find_by_series(lang1)
-        #if lang == 'python':
-        #    return jsonify(result="you are correct")
-        #else:
-        #    return jsonify(result="try again")
+    result = str(lang)
+    #result= Sched_Event.find_by_series(lang1)
+    #if lang == 'python':
+    #    return jsonify(result="you are correct")
+    #else:
+    #    return jsonify(result="try again")
     #except Exception as e:
-        return result
+    return result
 
 
 
