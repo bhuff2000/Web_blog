@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<head>
-    <script>
+
+
+<body>
+
+    <div class="container">
+        <h3>Welcome!  Best programming language</h3>
+            <form>
+                <input type="text" size="5" name="proglang" id="text_input">
+                <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
+            </form>
+        <p id="result"></p>
+    </div>
+<script>
     $(document).ready(function() {
     $('#process_input').bind('click', function() {
     $.ajax({
@@ -28,19 +39,7 @@
     return false;
     });
     });
-    </script>
-</head>
-
-<body>
-
-    <div class="container">
-        <h3>Welcome!  Best programming language</h3>
-            <form>
-                <input type="text" size="5" name="proglang" id="text_input">
-                <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
-            </form>
-        <p id="result"></p>
-    </div>
+</script>
 
 </body>
 
