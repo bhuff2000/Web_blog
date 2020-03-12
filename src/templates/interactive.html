@@ -8,10 +8,10 @@
     type: "GET",
     url: "/backgroundProcess",
     processData: "true",
-    data: "result",
+
     dataType:"text",
     success: function(data) {
-    $("#result").text(data);
+    $("#result").text(result);
     },
     error: function(x,y,z) {
     console.log(x);
