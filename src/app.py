@@ -119,12 +119,13 @@ def background_process():
     result = str(lang)
     #result1= Sched_Event.find_by_series(lang)
     result2= Sched_Event.find_one_race(lang)
+    result3= str(result2)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return str(result2)
+    return result3
 
 
 
