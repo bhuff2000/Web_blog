@@ -6,7 +6,7 @@
     $('#process_input').bind('click', function() {
     $.ajax({
     type: GET
-    url: "/background_process",
+    url: "/backgroundProcess",
     processData = true,
     data: {},
     dataType:"json",
@@ -19,7 +19,7 @@
     console.log(z);
     }
     });
-   // $.getJSON('/background_process', {
+   // $.getJSON('/backgroundProcess', {
    // 'proglang' : $('input[name="proglang"]').val(),
    // }, function(data) {
    // $("#result").text(data.result);

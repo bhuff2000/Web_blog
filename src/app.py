@@ -111,7 +111,7 @@ def nascar_admin_template():
     return render_template('nascar_admin.html', races=races)
 
 
-@app.route('/background_process')
+@app.route('/backgroundProcess')
 def background_process():
     try:
         lang = request.args.get('proglang', 0, type=str)
