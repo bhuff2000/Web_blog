@@ -21,9 +21,9 @@
     url: "/backgroundProcess",
     processData: "true",
     data: {proglang: $('input[name="proglang"]').val()},
-    dataType:"json",
+    dataType:"text",
     success: function(data) {
-    $("#result").text(data.race_name);
+    $("#result").text(data);
     },
     error: function(x,y,z) {
     console.log(x);
