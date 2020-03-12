@@ -102,4 +102,4 @@ class Sched_Event(object):
         for race in races:
             races_list.append(race)
         one_race = {"race_name":"Daytona 500"}
-        return races_list
+        return one_race
