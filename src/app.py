@@ -126,7 +126,7 @@ def background_process():
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return to_ajax
+    return result2
 
 
 
@@ -166,7 +166,7 @@ def interactive():
     race_name=Sched_Event.find_one_race(race_id)
     #race_name1= {'race_name': "daytona500"}
     race_name1 = str(race_name)
-    return render_template('interactive.html', race_name=race_name1)
+    return render_template('interactive.html', race_name=race_name)
 
 
 
