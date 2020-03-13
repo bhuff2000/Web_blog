@@ -164,8 +164,9 @@ def nascar_load_template():
 def interactive():
     race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
     race_name=Sched_Event.find_one_race(race_id)
+    race_str = str(race_name)
     #race_name1= {'race_name': "daytona500"}
-    race_name1 = json.dumps(race_name)
+    race_name1 = json.dumps(race_str, seperator=":")
     return render_template('interactive.html', race_name=race_name1)
 
 
