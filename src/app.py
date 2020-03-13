@@ -126,7 +126,7 @@ def background_process():
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return to_ajax
+    return result3
 
 
 
@@ -167,7 +167,7 @@ def interactive():
     race_dict = dict(race_name)
     #race_name1= {'race_name': "daytona500"}
     race_name1 = json.dumps(race_dict)
-    return render_template('interactive.html', race_name=race_name1)
+    return render_template('interactive.html', race_name=race_dict)
 
 
 
