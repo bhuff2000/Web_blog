@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, make_response, jsonify
+from flask import Flask, render_template, request, session, make_response, jsonify, json
 
 from src.common.database import Database
 from src.common.utils import Utils
