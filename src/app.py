@@ -119,14 +119,14 @@ def background_process():
     result = str(lang)
     #result1= Sched_Event.find_by_series(lang)
     result2= Sched_Event.find_one_race(lang)
-    result3= dict(result2)
+    result3= str(result2)
     to_ajax = json.dumps(result3)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return result3
+    return jsonify(to_ajax)
 
 
 
@@ -167,7 +167,7 @@ def interactive():
     race_dict = str(race_name)
     #race_name1= {'race_name': "daytona500"}
     race_name1 = json.dumps(race_dict)
-    return render_template('interactive.html', race_name=race_dict)
+    return render_template('interactive.html', race_name=race_name1)
 
 
 
