@@ -117,18 +117,18 @@ def background_process():
     lang = request.args.get('proglang', 0, type=str)
     #race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
     result = str(lang)
-    result = result.replace("'", '"')
+    #result = result.replace("'", '"')
     #result1= Sched_Event.find_by_series(lang)
     result2= Sched_Event.find_one_race(lang)
     result3= str(result2)
-    result3 = result3.replace("'", '"')
+    #result3 = result3.replace("'", '"')
     to_ajax = json.dumps(result3)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return to_ajax
+    return jsonify(to_ajax)
 
 
 
@@ -167,6 +167,7 @@ def interactive():
     race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
     race_name=Sched_Event.find_one_race(race_id)
     race_dict = str(race_name)
+    race_dict = race_dict.replace("'", '"')
     #race_name1= {'race_name': "daytona500"}
     race_name1 = json.dumps(race_dict)
     return render_template('interactive.html', race_name=race_name1)
