@@ -111,4 +111,4 @@ class Sched_Event(object):
         one_race = Database.find_one(collection='races',
                                  query={'race_id': race_id})
 
-        return cls(**one_race)
+        return one_race
