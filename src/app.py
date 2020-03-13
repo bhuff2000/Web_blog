@@ -120,15 +120,15 @@ def background_process():
     #result = result.replace("'", '"')
     #result1= Sched_Event.find_by_series(lang)
     result2= Sched_Event.find_one_race(lang)
-    result3= str(result2)
+    #result3= str(result2)
     #result3 = result3.replace("'", '"')
-    to_ajax = json.dumps(result3)
+    #to_ajax = json.dumps(result3)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
     #else:
     #    return jsonify(result="try again")
     #except Exception as e:
-    return jsonify(result3)
+    return jsonify(result2)
 
 
 
