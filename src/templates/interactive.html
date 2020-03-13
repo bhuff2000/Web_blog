@@ -19,7 +19,7 @@
     $.ajax({
     type: "GET",
     url: "/backgroundProcess",
-    processData: "true",
+    processData: "false",
     data: {proglang: $('input[name="proglang"]').val()},
     dataType:"json",
     success: function(data) {
