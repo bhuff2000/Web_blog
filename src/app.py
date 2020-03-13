@@ -117,9 +117,11 @@ def background_process():
     lang = request.args.get('proglang', 0, type=str)
     #race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
     result = str(lang)
+    result = result.replace("'", '"')
     #result1= Sched_Event.find_by_series(lang)
     result2= Sched_Event.find_one_race(lang)
     result3= str(result2)
+    result3 = result3.replace("'", '"')
     to_ajax = json.dumps(result3)
     #if lang == 'python':
     #    return jsonify(result="you are correct")
