@@ -107,8 +107,8 @@ class Sched_Event(object):
 
 
     @classmethod
-    def find_one_race(cls,race_id):
+    def find_one_race(cls, race_id):
         one_race = Database.find_one(collection='races',
-                                 query={'race_id':race_id})
+                                 query={'race_id': race_id})
 
         return cls(**one_race)
