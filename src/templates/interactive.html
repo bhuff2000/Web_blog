@@ -19,11 +19,11 @@
     $.ajax({
     type: "GET",
     url: "/backgroundProcess",
-    processData: "false",
+    processData: "true",
     data: {proglang: $('input[name="proglang"]').val()},
     dataType:"json",
     success: function(data) {
-    $("#result").text(data.cur_dump.race_name);
+    $("#result").text(data["race_name"]);
     },
     error: function(x,y,z) {
     console.log(x);
