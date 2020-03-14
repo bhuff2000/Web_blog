@@ -29,8 +29,8 @@
     dataType:"json",
     success: function(data) {
     $select.find('option').remove();
-    $.each(data, function($(this)["race_name"], val) {
-      $('<option>').val($(this).race_name.text(val).appendTo($('#series_drop_down');
+    $.each(data, function($(this).racename, val) {
+      $('<option>').val($(this).race_name).text(val).appendTo($('#series_drop_down');
 
     //$("#series_drop_down").text(data[0]["race_name"]);
     //},
