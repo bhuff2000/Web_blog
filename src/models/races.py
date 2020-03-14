@@ -87,8 +87,8 @@ class Sched_Event(object):
 
     @classmethod
     def find_by_year(cls, year):
-        races = Database.find(collection='races',
-                              query={'year': int(year)})
+        races = Database.find(collection="races",
+                              query={"year": int(year)})
         races_list = []
         for race in races:
             races_list.append(race)
@@ -96,8 +96,8 @@ class Sched_Event(object):
 
     @classmethod
     def find_by_series(cls, series):
-        races = Database.find(collection='races',
-                              query={'series': series})
+        races = Database.find(collection="races",
+                              query={"series": series})
         races_list = []
         for race in races:
             races_list.append(race)
@@ -108,7 +108,7 @@ class Sched_Event(object):
 
     @classmethod
     def find_one_race(cls, race_id):
-        one_race = Database.find_one(collection='races',
-                                 query={'race_id': race_id})
+        one_race = Database.find_one(collection="races",
+                                 query={"race_id": race_id})
 
         return one_race

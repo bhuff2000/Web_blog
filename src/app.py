@@ -132,7 +132,7 @@ def background_process():
     #    return jsonify(result="try again")
     #except Exception as e:
     #return jsonify(result3)
-    return cur_load
+    return jsonify(cur_load)
 
 
 
