@@ -132,7 +132,7 @@ def background_process():
     #    return jsonify(result="try again")
     #except Exception as e:
     #return jsonify(result3)
-    return jsonify(cur_load)
+    return jsonify(cur_dump)
 
 
 
@@ -176,7 +176,7 @@ def interactive():
     #race_dict = race_dict.replace('\'', '\"')
     #race_name1= {'race_name': "daytona500"}
     #race_name1 = json.dumps(race_dict)
-    return render_template('interactive.html', race_name=rn_loads)
+    return render_template('interactive.html', race_name=rn_dump)
 
 
 
