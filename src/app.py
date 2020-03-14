@@ -114,27 +114,15 @@ def nascar_admin_template():
 
 @app.route('/backgroundProcess')
 def background_process():
-    #try:
-    lang = request.args.get('proglang', 0, type=str)
-    #race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
-    #result = str(lang)
-    #result = result.replace("'", '"')
-    #result1= Sched_Event.find_by_series(lang)
-    cursor = Sched_Event.find_one_race(lang)
-    cur_dump = dumps(cursor)
-    cur_load = loads(cur_dump)
-    #result3= str(result2)
-    #result3 = result3.replace("'", '"')
-    #to_ajax = json.dumps(result3)
-    #if lang == 'python':
-    #    return jsonify(result="you are correct")
-    #else:
-    #    return jsonify(result="try again")
-    #except Exception as e:
-    #return jsonify(result3)
-    return cur_dump
 
-
+    #lang = request.args.get('proglang', 0, type=str)    #code used for successful race_id
+    #cursor = Sched_Event.find_one_race(lang)            #code used for successful race_id
+    #cur_dump = dumps(cursor)                            #code used for successful race_id
+    #return cur_dump                                    #code used for successful race_id
+    series = request.args.get('proglang', 0, type=str)
+    cursor = Sched_Event.find_by_series(series)
+    ser_to_json = dumps(cursor)
+    return ser_to_json
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
@@ -168,16 +156,14 @@ def nascar_load_template():
 
 @app.route('/interactive', methods=['POST', 'GET'] )
 def interactive():
-    race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"
-    race_name=Sched_Event.find_one_race(race_id)
-    rn_dump = dumps(race_name)
-    rn_loads = loads(rn_dump)
-    #race_dict = str(race_name)
-    #race_dict = race_dict.replace('\'', '\"')
-    #race_name1= {'race_name': "daytona500"}
-    #race_name1 = json.dumps(race_dict)
-    return render_template('interactive.html', race_name=rn_dump)
-
+    #race_id = "91259bd6-010c-4e48-b69e-e22ea1cda9ec"   #code used for successful race_id
+    #race_name=Sched_Event.find_one_race(race_id)       #code used for successful race_id
+    #rn_dump = dumps(race_name)                         #code used for successful race_id
+    #return render_template('interactive.html', race_name=rn_dump)  #code used for cuccessful race_id
+    series = "CUP"
+    cursor = Sched_Event.find_by_series(series)
+    ser_list = dumps(cursor)
+    return render_template('interactive.html', ser_list=ser_list)
 
 
 if __name__ == '__main__':
