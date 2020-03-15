@@ -29,10 +29,11 @@
             dataType:"json",
             success: function(data) {
                 //$select.find('<option>').remove();
-                var list = $("series_drop_down");
+                var list = $('series_drop_down');
                 race = data[1]
-                $.each(race, function(key, val) {
-                    list.append(new Option(key.text, val.value));
+                $.each(data, function(key, val) {
+                    var $option = $("<option/>", {value: key, text: value});
+                    $list.append($option);
                     });  // end each
             }  //end success
             });  //end ajax
