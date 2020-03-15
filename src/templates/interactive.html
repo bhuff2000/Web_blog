@@ -18,11 +18,12 @@
         <h4>{{ ser_list[30]["race_name"] }}</h4>
         <p id="result"></p>
         <ul class="inner" id="inner">hello
-            <li id="first"></li>
+            <li id="first" active></li>
         </ul>
     </div>
 <script>
     $(document).ready(function() {
+
         $('#process_input').bind('click', function() {
             $.ajax({
             type: "GET",
@@ -34,7 +35,7 @@
                 var stuff = data[40].race_name
                 console.log(data);
                 console.log(stuff);
-                $("#first").text(stuff).active();
+                $("#first").text(stuff);
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
