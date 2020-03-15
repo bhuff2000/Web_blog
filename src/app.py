@@ -162,7 +162,8 @@ def interactive():
     #return render_template('interactive.html', race_name=rn_dump)  #code used for cuccessful race_id
     series = "CUP"
     cursor = Sched_Event.find_by_series(series)
-    ser_list = dumps(cursor)
+    ser_list1 = dumps(cursor)
+    ser_list = ser_list[1]
     return render_template('interactive.html', ser_list=ser_list)
 
 
