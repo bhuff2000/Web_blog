@@ -29,12 +29,11 @@
             dataType:"json",
             success: function(data) {
                 //$select.find('<option>').remove();
-                var list = $('series_drop_down');
-                race = data[1]
+                var race_data = '';
                 $.each(data, function(key, val) {
-                    var $option = $("<option/>", {value: key, text: value});
-                    $list.append($option);
-                    });  // end each
+                    race_data += '<option>'+val.race_name+</option>;
+                });  // end each
+                $('#series_drop_down").append(race_data);
             }  //end success
             });  //end ajax
         });  // end process input
