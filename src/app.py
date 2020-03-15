@@ -121,7 +121,7 @@ def background_process():
     #return cur_dump                                    #code used for successful race_id
     series = request.args.get('proglang', 0, type=str)
     cursor = Sched_Event.find_by_series(series)
-    ser_to_json = dumps(cursor)
+    ser_to_json = loads(dumps(cursor))
     return ser_to_json
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
