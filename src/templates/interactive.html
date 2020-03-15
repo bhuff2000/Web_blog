@@ -20,18 +20,23 @@
     </div>
 <script>
     $(document).ready(function() {
-    $('#process_input').bind('click', function() {
-    $.ajax({
-    type: "GET",
-    url: "/backgroundProcess",
-    processData: "true",
-    data: {proglang: $('input[name="proglang"]').val()},
-    dataType:"json",
-    success: function(data) {
-    $select.find('option').remove();
-    $.each(data, function($this, val) {
-      $('<option>').val($this).text(val).appendTo($('#series_drop_down'));
-    });
+        $('#process_input').bind('click', function() {
+            $.ajax({
+            type: "GET",
+            url: "/backgroundProcess",
+            processData: "true",
+            data: {proglang: $('input[name="proglang"]').val()},
+            dataType:"json",
+            success: function(data) {
+                $select.find('option').remove();
+                $.each(data, function($this, val) {
+                    $('<option>').val($this).text(val).appendTo($('#series_drop_down'));
+                    });  // end each
+            };  //end success
+            });  //end ajax
+        });  // end process input
+    });  //end ready
+
     //$("#series_drop_down").text(data[0]["race_name"]);
     //},
     //error: function(x,y,z) {
@@ -47,8 +52,8 @@
 
     //});
     //return false;
-    });  // end process_input
-    });  //end ready
+    //});  // end process_input
+    //});  //end ready
 </script>
 
 </body>
