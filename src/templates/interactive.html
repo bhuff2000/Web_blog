@@ -31,7 +31,7 @@
     $select.find('option').remove();
     $.each(data, function($this, val) {
       $('<option>').val($this).text(val).appendTo($('#series_drop_down'));
-
+    }
     //$("#series_drop_down").text(data[0]["race_name"]);
     //},
     //error: function(x,y,z) {
@@ -39,16 +39,16 @@
     //console.log(y);
     //console.log(z);
     //}
-    });
+
    // $.getJSON('/backgroundProcess', {
    // 'proglang' : $('input[name="proglang"]').val(),
    // }, function(data) {
    // $("#result").text(data.result);
 
     //});
-    return false;
-    }
-    });
+    //return false;
+    });  // end process_input
+    });  //end ready
 </script>
 
 </body>
