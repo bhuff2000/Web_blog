@@ -29,11 +29,8 @@
             dataType:"json",
             success: function(data) {
                 //$select.find('<option>').remove();
-                var race_data = '';
-                var one_race = data[0];
-                var race_name = one_race["race_name"]
-                $.each(race_name, function(key, value) {
-                    race_data += '<option>'+value+'</option>';
+                $.each(JSON.parse(data), function(key, value) {
+                    race_data += '<option>'+value.race_name+'</option>';
                 });  // end each
                 $('#series_drop_down').append(race_data);
             }  //end success
