@@ -28,9 +28,9 @@
             data: {proglang: $('input[name="proglang"]').val()},
             dataType:"json",
             success: function(data) {
-                //$select.find('option').remove();
-                $.each(data, function($this, val) {
-                    $('<option>').val($this).text(val).appendTo($('#series_drop_down'));
+                //$select.find('<option>').remove();
+                $.each(data, function(key, val) {
+                    $('<option>').val(key).text(val).appendTo($('#series_drop_down'));
                     });  // end each
             }  //end success
             });  //end ajax
