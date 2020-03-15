@@ -12,7 +12,7 @@
             </form>
             <form>
                 <select class="custom-select" id="series_drop_down" name="series_drop_down">
-                <option>Choose Series</option>
+                <option id="test_option">Choose Series</option>
                 </select>
             </form>
         <p>{{ ser_list[30]["race_name"] }}</p>
@@ -36,7 +36,7 @@
                 var stuff = data[40].race_name
                 console.log(data);
                 console.log(stuff);
-                $("#first").text(stuff).show();
+                $("#test_option").text(stuff);
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
