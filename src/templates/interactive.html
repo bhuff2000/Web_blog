@@ -30,8 +30,8 @@
             success: function(data) {
                 //$select.find('<option>').remove();
                 var race_data = '';
-                $.each(data, function(key, val) {
-                    race_data += '<option>'+val.race_name+'</option>';
+                $.each(data, function(key, value) {
+                    race_data += '<option>'+value["race_name"]+'</option>';
                 });  // end each
                 $('#series_drop_down').append(race_data);
             }  //end success
