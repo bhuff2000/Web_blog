@@ -163,7 +163,7 @@ def interactive():
     series = "CUP"
     cursor = Sched_Event.find_by_series(series)
     ser_list1 = dumps(cursor)
-    ser_list = type(ser_list1)
+    ser_list = loads(ser_list1)
     return render_template('interactive.html', ser_list=ser_list)
 
 
