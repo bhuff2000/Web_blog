@@ -30,7 +30,7 @@
             success: function(data) {
                 //$select.find('<option>').remove();
                 var race_data = '';
-                one_race = data[0]
+                var one_race = data[0];
                 race_name = one_race["race_name"]
                 $.each(race_name, function(key, value) {
                     race_data += '<option>'+value+'</option>';
