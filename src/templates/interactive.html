@@ -17,7 +17,7 @@
             </form>
         <h4>{{ ser_list[15]["race_name"] }}</h4>
         <p id="result"></p>
-        <div class="inner">hello</div>
+        <div class="inner" id="inner">hello</div>
     </div>
 <script>
     $(document).ready(function() {
@@ -29,10 +29,10 @@
             data: {proglang: $('input[name="proglang"]').val()},
             dataType:"json",
             success: function(data) {
-                //var stuff = data
+                var stuff = data[40].race_name
                 console.log(data);
                 console.log(data[40].race_name);
-                $(".inner").append("<p>test</p>").show();
+                $("#inner").text(stuff);
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
