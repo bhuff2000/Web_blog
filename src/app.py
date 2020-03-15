@@ -123,7 +123,7 @@ def background_process():
     cursor = Sched_Event.find_by_series(series)
     ser_to_json = loads(dumps(cursor))
     ser_to_json1 = ser_to_json[10]
-    return ser_to_json1
+    return ser_to_json
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
