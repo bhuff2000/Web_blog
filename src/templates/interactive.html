@@ -29,7 +29,8 @@
             data: {proglang: $('input[name="proglang"]').val()},
             dataType:"json",
             success: function(data) {
-                $(".inner").append("<p>test</>");
+                var stuff = data[1]
+                $(".inner").append("<p>stuff</>");
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
