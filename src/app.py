@@ -164,7 +164,7 @@ def interactive():
     cursor = Sched_Event.find_by_series(series)
     ser_list1 = dumps(cursor)
     ser_list = loads(ser_list1)
-    ser_list3 = ser_list[0]
+    ser_list3 = ser_list[0]["race_name"]
     return render_template('interactive.html', ser_list=ser_list3)
 
 
