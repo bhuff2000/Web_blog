@@ -30,7 +30,8 @@
             success: function(data) {
                 //$select.find('<option>').remove();
                 var list = $("series_drop_down");
-                $.each(data, function(key, val) {
+                race = data[1]
+                $.each(race, function(key, val) {
                     list.append(new Option(key.text, val.value));
                     });  // end each
             }  //end success
