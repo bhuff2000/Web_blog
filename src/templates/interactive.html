@@ -17,7 +17,9 @@
             </form>
         <h4>{{ ser_list[15]["race_name"] }}</h4>
         <p id="result"></p>
-        <div class="inner" id="inner">hello</div>
+        <ul class="inner" id="inner">hello
+            <li id="first"></li>
+        </ul>
     </div>
 <script>
     $(document).ready(function() {
@@ -32,7 +34,7 @@
                 var stuff = data[40].race_name
                 console.log(data);
                 console.log(stuff);
-                $("#inner").innerHTML = stuff;
+                $("#first").text(stuff);
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
