@@ -122,7 +122,7 @@ def background_process():
     series = request.args.get('proglang', 0, type=str)
     cursor = Sched_Event.find_by_series(series)
     ser_to_json = loads(dumps(cursor))
-    ser_to_json1 = ser_to_json[10]["race_name"]
+    ser_to_json1 = ser_to_json[10]
     return ser_to_json1
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
