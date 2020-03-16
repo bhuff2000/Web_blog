@@ -35,6 +35,7 @@
             data: {proglang: $('input[name="proglang"]').val()},
             dataType:"json",
             success: function(data) {
+                $select.find('<option>').remove();
                 var stuff = data[40].race_name;
                 console.log(data);
                 console.log(stuff);
