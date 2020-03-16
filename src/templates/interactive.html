@@ -36,13 +36,13 @@
             data: {proglang: $('input[name="proglang"]').val()},
             dataType:"json",
             success: function(data) {
-                var stuff = data[40].race_name;
+                //var stuff = data[40].race_name;
                 console.log(data);
                 console.log(stuff);
                 //$("#series_drop_down").append('<option>' + stuff + '</option>');
                 race_data = '';
                 $.each(data, function() {
-                    race_data += '<option>'+ $(this).attr('race_name') +'</option>';
+                    race_data += '<option>'+ $(this).attr('race_name') + '@' + $(this).attr('track' +'</option>';
                 });  // end each
                 $('#series_drop_down').append(race_data);
             }  //end success
