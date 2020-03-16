@@ -37,7 +37,7 @@
             type: "GET",
             url: "/backgroundProcess",
             processData: "false",
-            data: {proglang: $('select[name="series_drop_down"]').val()},
+            data: {proglang: $('input[name="series_drop_down"]').val()},
             dataType:"json",
             success: function(data) {
                 //var stuff = data[40].race_name;

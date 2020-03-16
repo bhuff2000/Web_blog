@@ -122,12 +122,12 @@ $(document).ready(function() {
             type: "GET",
             url: "/ajax_get_races",
             processData: "false",
-            data: {series: $('select[name="series_drop_down"]').val()},
+            data: {series: $('input[name="series_drop_down"]').val()},
             dataType:"json",
             success: function(data) {
                 console.log(data);
                 race_data = '';
-                $.each(data, function() {
+                $.each(data, function() {     n
                     race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
                 $('#race_drop_down').append(race_data);
