@@ -31,12 +31,12 @@
 
 <script>
     $(document).ready(function() {
-        $('#process_input').change(function() {
+        $('#process_input_s').change(function() {
             $('#race_drop_down option').remove();
             $.ajax({
             type: "GET",
             url: "/backgroundProcess",
-            processData: "false",
+            processData: "true",
             data: {proglang: $('input[name="series_drop_down"]').val()},
             dataType:"json",
             success: function(data) {

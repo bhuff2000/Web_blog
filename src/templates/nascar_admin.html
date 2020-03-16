@@ -127,7 +127,7 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 race_data = '';
-                $.each(data, function() {     n
+                $.each(data, function() {
                     race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
                 $('#race_drop_down').append(race_data);
