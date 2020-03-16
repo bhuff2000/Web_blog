@@ -32,7 +32,7 @@
 <script>
     $(document).ready(function() {
         $('#process_input').change(function() {
-            //$('#race_drop_down option').remove();
+            $('#race_drop_down option').remove();
             $.ajax({
             type: "GET",
             url: "/backgroundProcess",
