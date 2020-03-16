@@ -42,7 +42,7 @@
                 //$("#series_drop_down").append('<option>' + stuff + '</option>');
                 race_data = '';
                 $.each(data, function() {
-                    race_data += '<option>'+$(this)["race_name"]+'</option>';
+                    race_data += '<option>'+data.$(this).race_name+'</option>';
                 });  // end each
                 $('#series_drop_down').append(race_data);
             }  //end success
