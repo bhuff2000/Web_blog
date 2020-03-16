@@ -24,7 +24,6 @@
 
 <script>
     $(document).ready(function() {
-
         $('#process_input').bind('click', function() {
             $.ajax({
             type: "GET",
@@ -36,7 +35,7 @@
                 var stuff = data[40].race_name
                 console.log(data);
                 console.log(stuff);
-                $("#test_option").text(stuff);
+                $("#test_option").value(stuff);
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
