@@ -28,6 +28,7 @@
 <script>
     $(document).ready(function() {
         $('#process_input1').bind('click', function() {
+            $('#series_drop_down option').find().remove();
             $.ajax({
             type: "GET",
             url: "/backgroundProcess",
@@ -35,7 +36,6 @@
             data: {proglang: $('input[name="proglang"]').val()},
             dataType:"json",
             success: function(data) {
-                $('#series_drop_down option').find().remove();
                 var stuff = data[40].race_name;
                 console.log(data);
                 console.log(stuff);
