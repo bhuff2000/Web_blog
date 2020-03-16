@@ -10,13 +10,14 @@
                 <input type="text" size="15" name="proglang" id="text_input" value="CUP">
                 <a href="#" id="process_input"><button class="btn btn-default">Submit</button></a>
             </form>
-            <form>
-                <select class="custom-select" id="series_drop_down" name="series_drop_down">
-                    <option id="test_option"></option>
-                    <option id="test_option1"></option>
-                    <option id="test_option2"></option>
-                </select>
-            </form>
+            <div class="input-group mb-3">
+                <a href="#" id="process_input1"><select class="custom-select" id="series_drop_down" name="series_drop_down">
+                    <option>Choose Series</option>
+                    <option selected value="CUP">CUP</option>
+                    <option value="XFINITY">XFINITY</option>
+                    <option value="TRUCK">TRUCK</option>
+                </select></a>
+            </div>
         <p>{{ ser_list[30]["race_name"] }}</p>
         <p id="result"></p>
    </div>
@@ -26,7 +27,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#process_input').bind('click', function() {
+        $('#process_input1').bind('click', function() {
             $.ajax({
             type: "GET",
             url: "/backgroundProcess",
@@ -37,7 +38,7 @@
                 var stuff = data[40].race_name;
                 console.log(data);
                 console.log(stuff);
-                $("#test_option").text(stuff);
+                $("#series_drop_down").append(stuff);
                 //race_data = '';
                 //$select.find('<option>').remove();
                 //$.each(data, function(key, value) {
