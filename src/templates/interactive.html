@@ -39,13 +39,12 @@
                 var stuff = data[40].race_name;
                 console.log(data);
                 console.log(stuff);
-                $("#series_drop_down").append('<option>' + stuff + '</option>');
+                //$("#series_drop_down").append('<option>' + stuff + '</option>');
                 //race_data = '';
-                //$select.find('<option>').remove();
-                //$.each(data, function(key, value) {
-                //    race_data += '<option>'+value.race_name+'</option>';
-                //});  // end each
-                //$('#series_drop_down').append(race_data);
+                $.each(data, function() {
+                    race_data += '<option>'+$this.race_name+'</option>';
+                });  // end each
+                $('#series_drop_down').append(race_data);
             }  //end success
             });  //end ajax
         });  // end process input
