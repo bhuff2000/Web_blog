@@ -48,23 +48,20 @@
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="input-group mb-3">
-                <a href="#" id="process_input1"><select class="custom-select" id="series_drop_down" name="series_drop_down">
-                    <option>Choose Series</option>
-                    <option selected value="CUP">CUP</option>
+                <a href="#" id="process_input"><select class="custom-select" id="series_drop_down" name="series_drop_down">
+                    <option selected>Choose Series</option>
+                    <option value="CUP">CUP</option>
                     <option value="XFINITY">XFINITY</option>
                     <option value="TRUCK">TRUCK</option>
                 </select></a>
             </div>
             <div class="input-group mb-3">
-                <select class="custom-select" id="races_drop_down">
-                    <option >Choose Race</option>
+                <a href="#" id="process_input_r"><select class="custom-select" id="race_drop_down" name="race_drop_down">
 
-                    <option selected value="na"></option>
-
-                </select>
+                </select></a>
         <form>
             <input type="text" size="5" name="stuff" id="stuff_inp">
-            <a href="#" id="process_input"><button class="btn btn=default">Submit</button></a>
+            <a href="#" id="process_input1"><button class="btn btn=default">Submit</button></a>
         </form>
    <p id="result"></p>
             </div>
@@ -99,42 +96,59 @@
 </div>
 <script>
 $(document).ready(function() {
-$('#result').text('this stuff')
-$('#loadRaces').hide();
-$('#loadEntrants').hide();
-$('#loadQualify').hide();
+    $('#result').text('this stuff');
+    $('#loadRaces').hide();
+    $('#loadEntrants').hide();
+    $('#loadQualify').hide();
     $(':radio').click(function() {
-    var checkedValue = $('input[name="exampleRadios"]:checked').val()
-    if (checkedValue == "Races") {
-    $('#loadRaces').show();
-    $('#loadEntrants').hide();
-    $('#loadQualify').hide();
-    } else if (checkedValue == "Entrants") {
-    $('#loadRaces').hide();
-    $('#loadEntrants').show();
-    $('#loadQualify').hide();
-    $('#entrant_file').hide();
-    $('#entrant_type').hide();
-    } else if (checkedValue == "Qualify") {
-    $('#loadRaces').hide();
-    $('#loadEntrants').hide();
-    $('#loadQualify').show();
-    $('#qual_file').hide();
-    $('#qual_type').hide();
-    } else {
-    alert ("Nothing was chosen which shouldnt happen")
-    }
-}); //end radio
-$(function() {
-    $('#process_input').bind('click', function() {
-        $.getJSON('/background_process', {
-        "stuff": $('#stuff_inp').val(),
-        }, function(data) {
-        $('#result').text(data.result);
-        });
-        //return false;
-    });
-});
+        var checkedValue = $('input[name="exampleRadios"]:checked').val()
+        if (checkedValue == "Races") {
+            $('#loadRaces').show();
+            $('#loadEntrants').hide();
+            $('#loadQualify').hide();
+        } else if (checkedValue == "Entrants") {
+            $('#loadRaces').hide();
+            $('#loadEntrants').show();
+            $('#loadQualify').hide();
+            $('#entrant_file').hide();
+            $('#entrant_type').hide();
+         } else if (checkedValue == "Qualify") {
+            $('#loadRaces').hide();
+            $('#loadEntrants').hide();
+            $('#loadQualify').show();
+            $('#qual_file').hide();
+            $('#qual_type').hide();
+         } else {
+             alert ("Nothing was chosen which shouldnt happen")
+         }
+    }); //end radio
+    $('#process_input').change(function() {
+        $('#race_drop_down option').remove();
+        $.ajax({
+            type: "GET",
+            url: "/ajax_get_races",
+            processData: "false",
+            data: {series: $('select[name="series_drop_down"]').val()},
+            dataType:"json",
+            success: function(data) {
+                console.log(data);
+                race_data = '';
+                $.each(data, function() {
+                    race_data += '<option>'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
+                });  // end each
+                $('#race_drop_down').append(race_data);
+            }  //end success
+        });  //end ajax
+    });  // end process input
+    //$('#process_input').bind('click', function() {
+    //    $.getJSON('/background_process', {
+    //    "stuff": $('#stuff_inp').val(),
+    //    }, function(data) {
+    //    $('#result').text(data.result);
+    //    });
+    //    //return false;
+    //});
+    //});
 }); //end ready
 </script>
 {% endblock %}

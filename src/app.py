@@ -125,6 +125,14 @@ def background_process():
     ser_to_json1 = ser_to_json[10]
     return ser_to_json
 
+
+@app.route('/ajax_get_races')
+def ajax_get_races():
+    series = request.args.get('series', 0, type=str)
+    cursor = Sched_Event.find_by_series(series)
+    ser_to_json = dumps(cursor)
+    return ser_to_json
+
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
     type1 = request.form['type']
