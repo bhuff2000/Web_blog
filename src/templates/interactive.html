@@ -18,6 +18,7 @@
 
                 <div class="input-group mb-3">
                     <a href="#" id="process_input1"><select class="custom-select" id="race_drop_down" name="race_drop_down">
+
                     </select></a>
                 </div>
             </form>
@@ -31,7 +32,7 @@
 <script>
     $(document).ready(function() {
         $('#process_input').change(function() {
-            $('#race_drop_down option').remove();
+            //$('#race_drop_down option').remove();
             $.ajax({
             type: "GET",
             url: "/backgroundProcess",
