@@ -28,7 +28,7 @@
 <script>
     $(document).ready(function() {
         $('#process_input1').bind('click', function() {
-            $('#series_drop_down option').find().remove();
+            $('#series_drop_down option').remove();
             $.ajax({
             type: "GET",
             url: "/backgroundProcess",
