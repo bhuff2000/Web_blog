@@ -81,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/src/templates/interactive.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
-              <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+              <caret line="40" column="77" selection-start-line="40" selection-start-column="77" selection-end-line="40" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -648,7 +648,7 @@
     <entry file="file://$PROJECT_DIR$/src/templates/interactive.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="40" column="46" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+          <caret line="40" column="77" selection-start-line="40" selection-start-column="77" selection-end-line="40" selection-end-column="77" />
         </state>
       </provider>
     </entry>
