@@ -7,31 +7,64 @@ from src.common.database import Database
 __author__ = 'behou'
 
 class Entrants(object):
-    def __init__(self, series, year, event_id, event_name, event_date, track, race_name, race_id, race_status, race_start):
-        self.series = series
-        self.year = year
-        self.event_id = event_id
-        self.event_name = event_name
-        self.event_date = event_date
-        self.track = track
+    def __init__(self, race_id, race_name, car_num, crew_chief, mfg, owner_id, team_id, drv_first, drv_last, drv_full, drv_id):
         self.race_name = race_name
         self.race_id = race_id
-        self.race_status = race_status
-        self.race_start = race_start
+        self.car_num = car_num
+        self.crew_chief = crew_chief
+        self.mfg = mfg
+        self.owner_id = owner_id
+        self.team_id = team_id
+        self.drv_first = drv_first
+        self.drv_last = drv_last
+        self.drv_full = drv_full
+        self.drv_id = drv_id
 
     def json(self):
         return {
-            'series': self.series,
-            'year': self.year,
-            'event_id': self.event_id,
-            'event_name': self.event_name,
-            'event_date': self.event_date,
-            'track': self.track,
-            'race_name': self.race_name,
             'race_id': self.race_id,
-            'race_status': self.race_status,
-            'race_start': self.race_start
+            'race_name': self.race_name,
+            'car_num': self.car_num,
+            'crew_chief': self.crew_chief,
+            'mfg': self.mfg,
+            'owner_id': self.owner_id,
+            'team_id': self.team_id,
+            'drv_first': self.drv_first,
+            'drv_last': self.drv_last,
+            'drv_full': self.drv_full,
+            'drv_id': self.drv_id
          }
 
     def save_to_mongo(self):
         Database.insert("entrants", self.json())
+
+    @classmethod
+    def extract_sportradar_data(cls, data):
+        sr_data = []
+        json_file = data
+        json_file2 = json_file['entry_list']
+        race_id = json_file['id']
+        race_name = json_file['name']
+        #year = json_file['season']['year']
+        for entrant in json_file2:
+            car_num = entrant['car']['number']
+            crew_chief = entrant['car']['crew_chief']
+            mfg = entrant['manufacturer']['name']
+            owner_id = entrant['owner']['id']
+            team_id = entrant['team']['id']
+            drv_first = entrant['driver']['first_name']
+            drv_last = entrant['driver']['last_name']
+            drv_full = entrant['driver']['full_name']
+            drv_id = entrant['driver']['id']
+            driver = Entrants(race_id, car_num, crew_chief, mfg, owner_id, team_id, drv_first, drv_last,
+                                      drv_full, drv_id)
+            sr_data.append(driver)
+        return sr_data
+
+    @classmethod
+    def find_by_race_id(cls, race_id):
+        data = Database.find_one("races", {"race_id": race_id})
+        if data is None:
+            return True
+        else:
+            return False

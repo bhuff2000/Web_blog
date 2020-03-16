@@ -41,7 +41,7 @@
         </div>
         <button type="submit" class="btn btn-success" >Load Data</button>
     </form>
-    <form id="loadEntrants" action="/nascar/load" method="post">
+    <form id="loadEntrants" action="/nascar/load/entrants" method="post">
         <div class="form-row">
             <div class="form-group col-md-6" id="entrant_type">
                 <label for="description">Type Parameter</label>
@@ -50,9 +50,9 @@
             <div class="input-group mb-3">
                 <a href="#" id="process_input"><select class="custom-select" id="series_drop_down" name="series_drop_down">
                     <option selected>Choose Series</option>
-                    <option value="CUP">CUP</option>
-                    <option value="XFINITY">XFINITY</option>
-                    <option value="TRUCK">TRUCK</option>
+                    <option value="sc">CUP</option>
+                    <option value="xf">XFINITY</option>
+                    <option value="go">TRUCK</option>
                 </select></a>
             </div>
             <div class="input-group mb-3">
@@ -128,7 +128,7 @@ $(document).ready(function() {
                 console.log(data);
                 race_data = '';
                 $.each(data, function() {
-                    race_data += '<option name=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
+                    race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
                 $('#race_drop_down').append(race_data);
             }  //end success

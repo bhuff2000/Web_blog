@@ -133,13 +133,40 @@ def ajax_get_races():
     ser_to_json = dumps(cursor)
     return ser_to_json
 
+
+@app.route('/nascar/load/entrants', methods=['POST', 'GET'])
+def nascar_load_entrants():
+    type1 = 'races'
+    race_id = request.form.get['race_drop_down']
+    series = request.form.get['series_drop_down']
+    file = 'entry_list.json'
+    data = Utils.get_from_sportradar(series, type1, race_id, file)
+    entrant_list = Sched_Event.extract_sportradar_data(data)
+    load_list = []
+    ignore_list = []
+    for entrant in entrant_list:
+        test = entrant.get_race_id()
+        test1 = Sched_Event.find_by_race_id(test)
+        if test1 is True:
+            entrant.save_to_mongo()
+            load_list.append(entrant)
+        else:
+            ignore_list.append(entrant)
+
+    races = Database.find(collection="entrants", query={"race_id": race_id})
+    text = "load successful"
+    return render_template('entrants_list.html', text=text, entrants=load_list, ignore_list=ignore_list)
+
+
+#  return render_template('races_list.html', data=data)
+
 @app.route('/nascar/load', methods=['POST', 'GET'])
 def nascar_load_template():
     type1 = request.form['type']
     year = request.form['year']
     series = request.form['series']
     file = request.form['file']
-    data = Utils.get_from_sportradar(type1, year, series, file)
+    data = Utils.get_from_sportradar(series, year, type1, file)
     race_list = Sched_Event.extract_sportradar_data(data)
     #load_list = Sched_Event.define_load_list(race_list)
     #if len(load_list) == 0:

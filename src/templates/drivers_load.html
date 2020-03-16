@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Drivers Loaded for {{ entrant['race_name'] }} </h2>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Driver</th>
+                <th scope="col">Car Number</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Crew Chief</th>
+                <th scope="col">Team</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entrant in entrants %}
+            <tr>
+                <td>{{ entrant['drv_full'] }}</td>
+                <td>{{ entrant['car_num'] }}</td>
+                <td>{{ entrant['mfg'] }}</td>
+                <td>{{ entrant['crew_chief'] }}</td>
+                <td>{{ race['team_id'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    <h2>Drivers Ignored for {{ entrant['race_name'] }}(already loaded)</h2>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Driver</th>
+                <th scope="col">Car Number</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Crew Chief</th>
+                <th scope="col">Team</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entrant in ignore_list %}
+            <tr>
+                <td>{{ entrant['drv_full'] }}</td>
+                <td>{{ entrant['car_num'] }}</td>
+                <td>{{ entrant['mfg'] }}</td>
+                <td>{{ entrant['crew_chief'] }}</td>
+                <td>{{ race['team_id'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endblock %}

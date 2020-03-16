@@ -21,7 +21,7 @@ class Utils:
         return pbkdf2_sha512.verify(password, hashed_password)
 
     @staticmethod
-    def get_from_sportradar(type1, year, series, file):
+    def get_from_sportradar(series, year, type1, file):
         key = os.environ.get("SPORTRADAR_KEY")
         conn = http.client.HTTPSConnection("api.sportradar.us")
         url = '/nascar-ot3/' + series + '/' + year + '/' + type1 + '/' + file + '?api_key=' + key
