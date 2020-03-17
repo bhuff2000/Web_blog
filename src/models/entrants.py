@@ -7,7 +7,8 @@ from src.common.database import Database
 __author__ = 'behou'
 
 class Entrants(object):
-    def __init__(self, race_id, race_name, car_num, crew_chief, mfg, owner_id, team_id, drv_first, drv_last, drv_full, drv_id):
+    def __init__(self, race_id, race_name, car_num, crew_chief, mfg, owner_id, team_id, drv_first,
+                 drv_last, drv_full, drv_id):
         self.race_name = race_name
         self.race_id = race_id
         self.car_num = car_num
@@ -62,7 +63,7 @@ class Entrants(object):
             drv_last = entrant['driver']['last_name']
             drv_full = entrant['driver']['full_name']
             drv_id = entrant['driver']['id']
-            driver = Entrants(race_id, car_num, crew_chief, mfg, owner_id, team_id, drv_first, drv_last,
+            driver = Entrants(race_id, race_name, car_num, crew_chief, mfg, owner_id, team_id, drv_first, drv_last,
                                       drv_full, drv_id)
             sr_data.append(driver)
         return sr_data
