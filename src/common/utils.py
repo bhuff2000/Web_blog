@@ -29,6 +29,6 @@ class Utils:
         res = conn.getresponse()
         data = res.read()
         json_file = json.loads(data)
-   #     return json_file
-        return url
+        return json_file
+     #   return url
 
