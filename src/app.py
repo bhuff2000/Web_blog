@@ -214,6 +214,11 @@ def interactive():
     return render_template('interactive.html', ser_list=ser_list1)
 
 
+@app.route('/test', methods=['POST', 'GET'])
+def test():
+    test = "this working?"
+    return render_template('test.html', test=test)
+
 if __name__ == '__main__':
    app.run(debug=app.config['DEBUG'], port=4990)
 
