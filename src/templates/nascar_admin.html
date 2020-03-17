@@ -48,7 +48,7 @@
                 <input type="text" id="typeEntrantOther" class="form-control" name="type" value="races" readonly>
             </div>
             <div class="input-group mb-3">
-                <a href="#" id="process_input"><select class="custom-select" id="series_drop_down" name="series_drop_down">
+                <a href="#" id="process_input_se"><select class="custom-select" id="series_drop_down_se" name="series_drop_down_se">
                     <option selected>Choose Series</option>
                     <option value="sc">CUP</option>
                     <option value="xf">XFINITY</option>
@@ -56,7 +56,7 @@
                 </select></a>
             </div>
             <div class="input-group mb-3">
-                <a href="#" id="process_input_r"><select class="custom-select" id="race_drop_down" name="race_drop_down">
+                <a href="#" id="process_input_ser"><select class="custom-select" id="race_drop_down_re" name="race_drop_down_re">
                 </select></a>
 
             </div>
@@ -116,13 +116,13 @@ $(document).ready(function() {
              alert ("Nothing was chosen which shouldnt happen")
          }
     }); //end radio
-    $('#process_input').change(function() {
-        $('#race_drop_down option').remove();
+    $('#process_input_se').change(function() {
+        $('#race_drop_down_re option').remove();
         $.ajax({
             type: "GET",
             url: "/ajax_get_races",
-            processData: "false",
-            data: {series: $('select[name="series_drop_down"]').val()},
+            processData: "true",
+            data: {series: $('select[name="series_drop_down_se"]').val()},
             dataType:"json",
             success: function(data) {
                 console.log(data);
@@ -130,7 +130,7 @@ $(document).ready(function() {
                 $.each(data, function() {
                     race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
-                $('#race_drop_down').append(race_data);
+                $('#race_drop_down_re').append(race_data);
             }  //end success
         });  //end ajax
     });  // end process input
