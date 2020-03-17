@@ -130,13 +130,14 @@ def background_process():
 def ajax_get_races():
     series = request.args.get('series', 0, type=str)
     if series == "sc":
-        series = "CUP"
+        series1 = "CUP"
     elif series == "xf":
-        series = "XFINITY"
+        series1 = "XFINITY"
     elif series == "go":
-        series = "TRUCK"
-
-    cursor = Sched_Event.find_by_series(series)
+        series1 = "TRUCK"
+    else:
+        series1 = "na"
+    cursor = Sched_Event.find_by_series(series1)
     ser_to_json = dumps(cursor)
     return ser_to_json
 
