@@ -164,7 +164,7 @@ def nascar_load_entrants():
      #       ignore_list.append(entrant)
 
     #races = Database.find(collection="entrants", query={"race_id": race_id})
-    #text = "load successful"
+    text = data
     #return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
     return render_template('drivers_load.html', text=data)
 
