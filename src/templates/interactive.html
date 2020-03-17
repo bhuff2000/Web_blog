@@ -23,29 +23,7 @@
                 </div>
                 <button type="submit" class="btn btn-success" >Load Data</button>
             </form>
-    <form id="loadEntrants" action="/nascar/load/entrants" method="post">
-        <div class="form-row">
-
-            <div class="input-group mb-3">
-                <a href="#" id="process_input_se"><select class="custom-select" id="series_drop_down_se" name="series_drop_down_se">
-                    <option selected>Choose Series</option>
-                    <option value="sc">CUP</option>
-                    <option value="xf">XFINITY</option>
-                    <option value="go">TRUCK</option>
-                </select></a>
-            </div>
-            <div class="input-group mb-3">
-                <a href="#" id="process_input_ser"><select class="custom-select" id="race_drop_down_re" name="race_drop_down_re">
-                </select></a>
-
-            </div>
-            <div class="form-group col-md-6" id="entrant_file">
-                <label for="description">File</label>
-                <input type="text" id="fileEntrant" class = "form-control" name="file" value="entry_list.json" readonly>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-success" >Load Data</button>
-    </form>
+    
 
         <p>{{ ser_list[30]["race_name"] }}</p>
         <p id="result"></p>
