@@ -129,6 +129,13 @@ def background_process():
 @app.route('/ajax_get_races')
 def ajax_get_races():
     series = request.args.get('series', 0, type=str)
+    if series == "sc":
+        series = "CUP"
+    elif series == "xf":
+        series = "XFINITY"
+    elif series == "go":
+        series = "TRUCK"
+
     cursor = Sched_Event.find_by_series(series)
     ser_to_json = dumps(cursor)
     return ser_to_json
