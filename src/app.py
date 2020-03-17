@@ -5,6 +5,7 @@ from src.common.database import Database
 from src.common.utils import Utils
 from src.models import user
 from src.models.blog import Blog
+from src.models.entrants import Entrants
 from src.models.post import Post
 from src.models.races import Sched_Event
 
@@ -149,13 +150,14 @@ def nascar_load_entrants():
     series = request.form.get['series_drop_down_se']
     file = 'entry_list.json'
     data = Utils.get_from_sportradar(series, type1, race_id, file)
-    entrant_list = Sched_Event.extract_sportradar_data(data)
+    entrant_list = Entrants.extract_sportradar_data(data)
     load_list = []
     ignore_list = []
     for entrant in entrant_list:
-        test = entrant.get_race_id()
-        test1 = Sched_Event.find_by_race_id(test)
-        if test1 is True:
+        test_race_id = entrant.get_race_id()
+        test_drv_id = entrant.get_drv_id()
+        test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
+        if test is True:
             entrant.save_to_mongo()
             load_list.append(entrant)
         else:

@@ -38,6 +38,12 @@ class Entrants(object):
     def save_to_mongo(self):
         Database.insert("entrants", self.json())
 
+    def get_race_id(self):
+        return self.race_id
+
+    def get_drv_id(self):
+        return self.drv_id
+
     @classmethod
     def extract_sportradar_data(cls, data):
         sr_data = []
@@ -62,8 +68,9 @@ class Entrants(object):
         return sr_data
 
     @classmethod
-    def find_by_race_id(cls, race_id):
-        data = Database.find_one("races", {"race_id": race_id})
+    def find_by_race_and_drv_id(cls, race_id, driver_id):
+        data = Database.find_one("entrants", { "$and" : [ {"race_id": race_id}, {"driver_id": driver_id} ] })
+
         if data is None:
             return True
         else:
