@@ -150,9 +150,9 @@ def nascar_load_entrants():
     series = request.form.get['series_drop_down_se']
     file = 'entry_list.json'
     data = Utils.get_from_sportradar(series, type1, race_id, file)
-    entrant_list = Entrants.extract_sportradar_data(data)
-    load_list = []
-    ignore_list = []
+    #entrant_list = Entrants.extract_sportradar_data(data)
+    #load_list = []
+    #ignore_list = []
     #for entrant in entrant_list:
      #   test_race_id = entrant.get_race_id()
      #   test_drv_id = entrant.get_drv_id()
