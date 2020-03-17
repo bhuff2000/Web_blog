@@ -153,20 +153,20 @@ def nascar_load_entrants():
     entrant_list = Entrants.extract_sportradar_data(data)
     load_list = []
     ignore_list = []
-    for entrant in entrant_list:
-        test_race_id = entrant.get_race_id()
-        test_drv_id = entrant.get_drv_id()
-        test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
-        if test is True:
-            entrant.save_to_mongo()
-            load_list.append(entrant)
-        else:
-            ignore_list.append(entrant)
+    #for entrant in entrant_list:
+     #   test_race_id = entrant.get_race_id()
+     #   test_drv_id = entrant.get_drv_id()
+     #   test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
+     #   if test is True:
+     #       entrant.save_to_mongo()
+     #       load_list.append(entrant)
+     #   else:
+     #       ignore_list.append(entrant)
 
     #races = Database.find(collection="entrants", query={"race_id": race_id})
-    text = "load successful"
-    return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
-
+    #text = "load successful"
+    #return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
+    return render_template('drivers_load.html', text=data)
 
 #  return render_template('races_list.html', data=data)
 
