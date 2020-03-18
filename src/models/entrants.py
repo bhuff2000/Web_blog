@@ -7,12 +7,12 @@ from src.common.database import Database
 __author__ = 'behou'
 
 class Entrants(object):
-    def __init__(self, race_id, race_name, car_num, crew_chief, mfg, owner_id, team_id, drv_first,
+    def __init__(self, race_id, race_name, car_num, mfg, owner_id, team_id, drv_first,
                  drv_last, drv_full, drv_id):
         self.race_name = race_name
         self.race_id = race_id
         self.car_num = car_num
-        self.crew_chief = crew_chief
+        #self.crew_chief = crew_chief
         self.mfg = mfg
         self.owner_id = owner_id
         self.team_id = team_id
@@ -26,7 +26,7 @@ class Entrants(object):
             'race_id': self.race_id,
             'race_name': self.race_name,
             'car_num': self.car_num,
-            'crew_chief': self.crew_chief,
+            #'crew_chief': self.crew_chief,
             'mfg': self.mfg,
             'owner_id': self.owner_id,
             'team_id': self.team_id,
@@ -55,7 +55,7 @@ class Entrants(object):
         #year = json_file['season']['year']
         for entrant in json_file2:
             car_num = entrant['car']['number']
-            crew_chief = entrant['car']['crew_chief']
+            #crew_chief = entrant['car']['crew_chief']
             mfg = entrant['car']['manufacturer']['name']
             owner_id = entrant['car']['owner']['id']
             team_id = entrant['car']['team']['id']
@@ -63,7 +63,7 @@ class Entrants(object):
             drv_last = entrant['driver']['last_name']
             drv_full = entrant['driver']['full_name']
             drv_id = entrant['driver']['id']
-            driver = Entrants(race_id, race_name, car_num, crew_chief, mfg, owner_id, team_id, drv_first, drv_last,
+            driver = Entrants(race_id, race_name, car_num, mfg, owner_id, team_id, drv_first, drv_last,
                                       drv_full, drv_id)
             sr_data.append(driver)
         return sr_data
