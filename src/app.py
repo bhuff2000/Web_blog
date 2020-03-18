@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, session, make_response, jsonify, json
+from flask_debugtoolbar import DebugToolbarExtension
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -145,7 +146,7 @@ def ajax_get_races():
 
 @app.route('/load/entrants', methods=['POST', 'GET'])
 def load_entrants():
-    type1 = 'races'
+    #type1 = 'races'
     race_id = request.form['race_drop_down_abc']
    # series = request.form.get['series_drop_down_se']
    # file = 'entry_list.json'
@@ -220,5 +221,6 @@ def test():
     return render_template('test.html', test=test)
 
 if __name__ == '__main__':
-   app.run(debug=app.config['DEBUG'], port=4990)
 
+   #app.run(debug=app.config['DEBUG'], port=4990)
+    app.run(debug=True)
