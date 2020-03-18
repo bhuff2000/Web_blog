@@ -57,8 +57,13 @@
             </div>
             <div class="input-group mb-3">
                 <a href="#" id="process_input_r"><select class="custom-select" id="race_drop_down" name="race_drop_down">
-                </select></a>
 
+                </select></a>
+        <form>
+            <input type="text" size="5" name="stuff" id="stuff_inp">
+            <a href="#" id="process_input1"><button class="btn btn=default">Submit</button></a>
+        </form>
+   <p id="result"></p>
             </div>
             <div class="form-group col-md-6" id="entrant_file">
                 <label for="description">File</label>
@@ -91,6 +96,7 @@
 </div>
 <script>
 $(document).ready(function() {
+    $('#result').text('this stuff');
     $('#loadRaces').hide();
     $('#loadEntrants').hide();
     $('#loadQualify').hide();
@@ -128,7 +134,7 @@ $(document).ready(function() {
                 console.log(data);
                 race_data = '';
                 $.each(data, function() {
-                    race_data += '<option name=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
+                    race_data += '<option>'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
                 $('#race_drop_down').append(race_data);
             }  //end success
