@@ -9,8 +9,8 @@ __author__ = 'behou'
 class Entrants(object):
     def __init__(self, race_id, race_name, car_num, mfg, drv_first,
                  drv_last, drv_full, drv_id):
-        self.race_name = race_name
         self.race_id = race_id
+        self.race_name = race_name
         self.car_num = car_num
         #self.crew_chief = crew_chief
         self.mfg = mfg
