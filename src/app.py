@@ -146,7 +146,7 @@ def ajax_get_races():
 
 @app.route('/load/entrants', methods=['POST', 'GET'])
 def load_entrants():
-    #type1 = 'races'
+    type1 = 'races'
     race_id = request.form['race_drop_down_abc']
     series = request.form['series_drop_down_se']
     file = 'entry_list.json'
@@ -165,7 +165,7 @@ def load_entrants():
             ignore_list.append(entrant)
 
     races = Database.find(collection="entrants", query={"race_id": race_id})
-    #text = "sup"
+    text = "load successful"
     return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
     #return render_template('drivers_load.html', text=race_id)
 
