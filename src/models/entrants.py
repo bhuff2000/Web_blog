@@ -56,7 +56,7 @@ class Entrants(object):
         for entrant in json_file2:
             car_num = entrant['car']['number']
             crew_chief = entrant['car']['crew_chief']
-            mfg = entrant['manufacturer']['name']
+            mfg = entrant['car']['manufacturer']['name']
             owner_id = entrant['owner']['id']
             team_id = entrant['team']['id']
             drv_first = entrant['driver']['first_name']
