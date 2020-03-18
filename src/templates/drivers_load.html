@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
     <p>{{  text  }}</p>
-    <h2>Drivers Loaded for {{ entrant['race_name'] }} </h2>
+    <h2>Drivers Loaded for {{ entrants['race_name'] }} </h2>
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
@@ -26,7 +26,7 @@
         </tbody>
 
     </table>
-    <h2>Drivers Ignored for {{ entrant['race_name'] }}(already loaded)</h2>
+    <h2>Drivers Ignored for {{ entrants['race_name'] }}(already loaded)</h2>
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>

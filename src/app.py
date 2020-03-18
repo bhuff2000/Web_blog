@@ -222,5 +222,5 @@ def test():
 
 if __name__ == '__main__':
 
-   #app.run(debug=app.config['DEBUG'], port=4990)
-    app.run(debug=True)
+   app.run(debug=app.config['DEBUG'], port=4990)
+
