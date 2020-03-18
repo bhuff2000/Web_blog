@@ -167,7 +167,7 @@ def load_entrants():
     races = Database.find(collection="entrants", query={"race_id": race_id})
     #text = "sup"
     return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
-    return render_template('drivers_load.html', text=race_id)
+    #return render_template('drivers_load.html', text=race_id)
 
 #  return render_template('races_list.html', data=data)
 
