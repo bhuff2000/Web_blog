@@ -148,25 +148,25 @@ def ajax_get_races():
 def load_entrants():
     #type1 = 'races'
     race_id = request.form['race_drop_down_abc']
-   # series = request.form.get['series_drop_down_se']
-   # file = 'entry_list.json'
-   # data = Utils.get_from_sportradar(series, type1, race_id, file)
-    #entrant_list = Entrants.extract_sportradar_data(data)
-    #load_list = []
-    #ignore_list = []
-    #for entrant in entrant_list:
-     #   test_race_id = entrant.get_race_id()
-     #   test_drv_id = entrant.get_drv_id()
-     #   test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
-     #   if test is True:
-     #       entrant.save_to_mongo()
-     #       load_list.append(entrant)
-     #   else:
-     #       ignore_list.append(entrant)
+    series = request.form.get['series_drop_down_se']
+    file = 'entry_list.json'
+    data = Utils.get_from_sportradar(series, type1, race_id, file)
+    entrant_list = Entrants.extract_sportradar_data(data)
+    load_list = []
+    ignore_list = []
+    for entrant in entrant_list:
+        test_race_id = entrant.get_race_id()
+        test_drv_id = entrant.get_drv_id()
+        test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
+        if test is True:
+            entrant.save_to_mongo()
+            load_list.append(entrant)
+        else:
+            ignore_list.append(entrant)
 
-    #races = Database.find(collection="entrants", query={"race_id": race_id})
-    text = "sup"
-    #return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
+    races = Database.find(collection="entrants", query={"race_id": race_id})
+    #text = "sup"
+    return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
     return render_template('drivers_load.html', text=race_id)
 
 #  return render_template('races_list.html', data=data)
