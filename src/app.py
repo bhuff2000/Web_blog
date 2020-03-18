@@ -146,7 +146,7 @@ def ajax_get_races():
 @app.route('/nascar/load/entrants', methods=['POST'])
 def nascar_load_entrants():
     type1 = 'races'
-    race_id = request.form['race_drop_down']
+    race_id = request.form['race_drop_down_abc']
    # series = request.form.get['series_drop_down_se']
    # file = 'entry_list.json'
    # data = Utils.get_from_sportradar(series, type1, race_id, file)
