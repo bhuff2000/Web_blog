@@ -159,7 +159,7 @@ def load_entrants():
         test_drv_id = entrant.get_drv_id()
         test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
         if test is True:
-            entrant.save_to_mongo()
+    #        entrant.save_to_mongo()
             load_list.append(entrant)
         else:
             ignore_list.append(entrant)
