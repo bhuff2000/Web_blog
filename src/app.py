@@ -143,7 +143,7 @@ def ajax_get_races():
     return ser_to_json
 
 
-@app.route('/nascar/load/entrants', methods=['POST'])
+@app.route('/load/entrants', methods=['POST'])
 def nascar_load_entrants():
     type1 = 'races'
     race_id = request.form['race_drop_down_abc']
