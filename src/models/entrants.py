@@ -58,13 +58,13 @@ class Entrants(object):
         #year = json_file['season']['year']
         for entrant in json_file2:
             car_num = entrant['car']['number']
-            ownerID = entrant['car']['owner']
+            #ownerID = entrant['car']['owner']
             if 'crew_chief' in entrant['car'] :
                 crew_chief = entrant['car']['crew_chief']
             else:
                 crew_chief = "na"
             mfg = entrant['car']['manufacturer']['name']
-            if 'id' in ownerID:
+            if 'owner' in entrant['car']:
                 owner_id = entrant['car']['owner']['id']
             else:
                 owner_id = 'na'
