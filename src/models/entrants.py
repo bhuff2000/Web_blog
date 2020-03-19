@@ -69,7 +69,7 @@ class Entrants(object):
             drv_last = entrant['driver']['last_name']
             drv_full = entrant['driver']['full_name']
             drv_id = entrant['driver']['id']
-            driver = Entrants(race_id, race_name, car_num, mfg, drv_first, drv_last,
+            driver = Entrants(race_id, race_name, car_num, crew_chief, mfg, drv_first, drv_last,
                                       drv_full, drv_id)
             sr_data.append(driver)
         return sr_data
