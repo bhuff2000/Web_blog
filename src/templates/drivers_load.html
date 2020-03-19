@@ -2,7 +2,11 @@
 {% block content %}
 <div class="container">
     <p>{{  text  }}</p><a href="nascar/admin">Return to Nascar Admin</a>
+    {% if entrants %}
     <h2>Drivers Loaded for {{  entrants[0]['race_name']  }} </h2>
+    {% else %}
+    <h2>Drivers Loaded for {{  ignore_list[0]['race_name']  }} </h2>
+    {% endif % }
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
@@ -24,7 +28,11 @@
         </tbody>
 
     </table>
-    <h2>Drivers Ignored for </h2>
+    {% if entrants %}
+    <h2>Drivers Ignored for {{  entrants[0]['race_name']  }} </h2>
+    {% else %}
+    <h2>Drivers Ignored for {{  ignore_list[0]['race_name']  }} </h2>
+    {% endif % }
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
