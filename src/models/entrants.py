@@ -70,7 +70,7 @@ class Entrants(object):
 
     @classmethod
     def find_by_race_and_drv_id(cls, race_id, driver_id):
-        data = Database.find_one("entrants", {"$and": [{"race_id": race_id}, {"driver_id": driver_id}]})
+        data = Database.find_one("entrants", {"$and": [{"race_id": race_id}, {"drv_id": driver_id}]})
 
         if data is None:
             return True
