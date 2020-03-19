@@ -7,14 +7,14 @@ from src.common.database import Database
 __author__ = 'behou'
 
 class Entrants(object):
-    def __init__(self, race_id, race_name, car_num, crew_chief, mfg, drv_first,
+    def __init__(self, race_id, race_name, car_num, crew_chief, mfg, owner_id, drv_first,
                  drv_last, drv_full, drv_id):
         self.race_id = race_id
         self.race_name = race_name
         self.car_num = car_num
         self.crew_chief = crew_chief
         self.mfg = mfg
-        #self.owner_id = owner_id
+        self.owner_id = owner_id
         #self.team_id = team_id
         self.drv_first = drv_first
         self.drv_last = drv_last
@@ -28,7 +28,7 @@ class Entrants(object):
             'car_num': self.car_num,
             'crew_chief': self.crew_chief,
             'mfg': self.mfg,
-            #'owner_id': self.owner_id,
+            'owner_id': self.owner_id,
             #'team_id': self.team_id,
             'drv_first': self.drv_first,
             'drv_last': self.drv_last,
@@ -63,13 +63,16 @@ class Entrants(object):
             else:
                 crew_chief = "na"
             mfg = entrant['car']['manufacturer']['name']
-            #owner_id = entrant['car']['owner']['id']
+            if 'id' in entrant['car']['owner']:
+                owner_id = entrant['car']['owner']['id']
+            else:
+                owner_id = 'na'
             #team_id = entrant['car']['team']['id']
             drv_first = entrant['driver']['first_name']
             drv_last = entrant['driver']['last_name']
             drv_full = entrant['driver']['full_name']
             drv_id = entrant['driver']['id']
-            driver = Entrants(race_id, race_name, car_num, crew_chief, mfg, drv_first, drv_last,
+            driver = Entrants(race_id, race_name, car_num, crew_chief, mfg, owner_id, drv_first, drv_last,
                                       drv_full, drv_id)
             sr_data.append(driver)
         return sr_data
