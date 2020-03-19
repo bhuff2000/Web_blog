@@ -151,12 +151,12 @@ def load_entrants():
     series = request.form['series_drop_down']
     file = 'entry_list.json'
     data = Utils.get_from_sportradar(series, type1, race_id, file)
-    if data is not None:
-        entrant_list = Entrants.extract_sportradar_data(data)
-    else:
-        text = "No data returned from SportRadar"
-        return render_template('drivers_load.html', text=text)
-    
+    #if data is not None:
+    entrant_list = Entrants.extract_sportradar_data(data)
+    #else:
+    #    text = "No data returned from SportRadar"
+    #    return render_template('drivers_load.html', text=text)
+
     load_list = []
     ignore_list = []
     for entrant in entrant_list:
