@@ -58,7 +58,7 @@ class Entrants(object):
         #year = json_file['season']['year']
         for entrant in json_file2:
             car_num = entrant['car']['number']
-            if entrant['car']['crew_chief'] :
+            if ['crew_chief'] in entrant['car'] :
                 crew_chief = entrant['car']['crew_chief']
             else:
                 crew_chief = "na"
