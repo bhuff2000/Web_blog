@@ -6,14 +6,12 @@ background-color: #FFE4C4;
 margin-top: 100px;
 }
 
-#first{
-
+#img-18{
+transform: rotate(90deg);
 }
+
 .page-form{
     max-width: 480px;
 }
 
-#img-18{
-transform: rotate(90deg);
-}
 
