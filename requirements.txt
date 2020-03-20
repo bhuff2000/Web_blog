@@ -4,6 +4,6 @@ beautifulsoup4==4.4.1
 requests==2.8.0
 flask-socketio
 eventlet==0.17.4
-gunicorn==18.0.0
+gunicorn==19.5.0
 passlib==1.7.2
 uwsgi
