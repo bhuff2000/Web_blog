@@ -29,12 +29,12 @@ def sessions():
     return render_template('draft.html')
 
 
-def messageReceived(methods=['GET', 'POST']):
+def messageReceived():
     print('message was received')
 
 
 @socketio.on('my event')
-def handle_my_custom_event(json, methods=['GET', 'POST']):
+def handle_my_custom_event(json):
     print('received my event: ' + str(json))
     socketio.emit('my response', json, callback=messageReceived)
 
