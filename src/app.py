@@ -26,7 +26,7 @@ def home_template():
 
 @app.route('/sessions')
 def sessions():
-    return render_template('sessions.html')
+    return render_template('draft.html')
 
 
 def messageReceived(methods=['GET', 'POST']):
