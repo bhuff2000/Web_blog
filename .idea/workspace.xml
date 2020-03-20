@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc9b75ce-29a8-45ee-89b3-ecc3496d6192" name="Default Changelist" comment="added new class for enrants and code to get entrant data from sportradar and load to mongo">
-      <change afterPath="$PROJECT_DIR$/src/templates/draft.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/profile.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/draft.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -64,11 +62,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -150,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/templates/schedule.html" />
         <option value="$PROJECT_DIR$/src/models/user.py" />
         <option value="$PROJECT_DIR$/src/templates/races_list.html" />
-        <option value="$PROJECT_DIR$/src/templates/profile.html" />
         <option value="$PROJECT_DIR$/src/models/races.py" />
         <option value="$PROJECT_DIR$/src/common/utils.py" />
         <option value="$PROJECT_DIR$/src/templates/interactive.html" />
@@ -165,6 +162,7 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/draft.html" />
+        <option value="$PROJECT_DIR$/src/templates/profile.html" />
       </list>
     </option>
   </component>
@@ -639,13 +637,6 @@
     <entry file="file://$PROJECT_DIR$/src/templates/races_list.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/user_blogs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -677,6 +668,13 @@
           <folding>
             <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
