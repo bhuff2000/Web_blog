@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, make_response, jsonify, json
-
+from flask_socketio import SocketIO
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -17,15 +17,32 @@ from src.models.user import User
 app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
+socketio =SocketIO(app)
 
 @app.route('/')
 def home_template():
     return render_template('home.html')
 
 
+@app.route('/sessions')
+def sessions():
+    return render_template('sessions.html')
+
+
+def messageReceived(methods=['GET', 'POST']):
+    print('message was received')
+
+
+@socketio.on('my event')
+def handle_my_custom_event(json, methods=['GET', 'POST']):
+    print('received my event: ' + str(json))
+    socketio.emit('my response', json, callbacl=messageReceived)
+
+
 @app.route('/login')
 def login_template():
     return render_template('login.html')
+
 
 @app.route('/register')
 def register_template():
@@ -226,6 +243,6 @@ def test():
     return render_template('test.html', test=test)
 
 if __name__ == '__main__':
-
-   app.run(debug=app.config['DEBUG'], port=4990)
+    socketio.run(app, debug=True)
+   #app.run(debug=app.config['DEBUG'], port=4990)
 
