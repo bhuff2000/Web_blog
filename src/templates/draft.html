@@ -11,8 +11,9 @@
     </form>
 
     <script type="text/javascript">
+        console.log(document.domain)
         var socket = io.connect('http://' + document.domain + ';' + location.port);
-        console.log(socket)
+
         socket.on('connect', function() {
         socket.emit('my event', {
         data: 'User Connected'
