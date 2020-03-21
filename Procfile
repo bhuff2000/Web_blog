@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini
+web: gunicorn --chdir app:app --worker-class socketio.sgunicorn.GeventSocketIOWorker
