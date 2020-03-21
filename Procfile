@@ -1,1 +1,1 @@
-web: gunicorn --chdir src app:socketio
+web: gunicorn --chdir src app:app
