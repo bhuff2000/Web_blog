@@ -13,7 +13,7 @@
     <script type="text/javascript">
         console.log(document.domain)
         //var socket = io();
-        var socket = io('http://' + document.domain + ':' + location.port, {transports: ['websocket']});
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
 
         socket.on('connect', function() {
         socket.emit('my event', {
