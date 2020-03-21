@@ -24,7 +24,8 @@
         e.preventDefault()
         let user_name = $('input.username').val()
         let user_input =$('input.message').val()
-        socket.emit('my event', {
+        socket.emit('join', {
+        //socket.emit('my event', {
             user_name : user_name,
             message : user_input
             })

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, make_response, jsonify, json
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, send, join_room, leave_room
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -23,7 +23,7 @@ socketio =SocketIO(app)
 def home_template():
     return render_template('home.html')
 
-
+# +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/sessions')
 def sessions():
     return render_template('draft.html')
@@ -42,6 +42,21 @@ def handle_my_custom_event(json):
     socketio.emit('my response', json, callback=messageReceived)
 
 
+@socketio.on('join')
+def on_join(data):
+    username=data['username']
+    room=data['room']
+    join_room(room)
+    send(username+'has entered the room.', room=room)
+
+@socketio.on('leave')
+def on_leave(data):
+    username=data['username']
+    room=data['room']
+    leave_room(room)
+    send(username+'has left the room.', room=room)
+
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login')
 def login_template():
     return render_template('login.html')
