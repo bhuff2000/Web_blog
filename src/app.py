@@ -40,7 +40,7 @@ def handle_json(json):
 def handle_my_custom_event(json):
     print('received my event: ' + str(json))
     #socketio.emit('my response', json, callback=messageReceived)
-    socketio.emit('my response', json, callback=handle_json)
+    socketio.emit('my response', json)
 
 @socketio.on('join')
 def on_join(data):
