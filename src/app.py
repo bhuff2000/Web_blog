@@ -28,9 +28,9 @@ def home_template():
 def sessions():
     return render_template('draft.html')
 
-@socketio.on('message')
-def messageReceived():
-    print('message was received')
+#@socketio.on('message')
+#def messageReceived():
+#    print('message was received')
 
 @socketio.on('json')
 def handle_json(json):
