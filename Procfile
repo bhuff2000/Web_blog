@@ -1,1 +1,1 @@
-web: gunicorn --chdir app:app --worker-class socketio.sgunicorn.GeventSocketIOWorker
+web: gunicorn --chdir src app:app --worker-class socketio.sgunicorn.GeventSocketIOWorker
