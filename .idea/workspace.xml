@@ -52,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/src/templates/draft.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="110" selection-start-line="15" selection-start-column="110" selection-end-line="15" selection-end-column="110" />
+              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
               </folding>
@@ -678,7 +678,7 @@
     <entry file="file://$PROJECT_DIR$/src/templates/draft.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="110" selection-start-line="15" selection-start-column="110" selection-end-line="15" selection-end-column="110" />
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
           </folding>
