@@ -23,7 +23,7 @@ class Utils:
     @staticmethod
     def get_from_sportradar(series, year, type1, file):
         key = os.environ.get("SPORTRADAR_KEY")
-        conn = http.client.HTTPSConnection("api.sportradar.us")
+        conn = http.client.HTTPConnection("api.sportradar.us")
         url = '/nascar-ot3/' + series + '/' + year + '/' + type1 + '/' + file + '?api_key=' + key
         conn.request("GET", url)
         res = conn.getresponse()
