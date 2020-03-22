@@ -19,6 +19,8 @@
 
         socket.on('connect', function() {
             console.log('Websocket connected!');
+            socket.emit('my event', {data: 'im connected'});
+            });
         //socket.emit('my event', {
         //data: 'User Connected'
         });

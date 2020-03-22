@@ -38,9 +38,9 @@ def load_draft():
 #def handle_json(json):
 #    print('received json:  ' + str(json))
 
-#@socketio.on('my event')
-#def handle_my_custom_event(json):
-#    print('received my event: ' + str(json))
+@socketio.on('my event')
+def handle_my_custom_event(json):
+    print('received my event: ' + str(json))
 #    #socketio.emit('my response', json, callback=messageReceived)
 #    socketio.emit('my response', json)
 
@@ -50,6 +50,16 @@ def on_join(data):
     room=data['room']
     join_room(room)
     emit('join room', {'room': room})
+
+
+@socketio.on('join')
+def on_join(data):
+    room=data['room']
+    if room in ROOMS:
+        join_room(room)
+        send(ROOMS[room].to_json(), room=room)
+    else:
+        emit('error', {'error': 'Unable to join room. Room does not exist.'})
 
 @socketio.on('leave')
 def on_leave(data):
