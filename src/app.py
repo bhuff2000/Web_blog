@@ -24,8 +24,8 @@ def home_template():
     return render_template('home.html')
 
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
-@app.route('/sessions', methods=['GET'])
-def sessions():
+@app.route('/draft', methods=['GET', 'POST'])
+def load_draft():
     return render_template('draft.html')
 
 @socketio.on('my event')
