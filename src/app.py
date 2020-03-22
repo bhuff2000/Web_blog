@@ -18,6 +18,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
+ROOMS ={}
 
 @app.route('/')
 def home_template():
@@ -45,8 +46,8 @@ def load_draft():
 
 @socketio.on('create')
 def on_join(data):
-    username=data[request.email]
-    room=data[request.sid]
+    username=data['email']
+    room=data['room']
     join_room(room)
     emit('join room', {'room': room})
 
