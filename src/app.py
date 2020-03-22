@@ -45,8 +45,8 @@ def load_draft():
 
 @socketio.on('create')
 def on_join(data):
-    username=data['username']
-    room=data['room']
+    username=data['email']
+    room=data['sid']
     join_room(room)
     emit('join room', {'room': room})
 
