@@ -27,7 +27,7 @@
         });
         function createDraft() {
             console.log('Creating draft...');
-            socket.emit('create', {username: username, room: room});
+            socket.emit('create', {room: sid});
             }
         //var form = $('form').on('submit', function(e) {
         //e.preventDefault()
