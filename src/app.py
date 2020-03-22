@@ -31,7 +31,7 @@ def load_draft():
 @socketio.on('my event')
 def handle_my_custom_event(json):
     print('received json:  ' + str(json))
-    return 'one', 2
+    #return 'one', 2
 #@socketio.on('message')
 #def messageReceived():
 #    print('message was received')
