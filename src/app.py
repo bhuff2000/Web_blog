@@ -265,6 +265,6 @@ def test():
     return render_template('test.html', test=test)
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, DEBUG=True)
    #app.run(debug=app.config['DEBUG'], port=4990)
 
