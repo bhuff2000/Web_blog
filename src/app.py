@@ -40,7 +40,8 @@ def load_draft():
 
 @socketio.on('my event')
 def handle_my_custom_event(json):
-    emit('received my event: ' + str(json))
+    room = request.sid
+    emit('received my event: ' + room)
 #    #socketio.emit('my response', json, callback=messageReceived)
 #    socketio.emit('my response', json)
 
