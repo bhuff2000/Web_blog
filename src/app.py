@@ -24,7 +24,7 @@ def home_template():
     return render_template('home.html')
 
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
-@app.route('/sessions', methods=['POST', 'GET'])
+@app.route('/sessions', methods=['POST'])
 def sessions():
     return render_template('draft.html')
 
