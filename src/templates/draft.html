@@ -11,16 +11,23 @@
     </form>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
+    //$(document).ready(function() {
         //console.log(document.domain)
         //var socket = io();
-        //var socket = io.connect('http://' + document.domain + ':' + location.port);
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
 
-        //socket.on('connect', function() {
+        socket.on('connect', function() {
+            console.log('Websocket connected!');
         //socket.emit('my event', {
         //data: 'User Connected'
-        //})
-
+        });
+        socket.on('join_room', function(msg) {
+            console.log(msg);
+        });
+        function createDraft() {
+            console.log('Creating draft...');
+            socket.emit('create', {username: username, room: room});
+            }
         //var form = $('form').on('submit', function(e) {
         //e.preventDefault()
         //let user_name = $('input.username').val()
@@ -40,11 +47,11 @@
          //$( 'div.message_holder').append( '<div><b style="color: #000">'+msg.user_name+ ': </b>'+msg.message+'</div>' )
          //}
          //})
-         var socket = io();
-         socket.on('connect', function() {
-            socket.emit('my event', {data: 'I\'m connected!'});
-            });
-         });
+         //var socket = io();
+         //socket.on('connect', function() {
+         //   socket.emit('my event', {data: 'I\'m connected!'});
+         //   });
+    //     });
     </script>
 
 

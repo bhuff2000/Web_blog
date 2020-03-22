@@ -24,14 +24,11 @@ def home_template():
     return render_template('home.html')
 
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
-@app.route('/draft', methods=['GET', 'POST'])
+@app.route('/draft')
 def load_draft():
     return render_template('draft.html')
 
-@socketio.on('my event')
-def handle_my_custom_event(json):
-    print('received json:  ' + str(json))
-    #return 'one', 2
+
 #@socketio.on('message')
 #def messageReceived():
 #    print('message was received')
@@ -46,12 +43,12 @@ def handle_my_custom_event(json):
 #    #socketio.emit('my response', json, callback=messageReceived)
 #    socketio.emit('my response', json)
 
-@socketio.on('join')
+@socketio.on('create')
 def on_join(data):
     username=data['username']
     room=data['room']
     join_room(room)
-    send(username+'has entered the room.', room=room)
+    emit('join room', {'room': room})
 
 @socketio.on('leave')
 def on_leave(data):
