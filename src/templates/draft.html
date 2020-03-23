@@ -19,17 +19,17 @@
 
         socket.on('connect', function() {
             console.log('Websocket connected!');
-            socket.emit('my event', {data: 'im connected'});
+            socket.emit('my event', {data: 'im connected'})
 
         //socket.emit('my event', {
         //data: 'User Connected'
-        });
+        //});
         socket.on('join room', function(msg) {
-            console.log(msg);
+            console.log(msg)
         });
         function createDraft() {
             console.log('Creating draft...');
-            socket.emit('create', {room: 'mb_boys', email: 'bhuff2000'});
+            socket.emit('create', {room: 'mb_boys', email: 'bhuff2000'})
             }
         var form = $('form').on('submit', function(e) {
             e.preventDefault()
@@ -38,7 +38,7 @@
                 socket.emit('my event', {
                     user_name : user_name,
                     message : user_input
-                    });
+                    })
             $('input.message').val( '' ).focus()
             })
          })
@@ -46,7 +46,7 @@
             console.log(msg)
             if(typeof msg.user_name !== 'undefined') {
             $( 'h3' ).remove()
-            $( 'div.message_holder').append( '<div><b style="color: #000">'+msg.user_name+ ': </b>'+msg.message+'</div>' );
+            $( 'div.message_holder').append( '<div><b style="color: #000">'+msg.user_name+ ': </b>'+msg.message+'</div>' )
          }
          })
          //var socket = io();
