@@ -9,7 +9,7 @@ from src.models.blog import Blog
 from src.models.entrants import Entrants
 from src.models.post import Post
 from src.models.races import Sched_Event
-
+from src.models.test import Test
 from src.models.user import User
 
 
@@ -59,6 +59,12 @@ def on_join(data):
     room=data[request.sid]
     join_room(room)
     emit('join_room', {'room': room})
+
+@socketio.on('load data')
+def load_data(json):
+    load = Test.json(json)
+    load.save_to_mongo()
+    emit('loaded', {'message': 'data loaded'})
 
 
 @socketio.on('join')
