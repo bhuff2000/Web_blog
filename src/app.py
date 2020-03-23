@@ -41,14 +41,14 @@ def load_draft():
 @socketio.on('my event')
 def handle_my_custom_event(json):
     room = request.sid
-    emit('received my event: ' + room)
+    emit('received my event: ' + json.data)
 #    #socketio.emit('my response', json, callback=messageReceived)
 #    socketio.emit('my response', json)
 
 @socketio.on('create')
 def on_join(data):
-    username=data['email']
-    room=data['room']
+    username=data[session.email]
+    room=data[request.sid]
     join_room(room)
     emit('join room', {'room': room})
 
