@@ -30,9 +30,9 @@ def load_draft():
     return render_template('draft.html')
 
 
-@socketio.on('message')
-def messageReceived():
-    print('message was received')
+#@socketio.on('message')
+#def messageReceived():
+#    print('message was received')
 
 #@socketio.on('json')
 #def handle_json(json):
@@ -45,11 +45,11 @@ def handle_my_custom_event(json):
 #    #socketio.emit('my response', json, callback=messageReceived)
 #    socketio.emit('my response', json)
 
-@socketio.on('my event2')
-def handle_my_custom_event(json):
-    #room = request.sid
-    #emit('received my event: ' + json.data)
-    socketio.emit('my response', json, callback=messageReceived)
+#@socketio.on('my event2')
+#def handle_my_custom_event(json):
+#    #room = request.sid
+#    #emit('received my event: ' + json.data)
+#    socketio.emit('my response', json, callback=messageReceived)
 #    socketio.emit('my response', json)
 
 
