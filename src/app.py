@@ -50,7 +50,7 @@ def on_join(data):
     username=data[session.email]
     room=data[request.sid]
     join_room(room)
-    emit('join room', {'room': room})
+    emit('join_room', {'room': room})
 
 
 @socketio.on('join')
