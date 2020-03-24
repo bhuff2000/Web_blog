@@ -40,7 +40,7 @@ def handle_my_event(json):
     chat = json
     room = json.sid
     room_json ={'room': room}
-    emit('chat_resp', str(chat))
+    emit('chat_resp', json)
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
