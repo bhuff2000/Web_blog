@@ -12,51 +12,16 @@
     <button onclick="createDraft()">Create Draft</button>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf-8">
-    //$(document).ready(function() {
-        //console.log(document.domain)
-        //var socket = io();
-        var socket = io.connect('http://' + document.domain + ':' + location.port);
 
-        socket.on('connect', function() {
-            console.log('Websocket connected!');
-            socket.emit('my event', {
-            data: 'im connected'
-            })
-        //})
-        //socket.emit('my event', {
-        //data: 'User Connected'
-        //});
-        socket.on('join room', function(msg) {
-            console.log(msg)
+    var socket =io();
+    socket.on('connect', function() {
+        console.log('this is javascript connect script')
+        socket.emit('my event', {data: 'this is javascript my event connect script'});
         });
-        function createDraft() {
-            console.log('Creating draft...');
-            socket.emit('create', {room: 'mb_boys', email: 'bhuff2000'})
-            }
-        var form = $('#load').on('submit', function() {
 
-            let user_name = $('input.username').val()
-            let user_input =$('input.message').val()
-
-                socket.emit('load data', {
-                    'user_name' : user_name,
-                    'message' : user_input
-                    })
-            $('input.message').val( '' ).focus()
-            })
-         })
-         socket.on('loaded', function(msg) {
-            console.log(msg)
-            if(typeof msg.user !== 'undefined') {
-            $( 'h3' ).remove()
-            $( 'div.message_holder').append( '<div><b style="color: #000">'+msg.user+ ': </b>'+msg.message+'</div>' )
-         }
-         })
-         //var socket = io();
-         //socket.on('connect', function() {
-         //   socket.emit('my event', {data: 'I\'m connected!'});
-         //   });
-    //     });
+    socket.on('response', function(msg) {
+        console.log('this is the javascript response script')
+        });
     </script>
 
 

@@ -25,63 +25,10 @@ def home_template():
     return render_template('home.html')
 
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
-@app.route('/draft')
-def load_draft():
-    return render_template('draft.html')
-
-
-#@socketio.on('message')
-#def messageReceived():
-#    print('message was received')
-
-#@socketio.on('json')
-#def handle_json(json):
-#    print('received json:  ' + str(json))
-
 @socketio.on('my event')
 def handle_my_custom_event(json):
-    room = request.sid
-    emit('received my event: ' + json.data)
-#    #socketio.emit('my response', json, callback=messageReceived)
-#    socketio.emit('my response', json)
+    emit('response', json)
 
-#@socketio.on('my event2')
-#def handle_my_custom_event(json):
-#    #room = request.sid
-#    #emit('received my event: ' + json.data)
-#    socketio.emit('my response', json, callback=messageReceived)
-#    socketio.emit('my response', json)
-
-
-@socketio.on('create')
-def on_join(data):
-    username=data[session.email]
-    room=data[request.sid]
-    join_room(room)
-    emit('join_room', {'room': room})
-
-@socketio.on('load data')
-def load_data(json):
-    load = Test.json(json)
-    load.save_to_mongo()
-    emit('loaded', {'message': 'data loaded'})
-
-
-@socketio.on('join')
-def on_join(data):
-    room=data['room']
-    if room in ROOMS:
-        join_room(room)
-        send(ROOMS[room].to_json(), room=room)
-    else:
-        emit('error', {'error': 'Unable to join room. Room does not exist.'})
-
-@socketio.on('leave')
-def on_leave(data):
-    username=data['username']
-    room=data['room']
-    leave_room(room)
-    send(username+'has left the room.', room=room)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login')
