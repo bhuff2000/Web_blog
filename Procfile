@@ -1,1 +1,1 @@
-web: gunicorn[eventlet] --chdir src app:app
+web: gunicorn --chdir src app:app
