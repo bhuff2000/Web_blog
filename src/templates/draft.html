@@ -6,6 +6,7 @@
 
 
     <ul id="messages"></ul>
+        <input type="text" id="myname" placeholder="name"/>
         <input type="text" id="myMessage" placeholder="Messages"/>
         <button id="sendbutton">Send</button>
     <script type="text/javascript" charset="utf-8">
@@ -18,12 +19,16 @@
         });  //end connect
 
         socket.on('message', function(msg) {
-            $('#messages').append('<li>' +msg + '</li>');
+            $('#name').append('<li>' +msg.name + '</li>');
+            $('#messages').append('<li>' +msg.message + '</li>');
             console.log('message received')
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            socket.send($('#myMessage').val());
+            let name = $('#myname').val();
+            let message = $('myMessage').val();
+            stuff={'name': name, 'message': message};
+            socket.send($(stuff);
             $('myMessage').val('');
         });  //end click
 
