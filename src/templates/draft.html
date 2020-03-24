@@ -5,39 +5,57 @@
     <div  class="message_holder"></div>
 
     <form action="" method="GET" id="load">
-        <input type="text" class="username" placeholder="User Name"/>
-        <input type="text" class="message" placeholder="Messages"/>
+
         <input type="Submit"/>
 
     </form>
-    <button onclick="createDraft()">Create Draft</button>
-
+    <ul id="messages"></ul>
+        <input type="text" id="myMessage" placeholder="Messages"/>
+        <button id="sendbutton">Send</button>
     <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
 
-    var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
-    socket.on('connect', function() {
-        console.log('this is javascript connect script')
-        socket.emit('first_comm', 'this is javascript send to message');
-        });
+        var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
-    socket.on('response', function(msg) {
-        console.log('this is the javascript response script ' +msg)
-        $( 'div.room_holder').append( '<div><b style="color: #000">Room:  : </b>'+msg.room+'</div>' )
-        });
+        socket.on('connect', function() {
+            socket.send('user has connected!');
+        });  //end connect
 
-    $('#load').on('submit', function() {
-        let user_name = $('input.username').val();
-        let user_input =$('input.message').val();
-            socket.emit('chatter', {
-                    'username' : user_name,
-                    'message' : user_input
-                    })
-    });
+        socket.on('message', function(msg) {
+            $("messages").append('<li>' +msg + '</li>');
+            console.log('message received')
+        });  //end message
 
-    socket.on('chat_resp', function(msg) {
-        $( 'h3' ).remove();
-        $( 'div.message_holder').append( '<div><b style="color: #000">' +msg.username + ' : </b>'+msg.message+'</div>' )
-        });
+        $('#sendbutton').on('click', function() {
+            socket.send($('#myMessage").val());
+            $('myMessage').val('');
+        });  //end click
+
+    });  //end ready
+    //var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
+    //socket.on('connect', function() {
+    //    console.log('this is javascript connect script')
+    //    socket.emit('first_comm', 'this is javascript send to message');
+    //    });
+
+    //socket.on('response', function(msg) {
+    //    console.log('this is the javascript response script ' +msg)
+    //    $( 'div.room_holder').append( '<div><b style="color: #000">Room:  : </b>'+msg.room+'</div>' )
+    //    });
+
+    //$('#load').on('submit', function() {
+    //    let user_name = $('input.username').val();
+    //    let user_input =$('input.message').val();
+    //        socket.emit('chatter', {
+    //                'username' : user_name,
+    //                'message' : user_input
+    //                })
+    //});
+
+    //socket.on('chat_resp', function(msg) {
+    //    $( 'h3' ).remove();
+    //    $( 'div.message_holder').append( '<div><b style="color: #000">' +msg.username + ' : </b>'+msg.message+'</div>' )
+
 
     </script>
 
