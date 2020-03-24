@@ -28,7 +28,7 @@
     $('#load').on('submit', function() {
         let user_name = $('input.username').val();
         let user_input =$('input.message').val();
-            socket.emit('load data', {
+            socket.emit('my event', {
                     'username' : user_name,
                     'message' : user_input
                     })
