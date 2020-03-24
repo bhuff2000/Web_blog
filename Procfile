@@ -1,1 +1,1 @@
-web: gunicorn --chdir src app:app --worker-class eventlet
+web: uwsgi uwsgi.ini
