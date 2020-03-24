@@ -19,7 +19,7 @@
         });  //end connect
 
         socket.on('message', function(msg) {
-            $('#messages').append('<li>'+ msg.name + ': ' + msg.message +'</li>';
+            $('#messages').append('<li>'+ msg.name + ': ' + msg.message +'</li>');
             console.log('message received')
         });  //end message
 
