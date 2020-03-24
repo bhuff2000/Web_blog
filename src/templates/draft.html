@@ -18,16 +18,13 @@
             socket.send('user has connected!');
         });  //end connect
 
-        socket.on('json', function(msg) {
-            $('#messages').append('<li>'+ msg.name + ': ' + msg.message +'</li>');
+        socket.on('message', function(msg) {
+            $('#messages').append('<li>'+ msg +'</li>');
             console.log('message received')
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            let name = $('#myname').val();
-            let message = $('myMessage').val();
-            json={'name': name, 'message': message};
-            socket.send('my event', json);
+            socket.send($('myMessage').val();
             $('myMessage').val('');
         });  //end click
 

@@ -29,10 +29,10 @@ def home_template():
 def load_draft():
     return render_template('draft.html')
 
-@socketio.on('my event')
-def my_custom_event(json):
+@socketio.on('message')
+def my_custom_event(message):
     print('my event: ' + str(json))
-    send('json', broadcast=True)
+    send(message, broadcast=True)
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
