@@ -19,8 +19,8 @@
         });  //end connect
 
         socket.on('message', function(msg) {
-            $('#name').append('<li>' +msg.name + '</li>');
-            $('#messages').append('<li>' +msg.message + '</li>');
+            $('#messages').append('<li><input type="text" id="myname" value=' + msg.name +
+            '<input type="text" id="mymessage" value=' + msg.message + '></li>;
             console.log('message received')
         });  //end message
 
