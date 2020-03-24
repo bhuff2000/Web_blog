@@ -29,9 +29,9 @@ def home_template():
 def load_draft():
     return render_template('draft.html')
 
-@socketio.on('my event')
-def handle_my_custom_event(json):
-    emit('response', json)
+@socketio.on('message')
+def handle_my_custom_event(message):
+    emit('response', 'this is from server ' +message )
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

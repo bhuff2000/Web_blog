@@ -16,11 +16,11 @@
     var socket =io();
     socket.on('connect', function() {
         console.log('this is javascript connect script')
-        socket.emit('my event', {data: 'this is javascript my event connect script'});
+        //socket.emit('message', 'this is javascript send to message);
         });
 
     socket.on('response', function(msg) {
-        console.log('this is the javascript response script')
+        console.log('this is the javascript response script ' +msg)
         });
     </script>
 
