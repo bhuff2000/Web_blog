@@ -29,13 +29,13 @@ def home_template():
 def load_draft():
     return render_template('draft.html')
 
-@socketio.on('message')
-def handle_my_custom_event(message):
+@socketio.on('first_comm')
+def handle_my_custom_event(json):
     room = request.sid
     room_json ={'room': room}
     emit('response', room_json)
 
-@socketio.on('my event')
+@socketio.on('chatter')
 def handle_my_event(json):
     chat = json
     room = json.sid
