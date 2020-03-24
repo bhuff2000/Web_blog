@@ -26,8 +26,8 @@
         $('#sendbutton').on('click', function() {
             let name = $('#myname').val();
             let message = $('myMessage').val();
-            message={'name': name, 'message': message};
-            socket.send(message);
+            json={'name': name, 'message': message};
+            socket.send(json);
             $('myMessage').val('');
         });  //end click
 
