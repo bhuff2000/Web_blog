@@ -31,7 +31,9 @@ def load_draft():
 
 @socketio.on('message')
 def handle_my_custom_event(message):
-    emit('response', 'this is from server ' +message )
+    room = request.sid
+    room_json ={'room': room}
+    emit('response', room_json)
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
