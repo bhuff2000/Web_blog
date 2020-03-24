@@ -25,6 +25,10 @@ def home_template():
     return render_template('home.html')
 
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
+@app.route('/draft')
+def load_draft():
+    return render_template('draft.html')
+
 @socketio.on('my event')
 def handle_my_custom_event(json):
     emit('response', json)
