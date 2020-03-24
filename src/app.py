@@ -32,7 +32,7 @@ def load_draft():
 @socketio.on('my event')
 def my_custom_event(json):
     print('my event: ' + str(json))
-    send('message', broadcast=True)
+    send(json, broadcast=True)
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
