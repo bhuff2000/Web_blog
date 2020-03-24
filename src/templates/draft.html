@@ -4,11 +4,7 @@
     <div  class="room_holder"></div>
     <div  class="message_holder"></div>
 
-    <form action="" method="GET" id="load">
 
-        <input type="Submit"/>
-
-    </form>
     <ul id="messages"></ul>
         <input type="text" id="myMessage" placeholder="Messages"/>
         <button id="sendbutton">Send</button>
@@ -21,13 +17,13 @@
             socket.send('user has connected!');
         });  //end connect
 
-        socket.on('Message', function(msg) {
-            $("messages").append('<li>' +msg + '</li>');
+        socket.on('message', function(msg) {
+            $('#messages').append('<li>' +msg + '</li>');
             console.log('message received')
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            socket.send($("#myMessage").val());
+            socket.send($('#myMessage').val());
             $('myMessage').val('');
         });  //end click
 

@@ -31,7 +31,7 @@ def load_draft():
 
 @socketio.on('message')
 def handle_Message(message):
-    print('Message: '+ message)
+    print('message: ' + message)
     send(message, broadcast=True)
 
 
