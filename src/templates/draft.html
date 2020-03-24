@@ -21,7 +21,7 @@
             socket.send('user has connected!');
         });  //end connect
 
-        socket.on('message', function(msg) {
+        socket.on('Message', function(msg) {
             $("messages").append('<li>' +msg + '</li>');
             console.log('message received')
         });  //end message
