@@ -35,6 +35,13 @@ def handle_my_custom_event(message):
     room_json ={'room': room}
     emit('response', room_json)
 
+@socketio.on('my event')
+def handle_my_event(json):
+    chat = json
+    room = json.sid
+    room_json ={'room': room}
+    emit('chat_resp', str(chat))
+
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login')

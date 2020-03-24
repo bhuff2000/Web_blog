@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h3 style='color: #ccc;font-size: 30px;'>No message yet</h3>
+    <div  class="room_holder"></div>
     <div  class="message_holder"></div>
 
     <form action="" method="GET" id="load">
@@ -21,8 +22,22 @@
 
     socket.on('response', function(msg) {
         console.log('this is the javascript response script ' +msg)
-        $( 'div.message_holder').append( '<div><b style="color: #000">Room:  : </b>'+msg.room+'</div>' )
+        $( 'div.room_holder').append( '<div><b style="color: #000">Room:  : </b>'+msg.room+'</div>' )
         });
+
+    $('#load').on('submit', function() {
+        let user_name = $('input.username').val();
+        let user_input =$('input.message').val();
+            socket.emit('load data', {
+                    'username' : user_name,
+                    'message' : user_input
+                    })
+    });
+
+    socket.on('chat_resp', function(msg) {
+        $( 'div.message_holder').append( '<div><b style="color: #000">' +msg.username + ' : </b>'+msg.message+'</div>' )
+        });
+
     </script>
 
 
