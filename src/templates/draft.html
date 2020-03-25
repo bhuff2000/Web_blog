@@ -16,7 +16,7 @@
         var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
         socket.on('connect', function() {
-            socket.send(message, $('#myName').val() + ' user has connected!');
+            socket.send($('#myName').val() + ' user has connected!');
         });  //end connect
 
         socket.on('json', function(msg) {
@@ -25,7 +25,7 @@
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            socket.send('json', {'name': $('myName').val(),'message': $('#myMessage').val()});
+            socket.send({'name': $('myName').val(),'message': $('#myMessage').val()});
             $('myMessage').val('');
         });  //end click
 

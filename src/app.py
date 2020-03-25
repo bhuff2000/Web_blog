@@ -29,15 +29,12 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
-@socketio.on('message')
-def my_custom_event(message):
-    print('my event: ' + message)
-    send(message, broadcast=True)
-
-@socketio.on('json')
-def my_custom_json(json):
+@socketio.on('my event')
+def my_custom_event(json):
     print('my event: ' + str(json))
     send(json, broadcast=True)
+
+
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login')
