@@ -6,15 +6,18 @@
 
 
     <ul id="messages"></ul>
+        <input type="text" id="myName" placeholder="Messages" value="{{  email  }}"/>
         <input type="text" id="myMessage" placeholder="Messages"/>
         <button id="sendbutton">Send</button>
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
 
+        var name = $('#myName').val(myName);
         var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
         socket.on('connect', function() {
-            socket.send('user has connected!');
+
+            socket.send(name + ' user has connected!');
         });  //end connect
 
         socket.on('message', function(msg) {
