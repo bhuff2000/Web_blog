@@ -34,6 +34,10 @@ def my_custom_event(message):
     print('my event: ' + message)
     send(message, broadcast=True)
 
+@socketio.on('json')
+def my_custom_json(json):
+    print('my event: ' + str(json))
+    send(json, broadcast=True)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login')

@@ -20,12 +20,12 @@
         });  //end connect
 
         socket.on('message', function(msg) {
-            $('#messages').append('<li>'+ msg +'</li>');
+            $('#messages').append('<li>'+ msg.name +': ' + msg.message +'</li>');
             console.log('message received')
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            socket.send($('#myMessage').val());
+            socket.send({'name': $('myName').val(),'message': $('#myMessage').val()});
             $('myMessage').val('');
         });  //end click
 
