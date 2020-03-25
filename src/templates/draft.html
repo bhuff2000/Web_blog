@@ -12,11 +12,10 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
 
-        var name = $('#myName').val(myName);
+        var name = $('#myName').val();
         var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
         socket.on('connect', function() {
-
             socket.send(name + ' user has connected!');
         });  //end connect
 
