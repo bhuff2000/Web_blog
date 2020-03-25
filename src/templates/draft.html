@@ -16,16 +16,16 @@
         var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
         socket.on('connect', function() {
-            socket.send(message, $('#myName').val() + ' user has connected!');
+            socket.send('message', $('#myName').val() + ' user has connected!');
         });  //end connect
 
-        socket.on('message', function(msg) {
+        socket.on('json', function(msg) {
             $('#messages').append('<li>'+ msg.name +': ' + msg.message +'</li>');
             console.log('message received')
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            socket.send(json, {'name': $('myName').val(),'message': $('#myMessage').val()});
+            socket.send('json', {'name': $('myName').val(),'message': $('#myMessage').val()});
             $('myMessage').val('');
         });  //end click
 
