@@ -6,7 +6,7 @@
 
 
     <ul id="messages"></ul>
-        <input type="text" id="myName" placeholder="Messages" value="{{  email  }}"/>
+        <input type="text" id="myName" placeholder="Name" value="{{  email  }}"/>
         <input type="text" id="myMessage" placeholder="Messages"/>
         <button id="sendbutton">Send</button>
     <script type="text/javascript" charset="utf-8">
@@ -25,7 +25,7 @@
         });  //end message
 
         $('#sendbutton').on('click', function() {
-            socket.send($('#myName').val());
+            socket.send($('#myMessage').val());
             $('myMessage').val('');
         });  //end click
 
