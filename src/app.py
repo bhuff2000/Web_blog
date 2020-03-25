@@ -28,11 +28,11 @@ def home_template():
 @app.route('/draft')
 def load_draft():
     email = session['email']
-    return render_template('draft.html', email=email )
+    return render_template('draft.html', email=str(email) )
 
 @socketio.on('message')
 def my_custom_event(message):
-    print('my event: ' + str(json))
+    print('my event: ' + message)
     send(message, broadcast=True)
 
 

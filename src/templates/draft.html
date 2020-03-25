@@ -17,7 +17,7 @@
 
         socket.on('connect', function() {
 
-            socket.send(str(name) + ' user has connected!');
+            socket.send(name + ' user has connected!');
         });  //end connect
 
         socket.on('message', function(msg) {
