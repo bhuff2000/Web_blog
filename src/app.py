@@ -27,7 +27,7 @@ def home_template():
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/draft')
 def load_draft():
-    email = str(session['email'])
+    email = session['email']
     return render_template('draft.html', email=email )
 
 @socketio.on('message')
