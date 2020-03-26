@@ -32,7 +32,7 @@
         var socket_messages = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
 
         $('#send').on('click', function() {
-            var message =$('#message').val();
+            var message= $('#message').val();
             socket_messages.emit('message from user', message);
         });
 
@@ -44,7 +44,7 @@
             alert(msg);
         });
 
-        var private_socket = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
+        var private_socket = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']});
 
         $('#send_username').on('click', function() {
             private_socket.emit('username', $('#username').val());
