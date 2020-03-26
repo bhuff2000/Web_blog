@@ -52,7 +52,7 @@
 
         $('#send_private_message').on('click', function() {
             var recipient = $('#send_to_username').val();
-            var message_to_load = $('#private_message').val();
+            var message_to_send = $('#private_message').val();
 
             private_socket.emit('private_message', {'username' : recipient, 'message' :  message_to_send});
 
