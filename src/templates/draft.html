@@ -29,7 +29,7 @@
 
         var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
-        var socket_messages = io('http://' +document.domain + ':' + location.port +'/draft')
+        var socket_messages = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
 
         $('#send').on('click', function() {
             var message =$('#message').val();
@@ -44,7 +44,7 @@
             alert(msg);
         });
 
-        var private_socket = io('http://' +document.domain + ':' + location.port +'/draft')
+        var private_socket = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
 
         $('#send_username').on('click', function() {
             private_socket.emit('usernane', $('#username').val());
