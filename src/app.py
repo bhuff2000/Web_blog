@@ -39,7 +39,7 @@ def originate():
     socketio.emit('server originated', 'Something happened on server')
     return '<h1>Sent!</h1>'
 
-@socketio.on('message from user', namespace='/messages')
+@socketio.on('message from user', namespace='/drsft')
 def receive_message_from_user(message):
     print('USER MESSAGE: {}'.format(message))
     emit('from flask', message.upper(), broadcast=True)
