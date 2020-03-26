@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-users =[]
+users ={}
 
 @app.route('/')
 def home_template():
@@ -52,7 +52,7 @@ def receive_username(username):
 
 @socketio.on('private_message', namespace='/draft2')
 def private_message(payload):
-    recipient_session_id = users[payload('username')]
+    recipient_session_id = users[payload['username']]
     message = payload['message']
     print(message + ' : ' + recipient_session_id)
     emit('new_private_message', message, room=recipient_session_id)
