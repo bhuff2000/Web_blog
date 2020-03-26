@@ -27,9 +27,9 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
 
-        var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft', {transports: ['websocket']});
+        var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
 
-        var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
+        var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft2', {transports: ['websocket']})
 
         $('#send').on('click', function() {
             var message= $('#message').val();
