@@ -36,12 +36,12 @@
             socket_messages.emit('message from user', message);
         });
 
-        private_socket.on('from_flask', function(msg) {
+        private_socket.on('from flask', function(msg) {
 
             alert(msg);
         });
 
-        private_socket.on('server originated', function(msg) {
+        socket.on('server originated', function(msg) {
             alert(msg);
         });
 

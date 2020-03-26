@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-users ={}
+users =[]
 
 @app.route('/')
 def home_template():
@@ -41,13 +41,14 @@ def originate():
 
 @socketio.on('message from user', namespace='/draft')
 def receive_message_from_user(message):
+    print(request.sid)
     print('USER MESSAGE: {}'.format(message))
-    emit('from_flask', message.upper(), broadcast=True)
+    emit('from flask', message.upper(), broadcast=True)
 
 @socketio.on('username', namespace='/draft' )
 def receive_username(username):
-    users[username]= request.sid
-    print('Username: '+ users['username'] + 'added!')
+    users.append({username :  request.sid})
+    print('Username: '+ username + ' added!')
 
 socketio.on('private_message', namespace='/draft')
 def private_message(payload):
