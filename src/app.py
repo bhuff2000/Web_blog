@@ -39,18 +39,18 @@ def originate():
     socketio.emit('server originated', 'Something happened on server')
     return '<h1>Sent!</h1>'
 
-@socketio.on('message from user', namespace='/draft')
+@socketio.on('message from user', namespace='/draft2')
 def receive_message_from_user(message):
     print(request.sid)
     print('USER MESSAGE: {}'.format(message))
     emit('from flask', message.upper(), broadcast=True)
 
-@socketio.on('username', namespace='/draft' )
+@socketio.on('username', namespace='/draft2' )
 def receive_username(username):
     users.append({username :  request.sid})
     print('Username: '+ username + ' added!')
 
-socketio.on('private_message', namespace='/draft')
+socketio.on('private_message', namespace='/draft2')
 def private_message(payload):
     recipient_session_id = users[payload['username']]
     message = payload['message']
