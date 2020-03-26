@@ -42,7 +42,7 @@ def originate():
 @socketio.on('message from user', namespace='/draft')
 def receive_message_from_user(message):
     print('USER MESSAGE: {}'.format(message))
-    emit('from flask', message.upper(), broadcast=True)
+    emit('from_flask', message.upper(), broadcast=True)
 
 @socketio.on('username', namespace='/draft' )
 def receive_username(username):
