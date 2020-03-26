@@ -53,6 +53,7 @@ socketio.on('private_message', namespace='/draft')
 def private_message(payload):
     recipient_session_id = users[payload['username']]
     message = payload['message']
+    print(message + ' : ' + recipient_session_id)
     emit('new_private_message', message, room=recipient_session_id)
 
 
