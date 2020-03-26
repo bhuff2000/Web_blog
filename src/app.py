@@ -50,7 +50,7 @@ def receive_username(username):
     users.append({username :  request.sid})
     print('Username: '+ username + ' added!')
 
-socketio.on('private_message', namespace='/draft2')
+@socketio.on('private_message', namespace='/draft2')
 def private_message(payload):
     recipient_session_id = users[payload['username']]
     message = payload['message']
