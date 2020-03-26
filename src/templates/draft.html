@@ -29,7 +29,7 @@
 
         var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft', {transports: ['websocket']});
 
-        var private_socket = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
+        var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']})
 
         $('#send').on('click', function() {
             var message= $('#message').val();
