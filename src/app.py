@@ -47,7 +47,7 @@ def receive_message_from_user(message):
 @socketio.on('username', namespace='/draft' )
 def receive_username(username):
     users[username]= request.sid
-    print('Username: '+ username + 'added!')
+    print('Username: '+ users['username'] + 'added!')
 
 socketio.on('private_message', namespace='/draft')
 def private_message(payload):
