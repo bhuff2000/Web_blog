@@ -27,25 +27,25 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
 
-        var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
+        //var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
 
         var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft2', {transports: ['websocket']})
 
-        $('#send').on('click', function() {
-            var message= $('#message').val();
-            console.log(message);
-            socket_messages.emit('message from user', message);
-        });
+        //$('#send').on('click', function() {
+        //    var message= $('#message').val();
+        //    console.log(message);
+        //    socket_messages.emit('message from user', message);
+        //});
 
-        private_socket.on('from flask', function(msg) {
-            console.log(msg);
-            alert(msg);
-        });
+        //private_socket.on('from flask', function(msg) {
+        //    console.log(msg);
+        //    alert(msg);
+        //});
 
-        socket.on('server originated', function(msg) {
-            console.log(msg);
-            alert(msg);
-        });
+        //socket.on('server originated', function(msg) {
+        //    console.log(msg);
+        //    alert(msg);
+        //});
 
         //var private_socket = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']});
 
@@ -69,19 +69,19 @@
         alert(msg);
 
         });
-        socket.on('connect', function() {
-            socket.send($('#myName').val() + ' user has connected!');
-        });  //end connect
+        //socket.on('connect', function() {
+        //    socket.send($('#myName').val() + ' user has connected!');
+        //});  //end connect
 
-        socket.on('json', function(msg) {
-            $('#messages').append('<li>'+ msg.name +': ' + msg.message +'</li>');
-            console.log('message received')
-        });  //end message
+        //socket.on('json', function(msg) {
+        //    $('#messages').append('<li>'+ msg.name +': ' + msg.message +'</li>');
+        //    console.log('message received')
+        //});  //end message
 
-        $('#sendbutton').on('click', function() {
-            socket.send({'name': $('myName').val(),'message': $('#myMessage').val()});
-            $('myMessage').val('');
-        });  //end click
+        //$('#sendbutton').on('click', function() {
+        //    socket.send({'name': $('myName').val(),'message': $('#myMessage').val()});
+        //    $('myMessage').val('');
+        //});  //end click
 
     });  //end ready
     //var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
