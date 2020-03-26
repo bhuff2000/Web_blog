@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-users =[]
+users ={}
 
 @app.route('/')
 def home_template():
@@ -47,7 +47,7 @@ def receive_message_from_user(message):
 
 @socketio.on('username', namespace='/draft2' )
 def receive_username(username):
-    users.append({username :  request.sid})
+    users.update({username :  request.sid})
     print('Username: '+ username + ' added!')
 
 @socketio.on('private_message', namespace='/draft2')
