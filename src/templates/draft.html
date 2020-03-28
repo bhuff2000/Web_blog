@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-
     <br>
     <br>
-    <div class="container" id="room_activity">
-        <h3 style='color: #ccc;font-size: 30px;'>Room Activity</h3>
-        <ul id="messages"></ul>
-    </div>
-
     <div class="container" id="room_creator">
         <b><input type="text" id="roomName" placeholder="RoomName" /></b>
         <button id="sendbutton">Create</button>
     </div>
+    
+    <div class="container" id="room_activity">
+        <h3 style='color: #ccc;font-size: 15px;'>Room Activity</h3>
+        <ul id="messages"></ul>
+    </div>
+
+
 
 
     <input type="text" id="message">
