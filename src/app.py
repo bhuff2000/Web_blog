@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-users ={}
+rooms ={}
 
 @app.route('/')
 def home_template():
@@ -29,34 +29,39 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
-@socketio.on('my event')
-def my_custom_event(json):
-    print('my event: ' + str(json))
-    send(json, broadcast=True)
+@socketio.on('new draft')
+def new_draft(newDraft):
+    rooms.update(newDraft)
+    emit('new draft', newDraft['draftName'], room=rooms['draftName'])
 
-@app.route('/originate')
-def originate():
-    socketio.emit('server originated', 'Something happened on server')
-    return '<h1>Sent!</h1>'
+#@socketio.on('my event')
+#def my_custom_event(json):
+#    print('my event: ' + str(json))
+#    send(json, broadcast=True)
 
-@socketio.on('message from user', namespace='/draft2')
-def receive_message_from_user(message):
-    print(request.sid)
-    print('USER MESSAGE: {}'.format(message))
-    emit('from flask', message.upper(), broadcast=True)
+#@app.route('/originate')
+#def originate():
+#    socketio.emit('server originated', 'Something happened on server')
+#    return '<h1>Sent!</h1>'
 
-@socketio.on('username', namespace='/draft2' )
-def receive_username(username):
-    users.update({username :  request.sid})
-    print('Username: '+ username + ' added!')
+#@socketio.on('message from user', namespace='/draft2')
+#def receive_message_from_user(message):
+#    print(request.sid)
+#    print('USER MESSAGE: {}'.format(message))
+#    emit('from flask', message.upper(), broadcast=True)
 
-@socketio.on('private_message', namespace='/draft2')
-def private_message(payload):
-    user = payload['username']
-    recipient_session_id = users[user]
-    message = payload['message']
-    print(message + ' : ' + recipient_session_id)
-    emit('new_private_message', message, room=recipient_session_id)
+#@socketio.on('username', namespace='/draft2' )
+#def receive_username(username):
+#    users.update({username :  request.sid})
+#    print('Username: '+ username + ' added!')
+
+#**@socketio.on('private_message', namespace='/draft2')
+#**def private_message(payload):
+#**    user = payload['username']
+#**    recipient_session_id = users[user]
+#**    message = payload['message']
+#**    print(message + ' : ' + recipient_session_id)
+#**    emit('new_private_message', message, room=recipient_session_id)
 
 
 

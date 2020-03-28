@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-    <br>
-    <br>
-    <span><div class="container" id="room_creator">
-        <b><input type="text" id="roomName" placeholder="RoomName" /></b>
-        <button id="sendbutton">Create</button>
-    </div>
-
     <div class="container" id="room_activity">
         <h3 style='color: #ccc;font-size: 15px;'>Room Activity</h3>
         <ul id="messages"></ul>
     </div>
-    </span>
+    <br>
+    <br>
+    <div class="container" id="room_creator">
+        <b><input type="text" id="roomName" placeholder="RoomName" /></b>
+        <button id="sendbutton">Create</button>
+    </div>
+
+
+
 
 
 
@@ -32,9 +33,17 @@
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
 
-        //var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
+        var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
+        $('#sendButton').on('submit', function() {
+            socketio.emit('new draft', {'draft_name' : $('#roomName').val()});
 
-        var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft2', {transports: ['websocket']})
+        });
+
+        socket.on('new draft', function(msg) {
+            $('#messages').append('<li>'+ msg.draftName ' created:</li>');
+        });
+
+        // **var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft2', {transports: ['websocket']})
 
         //$('#send').on('click', function() {
         //    var message= $('#message').val();
@@ -54,26 +63,26 @@
 
         //var private_socket = io('http://' +document.domain + ':' + location.port +'/draft', {transports: ['websocket']});
 
-        $('#send_username').on('click', function() {
-            console.log($('#username').val());
-            private_socket.emit('username', $('#username').val());
+        //**$('#send_username').on('click', function() {
+        //**    console.log($('#username').val());
+        //**    private_socket.emit('username', $('#username').val());
         });
 
-        $('#send_private_message').on('click', function() {
-            var recipient = $('#send_to_username').val();
-            console.log(recipient);
-            var message_to_send = $('#private_message').val();
-            console.log(message_to_send);
+        //**$('#send_private_message').on('click', function() {
+        //**    var recipient = $('#send_to_username').val();
+        //**    console.log(recipient);
+        //**    var message_to_send = $('#private_message').val();
+        //**    console.log(message_to_send);
 
-            private_socket.emit('private_message', {'username' : recipient, 'message' :  message_to_send});
+        //**    private_socket.emit('private_message', {'username' : recipient, 'message' :  message_to_send});
 
-        });
+        //**});
 
-        private_socket.on('new_private_message', function(msg)  {
-        console.log(msg);
-        alert(msg);
+        //**private_socket.on('new_private_message', function(msg)  {
+        //**console.log(msg);
+        //**alert(msg);
 
-        });
+        //**});
         //socket.on('connect', function() {
         //    socket.send($('#myName').val() + ' user has connected!');
         //});  //end connect
