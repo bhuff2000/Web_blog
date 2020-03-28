@@ -35,6 +35,7 @@
 
         var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
         $('#sendButton').on('submit', function() {
+            console.log($('#roomName').val());
             socketio.emit('new draft', {'draft_name' : $('#roomName').val()});
 
         });
