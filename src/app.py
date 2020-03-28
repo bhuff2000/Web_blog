@@ -29,7 +29,7 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
-@socketio.on('new draft')
+@socketio.on('new draft', namespace='/draft2')
 def new_draft(newDraft):
     rooms.update(newDraft)
     print(rooms[newDraft['draftName']])
