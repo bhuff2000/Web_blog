@@ -37,7 +37,7 @@
 
         $('#sendbutton').on('click', function() {
             console.log($('#roomName').val());
-            socket.emit('new draft', {'draft_name' : $('#roomName').val()});
+            socket.emit('join', {'draft_name' : $('#roomName').val()});
 
         });
 

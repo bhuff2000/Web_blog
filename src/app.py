@@ -29,11 +29,13 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
-@socketio.on('new draft', namespace='/draft2')
+@socketio.on('join', namespace='/draft2')
 def new_draft(newDraft):
     rooms.update(newDraft)
-    print(rooms['draft_name'])
-    emit('new draft', newDraft['draft_name'], room=rooms['draft_name'])
+    room = rooms['draft_name']
+    print(room)
+    join_room(room)
+    emit('new draft', rooms['draft_name'], room=room)
 
 #@socketio.on('my event')
 #def my_custom_event(json):
