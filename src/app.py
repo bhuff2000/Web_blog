@@ -39,6 +39,11 @@ def new_draft(newDraft):
     join_room(room)
     emit('new draft', {'draft_name': rooms['draft_name'], 'user': user}, room=room)
 
+@socketio.on('get_room_list', namespace='/draft2')
+def get_room_list():
+    room_list = rooms
+    emit()
+
 #@socketio.on('my event')
 #def my_custom_event(json):
 #    print('my event: ' + str(json))
