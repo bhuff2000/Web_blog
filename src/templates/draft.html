@@ -49,7 +49,7 @@
             socket.emit('join', {'draft_name' : $('#roomName').val()});
         });
 
-        $('#join_room_button').on('click', function {
+        $('#join_room_button').on('click', function() {
             socket.emit('get_room_list');
          });
 
