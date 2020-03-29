@@ -33,7 +33,7 @@ def load_draft():
 def new_draft(newDraft):
     rooms.update(newDraft)
     print(rooms['draft_name'])
-    emit('new draft', newDraft['draft_name'], room=rooms['draftName'])
+    emit('new draft', newDraft['draft_name'], room=rooms['draft_name'])
 
 #@socketio.on('my event')
 #def my_custom_event(json):
