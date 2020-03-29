@@ -42,7 +42,7 @@ def new_draft(newDraft):
 @socketio.on('get_room_list', namespace='/draft2')
 def get_room_list():
     room_list = rooms
-    emit()
+    emit('rec_room_list', room_list)
 
 #@socketio.on('my event')
 #def my_custom_event(json):
