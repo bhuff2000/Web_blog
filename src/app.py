@@ -35,7 +35,13 @@ def new_draft(newDraft):
     print(user)
     room = newDraft['draft_name']
     print(room)
-    if room in rooms:
+    found = False
+    for rm in rooms:
+        rm1 = rm['draft_name']
+        if rm1 == room:
+            found = True
+
+    if found:
         print('iam in if')
         emit('user_join_room', {'draft_name': room, 'user': user}, room=room )
     else:
