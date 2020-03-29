@@ -42,7 +42,7 @@
         });
 
         socket.on('new draft', function(msg) {
-            $('#messages').append('<li>'+ msg.draft_name +' created:</li>');
+            $('#messages').append('<li>'+ msg +' created:</li>');
         });
 
         // **var private_socket = io.connect('http://' +document.domain + ':' + location.port +'/draft2', {transports: ['websocket']})
