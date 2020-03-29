@@ -31,13 +31,16 @@ def load_draft():
 
 @socketio.on('join', namespace='/draft2')
 def new_draft(newDraft):
-    rooms.append(newDraft)
-    room = newDraft['draft_name']
-    print(room)
     user = session['email']
     print(user)
-    join_room(room)
-    emit('new draft', {'draft_name': newDraft['draft_name'], 'user': user}, room=room)
+    room = newDraft['draft_name']
+    if newDraft['draft_name'] in rooms:
+        emit('user_join_room', {'draft_name': newDraft['draft_name'], 'user': user}, room=room )
+    else:
+        rooms.append(newDraft)
+        print(room)
+        join_room(room)
+        emit('new draft', {'draft_name': newDraft['draft_name'], 'user': user}, room=room)
 
 @socketio.on('get_room_list', namespace='/draft2')
 def get_room_list():

@@ -49,10 +49,19 @@
             socket.emit('join', {'draft_name' : $('#roomName').val()});
         });
 
+        $('#room_selector').on('change', function() {
+            console.log($('#room_selector').val());
+            socket.emit('join', {'draft_name' : $('#room_selector').val()});
+        });
+
         $('#join_room_button').on('click', function() {
             console.log('join room button')
             socket.emit('get_room_list');
          });
+
+        socket.on('user_join_room', function(msg) {
+            $('#messages').append('<li>'+ msg.user +' has joined the room</li>');
+        });
 
         socket.on('rec_room_list', function(msg) {
            drafts_data = '';
