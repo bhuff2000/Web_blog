@@ -35,15 +35,15 @@ def new_draft(newDraft):
     print(user)
     room = newDraft['draft_name']
     print(room)
-    if newDraft['draft_name'] in rooms:
-            print('iam in if')
-            emit('user_join_room', {'draft_name': newDraft['draft_name'], 'user': user}, room=room )
+    if room in rooms:
+        print('iam in if')
+        emit('user_join_room', {'draft_name': room, 'user': user}, room=room )
     else:
         print('iam in else')
         rooms.append(newDraft)
         print(room)
         join_room(room)
-        emit('new draft', {'draft_name': newDraft['draft_name'], 'user': user}, room=room)
+        emit('new draft', {'draft_name': room, 'user': user}, room=room)
 
 @socketio.on('get_room_list', namespace='/draft2')
 def get_room_list():
