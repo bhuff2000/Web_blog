@@ -39,7 +39,7 @@
 
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
-        $('#room_join_list').hide();
+        $('#join_room_list').hide();
 
 
         var socket =io.connect('http://' +document.domain + ':' + location.port + '/draft2', {transports: ['websocket']});
@@ -56,9 +56,9 @@
 
         socket.on('rec_room_list', function(msg) {
            drafts_data = '';
-           print('in the rec_room_list function')
+           console.log('in the rec_room_list function')
                 $.each(msg, function() {
-                    drafts_data += '<option value=\"' +$(this).attr('draft_name')+ '</option>';
+                    drafts_data += '<option value> +$(this).attr('draft_name')+ '</option>';
                 });  // end each
                 console.log(drafts_data)
                 $('#room_selector').append(drafts_data);
