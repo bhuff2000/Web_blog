@@ -35,9 +35,9 @@ def new_draft(newDraft):
     print(user)
     room = newDraft['draft_name']
     print(room)
-    if newDraft['draft_name'] in room in rooms:
-        print('iam in if')
-        emit('user_join_room', {'draft_name': newDraft['draft_name'], 'user': user}, room=room )
+    if newDraft['draft_name'] in rooms:
+            print('iam in if')
+            emit('user_join_room', {'draft_name': newDraft['draft_name'], 'user': user}, room=room )
     else:
         print('iam in else')
         rooms.append(newDraft)
