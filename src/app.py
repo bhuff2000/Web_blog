@@ -42,6 +42,7 @@ def new_draft(newDraft):
 @socketio.on('get_room_list', namespace='/draft2')
 def get_room_list():
     room_list = rooms
+    print(room_list)
     emit('rec_room_list', room_list)
 
 #@socketio.on('my event')
