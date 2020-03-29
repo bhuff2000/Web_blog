@@ -15,7 +15,7 @@
     <br>
     <div class="input-group mb-3" id="join_room_list">
         <select class="custom-select" id="room_selector" name="room_drop_down">
-            <option selected>Choose Series</option>
+            <option selected>Choose Draft</option>
         </select>
     </div>
 
@@ -59,6 +59,7 @@
                 $.each(msg, function() {
                     drafts_data += '<option value=\"' +$(this).attr('draft_name')+ '</option>';
                 });  // end each
+                console.log(drafts_data)
                 $('#room_selector').append(drafts_data);
             $('#room_join_list').show();
         });
