@@ -68,7 +68,7 @@
            console.log(msg)
            console.log('in the rec_room_list function')
                 $.each(msg, function() {
-                    drafts_data += '<option value>' +$(this).attr('draft_name')+ '</option>';
+                    drafts_data += '<option>' +$(this).attr('draft_name')+ '</option>';
                 });  // end each
                 console.log(drafts_data)
                 $('#room_selector').append(drafts_data);
