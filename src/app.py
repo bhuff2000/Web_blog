@@ -32,7 +32,7 @@ def load_draft():
 @socketio.on('new draft', namespace='/draft2')
 def new_draft(newDraft):
     rooms.update(newDraft)
-    print(rooms[newDraft['draftName']])
+    print(rooms['draftName'])
     emit('new draft', newDraft['draftName'], room=rooms['draftName'])
 
 #@socketio.on('my event')
