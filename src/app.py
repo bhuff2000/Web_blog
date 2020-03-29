@@ -34,8 +34,10 @@ def new_draft(newDraft):
     rooms.update(newDraft)
     room = rooms['draft_name']
     print(room)
+    user = session['email']
+    print(user)
     join_room(room)
-    emit('new draft', rooms['draft_name'], room=room)
+    emit('new draft', {'draft_name': rooms['draft_name'], 'user': user}, room=room)
 
 #@socketio.on('my event')
 #def my_custom_event(json):
