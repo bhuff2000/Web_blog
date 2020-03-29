@@ -64,6 +64,7 @@
         });
 
         socket.on('rec_room_list', function(msg) {
+           $('#room_selector option').remove();
            drafts_data = '';
            console.log(msg)
            console.log('in the rec_room_list function')
