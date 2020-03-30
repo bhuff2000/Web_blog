@@ -43,7 +43,7 @@ def new_draft(newDraft):
     print(found)
     if found:
         print('iam in if')
-        emit('user_join_room', {'draft_name': room, 'user': user}, room=room, broadcast=True )
+        emit('user_join_room', {'draft_name': room, 'user': user}, room=room, broadcast=True)
     else:
         print('iam in else')
         rooms.append(newDraft)
