@@ -38,7 +38,7 @@ def new_draft(newDraft):
     room = newDraft['draft_name']
     print(room)
     found = False
-    rms = rooms('/draft2')
+    rms = rooms(namespace='/draft2')
     print(rms)
     for rm in room_lst:
         rm1 = rm['draft_name']
@@ -53,7 +53,7 @@ def new_draft(newDraft):
         room_lst.append(newDraft)
         print(room)
         join_room(room)
-        emit('new draft', {'draft_name': room, 'user': user}, room=room, broadcast=True)
+        emit('new draft', {'draft_name': room, 'user': user}, room=room)
 
 
 @socketio.on('get_room_list', namespace='/draft2')
