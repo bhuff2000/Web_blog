@@ -55,7 +55,7 @@
         });
 
         $('#join_room_button').on('click', function() {
-            console.log('join room button')
+            console.log('join room button');
             socket.emit('get_room_list');
          });
 
@@ -67,12 +67,12 @@
            $('#room_selector option').remove();
            drafts_data = '';
            drafts_data += '<option selected>Choose Draft</option>';
-           console.log(msg)
-           console.log('in the rec_room_list function')
+           console.log(msg);
+           console.log('in the rec_room_list function');
                 $.each(msg, function() {
                     drafts_data += '<option>' +$(this).attr('draft_name')+ '</option>';
                 });  // end each
-                console.log(drafts_data)
+                console.log(drafts_data);
                 $('#room_selector').append(drafts_data);
             $('#join_room_list').show();
         });
