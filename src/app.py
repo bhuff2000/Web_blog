@@ -31,6 +31,7 @@ def load_draft():
 
 @socketio.on('join', namespace='/draft2')
 def new_draft(newDraft):
+    user_rm = request.sid
     user = session['email']
     print(user)
     room = newDraft['draft_name']
@@ -45,14 +46,14 @@ def new_draft(newDraft):
     print(found)
     if found:
         print('iam in if')
-        emit('user join room', {'draft_name': room, 'user': user}, room=room)
+        emit('user join room', {'draft_name': room, 'user': user}, room=room, broadcast=True)
     else:
         print('iam in else')
         room_lst.append(newDraft)
         print(room)
         join_room(room)
 
-        emit('new draft', {'draft_name': room, 'user': user}, room=room)
+        emit('new draft', {'draft_name': room, 'user': user}, room=room, broadcast=True)
 
 
 
