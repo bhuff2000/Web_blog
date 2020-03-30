@@ -38,8 +38,8 @@ def new_draft(newDraft):
     room = newDraft['draft_name']
     print(room)
     found = False
-    rms = rooms()
-    print(rms)
+    rms = rooms('/draft2')
+    print('draft2: ' +rms)
     for rm in room_lst:
         rm1 = rm['draft_name']
         if rm1 == room:
