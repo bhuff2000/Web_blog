@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, make_response, jsonify, json
-from flask_socketio import SocketIO, emit, send, join_room, leave_room
+from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-rooms =[]
+room_lst =[]
 
 @app.route('/')
 def home_template():
@@ -36,7 +36,9 @@ def new_draft(newDraft):
     room = newDraft['draft_name']
     print(room)
     found = False
-    for rm in rooms:
+    rms = rooms()
+    print(rms)
+    for rm in room_lst:
         rm1 = rm['draft_name']
         if rm1 == room:
             found = True
@@ -46,14 +48,19 @@ def new_draft(newDraft):
         emit('user join room', {'draft_name': room, 'user': user}, room=room)
     else:
         print('iam in else')
-        rooms.append(newDraft)
+        room_lst.append(newDraft)
         print(room)
         join_room(room)
+
         emit('new draft', {'draft_name': room, 'user': user}, room=room)
+
+
+
+
 
 @socketio.on('get_room_list', namespace='/draft2')
 def get_room_list():
-    room_list = rooms
+    room_list = room_lst
     print(room_list)
     emit('rec_room_list', room_list)
 
