@@ -43,13 +43,13 @@ def new_draft(newDraft):
     print(found)
     if found:
         print('iam in if')
-        emit('user_join_room', {'draft_name': room, 'user': user}, room=room, broadcast=True)
+        emit('user join room', {'draft_name': room, 'user': user}, room=room)
     else:
         print('iam in else')
         rooms.append(newDraft)
         print(room)
         join_room(room)
-        emit('new draft', {'draft_name': room, 'user': user}, room=room, broadcast=True)
+        emit('new draft', {'draft_name': room, 'user': user}, room=room)
 
 @socketio.on('get_room_list', namespace='/draft2')
 def get_room_list():

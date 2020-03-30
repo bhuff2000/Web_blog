@@ -59,9 +59,7 @@
             socket.emit('get_room_list');
          });
 
-        socket.on('user_join_room', function(msg) {
-            $('#messages').append('<li>'+ msg.user +' has joined the room</li>');
-        });
+
 
         socket.on('rec_room_list', function(msg) {
            $('#room_selector option').remove();
@@ -75,6 +73,10 @@
                 console.log(drafts_data);
                 $('#room_selector').append(drafts_data);
             $('#join_room_list').show();
+        });
+
+        socket.on('user join room', function(msg) {
+            $('#messages').append('<li>'+ msg.user +' has joined the room</li>');
         });
 
         socket.on('new draft', function(msg) {
