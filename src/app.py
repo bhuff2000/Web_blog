@@ -30,7 +30,7 @@ def load_draft():
     return render_template('draft.html', email=session['email'] )
 
 
-@socketio.on('join', namespace='/draft/draft2')
+@socketio.on('join')
 def new_draft(newDraft):
     user_rm = request.sid
     user = session['email']
@@ -38,7 +38,7 @@ def new_draft(newDraft):
     room = newDraft['draft_name']
     print(room)
     found = False
-    rms = rooms(namespace='/draft/draft2')
+    rms = rooms(namespace='/draft2')
     print(rms)
     for rm in room_lst:
         rm1 = rm['draft_name']
@@ -56,7 +56,7 @@ def new_draft(newDraft):
         emit('new draft', {'draft_name': room, 'user': user}, room=room)
 
 
-@socketio.on('get_room_list', namespace='/draft/draft2')
+@socketio.on('get_room_list')
 def get_room_list():
     room_list = room_lst
     print(room_list)
