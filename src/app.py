@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, session, make_response, jsonify, json
+from flask import Flask, render_template, request, session, make_response, jsonify, json, redirect, url_for
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -109,6 +110,10 @@ def initialize_database():
 
 @app.route('/auth/login', methods=['POST'])
 def login_user():
+
+    if current_user.is_authenticated():
+        return redirect(url_for('profile'))
+    
     email = request.form['email']
     password = request.form['password']
 
