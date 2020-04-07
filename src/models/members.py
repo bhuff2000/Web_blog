@@ -27,4 +27,3 @@ class Room_Member(object):
 
     def add_room_member(self):
         member = Database.insert('members', data=self.json())
-        

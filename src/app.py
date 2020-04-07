@@ -179,6 +179,10 @@ def create_new_post(blog_id):
 def nascar_template():
     return render_template('nascar_home.html')
 
+@app.route('/nascar/pool')
+def nascar_pool():
+    return render_template('create_pool.html')
+
 
 @app.route('/nascar/admin')
 def nascar_admin_template():
