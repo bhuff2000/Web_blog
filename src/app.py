@@ -12,6 +12,7 @@ from src.models.post import Post
 from src.models.races import Sched_Event
 from src.models.test import Test
 from src.models.user import User
+from src.forms.login import LoginForm
 
 
 
@@ -19,6 +20,10 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
+
 room_lst =[]
 
 @app.route('/')
@@ -97,7 +102,9 @@ def get_room_list():
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login')
 def login_template():
-    return render_template('login.html')
+    form = LoginForm()
+
+    return render_template('log_in.html', form=form)
 
 
 @app.route('/register')
@@ -111,9 +118,10 @@ def initialize_database():
 @app.route('/auth/login', methods=['POST'])
 def login_user():
 
+
     if current_user.is_authenticated():
         return redirect(url_for('profile'))
-    
+
     email = request.form['email']
     password = request.form['password']
 
