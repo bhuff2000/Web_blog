@@ -20,9 +20,9 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-login_manager = LoginManager()
-login_manager.login_view = 'login'
-login_manager.init_app(app)
+#login_manager = LoginManager()
+#login_manager.login_view = 'login'
+#login_manager.init_app(app)
 
 room_lst =[]
 
@@ -119,8 +119,8 @@ def initialize_database():
 def login_user():
 
 
-    if current_user.is_authenticated():
-        return redirect(url_for('profile'))
+    #if current_user.is_authenticated():
+    #    return redirect(url_for('profile'))
 
     email = request.form['email']
     password = request.form['password']
