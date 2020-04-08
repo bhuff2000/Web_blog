@@ -102,7 +102,7 @@ def get_room_list():
 
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
 def login_template():
     form = LoginForm()
 
