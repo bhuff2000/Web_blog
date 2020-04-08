@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, make_response, jsonify, json, redirect, url_for
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-
+from flask_bootstrap import Bootstrap
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
