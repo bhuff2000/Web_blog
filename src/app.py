@@ -21,9 +21,9 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 socketio =SocketIO(app)
-#login_manager = LoginManager()
-#login_manager.login_view = 'login'
-#login_manager.init_app(app)
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
 Bootstrap(app)
 
 room_lst =[]
