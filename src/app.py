@@ -128,8 +128,7 @@ def register_template():
     if form.validate_on_submit():
         User.register(email, password, username)
 
-
-    return render_template('register.html')
+    return render_template('register.html', form=form)
 
 @app.before_first_request
 def initialize_database():
