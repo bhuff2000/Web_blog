@@ -111,7 +111,7 @@ def login_template():
     if form.validate_on_submit():
         if User.login_valid(email, password):
             session['email'] = form.email.data
-            return render_template('profile.html')
+            return render_template('profile.html', email=session['email'])
         else:
             return redirect('login')
 
