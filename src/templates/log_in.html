@@ -5,12 +5,19 @@
 
 <div class="page-header" id="login_form">
     <h1>Login</h1>
-<div/>
+</div>
 
 <div class="col-md-3" id="loginform">
 <br>
 <br>
 {{  wtf.quick_form(form)  }}
 </div>
+
+<p>
+    New User?
+    <a href="{{  url_for('register')  }}">
+        Click here to register
+    </a>
+</p>
 
 {% endblock %}

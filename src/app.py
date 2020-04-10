@@ -14,7 +14,7 @@ from src.models.races import Sched_Event
 from src.models.test import Test
 from src.models.user import User
 from src.forms.login import LoginForm
-
+from src.forms.register import RegistrationForm
 
 
 app = Flask(__name__)
@@ -118,8 +118,18 @@ def login_template():
     return render_template('log_in.html', form=form)
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register_template():
+    form = RegistrationForm()
+    email = form.email.data
+    password = form.password.data
+    username = form.username.data
+
+    if form.validate_on_submit():
+        User.register(email, password, username)
+    else:
+        return redirect('login')
+
     return render_template('register.html')
 
 @app.before_first_request
@@ -143,12 +153,14 @@ def login_user():
 
     return render_template("profile.html", email=session['email'])
 
-@app.route('/auth/register', methods=['POST'])
+@app.route('/auth/register', methods=['GET', 'POST'])
 def register_user():
+
     email = request.form['email']
     password = request.form['password']
+    username = request.form['username']
 
-    User.register(email, password)
+    User.register(email, password, username)
 
     return render_template("profile.html", email=session['email'])
 

@@ -9,9 +9,10 @@ from src.models.blog import Blog
 
 
 class User(object):
-    def __init__(self, email, password, _id=None):
+    def __init__(self, email, password, username, _id=None):
         self.email = email
         self.password = password
+        self.username = username
         self._id = uuid.uuid4().hex if _id is None else _id
 
     @classmethod
@@ -26,6 +27,12 @@ class User(object):
         if data is not None:
             return cls(**data)
 
+    @classmethod
+    def get_by_username(cls, username):
+        data = Database.find_one("users", {"username": username})
+        if data is not None:
+            return cls(**data)
+
     @staticmethod
     def login_valid(email, password):
         user = User.get_by_email(email)
@@ -34,10 +41,10 @@ class User(object):
         return False
 
     @classmethod
-    def register(cls, email, password):
+    def register(cls, email, password, username):
         user = cls.get_by_email(email)
         if user is None:
-            new_user = cls(email, Utils.hash_password(password))
+            new_user = cls(email, Utils.hash_password(password), username)
             new_user.save_to_mongo()
             session['email'] = email
             return True
@@ -73,8 +80,9 @@ class User(object):
     def json(self):
         return {
             'email': self.email,
+            'password': self.password,
+            'username': self.username,
             '_id': self._id,
-            'password': self.password
         }
 
     def save_to_mongo(self):

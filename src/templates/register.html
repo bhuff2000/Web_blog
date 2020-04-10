@@ -1,24 +1,22 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
 {% block content %}
 
-<form id="login-form" action="/auth/register" method="post">
-    <div class="container">
-        <div class="form-row">
-            <div class="form-group col-sm-5">
-                <label for="email">Email</label>
-                <input type="text" id="email" class="form-control" name="email">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-sm-5">
-                <label for="password">Password</label>
-                <input type="password" id="password" class = "form-control" name="password">
-            </div>
-        </div>
+<div class="page-header" id="register_form">
+    <h1>Register</h1>
+</div>
 
-        <button type="submit" class="btn btn-success" >Sign up</button>
+<div class="col-md-3" id="registerform">
+<br>
+<br>
+{{  wtf.quick_form(form)  }}
+</div>
 
-    </div>
-</form>
-<a href="/"><button type="submit" class="btn btn-success" >Home</button></a>
-{% endblock %}
+<p>
+    <a href="{{  url_for('login')  }}">
+        Return to login.
+    </a>
+</p>
+
+{% endblock
