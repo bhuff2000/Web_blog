@@ -127,8 +127,7 @@ def register_template():
 
     if form.validate_on_submit():
         User.register(email, password, username)
-    else:
-        return redirect('login')
+
 
     return render_template('register.html')
 
