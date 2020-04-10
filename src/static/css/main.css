@@ -2,14 +2,6 @@ body{
 background-color: #FFE4C4;
 }
 
-#loginform{
-background-color: #FFE4C4
-border-style: solid;
-border-width: 2px;
-margin: 150px;
-padding: 10px;
-}
-
 #login-form{
 margin-top: 100px;
 }
