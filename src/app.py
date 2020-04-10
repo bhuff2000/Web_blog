@@ -105,6 +105,9 @@ def get_room_list():
 @app.route('/login', methods=['POST', 'GET'])
 def login_template():
     form = LoginForm()
+    if form.validate_on_submit():
+        session['email'] = form.email.data
+        return redirect(url_for('profile'))
 
     return render_template('log_in.html', form=form)
 
