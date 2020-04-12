@@ -21,7 +21,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 login_manager = LoginManager()
-login_manager.login_view = 'login'
+login_manager.login_view = '/login'
 login_manager.init_app(app)
 socketio =SocketIO(app)
 Bootstrap(app)
