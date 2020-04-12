@@ -248,7 +248,10 @@ def nascar_pool():
     members = form.members.data
     if form.validate_on_submit():
         new_pool = Room(pool_name, current_user)
+        print(new_pool.json())
         new_pool.save_room()
+        print(new_pool.json())
+        return render_template('profile.html', email=session['email'])
     return render_template('create_pool.html', form = form)
 
 
