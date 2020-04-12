@@ -9,7 +9,7 @@ from src.common.utils import Utils
 from src.models.blog import Blog
 
 
-class User(object, UserMixin):
+class User(UserMixin):
     def __init__(self, email, password, username, _id=None):
         self.email = email
         self.password = password
