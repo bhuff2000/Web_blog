@@ -241,7 +241,7 @@ def create_new_post(blog_id):
 def nascar_template():
     return render_template('nascar_home.html')
 
-@app.route('/nascar/pool')
+@app.route('/nascar/pool', methods=['GET', 'POST'])
 def nascar_pool():
     form = CreatePool()
     pool_name = form.pool_name.data
