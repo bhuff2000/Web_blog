@@ -13,9 +13,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-        <li><a href="{{  url_for('/logout')  }}">Log Out</a></li>
+        <li><a href="{{  url_for('logout')  }}">Log Out</a></li>
         {% else %}
-        <li><a href="{{  url_for('/login')  }}">Log Out</a></li>
+        <li><a href="{{  url_for('login')  }}">Log Out</a></li>
         {% endif %}
     </ul>
 </head>
