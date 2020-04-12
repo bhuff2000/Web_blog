@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, session, make_response, jsonify, json, redirect, url_for
+from flask import Flask, render_template, request, session, make_response, jsonify, json, redirect, url_for, flash
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user, login_manager
 from flask_bootstrap import Bootstrap
 
 from bson.json_util import dumps, loads
@@ -20,10 +20,10 @@ from src.forms.register import RegistrationForm
 app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
+login_mgr = LoginManager()
+login_mgr.login_view = 'login'
+login_mgr.init_app(app)
 socketio =SocketIO(app)
-#login_manager = LoginManager()
-#login_manager.login_view = 'login'
-#login_manager.init_app(app)
 Bootstrap(app)
 
 room_lst =[]
@@ -109,27 +109,45 @@ def login_template():
     password = form.password.data
 
     if form.validate_on_submit():
+        email = request.form["email"]
+        password = request.form["password"]
+        find_user = Database.find_one("users", {"email": email})
         if User.login_valid(email, password):
-            session['email'] = form.email.data
+            loguser = User(find_user["_id"], find_user["email"], find_user["password"])
+            login_user(loguser, remember=form.remember.data)
+            flash('You have been logged in!', 'success')
             return render_template('profile.html', email=session['email'])
         else:
-            return redirect('login')
+            flash('Login Unsuccessful.  Please check email and password', 'danger')
+    return render_template('log_in.html', title='Login', form=form)
 
-    return render_template('log_in.html', form=form)
+
+@login_manager.user_loader
+def load_user(user_id):
+    user = User.get_by_id(user_id)
+    if user is not None:
+        return User(user["_id"])
+    else:
+        return None
+
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register_template():
     form = RegistrationForm()
-    email = form.email.data
-    password = form.password.data
-    username = form.username.data
-
     if form.validate_on_submit():
-        User.register(email, password, username)
-        return render_template('profile.html', email=session['email'])
-
-    return render_template('register.html', form=form)
+        if request.method == 'POST':
+            username = request.form["username"]
+            email = request.form["email"]
+            password = Utils.hash_password(request.form["password"])
+            find_user = User.get_by_email(email)
+            if find_user is None:
+                User.register(email, password, username)
+                flash(f'Account created for {form.username.data}!', 'success')
+                return render_template('profile.html', email=session['email'])
+            else:
+                flash(f'Account already exists for {form.username.data}!', 'success')
+    return render_template('register.html', title='Register', form=form)
 
 @app.before_first_request
 def initialize_database():

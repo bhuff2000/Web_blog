@@ -1,4 +1,5 @@
 from flask import session
+from flask_login import UserMixin
 
 from src.common import utils
 from src.common.database import Database
@@ -8,12 +9,21 @@ from src.common.utils import Utils
 from src.models.blog import Blog
 
 
-class User(object):
+class User(object, UserMixin):
     def __init__(self, email, password, username, _id=None):
         self.email = email
         self.password = password
         self.username = username
         self._id = uuid.uuid4().hex if _id is None else _id
+
+    def is_authenticated(self):
+        return True
+    def is_active(self):
+        return True
+    def is_anonymous(self):
+        return False
+    def get_id(self):
+        return self._id
 
     @classmethod
     def get_by_email(cls, email):
@@ -35,21 +45,18 @@ class User(object):
 
     @staticmethod
     def login_valid(email, password):
-        user = User.get_by_email(email)
-        if user is not None:
-            return Utils.check_hashed_password(password, user.password)
+        verify_user = User.get_by_email(email)
+        if verify_user is not None:
+            return Utils.check_hashed_password(password, verify_user.password)
         return False
 
     @classmethod
     def register(cls, email, password, username):
-        user = cls.get_by_email(email)
-        if user is None:
-            new_user = cls(email, Utils.hash_password(password), username)
-            new_user.save_to_mongo()
-            session['email'] = email
-            return True
-        else:
-            return False
+        new_user = cls(email, password, username)
+        new_user.save_to_mongo()
+        session['email'] = email
+        return True
+
 
     @staticmethod
     def login(user_email):
