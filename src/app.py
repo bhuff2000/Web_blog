@@ -122,6 +122,13 @@ def login_template():
     return render_template('log_in.html', title='Login', form=form)
 
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been loggec out.')
+    return redirect(url_for('/'))
+
 @login_manager.user_loader
 def load_user(user_id):
     user = User.get_by_id(user_id)
