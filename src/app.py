@@ -127,7 +127,7 @@ def login_template():
 def logout():
     logout_user()
     flash('You have been logged out.')
-    return redirect(url_for('/'))
+    return redirect(url_for('login'))
 
 @login_manager.user_loader
 def load_user(user_id):
