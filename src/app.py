@@ -125,8 +125,8 @@ def login_template():
 @login_manager.user_loader
 def load_user(user_id):
     user = User.get_by_id(user_id)
-    if user is not None:
-        return User(user["_id"])
+    if user_id is not None:
+        return User.get_by_id(user_id)
     else:
         return None
 
