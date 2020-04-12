@@ -1,3 +1,5 @@
+from flask_login import current_user
+
 __author__ = 'behou'
 from src.common.database import Database
 import datetime

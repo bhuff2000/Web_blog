@@ -6,11 +6,13 @@ from flask_bootstrap import Bootstrap
 from bson.json_util import dumps, loads
 from src.common.database import Database
 from src.common.utils import Utils
+from src.forms.create_pool import CreatePool
 from src.models import user
 from src.models.blog import Blog
 from src.models.entrants import Entrants
 from src.models.post import Post
 from src.models.races import Sched_Event
+from src.models.rooms import Room
 from src.models.test import Test
 from src.models.user import User
 from src.forms.login import LoginForm
@@ -241,7 +243,13 @@ def nascar_template():
 
 @app.route('/nascar/pool')
 def nascar_pool():
-    return render_template('create_pool.html')
+    form = CreatePool()
+    pool_name = form.pool_name.data
+    members = form.members.data
+    if form.validate_on_submit():
+        new_pool = Room(pool_name, current_user)
+        new_pool.save_room()
+    return render_template('create_pool.html', form = form)
 
 
 @app.route('/nascar/admin')
