@@ -238,6 +238,7 @@ def nascar_pool():
 
 
 @app.route('/nascar/admin')
+@login_required
 def nascar_admin_template():
     races = Sched_Event.find_by_year('2020')
     return render_template('nascar_admin.html', races=races)
