@@ -113,8 +113,8 @@ def login_template():
         password = request.form["password"]
         find_user = Database.find_one("users", {"email": email})
         if User.login_valid(email, password):
-            loguser = User(find_user["_id"], find_user["email"], find_user["password"])
-            login_user()
+            loguser = User(find_user["email"], find_user["password"], find_user["username"], find_user["_id"])
+            login_user(loguser)
             flash('You have been logged in!', 'success')
             return render_template('profile.html', email=session['email'])
         else:
