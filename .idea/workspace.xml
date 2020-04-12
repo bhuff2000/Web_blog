@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc9b75ce-29a8-45ee-89b3-ecc3496d6192" name="Default Changelist" comment="added new class for enrants and code to get entrant data from sportradar and load to mongo">
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="373">
@@ -23,6 +23,15 @@
               <folding>
                 <element signature="e#0#107#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -44,15 +53,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/static/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -172,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/templates/profile.html" />
         <option value="$PROJECT_DIR$/src/models/test.py" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/src/templates/base.html" />
         <option value="$PROJECT_DIR$/src/templates/draft_room.html" />
         <option value="$PROJECT_DIR$/src/templates/nascar_admin.html" />
         <option value="$PROJECT_DIR$/src/templates/draft.html" />
@@ -187,6 +186,7 @@
         <option value="$PROJECT_DIR$/src/forms/register.py" />
         <option value="$PROJECT_DIR$/src/models/user.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
+        <option value="$PROJECT_DIR$/src/templates/base.html" />
       </list>
     </option>
   </component>
@@ -383,7 +383,7 @@
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50282484" side_tool="true" weight="0.24950495" />
       <window_info id="Structure" order="1" sideWeight="0.5010526" side_tool="true" weight="0.24950495" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49717513" visible="true" weight="0.22442244" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49717513" visible="true" weight="0.22442244" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49768978" weight="0.32909605" />
@@ -394,7 +394,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49966997" weight="0.32909605" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5023102" side_tool="true" weight="0.32909605" />
-      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.28107345" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.28107345" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -681,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -773,6 +766,13 @@
           <folding>
             <element signature="e#0#107#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
         </state>
       </provider>
     </entry>
