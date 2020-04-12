@@ -1,5 +1,5 @@
 from flask import session
-from flask_login import UserMixin
+from flask_login import UserMixin, login_user
 
 from src.common import utils
 from src.common.database import Database
@@ -27,6 +27,9 @@ class User(UserMixin):
 
     def get_id(self):
         return self._id
+
+    def user_login(self):
+        login_user(self)
 
     @classmethod
     def get_by_email(cls, email):
