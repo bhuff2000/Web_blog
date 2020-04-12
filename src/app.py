@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, make_response, jsonify, json, redirect, url_for, flash
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user, login_manager
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_bootstrap import Bootstrap
 
 from bson.json_util import dumps, loads
@@ -20,9 +20,9 @@ from src.forms.register import RegistrationForm
 app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
-login_mgr = LoginManager()
-login_mgr.login_view = 'login'
-login_mgr.init_app(app)
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
 socketio =SocketIO(app)
 Bootstrap(app)
 
