@@ -12,9 +12,10 @@ class CreatePool(FlaskForm):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
                 Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                 'Pool Name must have only letters, numbers, dots or underscores')])
-    members = StringField('Members', validators=[DataRequired(), Length(1, 64),
-                Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-                'Usernames must have only letters, numbers, dots or underscores')])
+    #members = StringField('Members', validators=[DataRequired(), Length(1, 64),
+    #            Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+    #            'Usernames must have only letters, numbers, dots or underscores')])
+    members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     submit = SubmitField('Create Pool')
 
     @classmethod
