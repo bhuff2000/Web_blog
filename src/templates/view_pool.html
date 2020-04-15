@@ -42,7 +42,7 @@ $(document).ready(function() {
             if (message.length) {
                 socket.emit('send_message', {
                     username: "{{ username }}",
-                    room: "{{ room._id }}",
+                    room: "{{ room_data._id }}",
                     message: message
                 })
             }
@@ -55,7 +55,7 @@ $(document).ready(function() {
 
     document.getElementById("load_older_messages_btn").onclick = (e) => {
         page +- 1;
-        fetch("/rooms/{{ room._id }}/messages?page=" + page, {
+        fetch("/rooms/{{ room_data._id }}/messages?page=" + page, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application.json'
@@ -77,7 +77,7 @@ $(document).ready(function() {
     window.onbeforeunload = function () {
         socket.emit('leave_room', {
             username: "{{ username }}",
-            room: "{{ room._id }}"
+            room: "{{ room_data._id }}"
         })
     };
 
