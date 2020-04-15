@@ -34,7 +34,7 @@ $(document).ready(function() {
             room: "{{ room_data._id }}"
         });  // end socket connect
 
-        let message_input = document.getElementById('message_input');
+        //let message_input = document.getElementById('message_input');
 
         document.getElementById('message_input_form').onsubmit = function(e) {
             e.preventDefault();
@@ -51,28 +51,28 @@ $(document).ready(function() {
         }
     });
 
-    let page =0;
+    //let page =0;
 
-    document.getElementById("load_older_messages_btn").onclick = (e) => {
-        page +- 1;
-        fetch("/rooms/{{ room_data._id }}/messages?page=" + page, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application.json'
-            }
-        }).then(response)=> {
-            response.json().then(messages => {
-                messages.reverse().forEach(message => prepend_message(message.text, message.sender, message.created_at));
-            })
-        })
-    };
+    //document.getElementById("load_older_messages_btn").onclick = (e) => {
+    //    page +- 1;
+    //    fetch("/rooms/{{ room_data._id }}/messages?page=" + page, {
+    //        method: 'GET',
+    //        headers: {
+    //            'Content-Type': 'application.json'
+    //        }
+    //    }).then(response)=> {
+    //        response.json().then(messages => {
+    //            messages.reverse().forEach(message => prepend_message(message.text, message.sender, message.created_at));
+    //        })
+    //    })
+    //};
 
-    function prepend_message(message, username, created_at) {
-        const newNode = document.createElement('div');
-        newNode.innerHTML = `<b>${username}&nbsp;[$(created_at}]:&nbsp;</b> ${message}`;
-        const messages_div = document.getElementById('messages');
-        messages_div.insertBefore(newNode, messages_div.firstChild);
-    }
+    //function prepend_message(message, username, created_at) {
+    //    const newNode = document.createElement('div');
+    //    newNode.innerHTML = `<b>${username}&nbsp;[$(created_at}]:&nbsp;</b> ${message}`;
+    //    const messages_div = document.getElementById('messages');
+    //    messages_div.insertBefore(newNode, messages_div.firstChild);
+    //}
 
     window.onbeforeunload = function () {
         socket.emit('leave_room', {
