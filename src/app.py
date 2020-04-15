@@ -283,7 +283,7 @@ def nascar_pool():
                 load_member = Room_Member(room_data._id, room_data.room_name, member,
                                       current_user.username, is_room_admin=False)
                 load_member.add_room_member()
-                return redirect(url_for('view_room', room_id=room_data['_id']))
+                return redirect(url_for('view_room', room_id=room_data._id))
         else:
             message = "Failed to create room"
             return render_template('create_pool.html', form= form, message=message)
