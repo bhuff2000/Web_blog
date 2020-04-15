@@ -40,6 +40,7 @@ $(document).ready(function() {
         document.getElementById('message_input_form').onsubmit = function(e) {
             e.preventDefault();
             let message = message_input.value.trim();
+            console.log(message);
             if (message.length) {
                 socket.emit('send_message', {
                     username: "{{ username }}",
