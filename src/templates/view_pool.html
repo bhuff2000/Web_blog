@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Welcome to Pool: {{room_name}}</h1>
+<h1>Welcome to Pool: {{room_data.room_name}}</h1>
 
 <button type="button" id="load_older_messages_btn">Load Older Messages</button>
 <div id="messages">
@@ -31,7 +31,7 @@ $(document).ready(function() {
     socket.on('connect', function() {
         socket.emit('join_room', {
             username: "{{ username }}",
-            room: "{{ room._id }}"
+            room: "{{ room_data._id }}"
         });  // end socket connect
 
         let message_input = document.getElementById('message_input');
