@@ -33,7 +33,7 @@ class Room(object):
 
     @classmethod
     def get_room_by_id(cls, _id):
-        room = Database.find_one('rooms', {'room_id': _id})
+        room = Database.find_one('rooms', {'_id': _id})
         return cls (**room)
 
     @classmethod
