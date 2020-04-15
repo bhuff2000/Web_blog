@@ -280,7 +280,7 @@ def nascar_pool():
             if current_user.username in members:
                 members.remove(current_user.username)
             for member in members:
-                load_member = Room_Member(room_data['_id'], room_data['room_name'], member,
+                load_member = Room_Member(room_data._id, room_data.room_name, member,
                                       current_user.username, is_room_admin=False)
                 load_member.add_room_member()
                 return redirect(url_for('view_room', room_id=room_data['_id']))
