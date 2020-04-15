@@ -26,7 +26,7 @@ class Room(object):
         Database.insert(collection='rooms',
                         data=self.json())
         room_data = Room.get_room_by_name(self.room_name)
-        member_to_add = Room_Member(room_data['._id'], room_data['room_name'], room_data['created_by'], room_data['created_by'], is_room_admin=True)
+        member_to_add = Room_Member(room_data._id, room_data.room_name, room_data.created_by, room_data.created_by, is_room_admin=True)
         member_to_add.add_room_member()
 
 
