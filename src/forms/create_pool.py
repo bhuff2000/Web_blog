@@ -4,6 +4,8 @@ __author__ = 'behou'
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Length, email, Regexp
+from src.models.rooms import Room
+
 
 
 class CreatePool(FlaskForm):
@@ -14,3 +16,11 @@ class CreatePool(FlaskForm):
                 Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                 'Usernames must have only letters, numbers, dots or underscores')])
     submit = SubmitField('Create Pool')
+
+    @classmethod
+    def already_exists(cls, room_name, username):
+        room_exists = Room.find_by_roomname_and_username(room_name, username)
+        if room_exists is not None:
+            room_list = {}
+            #for room in room_exists:
+                #code not complete, idea is this will provide list of pools for a user

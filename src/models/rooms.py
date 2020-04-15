@@ -1,5 +1,7 @@
 from flask_login import current_user
 
+from src.models.members import Room_Member
+
 __author__ = 'behou'
 from src.common.database import Database
 import datetime
@@ -23,6 +25,12 @@ class Room(object):
     def save_room(self):
         Database.insert(collection='rooms',
                         data=self.json())
+        room_data = Room.get_room_by_name(self.room_name)
+        member_to_add = Room_Member(room_data['._id'], room_data['room_name'], room_data['created_by'], room_data['created_by'], is_room_admin=True)
+        member_to_add.add_room_member()
+
+
+
     @classmethod
     def get_room_by_id(cls, _id):
         room = Database.find_one('rooms', {'room_id': _id})
@@ -31,5 +39,14 @@ class Room(object):
     @classmethod
     def get_room_by_name(cls, room_name):
         room = Database.find_one('rooms', {'room_name': room_name})
-        return room
+        return cls(**room)
+
+    @classmethod
+    def find_by_roomname_and_username(cls, room_name, username):
+        data = Database.find_one("rooms", {"$and": [{"room_name": room_name}, {"username": username}]})
+        return data
+
+    @classmethod
+    def get_room_members(cls, room_id):
+        return list(Database.find('members', {'room_id': room_id}))
 

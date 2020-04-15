@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, make_response, jsoni
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
 from flask_login import LoginManager, login_required, logout_user, current_user
 from flask_bootstrap import Bootstrap
+from datetime import datetime
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -13,6 +14,8 @@ from src.models.entrants import Entrants
 from src.models.post import Post
 from src.models.races import Sched_Event
 from src.models.rooms import Room
+from src.models.members import Room_Member
+from src.models.messages import Message
 from src.models.test import Test
 from src.models.user import User
 from src.forms.login import LoginForm
@@ -39,6 +42,24 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
+@socketio.on('send_messages')
+def handle_send_message_event(data):
+    app.logger.info("{} has sent message to the room {}: {}".format(data['username'], data['room'], data['message']))
+    data['created_at'] = datetime.now().strftime("%d %b, %H:%M")
+    save_message(data['room'], data['message'], data['username'])
+    socketio.emit('receive_message', data, room=data['room'])
+
+@socketio.on('join room')
+def handle_join_room_event(data):
+    app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
+    join_room(data['room'])
+    socketio.emit('join_room_announcement', data, room=data['room'])
+
+@socketio.on('leave_room')
+def handle_leave_room_event(data):
+    app.logger.info("{} has left the room {}".format(data['username'], data['room']))
+    leave_room(data['room'])
+    socketio.emit('leave_room_announcement', data, room=data['room'])
 
 @socketio.on('join')
 def new_draft(newDraft):
@@ -190,6 +211,8 @@ def register_user():
 
     return render_template("profile.html", email=session['email'])
 
+
+
 @app.route('/blogs/<string:user_id>')
 @app.route('/blogs')
 def user_blogs(user_id=None):
@@ -242,18 +265,38 @@ def nascar_template():
     return render_template('nascar_home.html')
 
 @app.route('/nascar/pool', methods=['GET', 'POST'])
+@login_required
 def nascar_pool():
     form = CreatePool()
-    pool_name = form.pool_name.data
-    members = form.members.data
     if form.validate_on_submit():
-        new_pool = Room(pool_name, members)
-        print(new_pool.json())
-        new_pool.save_room()
-
-        return render_template('profile.html', email=session['email'])
+        pool_name = form.pool_name.data
+        members = [member.strip() for member in request.form.get('members').split(',')]
+        if len(pool_name) and len(members):
+            username = current_user.username
+            new_pool = Room(pool_name, username)
+            print(new_pool.json())
+            new_pool.save_room()
+            room_data = Room.get_room_by_name(pool_name)
+            if current_user.username in members:
+                members.remove(current_user.username)
+            for member in members:
+                load_member = Room_Member(room_data['_id'], room_data['room_name'], member,
+                                      current_user.username, is_room_admin=False)
+                load_member.add_room_member()
+                return redirect(url_for('view_room', room_id=room_data['_id']))
+        else:
+            message = "Failed to create room"
+            return render_template('create_pool.html', form= form, message=message)
     return render_template('create_pool.html', form = form)
 
+@app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
+@login_required
+def view_room(room_id):
+    message=''
+    if request.method =='POST':
+        room_members = Room.get_room_members(room_id)
+        messages = Message.get_messages(room_id)
+        return render_template('view_pool.html', messages=messages, members=room_members)
 
 @app.route('/nascar/admin')
 @login_required
