@@ -292,11 +292,13 @@ def nascar_pool():
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
 @login_required
 def view_room(room_id):
+    room_data = Room.get_room_by_id(room_id)
+    room_name = room_data.room_name
     message=''
     #if request.method =='POST':
     room_members = Room.get_room_members(room_id)
     messages = Message.get_messages(room_id)
-    return render_template('view_pool.html', messages=messages, members=room_members)
+    return render_template('view_pool.html', messages=messages, members=room_members, room_name=room_name)
 
 @app.route('/nascar/admin')
 @login_required
