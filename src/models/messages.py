@@ -25,4 +25,8 @@ class Message(object):
     @classmethod
     def get_messages(cls, room_id):
         messages = Database.find_one('rooms', {'room_id': room_id})
-        return cls(**messages)
+        if messages is not None:
+            return cls(**messages)
+        else:
+            messages = {'sender': 'na', 'created_at': 'na', 'text': 'No messages yet'}
+            return messages
