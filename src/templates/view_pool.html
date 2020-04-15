@@ -11,7 +11,9 @@
     {% endfor %}
 
 </div>
-<ul id="msg_list"></ul>
+<ul id="msg_list">
+    <li>messages</li>
+</ul>
 <br>
 <form id="message_input_form">
     <input type="text" id="message_input" placeholder="Enter your message here">
@@ -86,6 +88,7 @@ $(document).ready(function() {
 
     socket.on('receive_message', function(data) {
         console.log(data);
+        console.log("in receive socket");
         $('#msg_list').append('<li>'+ data.username +': ' + data.message +'</li>');
         //const newNode = document.createElement('div');
         //newNode.innerHTML = `<b>${data.username}&nbsp;[$(data.created_at}]:&nbsp;</b> ${data.message}`;
