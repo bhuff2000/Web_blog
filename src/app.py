@@ -293,10 +293,10 @@ def nascar_pool():
 @login_required
 def view_room(room_id):
     message=''
-    if request.method =='POST':
-        room_members = Room.get_room_members(room_id)
-        messages = Message.get_messages(room_id)
-        return render_template('view_pool.html', messages=messages, members=room_members)
+    #if request.method =='POST':
+    room_members = Room.get_room_members(room_id)
+    messages = Message.get_messages(room_id)
+    return render_template('view_pool.html', messages=messages, members=room_members)
 
 @app.route('/nascar/admin')
 @login_required
