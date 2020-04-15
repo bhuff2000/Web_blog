@@ -7,7 +7,7 @@ class Message(object):
     def __init__(self, room_id, text, sender, created_at=datetime.now()):
         self.room_id = room_id
         self.text = text
-        self.sender =sender
+        self.sender = sender
         self.created_at = created_at
 
     def json(self):
