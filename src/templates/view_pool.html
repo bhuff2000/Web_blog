@@ -42,7 +42,7 @@ $(document).ready(function() {
             let message = message_input.value.trim();
             console.log(message);
             if (message.length) {
-                socket.emit('send_message', {
+                socket.emit('send_messages', {
                     username: "{{ username }}",
                     room: "{{ room_data._id }}",
                     message: message
