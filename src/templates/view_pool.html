@@ -29,10 +29,10 @@ $(document).ready(function() {
     const socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
     socket.on('connect', function() {
+        console.log({{ username }}, {{room_data._id }});
         socket.emit('join_room', {
             username: "{{ username }}",
             room: "{{ room_data._id }}"
-            console.log({{ username}}, {{room_data._id }});
         });  // end socket connect
 
         //let message_input = document.getElementById('message_input');
