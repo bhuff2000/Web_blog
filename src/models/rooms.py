@@ -48,5 +48,6 @@ class Room(object):
 
     @classmethod
     def get_room_members(cls, room_id):
-        return list(Database.find('members', {'room_id': room_id}))
+        members= Database.find('members', {'room_id': room_id})
+        return cls(**members)
 
