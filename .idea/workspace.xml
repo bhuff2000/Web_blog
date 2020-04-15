@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/view_pool.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="90" column="73" selection-start-line="90" selection-start-column="73" selection-end-line="90" selection-end-column="73" />
+            <state relative-caret-position="322">
+              <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
               <folding>
                 <element signature="e#255#261#0" expanded="true" />
                 <element signature="e#287#293#0" expanded="true" />
@@ -805,8 +805,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/view_pool.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="90" column="73" selection-start-line="90" selection-start-column="73" selection-end-line="90" selection-end-column="73" />
+        <state relative-caret-position="322">
+          <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
           <folding>
             <element signature="e#255#261#0" expanded="true" />
             <element signature="e#287#293#0" expanded="true" />
