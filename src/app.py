@@ -45,10 +45,10 @@ def load_draft():
 @socketio.on('send_messages')
 def handle_send_message_event(data):
     app.logger.info("{} has sent message to the room {}: {}".format(data['username'], data['room'], data['message']))
-    print(data['message'])
     data['created_at'] = datetime.now()
     new_message = Message(data['room'], data['message'], data['username'])
     new_message.save_message()
+    print(new_message.json())
     socketio.emit('receive_message', data, room=data['room'])
 
 @socketio.on('join room')
