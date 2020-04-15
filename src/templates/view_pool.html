@@ -29,7 +29,7 @@
 
 <script>
 $(document).ready(function() {
-    const socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
+    var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
     socket.on('connect', function() {
         //console.log({{ username }}, {{room_data._id }});
