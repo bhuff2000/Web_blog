@@ -42,7 +42,7 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
-@socketio.on('send_messages')
+@socketio.on('send_messages', namespace='/view-pool')
 def handle_send_message_event(data):
     app.logger.info("{} has sent message to the room {}: {}".format(data['username'], data['room'], data['message']))
     data['created_at'] = datetime.now()
@@ -52,7 +52,7 @@ def handle_send_message_event(data):
     socketio.emit('receive_message', data, room=data['room'])
 
 
-@socketio.on('join room')
+@socketio.on('join room', namespace='/view-pool')
 def handle_join_room_event(data):
     app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
