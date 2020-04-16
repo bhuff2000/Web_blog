@@ -47,7 +47,7 @@ def home_template():
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/draft')
 def load_draft():
-    return render_template('draft.html', email=session['email'] )
+    return render_template('draft.html', email=current_user.username )
 
 @socketio.on('send_messages')
 def handle_send_message_event(data):
