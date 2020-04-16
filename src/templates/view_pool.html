@@ -32,7 +32,7 @@ $(document).ready(function() {
     var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
     socket.on('connect', function() {
-        //console.log({{ username }}, {{room_data._id }});
+        console.log({{ username }}, {{room_data._id }});
         socket.emit('join_room', {
             username: "{{ username }}",
             room: "{{ room_data._id }}"
@@ -45,6 +45,7 @@ $(document).ready(function() {
             let message = message_input.value.trim();
             console.log(message);
             if (message.length) {
+                console.log(message);
                 socket.emit('send_messages', {
                     username: "{{ username }}",
                     room: "{{ room_data._id }}",
