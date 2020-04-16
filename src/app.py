@@ -295,7 +295,7 @@ def nascar_pool():
 
 @app.route('/view-pool', methods=['GET', 'POST'])
 @login_required
-def view_room(room_id):
+def view_room():
     room_data = Room.get_room_by_id(room_id)
     room_name = room_data.room_name
     message=''
