@@ -86,7 +86,7 @@ $(document).ready(function() {
         })
     };
 
-    socket.on('receive_message', function(data) {
+    socket.on('receive message', function(data) {
         console.log(data);
         console.log("in receive socket");
         $('#msg_list').append('<li>'+ data.username +': ' + data.message +'</li>');
@@ -95,7 +95,7 @@ $(document).ready(function() {
         //document.getElementById('messages').appendChild(newNode);
     });
 
-    socket.on('join_room_announcement', function(data) {
+    socket.on('join room announcement', function(data) {
         console.log(data)
         $('#msg_list').append('<li>some arsehole joined</li>');
         //if (data.username !== "{{ username }}") {
