@@ -3,6 +3,8 @@ from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
 from flask_login import LoginManager, login_required, logout_user, current_user
 from flask_bootstrap import Bootstrap
 from datetime import datetime
+import logging
+from logging import StreamHandler
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -25,11 +27,16 @@ from src.forms.register import RegistrationForm
 app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
+file_handler = StreamHandler()
+file_handler.setLevel(logging.INFO)
+app.logger.addHandler(file_handler)
 socketio =SocketIO(app)
 login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
 Bootstrap(app)
+
+
 
 room_lst =[]
 
