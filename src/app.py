@@ -293,7 +293,7 @@ def nascar_pool():
             return render_template('create_pool.html', form= form, message=message)
     return render_template('create_pool.html', form = form)
 
-@app.route('/view-pool', methods=['GET', 'POST'])
+@app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
 @login_required
 def view_room():
     room_data = Room.get_room_by_id(room_id)
