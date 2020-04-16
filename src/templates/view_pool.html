@@ -28,7 +28,7 @@
 </ul>
 
 <script>
-$(document).ready(function() {
+//$(document).ready(function() {
     var socket =io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
     socket.on('connect', function() {
@@ -114,6 +114,6 @@ $(document).ready(function() {
     });
 
 
-}); //end ready
+//}); //end ready
 </script>
 {% endblock %}
