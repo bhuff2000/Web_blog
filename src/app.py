@@ -42,21 +42,21 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=session['email'] )
 
-@socketio.on('send_messages', namespace='/view-pool')
+@socketio.on('send_messages')
 def handle_send_message_event(data):
     app.logger.info("{} has sent message to the room {}: {}".format(data['username'], data['room'], data['message']))
     data['created_at'] = datetime.now()
     new_message = Message(data['room'], data['message'], data['username'])
     new_message.save_message()
     print(new_message.json())
-    socketio.emit('receive_message', data, room=data['room'])
+    socketio.emit('receive_message', data, room=data['room'], namespace='/view-pool/'+data['room'])
 
 
-@socketio.on('join room', namespace='/view-pool')
+@socketio.on('join room')
 def handle_join_room_event(data):
     app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
-    socketio.emit('join_room_announcement', data, room=data['room'])
+    socketio.emit('join_room_announcement', data, room=data['room'], namespace='/view-pool/'+data['room'])
 
 @socketio.on('leave_room')
 def handle_leave_room_event(data):
