@@ -97,7 +97,7 @@ $(document).ready(function() {
     });
 
     socket.on('join room announcement', function(data) {
-        console.log(data)
+        console.log(data);
         $('#msg_list').append('<li>some arsehole joined</li>');
         //if (data.username !== "{{ username }}") {
         //    const newNode = document.createElement('div');
