@@ -74,7 +74,7 @@ def handle_leave_room_event(data):
 @socketio.on('join')
 def new_draft(newDraft):
     user_rm = request.sid
-    user = session['email']
+    user = current_user.email
     print(user)
     room = newDraft['draft_name']
     print(room)
