@@ -31,6 +31,16 @@
 $(document).ready(function() {
     var socket = io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
+    socket.on('join room announcement', function(data) {
+        console.log(data);
+        $('#msg_list').append('<li>some arsehole joined</li>');
+        //if (data.username !== "{{ username }}") {
+        //    const newNode = document.createElement('div');
+        //    newNode.innerHTML = `<b>${data.username}</b> has joined the room`;
+        //    document.getElementById('messages').appendChild(newNode);
+       // }
+    });
+
     socket.on('connect', function() {
         console.log({{  room_data.username  }});
         socket.emit('join_room', {
