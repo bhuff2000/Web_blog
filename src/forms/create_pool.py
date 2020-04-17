@@ -16,8 +16,8 @@ class CreatePool(FlaskForm):
     #            Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
-    series = SelectField('Select Series', validators=False, choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
-    race = SelectField('Select Race', choices=[('Choose_race', 'Choose Race')], validate=False)
+    series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
+    race = SelectField('Select Race', validators=False, choices=[('Choose_race', 'Choose Race')])
     submit = SubmitField('Create Pool')
 
     @classmethod
