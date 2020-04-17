@@ -57,14 +57,14 @@ def handle_send_message_event(data):
     new_message = Message(data['room'], data['message'], data['username'])
     new_message.save_message()
     print(new_message.json())
-    emit('receive message', data, room=data['room'])
+    socketio.emit('receive message', data, room=data['room'])
 
 
 @socketio.on('join room')
 def handle_join_room_event(data):
     app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
-    emit('join room announcement', {'username': current_user.username}, room=data['room'], broadcast=True)
+    socketio.emit('join room announcement', {'username': current_user.username}, room=data['room'], broadcast=True)
 
 
 @socketio.on('leave_room')
