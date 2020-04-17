@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc9b75ce-29a8-45ee-89b3-ecc3496d6192" name="Default Changelist" comment="added new class for enrants and code to get entrant data from sportradar and load to mongo">
-      <change beforePath="$PROJECT_DIR$/src/forms/create_pool.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/forms/create_pool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/create_pool.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/create_pool.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,12 +64,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/create_pool.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/forms/create_pool.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="254">
@@ -169,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/models/user.py" />
         <option value="$PROJECT_DIR$/src/forms/login.py" />
         <option value="$PROJECT_DIR$/src/forms/create_draft.py" />
-        <option value="$PROJECT_DIR$/src/templates/create_pool.html" />
         <option value="$PROJECT_DIR$/src/templates/base.html" />
         <option value="$PROJECT_DIR$/src/templates/register.html" />
         <option value="$PROJECT_DIR$/src/templates/log_in.html" />
@@ -180,6 +183,7 @@
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/view_pool.html" />
         <option value="$PROJECT_DIR$/src/forms/create_pool.py" />
+        <option value="$PROJECT_DIR$/src/templates/create_pool.html" />
       </list>
     </option>
   </component>
@@ -773,9 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/create_pool.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/forms/create_pool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -783,6 +784,13 @@
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/create_pool.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
