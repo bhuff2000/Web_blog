@@ -17,6 +17,7 @@ class CreatePool(FlaskForm):
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     series = SelectField('Series Select', choices=[('Trucks', 'Trucks'), ('Xfinity','Xfinity'), ('Cup', 'Cup')])
+    race = SelectField('Race Select', choices=[('Choose_race', 'Choose Race')])
     submit = SubmitField('Create Pool')
 
     @classmethod
