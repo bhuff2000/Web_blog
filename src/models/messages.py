@@ -4,15 +4,15 @@ from datetime import datetime
 from src.common.database import Database
 
 class Message(object):
-    def __init__(self, room_id, text, sender, created_at=datetime.now()):
-        self.room_id = room_id
+    def __init__(self, room_name, text, sender, created_at=datetime.now()):
+        self.room_name = room_name
         self.text = text
         self.sender = sender
         self.created_at = created_at
 
     def json(self):
         return {
-            'room_id': self.room_id,
+            'room_name': self.room_name,
             'text': self.text,
             'sender': self.sender,
             'created_at': self.created_at
@@ -23,8 +23,8 @@ class Message(object):
                         data=self.json())
 
     @classmethod
-    def get_messages(cls, room_id):
-        messages = Database.find_one('rooms', {'room_id': room_id})
+    def get_messages(cls, room_name):
+        messages = Database.find_one('rooms', {'room_name': room_name})
         if messages is not None:
             return cls(**messages)
         else:

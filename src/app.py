@@ -49,6 +49,7 @@ def home_template():
 def load_draft():
     return render_template('draft.html', email=current_user.email )
 
+
 @socketio.on('send_messages')
 def handle_send_message_event(data):
     app.logger.info("{} has sent message to the room {}: {}".format(data['username'], data['room'], data['message']))
