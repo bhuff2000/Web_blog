@@ -28,7 +28,7 @@ $(document).ready(function() {
                 console.log(data);
                 race_data = '';
                 $.each(data, function() {
-                    race_id = toString($(this).attr('race_id'));
+                    race_id = valueOf($(this).attr('race_id'));
                     race_data += '<option value=\"' +race_id+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
                 $('select[name="race"]').append(race_data);
