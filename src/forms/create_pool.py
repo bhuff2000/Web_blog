@@ -2,7 +2,7 @@ __author__ = 'behou'
 
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 from src.models.rooms import Room
 
@@ -16,6 +16,7 @@ class CreatePool(FlaskForm):
     #            Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
+    series = SelectField(choices=[{'Trucks': 'Trucks'}, {'Xfinity':'Xfinity'}, {'Cup': 'Cup'}])
     submit = SubmitField('Create Pool')
 
     @classmethod
