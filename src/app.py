@@ -60,11 +60,11 @@ def handle_send_message_event(data):
     socketio.emit('receive message', {'message': data['message']}, room=data['room'])
 
 
-@socketio.on('join room')
+@socketio.on('join_room')
 def handle_join_room_event(data):
-    app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
+    #app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
-    socketio.emit('join room announcement', {'username': current_user.username}, room=data['room'], broadcast=True)
+    socketio.emit('join_room_announcement', {'username': current_user.username}, broadcast=True)
 
 
 @socketio.on('leave_room')
