@@ -66,6 +66,7 @@ def handle_join_room_event(data):
     join_room(data['room'])
     emit('join room announcement', {'username': current_user.username}, room=data['room'], broadcast=True)
 
+
 @socketio.on('leave_room')
 def handle_leave_room_event(data):
     app.logger.info("{} has left the room {}".format(data['username'], data['room']))
@@ -301,7 +302,7 @@ def nascar_pool():
             return render_template('create_pool.html', form= form, message=message)
     return render_template('create_pool.html', form = form)
 
-@app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
+@app.route('/view-pool', methods=['GET', 'POST'])
 @login_required
 def view_room(room_id):
     room_data = Room.get_room_by_id(room_id)
