@@ -282,10 +282,11 @@ def nascar_pool():
     form = CreatePool()
     if form.validate_on_submit():
         pool_name = form.pool_name.data
+        race_id = form.race.data
         members = [member.strip() for member in request.form.get('members').split(',')]
         if len(pool_name) and len(members):
             username = current_user.username
-            new_pool = Room(pool_name, username)
+            new_pool = Room(pool_name, username, race_id)
             print(new_pool.json())
             new_pool.save_room()
             room_data = Room.get_room_by_name(pool_name)
@@ -296,7 +297,7 @@ def nascar_pool():
                                       current_user.username, is_room_admin=False)
                 load_member.add_room_member()
 
-            return redirect(url_for('view_room', room_id=room_data._id))
+            return redirect(url_for('view_room', race_id=race_id, room_id=room_data._id))
         else:
             message = "Failed to create room"
             return render_template('create_pool.html', form= form, message=message)
