@@ -57,7 +57,7 @@ def handle_send_message_event(data):
     new_message = Message(data['room'], data['message'], data['username'])
     new_message.save_message()
     print(new_message.json())
-    socketio.emit('receive message', {'message': data['message']}, room=data['room'])
+    socketio.emit('receive message', {'username': data['username'], 'message': data['message']}, room=data['room'])
 
 
 @socketio.on('join_room')
