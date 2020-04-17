@@ -64,7 +64,7 @@ def handle_send_message_event(data):
 def handle_join_room_event(data):
     app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
-    emit('join room announcement', {'username': current_user.username}, room=data['room'], broadcast=True)
+    emit('join room announcement', {'username': current_user.username}, broadcast=True)
 
 
 @socketio.on('leave_room')
