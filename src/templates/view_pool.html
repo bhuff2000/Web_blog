@@ -106,7 +106,7 @@ $(document).ready(function() {
         //document.getElementById('messages').appendChild(newNode);
     });
 
-    socket.on('join room announcement', function(data) {
+    socket.on('join_room_announcement', function(data) {
         console.log(data);
         $('#msg_list').append('<li>some arsehole joined</li>');
         //if (data.username !== "{{ username }}") {
