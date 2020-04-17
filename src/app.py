@@ -30,7 +30,7 @@ app.secret_key = "jose"
 file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
-socketio =SocketIO(app)
+socketio =SocketIO(app, logger=True, engineio_logger=True)
 login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
@@ -64,7 +64,7 @@ def handle_send_message_event(data):
 def handle_join_room_event(data):
     app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
-    emit('join room announcement', {'username': current_user.username}, broadcast=True)
+    emit('join room announcement', {'username': current_user.username}, room=data['room'], broadcast=True)
 
 
 @socketio.on('leave_room')
