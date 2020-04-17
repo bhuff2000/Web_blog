@@ -30,7 +30,7 @@ $(document).ready(function() {
                 $.each(data, function() {
                     race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
-                $('#race').append(race_data);
+                $('select[name="race"]').append(race_data);
             }  //end success
         });  //end ajax
     });  // end process input
