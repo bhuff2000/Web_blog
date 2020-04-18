@@ -17,7 +17,10 @@ class SelectRace(Form):
         print(year)
         total_races = Sched_Event.find_by_year(year)
         print(total_races)
-        self.selection_field.choices = (total_races['race_id'], total_races['race_name'])
+        races_list = []
+        for race in total_races:
+            races_list = races_list.append[(total_races['race_id'], total_races['race_name'])]
+        self.selection_field.choices = races_list
 
 class CreatePool(FlaskForm):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
