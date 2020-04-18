@@ -1,12 +1,17 @@
 __author__ = 'behou'
 
 
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 from src.models.rooms import Room
 from bson import ObjectId
 
+class SelectRace(Form):
+    races = SelectField('race name')
+
+    def __init__(self, *args, **kwargs):
+        super(SelectRace, self).__init__(*args, **kwargs)
 
 
 class CreatePool(FlaskForm):
@@ -18,7 +23,7 @@ class CreatePool(FlaskForm):
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
-    race = SelectField('Select Race', validators=[DataRequired()], coerce=str)
+    race = SelectField('Select Race', validators=[DataRequired()], choices=[])
     submit = SubmitField('Create Pool')
 
     @classmethod
