@@ -14,7 +14,9 @@ class SelectRace(Form):
     def __init__(self, *args, **kwargs):
         super(SelectRace, self).__init__(*args, **kwargs)
         year = int(datetime.now().year)
+        print(year)
         total_races = Sched_Event.find_by_year(year)
+        print(total_races)
         self.selection_field.choices = total_races['race_name']
 
 class CreatePool(FlaskForm):
@@ -26,8 +28,8 @@ class CreatePool(FlaskForm):
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
-    race = SelectField('Select Race', validators=[DataRequired()], choices=[])
-    #race = SelectRace.races
+    #race = SelectField('Select Race', validators=[DataRequired()], choices=[])
+    race = SelectRace.races
     submit = SubmitField('Create Pool')
 
     @classmethod
