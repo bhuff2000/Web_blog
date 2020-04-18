@@ -5,8 +5,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 from src.models.rooms import Room
-from bson import ObjectId
-from src.models.races import Sched_Event
+#from bson import ObjectId
+#from src.models.races import Sched_Event
 
 
 
