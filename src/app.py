@@ -348,6 +348,7 @@ def ajax_get_races():
         series1 = "na"
     cursor = Sched_Event.find_by_series(series1)
     ser_to_json = dumps(cursor)
+    print(type(ser_to_json))
     return ser_to_json
 
 
