@@ -1,10 +1,11 @@
 __author__ = 'behou'
 
-
+from datetime import datetime
 from flask_wtf import FlaskForm, Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 from src.models.rooms import Room
+from src.models.races import Sched_Event
 from bson import ObjectId
 
 class SelectRace(Form):
@@ -12,7 +13,9 @@ class SelectRace(Form):
 
     def __init__(self, *args, **kwargs):
         super(SelectRace, self).__init__(*args, **kwargs)
-
+        year = int(datetime.now().year)
+        total_races = Sched_Event.find_by_year(year)
+        self.selection_field.choices = total_races['race_name']
 
 class CreatePool(FlaskForm):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
@@ -23,7 +26,8 @@ class CreatePool(FlaskForm):
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
-    race = SelectField('Select Race', validators=[DataRequired()], choices=[])
+    #race = SelectField('Select Race', validators=[DataRequired()], choices=[])
+    race = SelectRace.races
     submit = SubmitField('Create Pool')
 
     @classmethod
