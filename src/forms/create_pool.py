@@ -6,6 +6,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, Selec
 from wtforms.validators import DataRequired, Length, email, Regexp
 from src.models.rooms import Room
 from bson import ObjectId
+from src.models.races import Sched_Event
 
 
 
@@ -18,7 +19,7 @@ class CreatePool(FlaskForm):
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
-    race = SelectField('Select Race', choices=[])
+    race = SelectField('Select Race', coerce=Sched_Event)
     submit = SubmitField('Create Pool')
 
     @classmethod
