@@ -18,7 +18,7 @@
 <script>
 $(document).ready(function() {
     $('#series').change(function() {
-        $('#race option').remove();
+        $('#race-races option').remove();
         $.ajax({
             type: "GET",
             url: "/ajax_get_races",
@@ -32,7 +32,7 @@ $(document).ready(function() {
                     //race_id = toString($(this).attr('race_id');
                     race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
                 });  // end each
-                $('select[name="race"]').append(race_data);
+                $('select[name="race-races"]').append(race_data);
             }  //end success
         });  //end ajax
     });  // end process input
