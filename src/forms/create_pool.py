@@ -35,7 +35,7 @@ def get_race_choices():
     return year
 
 class CreatePool(FlaskForm):
-    race_list_frm_mongo = Sched_Event.find_by_year('2020')
+    race_list_frm_mongo = Sched_Event.find_by_series('sc')
     print(race_list_frm_mongo)
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
                 Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
