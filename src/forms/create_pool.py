@@ -23,7 +23,19 @@ class SelectRace(FlaskForm):
            races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
         self.races.choices = races_list
 
+
+def get_race_choices():
+    year = int(datetime.now().year)
+    print(year)
+    total_races = Sched_Event.find_by_year(year)
+    print(total_races)
+    races_list = []
+    for race in total_races:
+        races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
+    return races_list
+
 class CreatePool(FlaskForm):
+
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
                 Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                 'Pool Name must have only letters, numbers, dots or underscores')])
@@ -32,9 +44,9 @@ class CreatePool(FlaskForm):
     #            'Usernames must have only letters, numbers, dots or underscores')])
     members = StringField('Members', validators=[DataRequired(), Length(1, 64)])
     series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
-    #race = SelectField('Select Race', validators=[DataRequired()], choices=[])
+    race = SelectField('Select Race', validators=[DataRequired()], choices= get_race_choices())
     #race = SelectRace.races
-    race = wtforms.FormField(SelectRace)
+    #race = wtforms.FormField(SelectRace)
     submit = SubmitField('Create Pool')
 
     @classmethod
@@ -44,3 +56,4 @@ class CreatePool(FlaskForm):
             room_list = {}
             #for room in room_exists:
                 #code not complete, idea is this will provide list of pools for a user
+
