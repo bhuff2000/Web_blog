@@ -32,7 +32,7 @@ def get_race_choices():
     #race_list = []
     #for race in total_races:
     #    race_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
-    return total_races
+    return year
 
 class CreatePool(FlaskForm):
 
