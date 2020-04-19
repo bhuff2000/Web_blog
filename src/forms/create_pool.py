@@ -9,7 +9,7 @@ from src.models.races import Sched_Event
 from bson import ObjectId
 import wtforms
 
-class SelectRace(Form):
+class SelectRace(FlaskForm):
     races = SelectField('race name')
 
     def __init__(self, *args, **kwargs):
@@ -21,7 +21,7 @@ class SelectRace(Form):
         #races_list = []
         #for race in total_races:
         #    races_list = races_list.append[(total_races['race_id'], total_races['race_name'])]
-        self.selection_field.choices = [('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')]
+        self.races.choices = [('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')]
 
 class CreatePool(FlaskForm):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
