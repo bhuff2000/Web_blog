@@ -20,7 +20,7 @@ class SelectRace(FlaskForm):
         print(total_races)
         races_list = []
         for race in total_races:
-           races_list = races_list.append[(race['race_id'], race['race_name'] + ' @ ' + race['track'])]
+           races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
         self.races.choices = races_list
 
 class CreatePool(FlaskForm):
