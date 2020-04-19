@@ -9,19 +9,19 @@ from src.models.races import Sched_Event
 from bson import ObjectId
 import wtforms
 
-class SelectRace(FlaskForm):
-    races = SelectField('race name')
+#class SelectRace(FlaskForm):
+#    races = SelectField('race name')
 
-    def __init__(self, *args, **kwargs):
-        super(SelectRace, self).__init__(*args, **kwargs)
-        year = int(datetime.now().year)
-        print(year)
-        total_races = Sched_Event.find_by_year(year)
-        print(total_races)
-        races_list = []
-        for race in total_races:
-           races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
-        self.races.choices = races_list
+#    def __init__(self, *args, **kwargs):
+#        super(SelectRace, self).__init__(*args, **kwargs)
+#        year = int(datetime.now().year)
+#        print(year)
+#        total_races = Sched_Event.find_by_year(year)
+#        print(total_races)
+#        races_list = []
+#        for race in total_races:
+#           races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
+#        self.races.choices = races_list
 
 
 def get_race_choices():
@@ -29,10 +29,10 @@ def get_race_choices():
     print(year)
     total_races = Sched_Event.find_by_year(year)
     print(total_races)
-    races_list = []
+    race_list = []
     for race in total_races:
-        races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
-    return races_list
+        race_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
+    return race_list
 
 class CreatePool(FlaskForm):
 
