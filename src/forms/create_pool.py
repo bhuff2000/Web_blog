@@ -47,6 +47,7 @@ class CreatePool(FlaskForm):
     race = SelectField('Select Race', validators=[DataRequired()], choices= [])
     #race = SelectRace.races
     #race = wtforms.FormField(SelectRace)
+    print(get_race_choices())
     submit = SubmitField('Create Pool')
 
     @classmethod
