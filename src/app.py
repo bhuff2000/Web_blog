@@ -275,6 +275,7 @@ def create_new_post(blog_id):
 @app.route('/nascar')
 def nascar_template():
     fuck_sakes = Sched_Event.find_by_series('sc')
+    print(fuck_sakes)
     return render_template('nascar_home.html')
 
 @app.route('/nascar/pool', methods=['GET', 'POST'])
