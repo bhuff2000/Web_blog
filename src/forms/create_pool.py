@@ -27,7 +27,7 @@ import wtforms
 def get_race_choices():
     year = int(datetime.now().year)
     #print(year)
-    total_races = Sched_Event.find_by_year(year)
+    total_races = Sched_Event.find_by_year(2020)
     #print(total_races)
     #race_list = []
     #for race in total_races:
