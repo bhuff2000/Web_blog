@@ -23,9 +23,7 @@ import wtforms
 #           races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
 #        self.races.choices = races_list
 
-def test_bullshit():
-    fuck_sakes = Sched_Event.find_by_year(2020)
-    print(str(fuck_sakes))
+
 
 class CreatePool(FlaskForm):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
@@ -39,7 +37,8 @@ class CreatePool(FlaskForm):
     race = SelectField('Select Race', validators=[DataRequired()], choices= [])
     #race = SelectRace.races
     #race = wtforms.FormField(SelectRace)
-    test_bullshit()
+    fuck_sakes = Sched_Event.find_by_year(2020)
+    print(str(fuck_sakes))
     submit = SubmitField('Create Pool')
 
     @classmethod
