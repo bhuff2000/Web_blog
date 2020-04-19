@@ -16,8 +16,8 @@ class SelectRace(FlaskForm):
         super(SelectRace, self).__init__(*args, **kwargs)
         year = int(datetime.now().year)
         print(year)
-        #total_races = Sched_Event.find_by_year(year)
-        #print(total_races)
+        total_races = Sched_Event.find_by_year(year)
+        print(total_races)
         #races_list = []
         #for race in total_races:
         #    races_list = races_list.append[(total_races['race_id'], total_races['race_name'])]
