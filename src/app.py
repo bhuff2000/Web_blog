@@ -283,6 +283,8 @@ def nascar_pool():
     if form.validate_on_submit():
         pool_name = form.pool_name.data
         race_id = form.race.data
+        print(pool_name, ' ', race_id)
+
         members = [member.strip() for member in request.form.get('members').split(',')]
         if len(pool_name) and len(members):
             username = current_user.username
