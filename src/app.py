@@ -282,18 +282,17 @@ def nascar_template():
 @login_required
 def nascar_pool():
     form = CreatePool()
+
     if form.validate_on_submit():
         pool_name = form.pool_name.data
         race_id = form.race.data
         print(pool_name, ' ', race_id)
-    else:
-        print("form did not validate")
 
         members = [member.strip() for member in request.form.get('members').split(',')]
         if len(pool_name) and len(members):
             username = current_user.username
             new_pool = Room(pool_name, username, race_id)
-            print(new_pool.json())
+            #print(new_pool.json())
             new_pool.save_room()
             room_data = Room.get_room_by_name(pool_name)
             if current_user.username in members:
