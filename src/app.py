@@ -286,6 +286,8 @@ def nascar_pool():
         pool_name = form.pool_name.data
         race_id = form.race.data
         print(pool_name, ' ', race_id)
+    else:
+        print("form did not validate")
 
         members = [member.strip() for member in request.form.get('members').split(',')]
         if len(pool_name) and len(members):
