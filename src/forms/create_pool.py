@@ -17,7 +17,7 @@ class SelectRace(FlaskForm):
         year = int(datetime.now().year)
         print(year)
         total_races = Sched_Event.find_by_year(year)
-        print(total_races)
+        #print(total_races)
         races_list = []
         for race in total_races:
            races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
