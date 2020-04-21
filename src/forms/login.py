@@ -1,6 +1,6 @@
 __author__ = 'behou'
 
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Length, email
 
