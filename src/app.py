@@ -6,6 +6,8 @@ from datetime import datetime
 import logging
 from logging import StreamHandler
 from flask_wtf import FlaskForm, Form, csrf
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
+from wtforms.validators import DataRequired, Length, email, Regexp
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
