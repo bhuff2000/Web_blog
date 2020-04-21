@@ -282,7 +282,8 @@ def nascar_template():
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
 def nascar_pool():
-    form = CreatePool(meta={'csrf': False})
+    #form = CreatePool(meta={'csrf': False})
+    form = CreatePool()
 
     if form.validate_on_submit():
         pool_name = form.pool_name.data
