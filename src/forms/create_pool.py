@@ -36,7 +36,7 @@ class CreatePool(FlaskForm):
     series = SelectField('Select Series', choices=[('Choose Series', 'Choose Series'), ('go', 'TRUCKS'), ('xf','XFINITY'), ('sc', 'CUP')])
     #race = SelectField('Select Race',  choices= [])
     #race = SelectRace.races
-    #race = wtforms.FormField(SelectRace)
+    race = wtforms.FormField(SelectRace)
     submit = SubmitField('Create Pool')
 
     @classmethod
