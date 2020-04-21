@@ -5,6 +5,7 @@ from flask_bootstrap import Bootstrap
 from datetime import datetime
 import logging
 from logging import StreamHandler
+from flask_wtf import FlaskForm, Form, csrf
 
 from bson.json_util import dumps, loads
 from src.common.database import Database
@@ -280,8 +281,10 @@ def nascar_template():
 
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
+@csrf.
+
 def nascar_pool():
-    form = CreatePool()
+    form = CreatePool(csrf_enabled=False)
 
     if form.validate_on_submit():
         pool_name = form.pool_name.data
