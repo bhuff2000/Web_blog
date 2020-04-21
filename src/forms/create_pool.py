@@ -9,11 +9,11 @@ from src.models.races import Sched_Event
 from bson import ObjectId
 import wtforms
 
-class SelectRace(FlaskForm):
+class SelectRace(Form):
     races = SelectField('race name')
 
-    def __init__(self, *args, **kwargs):
-        super(SelectRace, self).__init__(*args, **kwargs)
+    def __init__(self, label='', validators=None, *args, **kwargs):
+        super(SelectRace, self).__init__(label, validators, *args, **kwargs)
         year = int(datetime.now().year)
         print(year)
         total_races = Sched_Event.find_by_year(year)
@@ -24,8 +24,7 @@ class SelectRace(FlaskForm):
         self.races.choices = races_list
 
 
-
-class CreatePool(FlaskForm):
+class CreatePool(Form):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
                 Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                 'Pool Name must have only letters, numbers, dots or underscores')])
