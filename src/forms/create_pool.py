@@ -8,6 +8,7 @@ from src.models.rooms import Room
 from src.models.races import Sched_Event
 from bson import ObjectId
 import wtforms
+from wtforms_validators import Email
 
 class SelectRace(Form):
     races = SelectField('race name')
