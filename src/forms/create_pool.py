@@ -14,7 +14,7 @@ class SelectRace(Form):
     races = SelectField('race name')
 
     def __init__(self, label='', validators=None, *args, **kwargs):
-        super(SelectRace, self).__init__(label, validators, *args, **kwargs)
+        super(SelectRace, self).__init__(label, *args, **kwargs)
         year = int(datetime.now().year)
         print(year)
         total_races = Sched_Event.find_by_year(year)
