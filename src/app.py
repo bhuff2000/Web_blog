@@ -12,7 +12,7 @@ from wtforms.validators import DataRequired, Length, email, Regexp
 from bson.json_util import dumps, loads
 from src.common.database import Database
 from src.common.utils import Utils
-from src.forms.create_pool import CreatePool
+from src.forms.create_pool import CreatePool, SelectRace
 from src.models import user
 from src.models.blog import Blog
 from src.models.entrants import Entrants
@@ -347,6 +347,8 @@ def background_process():
 @app.route('/ajax_get_races')
 def ajax_get_races():
     series = request.args.get('series', 0, type=str)
+    mongo_list = Sched_Event.find_by_year(2020)
+    SelectRace.add_choices(mongo_list)
     if series == "sc":
         series1 = "CUP"
     elif series == "xf":
