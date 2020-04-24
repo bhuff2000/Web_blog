@@ -30,7 +30,7 @@ class SelectRace(Form):
 
     @classmethod
     def add_choices(cls, mongo_list):
-        print('test' + mongo_list)
+        print('test' + str(mongo_list))
         cls.races.choices = [(race['race_id'], race['race_name'] + '@ ' + race['track']) for race in mongo_list]
 
 
