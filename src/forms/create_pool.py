@@ -26,7 +26,7 @@ from wtforms_validators import Email
 
 
 class SelectRace(Form):
-    races = SelectField('race name')
+    races = SelectField('race name', validators=None)
 
     def add_choices(self, mongo_list):
         self.races.choices = [(race['race_id'], race['race_name'] + '@ ' + race['track']) for race in mongo_list]
