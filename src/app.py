@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 from datetime import datetime
 import logging
 from logging import StreamHandler
-from flask_wtf import FlaskForm, Form, csrf
+from flask_wtf import FlaskForm, Form
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 
@@ -283,6 +283,7 @@ def nascar_template():
 
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
+
 def nascar_pool():
     #form = CreatePool(meta={'csrf': False})
     form = CreatePool()

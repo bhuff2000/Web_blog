@@ -27,9 +27,7 @@ from wtforms_validators import Email
 
 class SelectRace(Form):
     races = SelectField('race name', validate_choice=False)
-    
-    class Meta:
-        csrf=True
+
 
     @classmethod
     def add_choices(cls, mongo_list):
