@@ -312,6 +312,7 @@ def nascar_pool():
             return render_template('create_pool.html', form= form, message=message)
     else:
         print('shit not working')
+        print(form.race.errors)
     return render_template('create_pool.html', form = form)
 
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
