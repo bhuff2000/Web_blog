@@ -310,6 +310,8 @@ def nascar_pool():
         else:
             message = "Failed to create room"
             return render_template('create_pool.html', form= form, message=message)
+    else:
+        print('shit not working')
     return render_template('create_pool.html', form = form)
 
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
