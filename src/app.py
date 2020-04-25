@@ -354,8 +354,8 @@ def background_process():
 def ajax_get_races():
     series = request.args.get('series', 0, type=str)
     year = int(datetime.now().year)
-    mongo_list = Sched_Event.find_by_race_series_and_year(series, year)
-    SelectRace.add_choices(mongo_list)
+    #mongo_list = Sched_Event.find_by_race_series_and_year(series, year)
+    #SelectRace.add_choices(mongo_list)
     if series == "sc":
         series1 = "CUP"
     elif series == "xf":
@@ -364,7 +364,9 @@ def ajax_get_races():
         series1 = "TRUCK"
     else:
         series1 = "na"
-    cursor = Sched_Event.find_by_series(series1)
+    mongo_list = Sched_Event.find_by_race_series_and_year(series, year)
+    SelectRace.add_choices(mongo_list)
+    cursor = Sched_Event.find_by_race_series_and_year(series1, year)
     ser_to_json = dumps(cursor)
     #print(type(ser_to_json))
     return ser_to_json
