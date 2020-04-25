@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 from datetime import datetime
 import logging
 from logging import StreamHandler
-from flask_wtf import FlaskForm, Form
+from flask_wtf import FlaskForm, CsrfProtect
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 
@@ -38,6 +38,8 @@ login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
 Bootstrap(app)
+csrf = CsrfProtect()
+csrf.init_app(app)
 
 
 
