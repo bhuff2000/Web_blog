@@ -68,9 +68,15 @@ class Sched_Event(object):
         else:
             return False
 
+    @classmethod
+    def find_by_race_series_and_year(cls, series, year):
+        races = Database.find("races", {"$and": [{"series": series}, {"year": year}]})
+        races_list = []
+        for race in races:
+            races_list.append(race)
+        return races_list
 
-
- #   @classmethod
+    #   @classmethod
  #   def define_load_list(cls, sr_data):
  #       loaded = []
  #       to_be_loaded = []
@@ -107,3 +113,4 @@ class Sched_Event(object):
                                  query={"race_id": race_id})
 
         return one_race
+

@@ -353,7 +353,8 @@ def background_process():
 @app.route('/ajax_get_races')
 def ajax_get_races():
     series = request.args.get('series', 0, type=str)
-    mongo_list = Sched_Event.find_by_year(2020)
+    year = int(datetime.now().year)
+    mongo_list = Sched_Event.find_by_race_series_and_year(series, year)
     SelectRace.add_choices(mongo_list)
     if series == "sc":
         series1 = "CUP"
