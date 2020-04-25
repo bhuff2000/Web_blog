@@ -1,7 +1,7 @@
 __author__ = 'behou'
 
 from datetime import datetime
-from flask_wtf import FlaskForm, Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 from src.models.rooms import Room
@@ -25,7 +25,7 @@ from wtforms_validators import Email
 #        self.races.choices = races_list
 
 
-class SelectRace(Form):
+class SelectRace(FlaskForm):
     races = SelectField('race name', validators=None, validate_choice=False)
 
 
@@ -37,7 +37,7 @@ class SelectRace(Form):
         cls.races.choices = [(race['race_id'], race['race_name'] + '@ ' + race['track']) for race in mongo_list]
 
 
-class CreatePool(Form):
+class CreatePool(FlaskForm):
     pool_name = StringField('Pool Name', validators=[DataRequired(), Length(1, 64),
                 Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
                 'Pool Name must have only letters, numbers, dots or underscores')])
