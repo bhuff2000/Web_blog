@@ -26,7 +26,7 @@ from wtforms_validators import Email
 
 
 class SelectRace(Form):
-    races = SelectField('race name', validate_choice=False)
+    races = SelectField('race name', validators=None, validate_choice=False)
 
 
     @classmethod
