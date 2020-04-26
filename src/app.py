@@ -281,7 +281,9 @@ def create_new_post(blog_id):
 def nascar_template():
     fuck_sakes = Sched_Event.find_by_year(2020)
     print(str(fuck_sakes))
-    return render_template('nascar_home.html')
+    username = current_user.username
+    drafts = Room.get_by_username(username)
+    return render_template('nascar_home.html', drafts=drafts)
 
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
@@ -317,9 +319,8 @@ def nascar_pool():
         print('shit not working')
         print(form.race.errors)
 
-    username = current_user.username
-    drafts = Room.get_by_username(username)
-    return render_template('create_pool.html', form = form, drafts=drafts)
+
+    return render_template('create_pool.html', form = form)
 
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
 @login_required
