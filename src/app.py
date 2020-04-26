@@ -317,7 +317,7 @@ def nascar_pool():
         print('shit not working')
         print(form.race.errors)
 
-    usernme = current_user.username
+    username = current_user.username
     drafts = Room.get_by_username(username)
     return render_template('create_pool.html', form = form, drafts=drafts)
 
