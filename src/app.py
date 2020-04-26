@@ -283,7 +283,12 @@ def nascar_template():
     #print(str(fuck_sakes))
     username = current_user.username
     drafts = Room.get_by_username(username)
-    return render_template('nascar_home.html', drafts=drafts)
+    draft_list=[]
+    for draft in drafts:
+        room_data = Room.get_room_by_name(draft['room_name'])
+        race_name = room_data['race_name']
+        draft_list.append({'race_name': race_name, 'room_name': draft['room_name']})
+    return render_template('nascar_home.html', drafts=draft_list)
 
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
