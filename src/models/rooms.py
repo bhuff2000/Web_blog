@@ -8,10 +8,11 @@ import datetime
 import uuid
 
 class Room(object):
-    def __init__(self, room_name, created_by, race_id, created_at=datetime.datetime.now(), _id=None):
+    def __init__(self, room_name, created_by, race_id, race_name, created_at=datetime.datetime.now(), _id=None):
         self.room_name = room_name
         self.created_by = created_by
         self.race_id = race_id
+        self.race_name = race_name
         self.created_at = created_at
         self._id = uuid.uuid4().hex if _id is None else _id
 
@@ -20,6 +21,7 @@ class Room(object):
             'room_name': self.room_name,
             'created_by': self.created_by,
             'race_id': self.race_id,
+            'race_name': self.race_name,
             'created_at': self.created_at,
             '_id': self._id
         }

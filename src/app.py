@@ -295,12 +295,14 @@ def nascar_pool():
     if form.validate_on_submit():
         pool_name = form.pool_name.data
         race_id = form.race.data
+        race_data = Sched_Event.find_one_race(race_id)
+        race_name = race_data['race_name']
         print(pool_name, ' ', race_id)
 
         members = [member.strip() for member in request.form.get('members').split(',')]
         if len(pool_name) and len(members):
             username = current_user.username
-            new_pool = Room(pool_name, username, race_id)
+            new_pool = Room(pool_name, username, race_id, race_name)
             #print(new_pool.json())
             new_pool.save_room()
             room_data = Room.get_room_by_name(pool_name)
@@ -318,8 +320,6 @@ def nascar_pool():
     else:
         print('shit not working')
         print(form.race.errors)
-
-
     return render_template('create_pool.html', form = form)
 
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])

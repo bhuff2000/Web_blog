@@ -20,8 +20,8 @@
              <thead class="thead-light">
               <h4>Join Room:</h4>
             <tr>
-                <th scope="col">Room ID</th>
                 <th scope="col">Race Name</th>
+                <th scope="col">Room Name</th>
 
             </tr>
         </thead>
@@ -29,7 +29,7 @@
 
         {% for draft in drafts %}
             <tr>
-                <td>{{ draft['_id'] }}</td>
+                <td>{{ draft['race_name'] }}</td>
                 <td>{{ draft['room_name'] }}</td>
 
             </tr>
