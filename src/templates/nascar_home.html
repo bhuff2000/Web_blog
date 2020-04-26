@@ -16,32 +16,30 @@
                 <h6>Create a Pool for any of the 3 Nascar series or review historical driver data.</h6>
             </div>
         </div>
-        <div class="container">
-            <table class="w-100">
-                <thead class="thead-light">
-                    <h4>Join Room:</h4>
-                    <tr class="text-left">
-                        <th scope="col">Race Name</th>
-                        <th scope="col">Room Name</th>
+    </div>
+    <div class="container">
+        <h4>Join Room:</h4>
+        <center class="row">
+            <div style="border:2px solid black" class="col-6 py-2">
+                <b>Race Name</b>
+                <b>Room Name</b>
+            </div>
 
-                    </tr>
-                </thead>
-                <tbody>
-
-                    {% for draft in drafts %}
-                        <tr class="clickable-text left" onclick="/">
-                            <td>{{ draft['race_name'] }}</td>
-                            <td>{{ draft['room_name'] }}</td>
-
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+            <div style="border:2px solid black" class="col-12">
+                {% for draft in drafts %}
+                <a class="row clickable" href="/">
+                    <div class="col-5 py-2">{{ draft['race_name'] }}</div>
+                    <div class="col-5 py-2">{{ draft['room_name'] }}</div>
+                </a>
+            </div>
+                {% endfor %}
+        </center>
+    </div>
+    <div>
         <a href="/nascar/pool"><button type="submit" class="btn btn-success" >Create Pool</button></a>
         <a href="/nascar/data"><button type="submit" class="btn btn-success" >Review Data</button></a>
         <a href="/nascar/admin"><button type="submit" class="btn btn-success" >Admin</button></a>
-        </div>
+    </div>
 
 
 
