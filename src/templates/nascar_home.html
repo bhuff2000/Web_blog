@@ -16,7 +16,16 @@
                 <h6>Create a Pool for any of the 3 Nascar series or review historical driver data.</h6>
             </div>
         </div>
+        <div>
+            <h4>Join Room:</h4>
+        {% for draft in drafts %}
+            <tr>
+                <td>{{ draft['race_id'] }}</td>
+                <td>{{ draft['room_name'] }}</td>
 
+            </tr>
+            {% endfor %}
+        </div>
         <a href="/nascar/pool"><button type="submit" class="btn btn-success" >Create Pool</button></a>
         <a href="/nascar/data"><button type="submit" class="btn btn-success" >Review Data</button></a>
         <a href="/nascar/admin"><button type="submit" class="btn btn-success" >Admin</button></a>

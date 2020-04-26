@@ -53,3 +53,10 @@ class Room(object):
         members= Database.find('members', {'room_id': room_id})
         return members
 
+    @classmethod
+    def get_by_username(cls, username):
+        drafts = Database.find('members', {'username': username})
+        draft_list = []
+        for draft in drafts:
+            draft_list.append(draft)
+        return draft_list
