@@ -294,7 +294,7 @@ def nascar_template():
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
 
-def nascar_pool():8
+def nascar_pool():
     #form = CreatePool(meta={'csrf': False})
     form = CreatePool()
 
