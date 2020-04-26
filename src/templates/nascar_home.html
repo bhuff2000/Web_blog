@@ -22,10 +22,12 @@
         <center class="row">
             <div style="border:2px solid black" class="col-6 py-2">
                 <b>Race Name</b>
+            </div>
+            <div style="border:2px solid black" class="col-6 py-2">
                 <b>Room Name</b>
             </div>
             {% for draft in drafts %}
-            <div style="border:2px solid black" class="col-6 py-2">
+            <div style="border:2px solid black" class="col-12">
 
                 <a class="row clickable" href="/">
                     <div class="col-5 py-2">{{ draft['race_name'] }}</div>
