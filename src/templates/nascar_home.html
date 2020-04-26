@@ -20,7 +20,7 @@
             <table class="w-100">
                 <thead class="thead-light">
                     <h4>Join Room:</h4>
-                    <tr class="text-center">
+                    <tr class="text-left">
                         <th scope="col">Race Name</th>
                         <th scope="col">Room Name</th>
 
@@ -29,7 +29,7 @@
                 <tbody>
 
                     {% for draft in drafts %}
-                        <tr class="clickable-text center" onclick="/">
+                        <tr class="clickable-text left" onclick="/">
                             <td>{{ draft['race_name'] }}</td>
                             <td>{{ draft['room_name'] }}</td>
 
