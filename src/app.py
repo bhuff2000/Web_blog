@@ -296,7 +296,7 @@ def nascar_pool():
         pool_name = form.pool_name.data
         race_id = form.race.data
         print(race_id)
-        race_data = Sched_Event.find_one_race(race_id)
+        race_data = Sched_Event.find_one_race(race_id['races'])
         race_name = race_data['race_name']
         print(pool_name, ' ', race_id)
 
