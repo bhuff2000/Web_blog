@@ -295,9 +295,9 @@ def nascar_pool():
     if form.validate_on_submit():
         pool_name = form.pool_name.data
         race_id = form.race.data
-        print(race_id)
         race_data = Sched_Event.find_one_race(race_id['races'])
         race_name = race_data['race_name']
+        print(race_name)
         print(pool_name, ' ', race_id)
 
         members = [member.strip() for member in request.form.get('members').split(',')]
