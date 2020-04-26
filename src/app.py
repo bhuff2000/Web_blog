@@ -286,7 +286,7 @@ def nascar_template():
     draft_list=[]
     for draft in drafts:
         room_data = Room.get_room_by_name(draft['room_name'])
-        print(room_data)
+        print(draft['room_name'])
         race_name = room_data['race_name']
         draft_list.append({'race_name': race_name, 'room_name': draft['room_name']})
     return render_template('nascar_home.html', drafts=draft_list)
@@ -294,7 +294,7 @@ def nascar_template():
 @app.route('/nascar/pool', methods=['GET', 'POST'])
 @login_required
 
-def nascar_pool():
+def nascar_pool():8
     #form = CreatePool(meta={'csrf': False})
     form = CreatePool()
 
