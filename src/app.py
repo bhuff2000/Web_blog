@@ -327,7 +327,7 @@ def nascar_pool():
     else:
         print('shit not working')
         print(form.race.errors)
-    return render_template('create_pool.html', form = form)
+    return render_template('create_pool.html', methods='POST',  form = form)
 
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
 @login_required
