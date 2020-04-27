@@ -392,6 +392,7 @@ def ajax_get_races():
 
 
 @app.route('/load/entrants', methods=['POST', 'GET'])
+@login_required
 def load_entrants():
     type1 = 'races'
     race_id = request.form['race_drop_down_abc']
@@ -424,6 +425,7 @@ def load_entrants():
 #  return render_template('races_list.html', data=data)
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
+@login_required
 def nascar_load_template():
     type1 = request.form['type']
     year = request.form['year']
