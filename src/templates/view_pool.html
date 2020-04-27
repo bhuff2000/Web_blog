@@ -3,14 +3,16 @@
 {% block content %}
 
 <h1>Welcome to Pool: {{room_data.room_name}}</h1>
-
-<button type="button" id="load_older_messages_btn">Load Older Messages</button>
-<div id="messages">
-    {% for message in messages %}
-    <div><b>{{ message.sender }}&nbsp;[{{ message.created_at }}]&nbsp;</b> {{  message.text }}</div>
+<br>
+<h3>Driver List:</h3>
+<ul>
+    {% for driver in driver_list %}
+        <li>{{  driver['car_num'] }} - {{  driver['drv_full']  }}</li>
     {% endfor %}
+</ul>
 
-</div>
+
+
 <ul id="msg_list">
     <li>messages</li>
 </ul>
