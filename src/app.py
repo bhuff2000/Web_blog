@@ -341,7 +341,9 @@ def view_room(room_id):
     #if request.method =='POST':
     room_members = Room.get_room_members(room_id)
     race_id = room_data.race_id
+    print(race_id)
     drivers = Entrants.find_drivers_by_race_id(race_id)
+    print(drivers)
     messages = Message.get_messages(room_id)
     return render_template('view_pool.html', username=current_user.username, messages=messages,
                            room_members=room_members, room_data=room_data, drivers=drivers)
