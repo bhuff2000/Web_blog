@@ -29,7 +29,7 @@
             {% for draft in drafts %}
             <div style="border:2px solid black" class="col-12">
 
-                <a class="row clickable" href="/">
+                <a class="row clickable" href="/view-room/{{ draft['room_id'] }}">
                     <div class="col-6 py-2">{{ draft['race_name'] }}</div>
                     <div class="col-6 py-2">{{ draft['room_name'] }}</div>
                 </a>
