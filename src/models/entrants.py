@@ -96,4 +96,5 @@ class Entrants(object):
         driver_list = []
         for driver in data:
             driver_list.append(driver)
+            driver_list.sort()
         return driver_list
