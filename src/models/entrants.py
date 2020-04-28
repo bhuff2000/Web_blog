@@ -92,7 +92,7 @@ class Entrants(object):
 
     @classmethod
     def find_drivers_by_race_id(cls, race_id):
-        data = Database.find("entrants", {'race_id': race_id})
+        data = Database.find("entrants", {"race_id": race_id})
         driver_list = []
         for driver in driver_list:
             driver_list.append(driver)
