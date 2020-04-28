@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
 <div class="container">
     <h2>Races Loaded</h2>
     <table class="table table-striped">

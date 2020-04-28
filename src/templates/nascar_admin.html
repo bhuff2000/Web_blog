@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
 <div class="container">
     <a href="/nascar">Nascar Home</a>
    <h1>Sport Radar Data Loads</h1>
