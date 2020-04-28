@@ -96,5 +96,4 @@ class Entrants(object):
         driver_list = []
         for driver in data:
             driver_list.append(driver)
-            driver_list.sort()
-        return driver_list
+        return sorted(driver_list, key = lambda i: (i['car_num'], i['drv_full']))
