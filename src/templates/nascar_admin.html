@@ -4,6 +4,7 @@
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 </form>
 <div class="container">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
     <a href="/nascar">Nascar Home</a>
    <h1>Sport Radar Data Loads</h1>
    <div class="form-check">
@@ -25,6 +26,7 @@
         </label>
     </div>
     <form id="loadRaces" action="/nascar/load" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="description">Type Parameter</label>
@@ -46,6 +48,7 @@
         <button type="submit" class="btn btn-success" >Load Data</button>
     </form>
     <form id="loadEntrants" action="/load/entrants" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="form-row">
             <div class="form-group col-md-6" id="entrant_type">
                 <label for="description">Type Parameter</label>
@@ -74,6 +77,7 @@
         <button type="submit" class="btn btn-success" >Load Data</button>
     </form>
     <form id="loadQualify" action="/nascar/load" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="form-row">
             <div class="form-group col-md-6" id="qual_type">
                 <label for="description">Type Parameter</label>
