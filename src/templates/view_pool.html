@@ -5,7 +5,7 @@
 
 <h1>Welcome to Pool: {{room_data.room_name}}</h1>
 <h3>room id: {{room_data._id}}</h3>
-<input type="hidden" name="room_id" value="{{  room_data._id  }}">
+<input type="hidden" name="room_idA" value="{{  room_data._id  }}">
 <br>
 
 
@@ -137,13 +137,16 @@ $(document).ready(function() {
         document.getElementById('messages').appendChild(newNode);
     });
 
+    let boob = $('select[name="room_idA"]').val()
+    console.log(boob)
+
 
     $('#driver_list-driver option').remove();
     $.ajax({
         type: "GET",
         url: "/ajax_get_drivers",
         processData: "false",
-        data: {room_id: $('select[name="room_id"]').val()},
+        data: {room_id: $('select[name="room_idA"]').val()},
         dataType:"json",
         success: function(data) {
             console.log(data);
