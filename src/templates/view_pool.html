@@ -4,7 +4,7 @@
 {% block content %}
 
 <h1>Welcome to Pool: {{room_data.room_name}}</h1>
-<input type="hidden" name="room_id" value="{{  room_data.room_name  }}">
+<input type="hidden" name="room_id" value="{{  room_data.room_id  }}">
 <br>
 <h3>Driver List:</h3>
 
@@ -154,7 +154,7 @@ $(document).ready(function() {
             $('select[name="driver_list-driver"]').append(driver_data);
         }  //end success
     });  //end ajax
-    
+
 }); //end ready
 </script>
 {% endblock %}
