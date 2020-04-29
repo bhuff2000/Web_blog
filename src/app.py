@@ -408,7 +408,7 @@ def ajax_get_drivers():
     print(drivers)
 
     #mongo_list = Sched_Event.find_by_race_series_and_year(series, year)
-    SelectRace.add_choices(drivers)
+    DriverList.add_choices(drivers)
     cursor = Entrants.find_drivers_by_race_id(race_id)
     ser_to_json = dumps(cursor)
     #print(type(ser_to_json))
