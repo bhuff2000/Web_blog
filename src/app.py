@@ -396,7 +396,7 @@ def ajax_get_races():
 @app.route('/ajax_get_drivers')
 def ajax_get_drivers():
     room_id = request.args.get('room_id', 0, type=str)
-
+    print(room_id)
     room_data = Room.get_room_by_id(room_id)
     room_name = room_data.room_name
     message = ''
