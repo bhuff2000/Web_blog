@@ -146,7 +146,7 @@ $(document).ready(function() {
         type: "GET",
         url: "/ajax_get_drivers",
         processData: "false",
-        data: {room_id: $('select[name="room_idA"]').val()},
+        data: {room_id: $('input[name="room_idA"]').val()},
         dataType:"json",
         success: function(data) {
             console.log(data);
