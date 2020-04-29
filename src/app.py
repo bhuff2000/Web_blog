@@ -13,6 +13,7 @@ from bson.json_util import dumps, loads
 from src.common.database import Database
 from src.common.utils import Utils
 from src.forms.create_pool import CreatePool, SelectRace
+from src.forms.view_pool import SelectDriver, DriverLIst
 from src.models import user
 from src.models.blog import Blog
 from src.models.entrants import Entrants
@@ -335,6 +336,8 @@ def nascar_pool():
 @app.route('/view-pool/<string:room_id>', methods=['GET', 'POST'])
 @login_required
 def view_room(room_id):
+    form = SelectDriver()
+
     room_data = Room.get_room_by_id(room_id)
     room_name = room_data.room_name
     message=''
@@ -346,7 +349,7 @@ def view_room(room_id):
     print(drivers)
     messages = Message.get_messages(room_id)
     return render_template('view_pool.html', username=current_user.username, messages=messages,
-                           room_members=room_members, room_data=room_data, drivers=drivers)
+                           room_members=room_members, room_data=room_data, drivers=drivers, form=form)
 
 @app.route('/nascar/admin')
 @login_required

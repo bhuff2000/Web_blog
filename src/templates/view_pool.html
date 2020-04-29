@@ -5,11 +5,20 @@
 <h1>Welcome to Pool: {{room_data.room_name}}</h1>
 <br>
 <h3>Driver List:</h3>
-<ul>
-    {% for driver in drivers %}
-        <li>{{  driver['car_num'] }} - {{  driver['drv_full']  }}</li>
-    {% endfor %}
-</ul>
+
+<div class="formwrapper">
+<div class="page-header" id="View_Pool_Driver_List">
+    <h4>Choose Driver:</h4>
+</div>
+
+<div class="col-md-3" id="selectdriver">
+<br>
+<br>
+{{  wtf.quick_form(form)  }}
+
+</div>
+</div>
+
 
 
 
@@ -125,6 +134,25 @@ $(document).ready(function() {
         document.getElementById('messages').appendChild(newNode);
     });
 
+    $('#series').change(function() {
+        $('#race-races option').remove();
+        $.ajax({
+            type: "GET",
+            url: "/ajax_get_races",
+            processData: "false",
+            data: {series: $('select[name="series"]').val()},
+            dataType:"json",
+            success: function(data) {
+                console.log(data);
+                race_data = '';
+                $.each(data, function() {
+                    //race_id = toString($(this).attr('race_id');
+                    race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
+                });  // end each
+                $('select[name="race-races"]').append(race_data);
+            }  //end success
+        });  //end ajax
+    });  // end process input
 
 }); //end ready
 </script>

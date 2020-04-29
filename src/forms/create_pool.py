@@ -10,20 +10,6 @@ from bson import ObjectId
 import wtforms
 from wtforms_validators import Email
 
-#class SelectRace(Form):
-#    races = SelectField('race name')
-
-#    def __init__(self, label='', validators=None, *args, **kwargs):
-#        super(SelectRace, self).__init__( *args, **kwargs)
-#        year = int(datetime.now().year)
-#        print(year)
-#        total_races = Sched_Event.find_by_year(year)
-        #print(total_races)
-#        races_list = []
-#        for race in total_races:
-#           races_list.append((race['race_id'], race['race_name'] + ' @ ' + race['track']))
-#        self.races.choices = races_list
-
 
 class SelectRace(FlaskForm):
     races = SelectField('race name', validators=None, validate_choice=False)
