@@ -393,6 +393,27 @@ def ajax_get_races():
     #print(type(ser_to_json))
     return ser_to_json
 
+@app.route('/ajax_get_drivers')
+def ajax_get_drivers():
+    room_id = request.args.get('room_id', 0, type=str)
+
+    room_data = Room.get_room_by_id(room_id)
+    room_name = room_data.room_name
+    message = ''
+    # if request.method =='POST':
+    room_members = Room.get_room_members(room_id)
+    race_id = room_data.race_id['races']
+    print(race_id)
+    drivers = Entrants.find_drivers_by_race_id(race_id)
+    print(drivers)
+
+    #mongo_list = Sched_Event.find_by_race_series_and_year(series, year)
+    SelectRace.add_choices(drivers)
+    cursor = Entrants.find_drivers_by_race_id(race_id)
+    ser_to_json = dumps(cursor)
+    #print(type(ser_to_json))
+    return ser_to_json
+
 
 @app.route('/load/entrants', methods=['POST', 'GET'])
 @login_required
