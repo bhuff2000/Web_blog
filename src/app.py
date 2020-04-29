@@ -13,7 +13,7 @@ from bson.json_util import dumps, loads
 from src.common.database import Database
 from src.common.utils import Utils
 from src.forms.create_pool import CreatePool, SelectRace
-from src.forms.view_pool import SelectDriver, DriverLIst
+from src.forms.view_pool import SelectDriver, DriverList
 from src.models import user
 from src.models.blog import Blog
 from src.models.entrants import Entrants
