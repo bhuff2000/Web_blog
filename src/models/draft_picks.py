@@ -52,7 +52,7 @@ class Draft_Picks(object):
             pick_list.append((members[x]['username'], number))
             print(pick_list)
             x = x+1
-        return pick_list
+        return sorted(pick_list, key = lambda x: x[1])
 
     def create_and_save_pick_list(self):
         pass
