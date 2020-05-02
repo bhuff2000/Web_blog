@@ -349,7 +349,7 @@ def view_room(room_id):
     drivers = Entrants.find_drivers_by_race_id(race_id)
     print(drivers)
     pick_list = Draft_Picks.pick_order(room_members)
-    print('pick list: ' + pick_list)
+    print('pick list: ' + str(pick_list))
     messages = Message.get_messages(room_id)
     return render_template('view_pool.html', username=current_user.username, messages=messages, pick_list = pick_list,
                            room_members=room_members, room_data=room_data, drivers=drivers, form=form)
