@@ -40,6 +40,7 @@ class Draft_Picks(object):
     def pick_order(cls, member_list):
         members = member_list
         num = members.count()
+        print(num)
         pick_list =[]
         seed(1)
         sequence = [i for i in range(100)]
