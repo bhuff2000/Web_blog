@@ -2,7 +2,7 @@ __author__ = 'behou'
 
 import uuid
 from src.models.rooms import Room
-from random import seed,choice
+from random import seed,choice, randint
 
 
 
