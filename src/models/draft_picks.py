@@ -39,12 +39,13 @@ class Draft_Picks(object):
     @classmethod
     def pick_order(cls, member_list):
         members = member_list
+        num = members.count()
         pick_list =[]
         seed(1)
         sequence = [i for i in range(100)]
         print (sequence)
         x=0
-        for _ in range(len(members)-1):
+        for _ in range(num-1):
             selection = choice(sequence)
             pick_list[x] = (members[x], selection)
             x = x+1
