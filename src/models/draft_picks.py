@@ -48,7 +48,7 @@ class Draft_Picks(object):
         x=0
         for _ in range(num):
             selection = choice(sequence)
-            pick_list[x] = (members[x], selection)
+            pick_list.append((members[x], selection))
             print(pick_list)
             x = x+1
         print(pick_list)
