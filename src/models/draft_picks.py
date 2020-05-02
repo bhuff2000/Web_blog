@@ -51,7 +51,7 @@ class Draft_Picks(object):
             pick_list.append((members[x]['username'], selection))
             print(pick_list)
             x = x+1
-        print(pick_list)
+        return pick_list
 
     def create_and_save_pick_list(self):
         pass
