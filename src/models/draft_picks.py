@@ -42,7 +42,7 @@ class Draft_Picks(object):
         num = members.count()
         print(num)
         pick_list =[]
-        seed(1)
+        #seed(1)
         #sequence = [i for i in range(100)]
         #print (sequence)
         x=0
