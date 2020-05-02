@@ -16,6 +16,7 @@ from src.forms.create_pool import CreatePool, SelectRace
 from src.forms.view_pool import SelectDriver, DriverList
 from src.models import user
 from src.models.blog import Blog
+from src.models.draft_picks import Draft_Picks
 from src.models.entrants import Entrants
 from src.models.post import Post
 from src.models.races import Sched_Event
@@ -347,8 +348,9 @@ def view_room(room_id):
     print(race_id)
     drivers = Entrants.find_drivers_by_race_id(race_id)
     print(drivers)
+    pick_list = Draft_Picks.pick_order(room_members)
     messages = Message.get_messages(room_id)
-    return render_template('view_pool.html', username=current_user.username, messages=messages,
+    return render_template('view_pool.html', username=current_user.username, messages=messages, pick_list = pick_list,
                            room_members=room_members, room_data=room_data, drivers=drivers, form=form)
 
 @app.route('/nascar/admin')

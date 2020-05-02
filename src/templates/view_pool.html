@@ -41,6 +41,13 @@
     {% endfor %}
 </ul>
 
+<h3>Pick List</h3>
+<ul>
+    {% for pick in pick_list %}
+        <li>{{  pick[0] : pick[1]  }}</li>
+    {% endfor %}
+</ul>
+
 <script>
 $(document).ready(function() {
     var socket = io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});

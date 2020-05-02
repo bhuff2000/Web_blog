@@ -27,3 +27,10 @@ class Room_Member(object):
 
     def add_room_member(self):
         member = Database.insert('members', data=self.json())
+
+    def get_room_member_list(self, room_id):
+        members = Database.find('members', {'room_id': room_id} )
+        member_list=[]
+        for member in members:
+            member_list.append(member.username)
+        return member_list
