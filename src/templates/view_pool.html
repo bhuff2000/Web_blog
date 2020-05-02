@@ -44,7 +44,7 @@
 <h3>Pick Order</h3>
 <ul>
     {% for pick in pick_list %}
-        <li> Pick {{ pick-list[loop.index0]  }} {{  pick[0] }} </li>
+        <li> Pick {{loop.index }} {{  pick[0] }} </li>
     {% endfor %}
 </ul>
 
