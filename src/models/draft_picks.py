@@ -43,12 +43,13 @@ class Draft_Picks(object):
         print(num)
         pick_list =[]
         seed(1)
-        sequence = [i for i in range(100)]
-        print (sequence)
+        #sequence = [i for i in range(100)]
+        #print (sequence)
         x=0
         for _ in range(num):
-            selection = choice(sequence)
-            pick_list.append((members[x]['username'], selection))
+            #selection = choice(sequence)
+            number = randint(0,1000)
+            pick_list.append((members[x]['username'], number))
             print(pick_list)
             x = x+1
         return pick_list
