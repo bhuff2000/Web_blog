@@ -46,7 +46,7 @@ class Draft_Picks(object):
         sequence = [i for i in range(100)]
         print (sequence)
         x=0
-        for _ in range(num-1):
+        for _ in range(num):
             selection = choice(sequence)
             pick_list[x] = (members[x], selection)
             print(pick_list)
