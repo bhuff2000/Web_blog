@@ -184,9 +184,10 @@ $(document).ready(function() {
 
     document.getElementById('start_draft').onsubmit = function(e) {
             e.preventDefault();
+            console.log("the frig");
             socket.emit('start_draft', {
                     room_id: "{{ room_data._id }}",
-                    console.log("well this worked"),
+                    //console.log("well this worked")
                 });
 
     }
