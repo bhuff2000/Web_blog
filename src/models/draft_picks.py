@@ -35,6 +35,7 @@ class Draft_Picks(object):
     def draft_order(cls, room_id):
         print(room_id)
         members = Room.get_room_members(room_id)
+        print(members[0])
         member_list = []
         for member in members:
             member_list.append(member.username)
