@@ -39,7 +39,7 @@ class Draft_Picks(object):
         member_list = []
         for member in members:
             member_list.append(member['username'])
-        return member_list, room_id
+        return member_list
 
     @classmethod
     def pick_order(cls, member_list, room_id):
