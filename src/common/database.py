@@ -25,4 +25,4 @@ class Database(object):
 
     @staticmethod
     def count_documents(collection, query):
-        return Database.DATABASE[collection].count_documents(query)
+        return Database.DATABASE[collection].countDocuments(query)
