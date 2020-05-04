@@ -44,7 +44,7 @@ class Draft_Picks(object):
     @classmethod
     def pick_order(cls, member_list):
         members = member_list
-        num = members.count(members)
+        num = len(members)
         print(num)
         pick_list =[]
         #seed(1)
