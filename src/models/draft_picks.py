@@ -44,7 +44,7 @@ class Draft_Picks(object):
     @classmethod
     def pick_order(cls, member_list, room_id):
         members = member_list
-        num = data = Database.count_documents("members", {"room_id": room_id})
+        num = Database.count_documents("members", {"room_id": room_id})
         print(num)
         pick_list =[]
         #seed(1)
