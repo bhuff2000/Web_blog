@@ -65,14 +65,7 @@ $(document).ready(function() {
        // }
     });
 
-    document.getElementById('start_draft').onsubmit = function(e) {
-            e.preventDefault();
-            socket.emit('start_draft', {
-                    room_id: "{{ room_id }}",
-                    console.log(room_id)
-                })
 
-    }
 
     socket.on('connect', function() {
         console.log({{  room_data.username  }});
@@ -188,6 +181,15 @@ $(document).ready(function() {
             $('select[name="driver_list-driver"]').append(driver_data);
         }  //end success
     });  //end ajax
+
+    document.getElementById('start_draft').onsubmit = function(e) {
+            e.preventDefault();
+            socket.emit('start_draft', {
+                    room_id: "{{ room_data._id }}",
+                    console.log(room_data._id)
+                });
+
+    }
 
 }); //end ready
 </script>
