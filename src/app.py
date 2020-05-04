@@ -72,7 +72,7 @@ def handle_send_message_event(data):
 def handle_start_draft(data):
     room_id = data['room_id']
     print('in socket for pick list creation' + str(room_id))
-    members = Draft_Picks.draft_order(room_id)
+    members = Draft_Picks.create_and_save_pick_list(room_id)
     print(members)
     socketio.emit('start_draft_annc', {'pick_list': members}, broadcast=True)
 
