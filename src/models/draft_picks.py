@@ -39,12 +39,12 @@ class Draft_Picks(object):
         member_list = []
         for member in members:
             member_list.append(member['username'])
-        return member_list
+        return member_list, room_id
 
     @classmethod
-    def pick_order(cls, member_list):
-        #members = member_list
-        num = member_list.count_documents()
+    def pick_order(cls, member_list, room_id):
+        members = member_list
+        num = data = Database.count_documents("members", {"room_id": room_id})
         print(num)
         pick_list =[]
         #seed(1)
@@ -67,7 +67,7 @@ class Draft_Picks(object):
         # pick_order method will provide the number of members and the order in which they will pick drivers
         #
         room_members = Draft_Picks.draft_order(room_id)
-        ordered_members = Draft_Picks.pick_order(room_members)
+        ordered_members = Draft_Picks.pick_order(room_members, room_id)
 
         num_members = len(room_members)
         num_picks = 5
