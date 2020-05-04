@@ -29,6 +29,7 @@ from src.forms.login import LoginForm
 from src.forms.register import RegistrationForm
 
 
+
 app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
@@ -66,6 +67,13 @@ def handle_send_message_event(data):
     print(new_message.json())
     socketio.emit('receive message', {'username': data['username'], 'message': data['message']}, room=data['room'],
                   broadcast=True)
+
+@socketio.on('start_draft')
+def handle_start_draft(data):
+    room_id = data['room_id']
+    members = Draft_Picks.create_and_save_pick_list(room_id)
+    print(members)
+    socketio.emit('start_draft_annc', {'pick_list': members}, broadcast=True)
 
 
 @socketio.on('join_room')

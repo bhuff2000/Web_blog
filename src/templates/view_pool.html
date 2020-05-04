@@ -8,7 +8,7 @@
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
 <br>
 <div>
-   <a href="#"><button type="submit" class="btn btn-success" >Start Draft</a>
+   <a href="#"><button type="submit" id="start_draft" class="btn btn-success" >Start Draft</a>
 
 </div>
 
@@ -45,10 +45,10 @@
 </ul>
 
 <h3>Pick Order</h3>
-<ul>
-    {% for pick in pick_list %}
-        <li> Pick {{loop.index }} {{  pick[0] }} </li>
-    {% endfor %}
+<ul id="pick_list">
+
+        <li> Draft not yet started </li>
+
 </ul>
 
 <script>
@@ -65,6 +65,15 @@ $(document).ready(function() {
        // }
     });
 
+    document.getElementById('start_draft').onsubmit = function(e) {
+            e.preventDefault();
+            socket.emit('start_draft', {
+                    room_id: "{{ room_id }}",
+                    console.log(room_id)
+                })
+
+    }
+
     socket.on('connect', function() {
         console.log({{  room_data.username  }});
         socket.emit('join_room', {
@@ -73,6 +82,7 @@ $(document).ready(function() {
         });  // end socket connect
 
         //let message_input = document.getElementById('message_input');
+
 
         document.getElementById('message_input_form').onsubmit = function(e) {
             e.preventDefault();
@@ -124,7 +134,17 @@ $(document).ready(function() {
     socket.on('receive message', function(data) {
         console.log(data);
         console.log("in receive socket");
-        $('#msg_list').append('<li><b>'+ data.username +': <b>' + data.message +'</li>');
+        $('#msg_list').append('<li><b>'+ data.username +': </b>' + data.message +'</li>');
+        //const newNode = document.createElement('div');
+        //newNode.innerHTML = `<b>${data.username}&nbsp;[$(data.created_at}]:&nbsp;</b> ${data.message}`;
+        //document.getElementById('messages').appendChild(newNode);
+    });
+
+    socket.on('start_draft_annc', function(data) {
+        console.log(data);
+        console.log("in receive socket");
+        $('#pick_list').append('<li><b>arsehole picks first</b></li>');
+        //$('#pick_list').append('<li><b>'+ data.username +': <b>' + data.message +'</li>');
         //const newNode = document.createElement('div');
         //newNode.innerHTML = `<b>${data.username}&nbsp;[$(data.created_at}]:&nbsp;</b> ${data.message}`;
         //document.getElementById('messages').appendChild(newNode);
@@ -132,7 +152,7 @@ $(document).ready(function() {
 
     socket.on('join_room_announcement', function(data) {
         console.log(data);
-        $('#msg_list').append('<li><b>some arsehole joined<b></li>');
+        $('#msg_list').append('<li><b>some arsehole joined</b></li>');
         //if (data.username !== "{{ username }}") {
         //    const newNode = document.createElement('div');
         //    newNode.innerHTML = `<b>${data.username}</b> has joined the room`;

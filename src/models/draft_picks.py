@@ -57,7 +57,8 @@ class Draft_Picks(object):
             x = x+1
         return sorted(pick_list, key = lambda x: x[1])
 
-    def create_and_save_pick_list(self, room_id):
+    @classmethod
+    def create_and_save_pick_list(cls, room_id):
 
         #  from room_id run draft_order method to obtain list of members
         # use list of members to then run pick_order method
@@ -85,6 +86,6 @@ class Draft_Picks(object):
                     pick.save_to_mongo()
             group = group + 1
 
-
+        return ordered_members
 
 
