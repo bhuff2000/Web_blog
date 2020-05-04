@@ -54,7 +54,7 @@ class Draft_Picks(object):
         for _ in range(num):
             #selection = choice(sequence)
             number = randint(0,1000)
-            pick_list.append((members[x]['username'], number))
+            pick_list.append((member_list[x]['username'], number))
             print(pick_list)
             x = x+1
         return sorted(pick_list, key = lambda x: x[1])
