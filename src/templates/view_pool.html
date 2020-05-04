@@ -182,8 +182,8 @@ $(document).ready(function() {
         }  //end success
     });  //end ajax
 
-    document.getElementById('start_draft').onsubmit = function(e) {
-            e.preventDefault();
+    document.getElementById('start_draft').onsubmit = function() {
+            //e.preventDefault();
             console.log("the frig");
             socket.emit('start_draft', {
                     room_id: "{{ room_data._id }}",
