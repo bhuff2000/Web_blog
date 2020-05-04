@@ -38,7 +38,7 @@ class Draft_Picks(object):
         print(members[0])
         member_list = []
         for member in members:
-            member_list.append(member['username')
+            member_list.append(member['username'])
         return member_list
 
     @classmethod
