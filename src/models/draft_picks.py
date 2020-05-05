@@ -43,7 +43,7 @@ class Draft_Picks(object):
 
     @classmethod
     def pick_order(cls, member_list, room_id):
-        members = member_list
+        #members = member_list
         print('stuff' + str(members[0]))
         collection = Database.DATABASE['members']
         num = collection.count({"room_id": room_id})
@@ -53,10 +53,10 @@ class Draft_Picks(object):
         #sequence = [i for i in range(100)]
         #print (sequence)
         z= int(0)
-        for member in members:
+        for member in member_list:
             #selection = choice(sequence)
             number = randint(0,1000)
-            pick_list.append((members['username'], number))
+            pick_list.append((member_list['username'], number))
             print(pick_list)
             z = z+1
         return sorted(pick_list, key = lambda x: x[1])
