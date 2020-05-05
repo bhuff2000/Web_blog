@@ -56,7 +56,7 @@ class Draft_Picks(object):
             #selection = choice(sequence)
             number = randint(0,1000)
             print('z type ' + z)
-            pick_list.append((members[z]['username'], number))
+            pick_list.append((members.index(z)['username'], number))
             print(pick_list)
             z = z+1
         return sorted(pick_list, key = lambda x: x[1])
