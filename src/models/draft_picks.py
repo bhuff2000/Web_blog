@@ -55,6 +55,7 @@ class Draft_Picks(object):
         for _ in range(num):
             #selection = choice(sequence)
             number = randint(0,1000)
+            print('z type ' + z)
             pick_list.append((members[z]['username'], number))
             print(pick_list)
             z = z+1
