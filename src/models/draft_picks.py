@@ -40,10 +40,10 @@ class Draft_Picks(object):
         print(type(member_list))
         #for member in members:
         #    member_list.append(member['username'])
-        return cls(**members)
+        return member_list
 
     @classmethod
-    def pick_order(cls, members, room_id):
+    def pick_order(cls, member_list, room_id):
         #members = member_list.username
         #print('stuff ' + str(member_list))
         collection = Database.DATABASE['members']
@@ -54,7 +54,7 @@ class Draft_Picks(object):
         #sequence = [i for i in range(100)]
         #print (sequence)
         z= int(0)
-        for member in members:
+        for member in member_list:
             #selection = choice(sequence)
             number = randint(0,1000)
             pick_list.append((member['username'], number))
