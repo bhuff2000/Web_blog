@@ -44,7 +44,7 @@ class Draft_Picks(object):
     @classmethod
     def pick_order(cls, member_list, room_id):
         members = member_list.username
-        print('stuff ' + str(members[0]))
+        print('stuff ' + str(member_list))
         collection = Database.DATABASE['members']
         num = collection.count({"room_id": room_id})
         print(str(num))
