@@ -75,6 +75,7 @@ class Draft_Picks(object):
         num_members = len(room_members)
         num_picks = 5
         total_picks = num_members*num_picks
+        print(total_picks)
 
         # run loop for total number of picks and create a Draft-Pick object each time through the loop
         # and save object to database
