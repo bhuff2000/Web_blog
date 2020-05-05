@@ -297,7 +297,7 @@ def nascar_template():
     username = current_user.username
     print('user fing name ' + str(username))
     drafts = list(Room.get_by_username(username))
-    print(drafts[0])
+    #print(drafts[0])
     draft_list=[]
     for draft in drafts:
         room_data = Room.get_room_by_name(draft['room_name'])
