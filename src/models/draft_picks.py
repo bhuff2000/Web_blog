@@ -57,10 +57,11 @@ class Draft_Picks(object):
         for member in member_list:
             #selection = choice(sequence)
             number = randint(0,1000)
-            pick_list.append((member['username'], number))
+            #pick_list.append((member['username'], number))
+            pick_list.append({'username': member['username'], 'number': number})
             print(pick_list)
             z = z+1
-        return sorted(pick_list, key = lambda x: x[1])
+        return sorted(pick_list, key = lambda x: x['number'])
 
     @classmethod
     def create_and_save_pick_list(cls, room_id):
