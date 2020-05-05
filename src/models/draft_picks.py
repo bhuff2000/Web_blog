@@ -36,15 +36,15 @@ class Draft_Picks(object):
         print(room_id)
         members = Room.get_room_members(room_id)
         print(members[0])
-        member_list = []
-        for member in members:
-            member_list.append(member['username'])
+        member_list = list(members)
+        #for member in members:
+        #    member_list.append(member['username'])
         return member_list
 
     @classmethod
     def pick_order(cls, member_list, room_id):
         #members = member_list.username
-        print('stuff ' + str(member_list))
+        #print('stuff ' + str(member_list))
         collection = Database.DATABASE['members']
         num = collection.count({"room_id": room_id})
         print(str(num))
