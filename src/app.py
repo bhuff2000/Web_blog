@@ -295,6 +295,7 @@ def nascar_template():
     #fuck_sakes = Sched_Event.find_by_year(2020)
     #print(str(fuck_sakes))
     username = current_user.username
+    print('user fing name ' + str(username))
     drafts = Room.get_by_username(username)
     draft_list=[]
     for draft in drafts:
