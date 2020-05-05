@@ -52,7 +52,7 @@ class Draft_Picks(object):
         #sequence = [i for i in range(100)]
         #print (sequence)
         z= int(0)
-        for _ in range(num):
+        for member in members:
             #selection = choice(sequence)
             number = randint(0,1000)
             pick_list.append((members.username, number))
