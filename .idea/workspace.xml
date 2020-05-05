@@ -51,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/create_pool.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="221">
+              <caret line="34" column="41" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -60,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/view_pool.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="139" column="45" selection-start-line="139" selection-start-column="45" selection-end-line="139" selection-end-column="45" />
+            <state relative-caret-position="371">
+              <caret line="146" column="48" lean-forward="true" selection-start-line="146" selection-start-column="48" selection-end-line="146" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -386,7 +386,7 @@
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50282484" side_tool="true" weight="0.24950495" />
       <window_info id="Structure" order="1" sideWeight="0.5010526" side_tool="true" weight="0.24950495" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49717513" visible="true" weight="0.2591508" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49717513" visible="true" weight="0.2591508" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32909605" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49768978" weight="0.32909605" />
@@ -397,7 +397,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49966997" weight="0.32909605" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5023102" side_tool="true" weight="0.32909605" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.3038168" />
+      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.3038168" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -805,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/create_pool.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -822,10 +815,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/create_pool.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="34" column="41" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/view_pool.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="139" column="45" selection-start-line="139" selection-start-column="45" selection-end-line="139" selection-end-column="45" />
+        <state relative-caret-position="371">
+          <caret line="146" column="48" lean-forward="true" selection-start-line="146" selection-start-column="48" selection-end-line="146" selection-end-column="48" />
         </state>
       </provider>
     </entry>
