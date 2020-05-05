@@ -46,7 +46,7 @@ class Draft_Picks(object):
         members = member_list
         collection = Database.DATABASE['members']
         num = collection.count({"room_id": room_id})
-        print(type(collection))
+        print(str(num))
         pick_list =[]
         #seed(1)
         #sequence = [i for i in range(100)]
