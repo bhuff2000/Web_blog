@@ -15,6 +15,7 @@ from wtforms_validators import Email
 class DriverList(FlaskForm):
     driver = SelectField('driver list', validators=None, validate_choice=False)
 
+
     @classmethod
     def add_choices(cls, mongo_list):
         #print('driver' + str(mongo_list))
@@ -26,7 +27,8 @@ class DriverList(FlaskForm):
 class SelectDriver(FlaskForm):
 
     driver_list = wtforms.FormField(DriverList)
-    choose_driver = SubmitField('Choose Driver')
+    choose_driver = SubmitField('Choose Driver', class_="btn btn-primary")
+
 
     #@classmethod
     #def already_exists(cls, room_name, username):
