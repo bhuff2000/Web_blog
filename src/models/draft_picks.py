@@ -85,13 +85,13 @@ class Draft_Picks(object):
         for i in range(num_picks):
             if not (group%2) == 0:
                 for member in ordered_members:
-                    pick = Draft_Picks(room_id, member, i+1, pool_pick)
+                    pick = Draft_Picks(room_id, member, pool_pick, i+1)
                     print('pick ' + str(pick.json()) + ' group ' + str(pool_pick) + ' odd  ' + str(i))
                     pick.save_to_mongo()
                     pool_pick = pool_pick+1
             else:
                 for member in reversed(ordered_members):
-                    pick = Draft_Picks(room_id, member, i+1, pool_pick)
+                    pick = Draft_Picks(room_id, member, pool_pick, i+1)
                     print('pick ' + str(pick.json()) + ' group ' + str(pool_pick) + ' even ' + str(i))
                     pick.save_to_mongo()
                     pool_pick = pool_pick + 1
