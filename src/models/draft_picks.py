@@ -81,7 +81,8 @@ class Draft_Picks(object):
         # and save object to database
 
         group = 1
-        for i in range(total_picks):
+        i=1
+        for i in range(num_picks):
             if not (group%2) == 0:
                 for member in ordered_members:
                     pick = Draft_Picks(room_id, member, i, group)
