@@ -5,7 +5,7 @@ from flask_bootstrap import Bootstrap
 from datetime import datetime
 import logging
 from logging import StreamHandler
-from flask_wtf import FlaskForm, CsrfProtect
+from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 
