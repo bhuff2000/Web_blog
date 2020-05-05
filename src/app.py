@@ -41,7 +41,7 @@ login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
 Bootstrap(app)
-csrf = CsrfProtect()
+csrf = CSRFProtect()
 csrf.init_app(app)
 
 
