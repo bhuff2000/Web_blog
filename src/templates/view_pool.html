@@ -47,7 +47,7 @@
 <h3>Pick Order</h3>
 <ul id="pick_list">
 
-        <li> Draft not yet started </li>
+        <li id="initial_message"> Draft not yet started </li>
 
 </ul>
 
@@ -136,6 +136,7 @@ $(document).ready(function() {
     socket.on('start_draft_annc', function(data) {
         console.log(data);
         console.log("in receive socket");
+        $('#initial_message').remove
         $('#pick_list').append('<li><b>arsehole picks first</b></li>');
         //$('#pick_list').append('<li><b>'+ data.username +': <b>' + data.message +'</li>');
         //const newNode = document.createElement('div');
