@@ -75,7 +75,7 @@ class Draft_Picks(object):
         num_members = len(room_members)
         num_picks = 5
         total_picks = num_members*num_picks
-        print(total_picks)
+        print('total picks ' + str(total_picks))
 
         # run loop for total number of picks and create a Draft-Pick object each time through the loop
         # and save object to database
@@ -85,10 +85,12 @@ class Draft_Picks(object):
             if not (group%2) == 0:
                 for member in ordered_members:
                     pick = Draft_Picks(room_id, member, i, group)
+                    print('pick ' + str(pick) + ' group ' + str(group) + ' odd ')
                     pick.save_to_mongo()
             else:
                 for member in reversed(ordered_members):
                     pick = Draft_Picks(room_id, member, i, group)
+                    print('pick ' + str(pick) + ' group ' + str(group) + ' even ')
                     pick.save_to_mongo()
             group = group + 1
 
