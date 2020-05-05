@@ -137,7 +137,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive socket");
         $('#initial_message').remove();
-        $('#msg_list').append('<li><b>'+ data[0].username +'- picks first! </b></li>');
+        $('#msg_list').append('<li><b>'+ data[1].pick_list[0][0] +'- picks first! </b></li>');
         $('#pick_list').append('<li><b>list of arseholes</b></li>');
         //$('#pick_list').append('<li><b>'+ data.username +': <b>' + data.message +'</li>');
         //const newNode = document.createElement('div');
