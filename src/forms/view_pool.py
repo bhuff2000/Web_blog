@@ -27,7 +27,7 @@ class DriverList(FlaskForm):
 class SelectDriver(FlaskForm):
 
     driver_list = wtforms.FormField(DriverList)
-    choose_driver = SubmitField('Choose Driver')
+    #choose_driver = SubmitField('Choose Driver')
 
 
     #@classmethod

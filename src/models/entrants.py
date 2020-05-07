@@ -97,3 +97,8 @@ class Entrants(object):
         for driver in data:
             driver_list.append(driver)
         return sorted(driver_list, key = lambda i: (i['drv_full']))
+
+    @classmethod
+    def find_by_driver_id(cls, driver_id):
+        data = Database.find_one("entrants", {"drv_id": driver_id})
+        return cls(**data)

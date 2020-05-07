@@ -77,6 +77,15 @@ def handle_start_draft(data):
     socketio.emit('start_draft_annc', {'pick_list': members}, broadcast=True)
 
 
+@socketio.on('load_driver_pick')
+def handle_load_driver_pick(data):
+    driver_id = data['driver_id']
+    print('in socket for load driver pick' + str(driver_id))
+    drv_data = Entrants.find_by_driver_id(driver_id)
+    pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"]}
+    print(str(pick_data))
+    socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True)
+
 @socketio.on('join_room')
 def handle_join_room_event(data):
     #app.logger.info("{} has joined the room {}".format(data['username'], data['room']))

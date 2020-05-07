@@ -23,6 +23,10 @@
 {{  wtf.quick_form(form)  }}
 
 </div>
+    <div>
+    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Start Draft</button></a>
+
+</div>
 </div>
 
 
@@ -148,6 +152,13 @@ $(document).ready(function() {
         //document.getElementById('messages').appendChild(newNode);
     });
 
+        socket.on('driver_pick', function(data) {
+        console.log(data);
+        console.log("in receive driver pick");
+        $('#msg_list').append('<li><b>'+ data['car_num'] + ' - ' + data['drv_full'] +'</b> picked. </li>');
+        
+    });
+
     socket.on('join_room_announcement', function(data) {
         console.log(data);
         $('#msg_list').append('<li><b>some arsehole joined</b></li>');
@@ -192,6 +203,16 @@ $(document).ready(function() {
             console.log("the frig");
             socket.emit('start_draft', {
                     room_id: "{{ room_data._id }}",
+                    //console.log("well this worked")
+                });
+
+    }
+
+    document.getElementById('choose_driver').onclick = function() {
+            //e.preventDefault();
+            console.log("the fuck");
+            socket.emit('load_driver_pick', {
+                    driver_id: $('driver_list-driver').val(),
                     //console.log("well this worked")
                 });
 
