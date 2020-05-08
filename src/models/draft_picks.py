@@ -85,6 +85,7 @@ class Draft_Picks(object):
         #
         room_members = Draft_Picks.draft_order(room_id)
         ordered_members = Draft_Picks.pick_order(room_members, room_id)
+        print('ordered members ' + str(ordered_members))
 
         num_members = len(room_members)
         num_picks = 5
