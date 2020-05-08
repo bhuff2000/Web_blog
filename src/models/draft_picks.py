@@ -11,7 +11,7 @@ class Draft_Picks(object):
     def __init__(self, room_id, username, pool_pick_num, user_pick_num, car_num=None, drv_full=None, _id=None):
         self.room_id = room_id,
         self.username = username,
-        self.pool_pick_num = pool_pick_num
+        self.pool_pick_num = pool_pick_num,
         self.user_pick_num = user_pick_num,
         self.car_num = car_num,
         self.drv_full = drv_full,
@@ -71,10 +71,10 @@ class Draft_Picks(object):
             #selection = choice(sequence)
             number = randint(0,1000)
             #pick_list.append((member['username'], number))
-            pick_list.append({'username': member['username'], 'number': number})
+            pick_list.append({"username": member["username"], "number": number})
             print(pick_list)
             z = z+1
-        return sorted(pick_list, key = lambda x: x['number'])
+        return sorted(pick_list, key = lambda x: x["number"])
 
     @classmethod
     def create_and_save_pick_list(cls, room_id):
