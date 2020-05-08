@@ -32,6 +32,14 @@ class Draft_Picks(object):
         Database.insert("picks", self.json())
 
     @classmethod
+    def update_pick(cls, room_id, username, pick_num, car_num, drv_full):
+        query = {"$and": [{"room_id": room_id}, {"username": username}, {"pool_pick_num": pick_num}]}
+        values = {"car_num": car_num, "drv_full": drv_full}
+        new_vals = {"$set": values}
+        data = Database.DATABASE.update_one('picks', query, new_vals)
+        return data
+
+    @classmethod
     def draft_order(cls, room_id):
         print(room_id)
         members = Room.get_room_members(room_id)
