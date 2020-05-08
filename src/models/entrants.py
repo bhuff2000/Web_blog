@@ -101,5 +101,6 @@ class Entrants(object):
     @classmethod
     def find_by_driver_id(cls, driver_id, race_id):
         data = Database.find_one("entrants", {"$and": [{"race_id": race_id}, {"drv_id": driver_id}]})
+        print(str(data))
         pick_data = {'car_num': data['car_num'], 'drv_full': data['drv_full']}
         return pick_data
