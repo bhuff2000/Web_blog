@@ -36,7 +36,9 @@ class Draft_Picks(object):
         query = {"$and": [{"room_id": room_id}, {"username.username": username}, {"pool_pick_num": pick_num}]}
         #query = {"$and": [{"room_id": room_id}, {"username": username}]}
         print(str(query))
-        data = Database.find_one("picks", {"$and": [{"room_id": room_id}, {"username.username": username}, {"pool_pick_num": pick_num}]})
+        #data = Database.find_one("picks", {"$and": [{"room_id": room_id}, {"username.username": username}, {"pool_pick_num": pick_num}]})
+        data = Database.find_one("picks", {
+            "$and": [{"room_id": room_id}, {"username.username": username}]})
         #print(str(data["drv_full"]))
         print('find result ' + str(data))
         values = {"car_num": car_num, "drv_full": drv_full}
@@ -47,7 +49,7 @@ class Draft_Picks(object):
                                      [{"room_id": room_id}, {"username.username": username},{"pool_pick_num": pick_num}]},
                                      {"$set": {"car_num": car_num, "drv_full": drv_full}})
         #print(str(update_return.raw_result))
-        
+
 
     @classmethod
     def draft_order(cls, room_id):
