@@ -101,4 +101,5 @@ class Entrants(object):
     @classmethod
     def find_by_driver_id(cls, driver_id):
         data = Database.find_one("entrants", {"drv_id": driver_id})
-        return cls(**data)
+        pick_data = {'car_num': data['car_num'], 'drv_full': data['drv_full']}
+        return pick_data
