@@ -43,8 +43,9 @@ class Draft_Picks(object):
         print(str(values))
         new_vals = {"$set": values}
         print(str(new_vals))
-        Database.update_one('picks', query, new_vals)
-
+        update_return = Database.update_one('picks', query, new_vals)
+        print(str(update_return))
+        return update_return
 
     @classmethod
     def draft_order(cls, room_id):
