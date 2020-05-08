@@ -44,7 +44,7 @@ class Draft_Picks(object):
         new_vals = {"$set": values}
         print(str(new_vals))
         update_return = Database.update_one('picks', query, new_vals)
-        print(str(update_return))
+        print(str(update_return.raw_result))
         return update_return
 
     @classmethod
