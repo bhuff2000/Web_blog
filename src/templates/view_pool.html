@@ -213,6 +213,8 @@ $(document).ready(function() {
             console.log("the fuck");
             socket.emit('load_driver_pick', {
                     driver_id: $('#driver_list-driver').val(),
+                    room_id: "{{ room_data._id }}",
+                    username: "{{ username }}",
                     //console.log("well this worked")
                 });
 
