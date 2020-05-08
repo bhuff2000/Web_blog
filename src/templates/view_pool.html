@@ -24,7 +24,7 @@
 
 </div>
     <div>
-    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Start Draft</button></a>
+    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
 
 </div>
 </div>
@@ -156,7 +156,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive driver pick");
         $('#msg_list').append('<li><b>'+ data['car_num'] + ' - ' + data['drv_full'] +'</b> picked. </li>');
-        
+
     });
 
     socket.on('join_room_announcement', function(data) {
@@ -212,7 +212,7 @@ $(document).ready(function() {
             //e.preventDefault();
             console.log("the fuck");
             socket.emit('load_driver_pick', {
-                    driver_id: $('driver_list-driver').val(),
+                    driver_id: $('#driver_list-driver').val(),
                     //console.log("well this worked")
                 });
 
