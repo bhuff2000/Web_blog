@@ -43,9 +43,11 @@ class Draft_Picks(object):
         print(str(values))
         new_vals = {"$set": values}
         print(str(new_vals))
-        update_return = Database.update_one('picks', query, new_vals)
-        print(str(update_return.raw_result))
-        return update_return
+        Database.update_one("picks", {"$and":
+                                     [{"room_id": room_id}, {"username.username": username},{"pool_pick_num": pick_num}]},
+                                     {"$set": {"car_num": car_num, "drv_full": drv_full}})
+        #print(str(update_return.raw_result))
+        
 
     @classmethod
     def draft_order(cls, room_id):
