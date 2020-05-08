@@ -80,8 +80,8 @@ def handle_start_draft(data):
 
 @socketio.on('load_driver_pick')
 def handle_load_driver_pick(data):
-    driver_id = data['driver_id']
-    room_id = data['room_id']
+    driver_id = data["driver_id"]
+    room_id = data["room_id"]
     race_id = Room.get_race_id(room_id)
     print(str(race_id))
     #race_id = room_data.race_id
