@@ -34,6 +34,7 @@ class Draft_Picks(object):
     @classmethod
     def update_pick(cls, room_id, username, pick_num, car_num, drv_full):
         query = {"$and": [{"room_id": room_id}, {"username": username}, {"pool_pick_num": pick_num}]}
+        print(str(query))
         data = Database.DATABASE.find_one("picks", query)
         print(str(data["drv_full"]))
         print(str(query))
