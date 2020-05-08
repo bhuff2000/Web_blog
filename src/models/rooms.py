@@ -66,5 +66,5 @@ class Room(object):
     @classmethod
     def get_race_id(cls, room_id):
         data = Database.find_one('rooms', {'_id': room_id})
-        race_id = data['race_id']
+        race_id = data['race_id']['races']
         return race_id
