@@ -156,7 +156,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive driver pick");
         $('#msg_list').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
-         +'</b> picked by ' + data['username'] + '</li>');
+         +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
 
     });
 
