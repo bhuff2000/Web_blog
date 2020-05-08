@@ -82,7 +82,7 @@ def handle_load_driver_pick(data):
     driver_id = data['driver_id']
     username = data['username']
     print('in socket for load driver pick' + str(driver_id))
-    drv_data = Entrants.find_by_driver_id(driver_id, data['room_id'])
+    drv_data = Entrants.find_by_driver_id(driver_id, data["room_id"])
     pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"]}
     print(str(pick_data))
     socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True)
