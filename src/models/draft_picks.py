@@ -33,12 +33,12 @@ class Draft_Picks(object):
 
     @classmethod
     def update_pick(cls, room_id, username, pick_num, car_num, drv_full):
-        query = {"$and": [{"room_id": room_id}, {"username": username}, {"pool_pick_num": pick_num}]}
+        query = {"$and": [{"room_id": room_id}, {"username": {"username":username}}, {"pool_pick_num": pick_num}]}
         #query = {"$and": [{"room_id": room_id}, {"username": username}]}
         print(str(query))
-        data = Database.find_one("picks", {"$and": [{"room_id": room_id}, {"username": username}]})
+        #data = Database.find_one("picks", {"$and": [{"room_id": room_id}, {"username": "usernameusername}]})
         #print(str(data["drv_full"]))
-        print('find result ' + str(data))
+        #print('find result ' + str(data))
         values = {"car_num": car_num, "drv_full": drv_full}
         print(str(values))
         new_vals = {"$set": values}
