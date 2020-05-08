@@ -62,3 +62,8 @@ class Room(object):
         for draft in drafts:
             draft_list.append(draft)
         return draft_list
+
+    @classmethod
+    def get_race_id(cls, room_id):
+        data = Database.find_one('rooms', {'room_id': room_id})
+        return cls(**data)

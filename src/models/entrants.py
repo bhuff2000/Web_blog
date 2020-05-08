@@ -99,7 +99,7 @@ class Entrants(object):
         return sorted(driver_list, key = lambda i: (i['drv_full']))
 
     @classmethod
-    def find_by_driver_id(cls, driver_id, race_id):
+    def find_by_driver_id(cls, race_id, driver_id ):
         data = Database.find_one("entrants", {"$and": [{"race_id": race_id}, {"drv_id": driver_id}]})
         print(str(data))
         pick_data = {'car_num': data['car_num'], 'drv_full': data['drv_full']}

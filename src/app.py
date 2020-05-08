@@ -80,10 +80,13 @@ def handle_start_draft(data):
 @socketio.on('load_driver_pick')
 def handle_load_driver_pick(data):
     driver_id = data['driver_id']
+    room_id = data['room_id']
+    room_data = Room.get_race_id(room_id)
+    race_id = room_data['race_id']['races']
     username = data['username']
     print('in socket for load driver pick' + str(driver_id))
-    drv_data = Entrants.find_by_driver_id(driver_id, data["room_id"])
-    pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"]}
+    drv_data = Entrants.find_by_driver_id(race_id, driver_id)
+    pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"], "username": username}
     print(str(pick_data))
     socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True)
 
