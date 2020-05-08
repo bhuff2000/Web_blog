@@ -38,7 +38,7 @@ class Draft_Picks(object):
         print(str(query))
         data = Database.find_one("picks", {"$and": [{"room_id": room_id}, {"username": username}]})
         #print(str(data["drv_full"]))
-        print(str(data))
+        print('find result ' + str(data))
         values = {"car_num": car_num, "drv_full": drv_full}
         print(str(values))
         new_vals = {"$set": values}
