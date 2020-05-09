@@ -66,7 +66,7 @@ def handle_send_message_event(data):
     new_message.save_message()
     print(new_message.json())
     socketio.emit('receive message', {'username': data['username'], 'message': data['message']}, room=data['room'],
-                  broadcast=True)
+                  broadcast=True, include_self=True)
 
 @socketio.on('start_draft')
 def handle_start_draft(data):
@@ -75,7 +75,7 @@ def handle_start_draft(data):
     print('in socket for pick list creation ' + str(room_id))
     members = Draft_Picks.create_and_save_pick_list(room_id)
     print(members)
-    socketio.emit('start_draft_annc', {'pick_list': members}, broadcast=True)
+    socketio.emit('start_draft_annc', {'pick_list': members}, broadcast=True, include_self=True)
 
 
 @socketio.on('load_driver_pick')
@@ -94,20 +94,20 @@ def handle_load_driver_pick(data):
     pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"],
                  "username": username}
     print(str(pick_data))
-    socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True)
+    socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True, include_self=True)
 
 @socketio.on('join_room')
 def handle_join_room_event(data):
     #app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
     join_room(data['room'])
-    socketio.emit('join_room_announcement', {'username': current_user.username}, broadcast=True)
+    socketio.emit('join_room_announcement', {'username': current_user.username}, broadcast=True, include_self=True)
 
 
 @socketio.on('leave_room')
 def handle_leave_room_event(data):
     app.logger.info("{} has left the room {}".format(data['username'], data['room']))
     leave_room(data['room'])
-    socketio.emit('leave_room_announcement', data, room=data['room'])
+    socketio.emit('leave_room_announcement', data, room=data['room'], broadcast=True)
 
 @socketio.on('join')
 def new_draft(newDraft):
@@ -126,13 +126,13 @@ def new_draft(newDraft):
     print(found)
     if found:
         print('iam in if')
-        emit('user join room', {'draft_name': room, 'user': user}, room=room)
+        emit('user join room', {'draft_name': room, 'user': user}, room=room, broadcast=True, include_self=True)
     else:
         print('iam in else')
         room_lst.append(newDraft)
         print(room)
         join_room(room)
-        emit('new draft', {'draft_name': room, 'user': user}, room=room)
+        emit('new draft', {'draft_name': room, 'user': user}, room=room, broadcast=True, include_self=True)
 
 
 @socketio.on('get_room_list')
