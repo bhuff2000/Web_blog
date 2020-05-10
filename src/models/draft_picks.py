@@ -46,7 +46,7 @@ class Draft_Picks(object):
         new_vals = {"$set": values}
         print(str(new_vals))
         Database.update_one("picks", {"$and":
-                                     [{"room_id": room_id}, {"username.username": username},{"pool_pick_num": pick_num}]},
+                                     [{"room_id": room_id}, {"username.username": username},{"pool_pick_num": int(pick_num)}]},
                                      {"$set": {"car_num": car_num, "drv_full": drv_full}})
         #print(str(update_return.raw_result))
 
