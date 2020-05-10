@@ -132,9 +132,9 @@ class Draft_Picks(object):
         for pick in room_picks:
             if pick["car_num"] is None and pick["drv_full"] is None:
                 if next_pick is None:
-                    next_pick = {"username": pick["username.username"], "pool_pick_num": pick["pool_pick_num"]}
+                    next_pick = {"username": pick["username"]["username"], "pool_pick_num": pick["pool_pick_num"]}
                 elif pick["pool_pick_num"] < next_pick["pool_pick_num"]:
-                    next_pick = {"username": pick["username.username"], "pool_pick_num": pick["pool_pick_num"]}
+                    next_pick = {"username": pick["username"]["username"], "pool_pick_num": pick["pool_pick_num"]}
             else:
                 drivers_picked.append({"car_num": pick["car_num"], "drv_full": pick["drv_full"]})
         print("next_pick" + str(next_pick))
