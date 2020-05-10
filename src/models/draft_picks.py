@@ -130,7 +130,7 @@ class Draft_Picks(object):
         next_pick = None
         drivers_picked = []
         for pick in room_picks:
-            if pick["car_num"] and pick["drv_full"] is None:
+            if pick["car_num"] is None and pick["drv_full"] is None:
                 if next_pick is None:
                     next_pick = {"username": pick["username.username"], "pool_pick_num": pick["pool_pick_num"]}
                 elif pick["pool_pick_num"] < next_pick["pool_pick_num"]:
