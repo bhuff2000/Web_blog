@@ -159,7 +159,7 @@ $(document).ready(function() {
         console.log("in receive driver pick");
         $('#msg_list').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
          +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
-        $('#msg_list').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username'] +
+        $('#msg_list').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick'].username +
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
 
