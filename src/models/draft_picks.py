@@ -126,6 +126,7 @@ class Draft_Picks(object):
         collection = Database.DATABASE['picks']
         num = collection.count({"room_id": room_id})
         room_picks = Database.DATABASE["picks"].find({"room_id": room_id})
+        print("room pick cursor in get next pick "+ str(room_picks[0]))
         next_pick = None
         drivers_picked = []
         for pick in room_picks:

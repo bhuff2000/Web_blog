@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cc9b75ce-29a8-45ee-89b3-ecc3496d6192" name="Default Changelist" comment="added new class for enrants and code to get entrant data from sportradar and load to mongo">
       <change beforePath="$PROJECT_DIR$/src/models/draft_picks.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/draft_picks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/view_pool.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/view_pool.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/draft_picks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
+            <state relative-caret-position="184">
+              <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
               <folding>
                 <element signature="e#22#33#0" expanded="true" />
               </folding>
@@ -825,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/draft_picks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
+        <state relative-caret-position="184">
+          <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
           <folding>
             <element signature="e#22#33#0" expanded="true" />
           </folding>
