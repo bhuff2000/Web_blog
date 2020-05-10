@@ -139,5 +139,5 @@ class Draft_Picks(object):
                 drivers_picked.append({"car_num": pick["car_num"], "drv_full": pick["drv_full"]})
         print("next_pick" + str(next_pick))
         print("drivers_picked" + str(drivers_picked))
-        data = [{"next_pick": next_pick, "drivers_picked": drivers_picked}]
+        data = {"next_pick": next_pick, "drivers_picked": drivers_picked}
         return data
