@@ -94,7 +94,7 @@ def handle_load_driver_pick(data):
     next_pick = Draft_Picks.get_next_pick_data(room_id)
     pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"],
                  "username": username, "pick_data":next_pick}
-    print(str(pick_data))
+    print("pick_data" + str(pick_data))
     socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True, include_self=True)
 
 @socketio.on('join_room')
