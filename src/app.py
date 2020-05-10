@@ -87,6 +87,7 @@ def handle_load_driver_pick(data):
     #race_id = room_data.race_id
     username = data["username"]
     pick_num = data["pick_num"]
+    print("pick number " +str(pick_num))
     print('in socket for load driver pick ' + str(driver_id))
     drv_data = Entrants.find_by_driver_id(race_id, driver_id)
     print('drv_data '+ str(drv_data))
