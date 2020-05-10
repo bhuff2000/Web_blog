@@ -6,6 +6,8 @@
 <h1>Welcome to Pool: {{room_data.room_name}}</h1>
 <h3>room id: {{room_data._id}}</h3>
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
+<input type="hidden" id="pool_pick_num" name="pool_pick_num" value=1>
+<input type="hidden" id="next_pick_username" name="next_pick_username" value=None>
 <br>
 <div>
     <a href="#"><button type="submit" id="start_draft" class="btn btn-primary" >Start Draft</button></a>
@@ -157,6 +159,9 @@ $(document).ready(function() {
         console.log("in receive driver pick");
         $('#msg_list').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
          +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
+        $('#msg_list').append('<li><b>'+ data["pick_data"]["next_pick"]["username"] +
+         '</b> picks next.</li>');
+        $('#pool_pick_num).val() = data["pick_data"]["next_pick"]["pool_pick_num"]
 
     });
 
@@ -216,6 +221,7 @@ $(document).ready(function() {
                     driver_id: $('#driver_list-driver').val(),
                     room_id: "{{ room_data._id }}",
                     username: "{{ username }}",
+                    pick_num: $('#pool_pick_num').val(),
                     //console.log("well this worked")
                 });
 

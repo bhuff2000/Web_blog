@@ -121,4 +121,20 @@ class Draft_Picks(object):
 
         return ordered_members
 
-
+    @classmethod
+    def get_next_pick_data(cls, room_id):
+        collection = Database.DATABASE['picks']
+        num = collection.count({"room_id": room_id})
+        room_picks = Database.DATABASE["picks"].find({"room_id": room_id})
+        next_pick = None
+        drivers_picked = []
+        for pick in room_picks:
+            if pick["car_num"] and pick["drv_full"] is None:
+                if next_pick is None:
+                    next_pick = {"username": pick["username.username"], "pool_pick_num": pick["pool_pick_num"]}
+                elif pick["pool_pick_num"] < next_pick["pool_pick_num"]:
+                    next_pick = {"username": pick["username.username"], "pool_pick_num": pick["pool_pick_num"]}
+            else:
+                drivers_picked.append({"car_num": pick["car_num"], "drv_full": pick["drv_full"]})
+        data = [{"next_pick": next_pick, "drivers_picked": drivers_picked}]
+        return data

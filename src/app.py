@@ -86,13 +86,14 @@ def handle_load_driver_pick(data):
     print(str(race_id))
     #race_id = room_data.race_id
     username = data["username"]
-    pick_num = 1
+    pick_num = data["pool_pick_num"]
     print('in socket for load driver pick ' + str(driver_id))
     drv_data = Entrants.find_by_driver_id(race_id, driver_id)
     print('drv_data '+ str(drv_data))
     Draft_Picks.update_pick(room_id, username, pick_num ,drv_data["car_num"], drv_data["drv_full"])
+    next_pick = Draft_Picks.get_next_pick_data(room_id)
     pick_data = {"car_num": drv_data["car_num"], "drv_full": drv_data["drv_full"],
-                 "username": username}
+                 "username": username, "pick_data":next_pick}
     print(str(pick_data))
     socketio.emit('driver_pick', {'driver_pick': pick_data}, broadcast=True, include_self=True)
 
