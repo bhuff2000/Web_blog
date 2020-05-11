@@ -162,6 +162,8 @@ $(document).ready(function() {
         $('#msg_list').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username']+
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
+        $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']);
+
 
     });
 
