@@ -157,7 +157,8 @@ $(document).ready(function() {
         socket.on('driver_pick', function(data) {
         console.log(data);
         console.log("in receive driver pick");
-        let driver_id = data['driver_pick']['pick_data']['driver_id']
+        let driver_id = data['driver_pick']['driver_id'];
+        console.log(driver_id);
         $('#msg_list').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
          +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
         $('#msg_list').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username']+
