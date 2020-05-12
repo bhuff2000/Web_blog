@@ -158,7 +158,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive driver pick");
         //let driver_id = data['driver_pick']['driver_id'];
-        let driver_id = "85c06960-3610-4eff-9ef2-18641b84c952";
+        let driver_id = 85c06960-3610-4eff-9ef2-18641b84c952;
         console.log(driver_id);
         $('#msg_list').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
          +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
@@ -166,7 +166,8 @@ $(document).ready(function() {
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
         $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']);
-        $('option[value=driver_id]').hide();
+        //$('option[value=driver_id]').hide();
+        $('option[value=85c06960-3610-4eff-9ef2-18641b84c952]').hide();
 
     });
 
