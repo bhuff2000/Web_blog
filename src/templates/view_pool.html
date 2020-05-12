@@ -163,7 +163,7 @@ $(document).ready(function() {
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
         $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']);
-
+        $('select option[value=data['driver_pick']['driver_id']').hide();
 
     });
 
