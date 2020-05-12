@@ -11,4 +11,9 @@ border: 2px;
     max-width: 480px;
 }
 
+ul{
+background-color: white;
+height: 100px;
+overflow-y: scroll;
 
+}
