@@ -14,54 +14,62 @@
 
 </div>
 
-<div class="formwrapper">
-<div class="page-header" id="View_Pool_Driver_List">
+<div class="container">
+    <div class="formwrapper">
+        <div class="page-header" id="View_Pool_Driver_List"></div>
 
+        <div class="col-md-3" id="selectdriver">
+            <br>
+            <br>
+            {{  wtf.quick_form(form)  }}
+            <br>
+        </div>
+        <div>
+        <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
+        </div>
+    </div>
 </div>
 
-<div class="col-md-3" id="selectdriver">
 <br>
 <br>
-{{  wtf.quick_form(form)  }}
 
-<br>
-</div>
-    <div>
-    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
-
-</div>
-
+<div class="container p-3 my-3 border">
+    <h4>Pick Log:</h4>
+    <ul id="pick_log">
+        <li>messages</li>
+    </ul>
 </div>
 <br>
-<br>
 
-<h4>Pick Log:</h4>
-<ul id="pick_log">
-    <li>messages</li>
-</ul>
-<br>
+<div class="container p-3 my-3 border">
 <h4>Chat:</h4>
 <ul id="msg_list">
     <li>messages</li>
 </ul>
-<form id="message_input_form">
-    <input type="text" id="message_input" placeholder="Enter your message here">
-    <button type="submit">Send</button>
-</form>
+</div>
 
+<div class="container">
+    <form id="message_input_form">
+        <input type="text" id="message_input" placeholder="Enter your message here">
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<div class="container">
 <h3>Members</h3>
 <ul>
     {% for member in room_members %}
-        <li>{{  member['_id']['username']  }}</li>
+    <li>{{  member['_id']['username']  }}</li>
     {% endfor %}
 </ul>
+</div>
 
-<h3>Pick Order</h3>
-<ul id="pick_list" >
-
+<div class="container">
+    <h3>Pick Order</h3>
+    <ol id="pick_list" >
         <li id="initial_message"> Draft not yet started </li>
-
-</ul>
+    </ol>
+</div>
 
 <script>
 $(document).ready(function() {
