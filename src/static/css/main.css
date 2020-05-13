@@ -11,10 +11,11 @@ border: 2px;
     max-width: 480px;
 }
 
-ul{
+#msg_list{
 background-color: white;
 height: 300px;
 width: 500pc;
 overflow-y: scroll;
+border: 2px solid black;
 
 }
