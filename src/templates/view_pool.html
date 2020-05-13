@@ -61,15 +61,15 @@
 $(document).ready(function() {
     var socket = io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
-    socket.on('join room announcement', function(data) {
-        console.log({{ username }});
-        $('#msg_list').append('<li>some arsehole joined</li>');
+    //socket.on('join room announcement', function(data) {
+    //    console.log({{ username }});
+    //    $('#msg_list').append('<li>' + data.username +' has joined the draft</li>');
         //if (data.username !== "{{ username }}") {
         //    const newNode = document.createElement('div');
         //    newNode.innerHTML = `<b>${data.username}</b> has joined the room`;
         //    document.getElementById('messages').appendChild(newNode);
        // }
-    });
+    //});
 
 
 
@@ -173,7 +173,7 @@ $(document).ready(function() {
 
     socket.on('join_room_announcement', function(data) {
         console.log(data);
-        $('#msg_list').append('<li><b>some arsehole joined</b></li>');
+        $('#msg_list').append('<li><b>' + data.username + ':</b> has joined the draft.</li>');
         //if (data.username !== "{{ username }}") {
         //    const newNode = document.createElement('div');
         //    newNode.innerHTML = `<b>${data.username}</b> has joined the room`;
