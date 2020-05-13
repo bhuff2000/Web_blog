@@ -24,20 +24,26 @@
 <br>
 {{  wtf.quick_form(form)  }}
 
+<br>
 </div>
     <div>
     <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
 
 </div>
+
 </div>
+<br>
+<br>
 
-
-
-
-<ul id="msg_list">
+<h4>Pick Log:</h4>
+<ul id="pick_log">
     <li>messages</li>
 </ul>
 <br>
+<h4>Pick Log:</h4>
+<ul id="msg_list">
+    <li>messages</li>
+</ul>
 <form id="message_input_form">
     <input type="text" id="message_input" placeholder="Enter your message here">
     <button type="submit">Send</button>
@@ -143,7 +149,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive socket");
         $('#initial_message').remove();
-        $('#msg_list').append('<li><b>'+ data.pick_list[0]['username'] +'</b> - picks first! </li>');
+        $('#pick_log').append('<li><b>'+ data.pick_list[0]['username'] +'</b> - picks first! </li>');
         $.each(data.pick_list, function() {
             $('#pick_list').append('<li><b>' +$(this).attr('username') +'</b></li>');
             });
@@ -160,9 +166,9 @@ $(document).ready(function() {
         let driver_id = data['driver_pick']['driver_id'];
         //let driver_id = "85c06960-3610-4eff-9ef2-18641b84c952";
         console.log(driver_id);
-        $('#msg_list').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
+        $('#pick_log').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
          +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
-        $('#msg_list').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username']+
+        $('#pick_log').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username']+
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
         $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']);
@@ -182,14 +188,15 @@ $(document).ready(function() {
     });
 
     socket.on('leave_room_announcement', function(data) {
-        console.log(data)
-        const newNode = document.createElement('div');
-        newNode.innerHTML = `<b>${data.username}</b> has left the room`;
-        document.getElementById('messages').appendChild(newNode);
+        console.log(data);
+        $('#msg_list').append('<li><b>' + data.username + ':</b> has left the draft.</li>');
+        //const newNode = document.createElement('div');
+        //newNode.innerHTML = `<b>${data.username}</b> has left the room`;
+        //document.getElementById('messages').appendChild(newNode);
     });
 
-    let boob = $('#room_idA').val();
-    console.log('this shit is: '+ boob);
+    //let boob = $('#room_idA').val();
+    //console.log('this shit is: '+ boob);
 
 
     $('#driver_list-driver option').remove();
