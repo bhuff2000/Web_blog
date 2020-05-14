@@ -39,7 +39,7 @@
 
 <div class="container p-3 my-3 border border-primary">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <div class="formwrapper">
                 <div class="page-header" id="View_Pool_Driver_List"></div>
                 <br>
@@ -50,41 +50,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <p>Pick Log:</p>
             <ul id="pick_log">
                 <li>messages</li>
             </ul>
         </div>
+        <div class="col-sm-4">
+            <h4>Chat:</h4>
+            <ul id="msg_list">
+            <li>messages</li>
+            </ul>
+            <form id="message_input_form">
+                <input type="text" id="message_input" placeholder="Enter your message here">
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
 </div>
 
-<br>
-<br>
-
-<br>
-
-<div class="container p-3 my-3 border">
-<h4>Chat:</h4>
-<ul id="msg_list">
-    <li>messages</li>
-</ul>
-</div>
-
-<div class="container">
-    <form id="message_input_form">
-        <input type="text" id="message_input" placeholder="Enter your message here">
-        <button type="submit">Send</button>
-    </form>
-</div>
-
-<div class="container">
-
-</div>
-
-<div class="container">
-
-</div>
 
 <script>
 $(document).ready(function() {
