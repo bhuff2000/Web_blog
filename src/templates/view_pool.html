@@ -2,14 +2,14 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
-
+<div class="container p-3 my-3">
 <h1>Welcome to Pool: {{room_data.room_name}}</h1>
 <h3>{{  username  }}</h3>
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
 <input type="hidden" id="pool_pick_num" name="pool_pick_num" value=1>
 <input type="hidden" id="next_pick_username" name="next_pick_username" value=None>
 <br>
-
+</div>
 <div class="container p-3 my-3 border border-dark">
     <div class="row">
 
