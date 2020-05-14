@@ -24,7 +24,7 @@
                 <p><b>Member Status:</b></p>
                 <ol>
                 {% for member in room_members %}
-                <li>{{  member._id.username  }}</li>
+                <li>{{  member["_id"]{"username"]  }}</li>
                 {% endfor %}
                 </ol>
             </div>

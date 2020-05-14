@@ -376,7 +376,7 @@ def view_room(room_id):
     message=''
     #if request.method =='POST':
     room_members = Room.get_room_members(room_id)
-    print("room Members " + str(room_members))
+    print("room Members " + str(room_members[0]))
     race_id = room_data.race_id['races']
     print(race_id)
     drivers = Entrants.find_drivers_by_race_id(race_id)
