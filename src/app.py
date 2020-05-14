@@ -189,7 +189,7 @@ def login_template():
             loguser = User(find_user["email"], find_user["password"], find_user["username"], find_user["_id"])
             loguser.user_login()
             flash('You have been logged in!', 'success')
-            return render_template('profile.html', email=email)
+            return redirect(url_for('nascar_template'))
         else:
             flash('Login Unsuccessful.  Please check email and password', 'danger')
     return render_template('log_in.html', title='Login', form=form)
