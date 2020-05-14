@@ -247,8 +247,8 @@ def login_user():
         User.login(email)
     else:
         session['email'] = None
-
-    return render_template("profile.html", email=session['email'])
+    #return render_template("profile.html", email=session['email'])
+    return redirect(url_for('nascar_template'))
 
 @app.route('/auth/register', methods=['GET', 'POST'])
 def register_user():
