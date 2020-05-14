@@ -13,8 +13,8 @@ border: 2px;
 
 #pick_log{
 background-color: white;
-height: 300px;
-overflow-y: scroll;
+height: 175px;
+overflow-y: auto;
 border: 1px solid black;
 
 }

@@ -38,16 +38,26 @@
 </div>
 
 <div class="container p-3 my-3 border">
-    <div class="formwrapper">
-        <div class="page-header" id="View_Pool_Driver_List"></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="formwrapper">
+                <div class="page-header" id="View_Pool_Driver_List"></div>
 
-        <div class="col-md-3" id="selectdriver">
-            <br>
-            {{  wtf.quick_form(form)  }}
-            <br>
+                <div class="col-md-3" id="selectdriver">
+                <br>
+                {{  wtf.quick_form(form)  }}
+                <br>
+                </div>
+                <div>
+                    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
+                </div>
+            </div>
         </div>
-        <div>
-        <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
+        <div class="col-sm-6">
+            <p>Pick Log:</p>
+            <ul id="pick_log">
+                <li>messages</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -56,10 +66,7 @@
 <br>
 
 <div class="container p-3 my-3 border">
-    <h4>Pick Log:</h4>
-    <ul id="pick_log">
-        <li>messages</li>
-    </ul>
+
 </div>
 <br>
 
