@@ -385,7 +385,7 @@ def view_room(room_id):
     print('pick list: ' + str(pick_list))
     messages = Message.get_messages(room_id)
     return render_template('view_pool.html', username=current_user.username, messages=messages, pick_list = pick_list,
-                           room_members=room_members, room_data=room_data, drivers=drivers, form=form)
+                           room_members=room_members.rewind(), room_data=room_data, drivers=drivers, form=form)
 
 @app.route('/nascar/admin')
 @login_required
