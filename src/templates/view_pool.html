@@ -10,14 +10,24 @@
 <input type="hidden" id="next_pick_username" name="next_pick_username" value=None>
 <br>
 <div class="container p-3 my-3 border">
-
-    <p><b>To begin the draft, click on the Start Draft button below.</b></p>
-    <p>Before you click <b>Start Draft</b> ensure all members have joined the draft.</p>
-    <a href="#"><button type="submit" id="start_draft" class="btn btn-primary" >Start Draft</button></a>
-
+    <div class="row">
+        <div class="col-sm-6">
+            <p><b>To begin the draft, click on the Start Draft button below.</b></p>
+            <p>Before you click <b>Start Draft</b> ensure all members have joined the draft.</p>
+            <a href="#"><button type="submit" id="start_draft" class="btn btn-primary" >Start Draft</button></a>
+        </div>
+        <div class="col-sm-6">
+            <p><b>Member Status:</b></p>
+            <ul>
+            {% for member in room_members %}
+            <li>{{  member['_id']['username']  }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div class="container">
+<div class="container p-3 my-3 border">
     <div class="formwrapper">
         <div class="page-header" id="View_Pool_Driver_List"></div>
 
@@ -59,12 +69,7 @@
 </div>
 
 <div class="container">
-<h3>Members</h3>
-<ul>
-    {% for member in room_members %}
-    <li>{{  member['_id']['username']  }}</li>
-    {% endfor %}
-</ul>
+
 </div>
 
 <div class="container">
