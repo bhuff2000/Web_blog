@@ -39,7 +39,7 @@ CORS(app, resources={r"/behoughton.com/*": {"origins": "*"}} ,supports_credentia
 file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
-socketio =SocketIO(app, logger=True, engineio_logger=True)
+socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins="*")
 login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
