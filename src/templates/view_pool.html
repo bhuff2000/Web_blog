@@ -208,7 +208,7 @@ $(document).ready(function() {
 
     $('#driver_list-driver option').remove();
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/ajax_get_drivers",
         processData: "false",
         data: {room_id: $('#room_idA').val()},
