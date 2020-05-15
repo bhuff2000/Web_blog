@@ -208,7 +208,7 @@ $(document).ready(function() {
 
     $('#driver_list-driver option').remove();
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "/ajax_get_drivers",
         processData: "false",
         data: {room_id: $('#room_idA').val()},
@@ -217,7 +217,7 @@ $(document).ready(function() {
             withCredentials: true
         },
         crossDomain: true,
-
+        contentType: 'application/json; charset=utf-8'
         success: function(data) {
             console.log(data);
             driver_data = '';
