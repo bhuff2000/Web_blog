@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, make_response, jsoni
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
 from flask_login import LoginManager, login_required, logout_user, current_user
 from flask_bootstrap import Bootstrap
+from flask_cors import CORS
 from datetime import datetime
 import logging
 from logging import StreamHandler
@@ -43,14 +44,15 @@ login_manager.init_app(app)
 Bootstrap(app)
 csrf = CSRFProtect()
 csrf.init_app(app)
+CORS(app)
 
 
 
-@app.after_request
-def add_headers(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    return response
+#@app.after_request
+#def add_headers(response):
+#    response.headers.add('Access-Control-Allow-Origin', '*')
+#    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#  return response
 
 room_lst =[]
 
