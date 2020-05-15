@@ -34,6 +34,9 @@ from src.forms.register import RegistrationForm
 app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
+CORS(app, resources={r"/behoughton.com/*": {"origins": "*"}} ,supports_credentials=True)
+csrf = CSRFProtect()
+csrf.init_app(app)
 file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
@@ -42,9 +45,8 @@ login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
 Bootstrap(app)
-csrf = CSRFProtect()
-csrf.init_app(app)
-CORS(app, resources={r"/behoughton.com/*": {"origins": "*"}} ,supports_credentials=True)
+
+
 
 
 
