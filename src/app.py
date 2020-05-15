@@ -44,7 +44,7 @@ login_manager.init_app(app)
 Bootstrap(app)
 csrf = CSRFProtect()
 csrf.init_app(app)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 
 
