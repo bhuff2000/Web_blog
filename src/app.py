@@ -440,7 +440,7 @@ def ajax_get_races():
     #print(type(ser_to_json))
     return ser_to_json
 
-@app.route('/ajax_get_drivers', methods=['POST', 'GET'])
+@app.route('/ajax_get_drivers')
 def ajax_get_drivers():
     room_id = request.args.get('room_id', 0, type=str)
     print(room_id)
