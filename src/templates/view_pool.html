@@ -213,6 +213,10 @@ $(document).ready(function() {
         processData: "false",
         data: {room_id: $('#room_idA').val()},
         dataType:"json",
+        xhrfields: {
+            withCredentials: true
+        },
+        crossDomain: true,
         success: function(data) {
             console.log(data);
             driver_data = '';

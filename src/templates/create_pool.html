@@ -29,6 +29,10 @@ $(document).ready(function() {
             processData: "false",
             data: {series: $('select[name="series"]').val()},
             dataType:"json",
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
             success: function(data) {
                 console.log(data);
                 race_data = '';
