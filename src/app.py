@@ -421,7 +421,7 @@ def nascar_pool_results(room_id):
         if sorted_pick["user_pick_num"] == round_num:
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
-            round_picks.update(pick_data)
+            round_picks.append(pick_data)
             print(round_picks)
         else:
             round_num_str = str("round" + str(round_num))
