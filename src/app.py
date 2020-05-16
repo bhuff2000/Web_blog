@@ -415,22 +415,25 @@ def nascar_pool_results(room_id):
             users.append(pick["username"]["username"])
             print(users)
     round_num=1
-    round_picks = {}
-    sum_pick_list = []
+    round_picks = []
+    sum_pick_list = {}
     for sorted_pick in sorted_pool_picks:
         if sorted_pick["user_pick_num"] == round_num:
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
-            round_picks.update(pick_data)
+            round_picks.append(pick_data)
             print(round_picks)
         else:
+            round_num = str("round" + round_num)
+            sum_pick_list.update({round_num: round_picks})
             round_num = round_num+1
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
-            sum_pick_list.append(round_picks)
             round_picks = pick_data
             print(round_picks)
-    sum_pick_list.append(round_picks)
+    round_num = round_num-1
+    round_num = str("round" + round_num)
+    sum_pick_list.update({round_num: round_picks})
     print(str(sum_pick_list))
 
     return render_template("pool_results.html", users=users, pool_picks=sum_pick_list)
