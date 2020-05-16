@@ -17,10 +17,10 @@
             </tr>
         </thead>
         <tbody>
-        {% for pick in pool_picks %}
+        {% for round in pool_picks %}
 
             <tr>
-                {% for driver in pick %}
+                {% for driver in round %}
                 <td>{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
                 {% endfor %}
             </tr>
