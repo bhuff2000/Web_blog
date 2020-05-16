@@ -426,13 +426,13 @@ def nascar_pool_results(room_id):
         else:
             round_num = str("round" + str(round_num))
             sum_pick_list.update({round_num: round_picks})
-            round_num = round_num+1
+            round_num = round_num + 1
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
             round_picks = pick_data
             print(round_picks)
     round_num = round_num-1
-    round_num = str("round" + str(round_num))
+    round_num = str("round" + str(round_num)
     sum_pick_list.update({round_num: round_picks})
     print(str(sum_pick_list))
 
