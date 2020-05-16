@@ -410,7 +410,7 @@ def nascar_pool_results(room_id):
     sorted_pool_picks = sorted(json_list, key = lambda i: i["pool_pick_num"])
     users = []
     for pick in sorted_pool_picks:
-        if pick["username"] not in users:
+        if pick["username"]["username"] not in users:
             users.append({"username": pick["username"]["username"]})
 
     round_num=1
@@ -423,7 +423,7 @@ def nascar_pool_results(room_id):
             round_picks.update(pick_data)
         else:
             round_num = round_num+1
-            pick_data = {"username": sorted_pick["username"], "car_num": sorted_pick["car_num"],
+            pick_data = {"username": sorted_pick["username"]["usernme"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
             sum_pick_list.append(round_picks)
             round_picks = pick_data
