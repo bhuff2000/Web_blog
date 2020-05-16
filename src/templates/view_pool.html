@@ -222,10 +222,10 @@ $(document).ready(function() {
             //console.log(data);
             var driver_data = '';
             //$.each(data, function() {
-            data.forEach(function() {
+            data.forEach(function(driver) {
                 //race_id = toString($(this).attr('race_id');
                 //driver_data += '<option value=\"' + $(this).attr("drv_id") + '\">'+ $(this).attr("car_num") + ' - ' + $(this).attr("drv_full") +'</option>';
-                driver_data += '<option value=\"' + this.getAttribute("drv_id") + '\">'+ this.getAttribute("car_num") + ' - ' + this.getAttribute("drv_full") +'</option>';
+                driver_data += '<option value=\"' + this.getAttribute(driver["drv_id"]) + '\">'+ this.getAttribute(driver["car_num"]) + ' - ' + this.getAttribute(driver["drv_full"]) +'</option>';
             });  // end each
             $('select[name="driver_list-driver"]').append(driver_data);
         }  //end success
