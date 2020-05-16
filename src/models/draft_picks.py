@@ -146,4 +146,4 @@ class Draft_Picks(object):
     @classmethod
     def get_pool_picks(cls, room_id):
         picks = Database.find("picks", {"room_id": room_id})
-        return [cls(**picks) for pick in picks]
+        return [cls(**pick) for pick in picks]
