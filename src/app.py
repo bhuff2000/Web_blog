@@ -408,20 +408,20 @@ def nascar_pool_results(room_id):
     users = []
     for pick in sorted_pool_picks:
         if pick not in user:
-            users.append({"username": pick["username"]})
+            users.append({"username": pick.username})
 
     round_num=1
     round_picks = {}
     sum_pick_list = []
     for sorted_pick in sorted_pool_picks:
-        if sorted_pick["user_pick_num"] == round_num:
-            pick_data = {"username": sorted_pick["username"], "car_num": sorted_pick["car_num"],
-                         "drv_full": sorted_pick["drv_full"]}
+        if sorted_pick.user_pick_num == round_num:
+            pick_data = {"username": sorted_pick.username, "car_num": sorted_pick.car_num,
+                         "drv_full": sorted_pick.drv_full}
             round_picks.update(pick_data)
         else:
             round_num = round_num+1
-            pick_data = {"username": sorted_pick["username"], "car_num": sorted_pick["car_num"],
-                         "drv_full": sorted_pick["drv_full"]}
+            pick_data = {"username": sorted_pick.username, "car_num": sorted_pick.car_num,
+                         "drv_full": sorted_pick.drv_full}
             sum_pick_list.append(round_picks)
             round_picks = pick_data
     sum_pick_list.append(round_picks)
