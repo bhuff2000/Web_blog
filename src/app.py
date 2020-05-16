@@ -411,7 +411,7 @@ def nascar_pool_results(room_id):
     users = []
     for pick in sorted_pool_picks:
         if not pick["username"] in users:
-            users.append({"username": pick["username"]})
+            users.append({"username": pick["username"]["username"]})
 
     round_num=1
     round_picks = {}
