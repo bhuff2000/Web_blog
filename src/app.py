@@ -398,6 +398,40 @@ def view_room(room_id):
     return render_template('view_pool.html', username=current_user.username, messages=messages, pick_list = pick_list,
                            room_members=room_members.rewind(), room_data=room_data, drivers=drivers, form=form)
 
+
+@app.route('/nascar/results/<string:room_id>', methods=['GET', 'POST'])
+@login_required
+def nascar_pool_results(room_id):
+    pool_picks = Draft_Picks.get_pool_picks(room_id)
+    print(type(pool_picks))
+    sorted_pool_picks = sorted(pool_picks, key = lambda i: i["pool_pick_num"])
+    users = []
+    for pick in sorted_pool_picks:
+        if pick not in user:
+            users.append({"username": pick["username"]})
+
+    round_num=1
+    round_picks = {}
+    sum_pick_list = []
+    for sorted_pick in sorted_pool_picks:
+        if sorted_pick["user_pick_num"] == round_num:
+            pick_data = {"username": sorted_pick["username"], "car_num": sorted_pick["car_num"],
+                         "drv_full": sorted_pick["drv_full"]}
+            round_picks.update(pick_data)
+        else:
+            round_num = round_num+1
+            pick_data = {"username": sorted_pick["username"], "car_num": sorted_pick["car_num"],
+                         "drv_full": sorted_pick["drv_full"]}
+            sum_pick_list.append(round_picks)
+            round_picks = pick_data
+    sum_pick_list.append(round_picks)
+
+
+    return render_template("pool_results.html", users=users, pool_picks=sum_pick_list)
+
+
+
+
 @app.route('/nascar/admin')
 @login_required
 def nascar_admin_template():

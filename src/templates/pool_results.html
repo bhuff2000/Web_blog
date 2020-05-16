@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+<div class="container">
+    <h2>Pool Results</h2>
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                {% for user in users %}
+                <th scope="col">{{ user["username"] }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for pick in pool_picks %}
+
+            <tr>
+                {% for driver in pick %}
+                <td>{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+
+</div>
+{% endblock %}

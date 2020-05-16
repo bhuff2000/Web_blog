@@ -141,3 +141,9 @@ class Draft_Picks(object):
         print("drivers_picked" + str(drivers_picked))
         data = {"next_pick": next_pick, "drivers_picked": drivers_picked}
         return data
+
+
+    @classmethod
+    def get_pool_picks(cls, room_id):
+        picks = Database.find("picks", {"room_id": room_id})
+        return [cls(**picks) for pick in picks]
