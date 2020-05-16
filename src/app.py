@@ -61,7 +61,7 @@ room_lst =[]
 
 @app.route('/')
 def home_template():
-    return render_template('home.html')
+    return render_template('log_in.html')
 
 # +++++++++++++++ Socket Code ++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/draft')
