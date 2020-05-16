@@ -403,8 +403,11 @@ def view_room(room_id):
 @login_required
 def nascar_pool_results(room_id):
     pool_picks = Draft_Picks.get_pool_picks(room_id)
+    json_list = []
+    for pick in pool_picks:
+        json_list.append(pick.json())
     print(type(pool_picks))
-    sorted_pool_picks = sorted(pool_picks, key = lambda i: i["pool_pick_num"])
+    sorted_pool_picks = sorted(json_list, key = lambda i: i["pool_pick_num"])
     users = []
     for pick in sorted_pool_picks:
         if pick not in user:
