@@ -424,16 +424,21 @@ def nascar_pool_results(room_id):
             round_picks.append(pick_data)
             print(round_picks)
         else:
-            round_num_str = str("round" + str(round_num))
-            sum_pick_list.append(round_picks)
+            if round_num % 2 == 0:
+                sum_pick_list.append(sorted(round_picks, key = lambda i: i["user_pick_num"], reverse=True))
+            else:
+                sum_pick_list.append(round_picks)
             round_num = round_num + 1
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
             round_picks = [pick_data]
             print(round_picks)
     round_num = round_num-1
-    round_num_str = str("round" + str(round_num))
-    sum_pick_list.append(round_picks)
+
+    if round_num % 2 == 0:
+        sum_pick_list.append(sorted(round_picks, key=lambda i: i["user_pick_num"], reverse=True))
+    else:
+        sum_pick_list.append(round_picks)
     print(str(sum_pick_list))
 
     return render_template("pool_results.html", users=users, pool_picks=sum_pick_list)
