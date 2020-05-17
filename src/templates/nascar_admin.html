@@ -20,9 +20,9 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Qualify" >
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Race_Results" >
         <label class="form-check-label" for="exampleRadios3">
-        Load Qualifying Results
+        Load Race Results
         </label>
     </div>
     <form id="loadRaces" action="/nascar/load" method="post">
@@ -76,24 +76,24 @@
         </div>
         <button type="submit" class="btn btn-success" >Load Data</button>
     </form>
-    <form id="loadQualify" action="/nascar/load" method="post">
+    <form id="loadRaceResult" action="/nascar/load" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="form-row">
-            <div class="form-group col-md-6" id="qual_type">
+            <div class="form-group col-md-6" id="race_result_type">
                 <label for="description">Type Parameter</label>
-                <input type="text" id="typeQual" class="form-control" name="type" value="races" readonly>
+                <input type="text" id="typeRaceResult" class="form-control" name="type" value="races" readonly>
             </div>
-            <div class="form-group col-md-6" id="qual_race_id">
+            <div class="form-group col-md-6" id="race_result_race_id">
                 <label for="description">Race ID</label>
-                <input type="text" id="race_IDQual" class = "form-control" name="race_ID">
+                <input type="text" id="race_IDRaceResult" class = "form-control" name="race_ID">
             </div>
-            <div class="form-group col-md-6" id="qual_series">
+            <div class="form-group col-md-6" id="race_result_series">
                 <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
-                <input type="text" id="seriesQual" class = "form-control" name="series" value="sc">
+                <input type="text" id="seriesRaceResult" class = "form-control" name="series" value="sc">
             </div>
-            <div class="form-group col-md-6" id="qual_file">
+            <div class="form-group col-md-6" id="race_result_file">
                 <label for="description">File</label>
-                <input type="text" id="fileQual" class = "form-control" name="file" value="qualifying.json" readonly>
+                <input type="text" id="fileRaceResult" class = "form-control" name="file" value="results.json" readonly>
             </div>
         </div>
         <button type="submit" class="btn btn-success" >Load Data</button>
@@ -103,17 +103,17 @@
 $(document).ready(function() {
     $('#loadRaces').hide();
     $('#loadEntrants').hide();
-    $('#loadQualify').hide();
+    $('#loadRaceResult').hide();
     $(':radio').click(function() {
         var checkedValue = $('input[name="exampleRadios"]:checked').val()
         if (checkedValue == "Races") {
             $('#loadRaces').show();
             $('#loadEntrants').hide();
-            $('#loadQualify').hide();
+            $('#loadRaceResult').hide();
         } else if (checkedValue == "Entrants") {
             $('#loadRaces').hide();
             $('#loadEntrants').show();
-            $('#loadQualify').hide();
+            $('#loadRaceResult').hide();
             $('#entrant_file').hide();
             $('#entrant_type').hide();
          } else if (checkedValue == "Qualify") {
@@ -123,7 +123,7 @@ $(document).ready(function() {
             $('#qual_file').hide();
             $('#qual_type').hide();
          } else {
-             alert ("Nothing was chosen which shouldnt happen")
+             alert ("Nothing was chosen which shouldn't happen")
          }
     }); //end radio
     $('#process_input').change(function() {
