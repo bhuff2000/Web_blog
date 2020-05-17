@@ -547,7 +547,41 @@ def load_entrants():
     return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
     #return render_template('drivers_load.html', text=race_id)
 
-#  return render_template('races_list.html', data=data)
+@app.route('/load/race_results', methods=['POST', 'GET'])
+@login_required
+def load_race_results():
+    type1 = 'races'
+    race_id = request.form['race_ID']
+    series = request.form['series']
+    file = 'results.json'
+    data = Utils.get_from_sportradar(series, type1, race_id, file)
+    json_object = json.loads(data)
+    print_str = json.dumps(json_object,indent=2)
+    print(print_str)
+
+    #if data is not None:
+    #    results_list = Entrants.extract_sportradar_data(data)
+    #else:
+    #    text = "No data returned from SportRadar"
+    #    return render_template('drivers_load.html', text=text)
+
+    #load_list = []
+    #ignore_list = []
+    #for result in results_list:
+     #   test_race_id = result.get_race_id()
+     #   test_drv_id = result.get_drv_id()
+     #   test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
+     #   if test is True:
+     #       entrant.save_to_mongo()
+     #       load_list.append(entrant)
+     #   else:
+     #       ignore_list.append(entrant)
+
+    #races = Database.find(collection="entrants", query={"race_id": race_id})
+    #text = "load successful"
+    #return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
+    #return render_template('drivers_load.html', text=race_id)
+
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
 @login_required
