@@ -112,8 +112,6 @@ class Results(object):
             laps_led = result['laps_led']
             laps_completed = result['laps_completed']
             car_id = result['car']['id']
-
-            race_status = result['driver']['status']
             drv_first = result['driver']['first_name']
             drv_last = result['driver']['last_name']
             drv_full = result['driver']['full_name']
