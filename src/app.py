@@ -547,7 +547,7 @@ def load_entrants():
     return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
     #return render_template('drivers_load.html', text=race_id)
 
-@app.route('/load/race_results', methods=['POST', 'GET'])
+@app.route('/nascar/race_results', methods=['POST', 'GET'])
 @login_required
 def load_race_results():
     type1 = 'races'
