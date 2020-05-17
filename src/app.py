@@ -582,6 +582,7 @@ def load_race_results():
     #text = "load successful"
     #return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
     #return render_template('drivers_load.html', text=race_id)
+    return render_template('nascar_admin.html')
 
 
 @app.route('/nascar/load', methods=['POST', 'GET'])
