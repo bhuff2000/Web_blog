@@ -19,6 +19,7 @@ from src.models import user
 from src.models.blog import Blog
 from src.models.draft_picks import Draft_Picks
 from src.models.entrants import Entrants
+from src.models.results import Results
 from src.models.post import Post
 from src.models.races import Sched_Event
 from src.models.rooms import Room
@@ -560,29 +561,29 @@ def load_race_results():
     print_str = json.dumps(data,indent=2)
     print(print_str)
 
-    #if data is not None:
-    #    results_list = Entrants.extract_sportradar_data(data)
-    #else:
-    #    text = "No data returned from SportRadar"
-    #    return render_template('drivers_load.html', text=text)
+    if data is not None:
+        results_list = Results.extract_sportradar_data(data)
+    else:
+        text = "No data returned from SportRadar"
+        return render_template('results_load.html', text=text)
 
-    #load_list = []
-    #ignore_list = []
-    #for result in results_list:
-     #   test_race_id = result.get_race_id()
-     #   test_drv_id = result.get_drv_id()
-     #   test = Entrants.find_by_race_and_drv_id(test_race_id, test_drv_id)
-     #   if test is True:
-     #       entrant.save_to_mongo()
-     #       load_list.append(entrant)
-     #   else:
-     #       ignore_list.append(entrant)
+    load_list = []
+    ignore_list = []
+    for result in results_list:
+        test_race_id = result.get_race_id()
+        test_drv_id = result.get_drv_id()
+        test = Results.find_by_race_and_drv_id(test_race_id, test_drv_id)
+        if test is True:
+            result.save_to_mongo()
+            load_list.append(result)
+        else:
+            ignore_list.append(result)
 
-    #races = Database.find(collection="entrants", query={"race_id": race_id})
-    #text = "load successful"
-    #return render_template('drivers_load.html', text=text, entrants=load_list, ignore_list=ignore_list)
+    races = Database.find(collection="results", query={"race_id": race_id})
+    text = "load successful"
+    return render_template('results_load.html', text=text, results=load_list, ignore_list=ignore_list)
     #return render_template('drivers_load.html', text=race_id)
-    return render_template('nascar_admin.html')
+    #return render_template('nascar_admin.html')
 
 
 @app.route('/nascar/load', methods=['POST', 'GET'])

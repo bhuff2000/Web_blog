@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+</form>
+<div class="container">
+    <p>{{  text  }}</p><a href="/nascar/admin">Return to Nascar Admin</a>
+    {% if results %}
+    <h2>Results Loaded for {{  results[0]['race_name']  }} </h2>
+    {% elif ignore_list %}
+    <h2>Results Loaded for {{  ignore_list[0]['race_name']  }} </h2>
+    {% else %}
+    <h2>No new data from SportRadar</h2>
+    {% endif %}
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Driver</th>
+                <th scope="col">Car Number</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Crew_Chief</th>
+                <th scope="col">Owner ID</th>
+                <th scope="col">Team ID</th>
+                <th scope="col">Position</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+            <tr>
+                <td>{{ result['drv_full'] }}</td>
+                <td>{{ result['car_num'] }}</td>
+                <td>{{ result['mfg'] }}</td>
+                <td>{{ result['crew_chief'] }}</td>
+                <td>{{ result['owner_id'] }}</td>
+                <td>{{ result['team_id'] }}</td>
+                <td>{{ result['position'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% if results %}
+    <h2>Results Ignored for {{  results[0]['race_name']  }} </h2>
+    {% elif ignore_list %}
+    <h2>Results Ignored for {{  ignore_list[0]['race_name']  }} </h2>
+    {% else %}
+    <h2>No new data from SportRadar</h2>
+    {% endif %}
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Driver</th>
+                <th scope="col">Car Number</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Crew Chief</th>
+                <th scope="col">Owner ID</th>
+                <th scope="col">Team ID</th>
+                <th scope="col">Position</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for result in ignore_list %}
+            <tr>
+                <td>{{ result['drv_full'] }}</td>
+                <td>{{ result['car_num'] }}</td>
+                <td>{{ result['mfg'] }}</td>
+                <td>{{ result['crew_chief'] }}</td>
+                <td>{{ result['owner_id'] }}</td>
+                <td>{{ result['team_id'] }}</td>
+                <td>{{ result['position'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+{% endblock %}
