@@ -8,7 +8,7 @@ __author__ = 'behou'
 
 class Results(object):
     def __init__(self, race_id, race_name, race_status, track_id, start_pos, position, drv_status, points, bonus_points,
-                   penalty_points, stage_1_points, stage_2_points, stage_1_win, laps_led, laps_completed, car_num, car_id,
+                   penalty_points, stage_1_points, stage_2_points, laps_led, laps_completed, car_num, car_id,
                    crew_chief, mfg, owner_id, team_id, drv_first, drv_last, drv_full, drv_id):
         self.race_id = race_id
         self.race_name = race_name
@@ -22,7 +22,6 @@ class Results(object):
         self.penalty_points = penalty_points
         self.stage_1_points = stage_1_points
         self.stage_2_points = stage_2_points
-        self.stage_1_win = stage_1_win
         self.laps_led = laps_led
         self.laps_completed = laps_completed
         self.car_num = car_num
@@ -50,7 +49,6 @@ class Results(object):
             'penalty_points': self.penalty_points,
             'stage_1_points': self.stage_1_points,
             'stage_2_points': self.stage_2_points,
-            'stage_1_win': self.stage_1_win,
             'laps_led': self.laps_led,
             'laps_completed': self.laps_completed,
             'car_num': self.car_num,
@@ -73,6 +71,7 @@ class Results(object):
         sr_data = []
         json_file = data
         json_file2 = json_file['results']
+        print(str(json_file2))
         if json_file['id'] is not None:
             race_id = json_file['id']
         else:
@@ -108,7 +107,6 @@ class Results(object):
             penalty_points = result['penalty_points']
             stage_1_points = result['stage_1_points']
             stage_2_points = result['stage_2_points']
-            stage_1_win = result['stage_1_win']
             laps_led = result['laps_led']
             laps_completed = result['laps_completed']
             car_id = result['car']['id']
@@ -117,7 +115,7 @@ class Results(object):
             drv_full = result['driver']['full_name']
             drv_id = result['driver']['id']
             results = Results(race_id, race_name, race_status, track_id, start_pos, position, drv_status, points, bonus_points,
-                   penalty_points, stage_1_points, stage_2_points, stage_1_win, laps_led, laps_completed, car_num, car_id,
+                   penalty_points, stage_1_points, stage_2_points, laps_led, laps_completed, car_num, car_id,
                    crew_chief, mfg, owner_id, team_id, drv_first, drv_last, drv_full, drv_id)
             sr_data.append(results)
         return sr_data
