@@ -120,6 +120,9 @@ class Results(object):
             sr_data.append(results)
         return sr_data
 
+    def get_race_id(self):
+        return self.race_id
+
     @classmethod
     def find_by_race_and_drv_id(cls, race_id, driver_id):
         data = Database.find_one("results", {"$and": [{"race_id": race_id}, {"drv_id": driver_id}]})
