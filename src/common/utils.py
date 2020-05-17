@@ -25,6 +25,7 @@ class Utils:
         key = os.environ.get("SPORTRADAR_KEY")
         conn = http.client.HTTPConnection("api.sportradar.us")
         url = '/nascar-ot3/' + series + '/' + year + '/' + type1 + '/' + file + '?api_key=' + key
+        print(str(url))
         conn.request("GET", url)
         res = conn.getresponse()
         data = res.read()
