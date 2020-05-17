@@ -551,8 +551,8 @@ def load_entrants():
 @login_required
 def load_race_results():
     type1 = 'races'
-    race_id ='4daedbcd-f1c6-4bc1-9690-f85d1fd1af4a'
-    #race_id = request.form['race_ID']
+    #race_id ='4daedbcd-f1c6-4bc1-9690-f85d1fd1af4a'
+    race_id = request.form['race_ID']
     series = request.form['series']
     file = 'results.json'
     data = Utils.get_from_sportradar(series, type1, race_id, file)
