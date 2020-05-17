@@ -20,8 +20,8 @@
         {% for round in pool_picks %}
 
             <tr>
-                {% for driver in round.round1 %}
-                <td>{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
+                {% for driver in round %}
+                <td>{{ round1['driver']['car_num'] }} - {{ round1['driver']['drv_full'] }}</td>
                 {% endfor %}
             </tr>
             {% endfor %}
