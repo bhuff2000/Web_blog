@@ -13,6 +13,7 @@
             <tr>
                 {% for user in users %}
                 <th scope="col">{{ user }}</th>
+                <th scope="col">pts</th>
                 {% endfor %}
             </tr>
         </thead>
@@ -22,6 +23,7 @@
             <tr>
                 {% for driver in round %}
                 <td>{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
+                <td>10</td>
                 {% endfor %}
             </tr>
             {% endfor %}
