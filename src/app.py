@@ -422,7 +422,7 @@ def nascar_pool_results(room_id):
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
                          "drv_full": sorted_pick["drv_full"]}
             round_picks.append(pick_data)
-            print("round pick 425 " + str(round_picks))
+            print("round pick rev 425 " + str(round_picks.reverse()))
         else:
             if round_num % 2 == 0:
                 sum_pick_list.append(round_picks.reverse())
@@ -442,7 +442,7 @@ def nascar_pool_results(room_id):
         print("sum pick list 442 " + str(sum_pick_list))
     else:
         sum_pick_list.append(round_picks)
-    print("sum pick list 445 " + str(sum_pick_list))
+        print("sum pick list 445 " + str(sum_pick_list))
 
     return render_template("pool_results.html", users=users, pool_picks=sum_pick_list)
 
