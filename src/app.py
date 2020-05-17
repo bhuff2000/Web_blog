@@ -425,7 +425,7 @@ def nascar_pool_results(room_id):
             print(round_picks)
         else:
             if round_num % 2 == 0:
-                sum_pick_list.append(sorted(round_picks, key = lambda i: i["user_pick_num"], reverse=True))
+                sum_pick_list.append(round_picks.reverse())
             else:
                 sum_pick_list.append(round_picks)
             round_num = round_num + 1
@@ -436,7 +436,7 @@ def nascar_pool_results(room_id):
     round_num = round_num-1
 
     if round_num % 2 == 0:
-        sum_pick_list.append(sorted(round_picks, key=lambda i: i["user_pick_num"], reverse=True))
+        sum_pick_list.append(round_picks.reverse())
     else:
         sum_pick_list.append(round_picks)
     print(str(sum_pick_list))
