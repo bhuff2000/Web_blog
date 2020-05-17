@@ -108,7 +108,11 @@ class Results(object):
             stage_1_points = result['stage_1_points']
             stage_2_points = result['stage_2_points']
             laps_led = result['laps_led']
-            laps_completed = result['laps_completed']
+
+            if 'laps_completed' in result:
+                laps_completed = result['laps_completed']
+            else:
+                laps_completed = "na"
             car_id = result['car']['id']
             drv_first = result['driver']['first_name']
             drv_last = result['driver']['last_name']
