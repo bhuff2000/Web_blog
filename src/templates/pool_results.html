@@ -22,8 +22,8 @@
 
             <tr>
                 {% for driver in round %}
-                <td>{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
-                <td>{{ driver['position']  }}</td>
+                <td class="{{ username }}">{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
+                <td class="points">{{ driver['position']  }}</td>
                 {% endfor %}
             </tr>
             {% endfor %}
@@ -31,3 +31,19 @@
 
 </div>
 {% endblock %}
+
+<script>
+$(document).ready(function() {
+    $('td').each(function() {
+    var totpoints =0;
+    $(this).find('.subjects').each(function() {
+    var points=$(this).text();
+    if(marks.length!==0) {
+    totpoints+-parseInt(points);
+    }
+    });
+    });
+
+});
+
+</script>
