@@ -8,13 +8,14 @@ from src.common.database import Database
 
 
 class Draft_Picks(object):
-    def __init__(self, room_id, username, pool_pick_num, user_pick_num, car_num=None, drv_full=None, _id=None):
+    def __init__(self, room_id, username, pool_pick_num, user_pick_num, car_num=None, drv_full=None, position=None ,_id=None):
         self.room_id = room_id
         self.username = username
         self.pool_pick_num = pool_pick_num
         self.user_pick_num = user_pick_num
         self.car_num = car_num
         self.drv_full = drv_full
+        self.position = position
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def json(self):
@@ -25,6 +26,7 @@ class Draft_Picks(object):
             'user_pick_num': self.user_pick_num,
             'car_num': self.car_num,
             'drv_full': self.drv_full,
+            'position': self.position,
             '_id': self._id
         }
 
