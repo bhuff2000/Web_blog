@@ -149,5 +149,5 @@ class Results(object):
 
     @classmethod
     def get_position_by_race_id_driver_name(cls, race_id, drv_full):
-        position = Database.find_one("results", {"$and": [{"race_id": race_id}, {"drv_full: drv_full"}]})
+        position = Database.find_one("results", {"$and": [{"race_id": race_id}, {"drv_full": drv_full}]})
         return position
