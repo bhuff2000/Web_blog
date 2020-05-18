@@ -406,7 +406,7 @@ def nascar_pool_results(room_id):
     race_id = Room.get_race_id(room_id)
     update_pick_list = Draft_Picks.get_pool_picks(room_id)
     for update_pick in update_pick_list:
-        drv_full = update_pick["drv_full"]
+        drv_full = update_pick.drv_full
         position = Results.get_position_by_race_id_driver_name(race_id, drv_full)
         Database.update_one("picks", {"$and": [{"room_id": room_id}, {"drv_full": drv_full}]},
                             {"$set": {"position": position["position"]}})
