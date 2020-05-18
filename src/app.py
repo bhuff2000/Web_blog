@@ -403,6 +403,14 @@ def view_room(room_id):
 @app.route('/nascar/results/<string:room_id>', methods=['GET', 'POST'])
 @login_required
 def nascar_pool_results(room_id):
+    race_id = Room.get_race_id(room_id)
+    update_pick_list = Draft_Picks.get_pool_picks(room_id)
+    for update_pick in update_pick_list:
+        drv_full = update_pick["drv_full"]
+        position = Results.get_position_by_race_id_driver_name(race_id, drv_full)
+        Database.update_one("picks", {"$and": [{"room_id": room_id}, {"drv_full": drv_full}]},
+                            {"$set": {"position": position["position"]}})
+
     pool_picks = Draft_Picks.get_pool_picks(room_id)
     json_list = []
     for pick in pool_picks:
@@ -421,7 +429,7 @@ def nascar_pool_results(room_id):
     for sorted_pick in sorted_pool_picks:
         if sorted_pick["user_pick_num"] == round_num:
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
-                         "drv_full": sorted_pick["drv_full"]}
+                         "drv_full": sorted_pick["drv_full"], "position": sorted_pick["position"]}
             round_picks.append(pick_data)
             #rev_round_picks = round_picks.reverse()
             print("round pick rev 425 " + str(round_picks))
@@ -435,7 +443,7 @@ def nascar_pool_results(room_id):
                 print("sum pick list 432 " + str(sum_pick_list))
             round_num = round_num + 1
             pick_data = {"username": sorted_pick["username"]["username"], "car_num": sorted_pick["car_num"],
-                         "drv_full": sorted_pick["drv_full"]}
+                         "drv_full": sorted_pick["drv_full"], "position": sorted_pick["position"]}
             round_picks = [pick_data]
             print("round pick 437 " + str(round_picks))
     round_num = round_num-1

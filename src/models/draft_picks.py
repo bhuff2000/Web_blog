@@ -147,3 +147,8 @@ class Draft_Picks(object):
     def get_pool_picks(cls, room_id):
         picks = Database.find("picks", {"room_id": room_id})
         return [cls(**pick) for pick in picks]
+
+    #@classmethod
+    #def update_pool_results(cls, room_id):
+    #    picks = Database.find("picks", {"room_id": room_id})
+    #    return [cls(**pick) for pick in picks]

@@ -23,7 +23,7 @@
             <tr>
                 {% for driver in round %}
                 <td>{{ driver['car_num'] }} - {{ driver['drv_full'] }}</td>
-                <td>10</td>
+                <td>{{ driver['position']  }}</td>
                 {% endfor %}
             </tr>
             {% endfor %}

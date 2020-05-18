@@ -138,3 +138,16 @@ class Results(object):
             return True
         else:
             return False
+
+    @classmethod
+    def results_by_race_id(cls, race_id):
+        data = Database.find("results", {"race_id": race_id})
+        result_list = []
+        for result in data:
+            result_list.append(result)
+        return sorted(result_list, key=lambda i: (i['position']))
+
+    @classmethod
+    def get_position_by_race_id_driver_name(cls, race_id, drv_full):
+        position = Database.find_one("results", {"$and": [{"race_id": race_id}, {"drv_full: drv_full"}]})
+        return position
