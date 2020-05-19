@@ -40,7 +40,7 @@ $(document).ready(function() {
     });
     $('td').each(function() {
         var i = $(this).attr('class');
-        if (i.length!==0) {
+        if (i !==null) {
             console.log("value i is " + i);
             userpoints[i] = userpoints[i] + parseInt($(this).text)
             }
