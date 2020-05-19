@@ -42,7 +42,7 @@ $(document).ready(function() {
         var i = $(this).attr('class');
         if (i !==null) {
             console.log("value i is " + i);
-            userpoints[i] = userpoints[i] + parseInt($(this).text)
+            userpoints[i] = userpoints[i] += parseInt($(this).text)
             }
     });
 
