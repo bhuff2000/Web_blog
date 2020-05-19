@@ -57,10 +57,11 @@ $(document).ready(function() {
     $('td').each(function() {
         var i_tot = $(this).attr('class');
         var i = $(this).text();
-        console.log("tot val " +i_tot)
-        console.log("no tot val " +i)
+
         if ($(this).attr('class') == i_tot)  {
-            console.log("userpoints " + parseInt(userpoints[i]))
+            console.log("tot val " +i_tot);
+            console.log("no tot val " +i);
+            console.log("userpoints " + parseInt(userpoints[i]));
             $(this).val(parseInt(userpoints[i]));
         }
     });
