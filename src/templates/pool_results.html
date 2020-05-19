@@ -27,6 +27,11 @@
                 {% endfor %}
             </tr>
             {% endfor %}
+            <tr>
+                {% for user in users %}
+                <td class="total_pts"><b>Total</b></td>
+                <td class="{{ user  }}_tot"><b>0</b></td>
+            </tr>
         </tbody>
 
 </div>
@@ -43,11 +48,16 @@ $(document).ready(function() {
         var i = $(this).attr('class');
         if (i != 'null') {
             console.log("value i is " + i);
-            console.log(userpoints[i])
-            console.log($(this).text())
+            console.log(userpoints[i]);
+            console.log($(this).text());
             userpoints[i] = userpoints[i] += parseInt($(this).text())
-
             }
+    $('td').each(function() {
+        var i_tot = $(this).attr('class') + "_tot";
+        var i = $(this).attr('class');
+        if ($(this).attr('class') == i_tot)  {
+            $(this).text(userpoints[i]);
+        }
     });
 
 
@@ -55,7 +65,7 @@ $(document).ready(function() {
             var value = userpoints[key];
             console.log(key + "=" + value);
         }
-console.log("the frig- ready");
+
 });
 
 </script>
