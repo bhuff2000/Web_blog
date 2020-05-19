@@ -56,7 +56,7 @@ $(document).ready(function() {
     });
     $('td').each(function() {
         var i_tot = $(this).attr('class') + "_tot";
-        var i = $(this).attr('text');
+        var i = $(this).text());
         if ($(this).attr('class') == i_tot)  {
             console.log("userpoints " + userpoints[i])
             $(this).val(userpoints[i]);
