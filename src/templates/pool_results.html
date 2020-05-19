@@ -36,15 +36,16 @@
 $(document).ready(function() {
     $('th').each(function() {
         var userpoints =[];
-        $(this).class(function() {
-            userpoints[$(this)] = 0;
-
-        });
+        userpoints[$(this).getClass()] = 0;
         for (var key in userpoints) {
             var value = userpoints[key];
             console.log(key + "=" + value);
         }
     });
+    for (var key in userpoints) {
+            var value = userpoints[key];
+            console.log(key + "=" + value);
+        }
 console.log("the frig- ready");
 });
 
