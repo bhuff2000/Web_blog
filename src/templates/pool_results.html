@@ -54,16 +54,17 @@ $(document).ready(function() {
             userpoints[i] = userpoints[i] += parseInt($(this).text())
             }
     });
-    $('td').each(function() {
-        var i_tot = $(this).attr('class');
-        var i = $(this).text();
+    userpoints.each(function() {
+        var user = $(this)
+        //$('td')var i_tot = $(this).attr('class');
+        //var i = $(this).text();
 
-        if ($(this).attr('class') == i_tot)  {
-            console.log("tot val " +i_tot);
-            console.log("no tot val " +i);
-            console.log("userpoints " + parseInt(userpoints[i]));
-            $(this).val(parseInt(userpoints[i]));
-        }
+       // if ($(this).attr('class') == i_tot)  {
+           console.log(user);
+       //     console.log("no tot val " +i);
+       //     console.log("userpoints " + parseInt(userpoints[i]));
+       //     $(this).val(parseInt(userpoints[i]));
+        //}
     });
 
 
