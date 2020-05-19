@@ -43,7 +43,8 @@ $(document).ready(function() {
         var i = $(this).attr('class');
         if (i != 'null') {
             console.log("value i is " + i);
-            userpoints[i] = parseInt(userpoints[i]) += parseInt($(this).text)
+            console.log(userpoints[i])
+            userpoints[i] = (userpoints[i] += parseInt($(this).text)
 
             }
     });
