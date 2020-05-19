@@ -39,8 +39,8 @@ $(document).ready(function() {
         userpoints[$(this).text()] = parseInt(0);
     });
     $('td').each(function() {
+        var i = $(this).attr('class');
         if (i.length!==0) {
-            var i = $(this).attr('class');
             console.log("value i is " + i);
             userpoints[i] = userpoints[i] + parseInt($(this).text)
             }
