@@ -54,13 +54,15 @@ $(document).ready(function() {
             userpoints[i] = userpoints[i] += parseInt($(this).text())
             }
     });
-    $(userpoints).each(function() {
-        var user = $(this).value()
-        //$('td')var i_tot = $(this).attr('class');
+    $.each(userpoints),  function(key, value) {
+        var user = key + "_tot";
+        var total = value;
+        //$('td') = $(this).attr('class');
         //var i = $(this).text();
 
        // if ($(this).attr('class') == i_tot)  {
            console.log(user);
+           console.log(total);
        //     console.log("no tot val " +i);
        //     console.log("userpoints " + parseInt(userpoints[i]));
        //     $(this).val(parseInt(userpoints[i]));
