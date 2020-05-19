@@ -59,7 +59,7 @@ $(document).ready(function() {
         var i = $(this).text();
         if ($(this).attr('class') == i_tot)  {
             console.log("userpoints " + userpoints[i])
-            $(this).val(userpoints[i]);
+            $(this).val(parseInt(userpoints[i]));
         }
     });
 
