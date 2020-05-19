@@ -57,6 +57,7 @@ $(document).ready(function() {
         var i_tot = $(this).attr('class') + "_tot";
         var i = $(this).attr('class');
         if ($(this).attr('class') == i_tot)  {
+            console.log(userpoints[i])
             $(this).text(userpoints[i]);
         }
     });
