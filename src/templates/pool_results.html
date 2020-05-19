@@ -36,8 +36,8 @@
 $(document).ready(function() {
     $('th').each(function() {
         var userpoints =[];
-        $(this).find('.user').each(function() {
-            userpoints[$(this).class()] = 0;
+        $(this).class(function() {
+            userpoints[$(this)] = 0;
 
         });
         for (var key in userpoints) {
