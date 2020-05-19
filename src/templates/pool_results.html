@@ -44,8 +44,8 @@ $(document).ready(function() {
         if (i != 'null') {
             console.log("value i is " + i);
             console.log(userpoints[i])
-            console.log($(this).text)
-            userpoints[i] = userpoints[i] += parseInt($(this).text)
+            console.log($(this).text())
+            userpoints[i] = userpoints[i] += parseInt($(this).text())
 
             }
     });
