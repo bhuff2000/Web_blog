@@ -36,7 +36,7 @@
 $(document).ready(function() {
      var userpoints = {};
     $('th').each(function() {
-        userpoints[$(this).text()] = Int(0);
+        userpoints[$(this).text()] = 0;
     });
     $('td').each(function() {
             var i = $(this).attr('class');
