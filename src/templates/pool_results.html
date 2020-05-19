@@ -36,12 +36,14 @@
 $(document).ready(function() {
      var userpoints = {};
     $('th').each(function() {
-        userpoints[$(this).text()] = 0;
+        userpoints[$(this).text()] = parseInt(0);
     });
     $('td').each(function() {
+        if (i.length!==0) {
             var i = $(this).attr('class');
             console.log("value i is " + i);
             userpoints[i] = userpoints[i] + parseInt($(this).text)
+            }
     });
 
 
