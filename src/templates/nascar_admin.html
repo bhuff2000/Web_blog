@@ -83,20 +83,28 @@
                 <label for="description">Type Parameter</label>
                 <input type="text" id="typeRaceResult" class="form-control" name="type" value="races" readonly>
             </div>
-            <div class="form-group col-md-6" id="race_result_race_id">
-                <label for="description">Race ID</label>
-                <input type="text" id="race_IDRaceResult" class = "form-control" name="race_ID">
+            <div class="input-group mb-3">
+                <a href="#" id="process_input_rr"><select class="custom-select" id="series_drop_down_rr" name="series_drop_down">
+                    <option selected>Choose Series</option>
+                    <option value="sc">CUP</option>
+                    <option value="xf">XFINITY</option>
+                    <option value="go">TRUCK</option>
+                </select></a>
             </div>
-            <div class="form-group col-md-6" id="race_result_series">
-                <label for="description">Series (sc = CUP, xf = Xfinity, go = Truck)</label>
-                <input type="text" id="seriesRaceResult" class = "form-control" name="series" value="sc">
+            <div class="input-group mb-3">
+                <a href="#" id="process_input_rrr"><select class="custom-select" id="race_drop_down_rr" name="race_drop_down_abc">
+
+                </select></a>
+
+   <p id="result_rr"></p>
             </div>
             <div class="form-group col-md-6" id="race_result_file">
                 <label for="description">File</label>
-                <input type="text" id="fileRaceResult" class = "form-control" name="file" value="results.json" readonly>
+                <input type="text" id="fileRace_result" class = "form-control" name="file" value="results.json" readonly>
             </div>
         </div>
         <button type="submit" class="btn btn-success" >Load Data</button>
+
     </form>
 </div>
 <script>
@@ -144,6 +152,26 @@ $(document).ready(function() {
             }  //end success
         });  //end ajax
     });  // end process input
+
+    $('#process_input_rr').change(function() {
+        $('#race_drop_down_rr option').remove();
+        $.ajax({
+            type: "GET",
+            url: "/ajax_get_races",
+            processData: "false",
+            data: {series: $('select[name="series_drop_down_rr"]').val()},
+            dataType:"json",
+            success: function(data) {
+                console.log(data);
+                race_data = '';
+                $.each(data, function() {
+                    race_data += '<option value=\"' +$(this).attr('race_id')+ '\">'+ $(this).attr('race_name') + ' @ ' + $(this).attr('track') +'</option>';
+                });  // end each
+                $('#race_drop_down_rr').append(race_data);
+            }  //end success
+        });  //end ajax
+    });  // end process input
+
     //$('#process_input').bind('click', function() {
     //    $.getJSON('/background_process', {
     //    "stuff": $('#stuff_inp').val(),
