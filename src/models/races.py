@@ -74,7 +74,8 @@ class Sched_Event(object):
         races_list = []
         for race in races:
             races_list.append(race)
-        return races_list
+        #return races_list
+        return sorted(races_list, key=lambda i: (i['race_start']))
 
     #   @classmethod
  #   def define_load_list(cls, sr_data):
