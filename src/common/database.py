@@ -26,3 +26,7 @@ class Database(object):
     @staticmethod
     def update_one(collection, query, new_vals):
         return Database.DATABASE[collection].update_one(query, new_vals)
+
+    @staticmethod
+    def replace_one(collection, query, new_vals):
+        return Database.DATABASE[collection].replace_one(query, new_vals)

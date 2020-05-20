@@ -140,6 +140,13 @@ class Results(object):
             return False
 
     @classmethod
+    def get_by_race_and_drv_id(cls, race_id, driver_id):
+        data = Database.find_one("results", {"$and": [{"race_id": race_id}, {"drv_id": driver_id}]})
+
+        if data is not None:
+            return cls(**data)
+
+    @classmethod
     def results_by_race_id(cls, race_id):
         data = Database.find("results", {"race_id": race_id})
         result_list = []
