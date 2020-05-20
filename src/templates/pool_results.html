@@ -30,7 +30,7 @@
             <tr>
                 {% for user in users %}
                 <td class="total_pts"><b>Total</b></td>
-                <td class="{{ user  }}_tot"><b></b></td>
+                <td class="{{ user  }}_tot"><b>10</b></td>
                 {% endfor %}
             </tr>
         </tbody>
@@ -55,7 +55,7 @@ $(document).ready(function() {
             }
     });
     $.each(userpoints,  function(key, value) {
-        var stuff = $('td[class="' + user2 + '"]').val();
+        var stuff = $('td[class="bob_tot"]').val();
         var user = '.' + key + '_tot';
         var user2 = key + '_tot';
         var total = parseInt(value);
