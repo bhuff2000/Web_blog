@@ -561,8 +561,8 @@ def load_entrants():
 def load_race_results():
     type1 = 'races'
     #race_id ='4daedbcd-f1c6-4bc1-9690-f85d1fd1af4a'
-    race_id = request.form['race_ID']
-    series = request.form['series']
+    race_id = request.form['race_drop_down_abc_rr']
+    series = request.form['series_drop_down_rr']
     file = 'results.json'
     data = Utils.get_from_sportradar(series, type1, race_id, file)
     #json_object = json.loads(data)
