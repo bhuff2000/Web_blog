@@ -587,7 +587,7 @@ def load_race_results():
         else:
             data_for_replace = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
             obj_id_to_replace = data_for_replace["_id"]["$oid"]
-            Database.replace_one("results", obj_id_to_replace, result)
+            Database.replace_one("results", data_for_replace, result)
             ignore_list.append(result)
 
     races = Database.find(collection="results", query={"race_id": race_id})
