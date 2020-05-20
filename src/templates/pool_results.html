@@ -58,10 +58,10 @@ $(document).ready(function() {
         var stuff = $('td[class="bob_tot"]').val();
         //var user = '.' + key + '_tot';
         var user2 = key + '_tot';
-        //var total = parseInt(value);
+        var total = parseInt(value);
         //var stuff2 = $(user2).val();
 
-        $('td[class="' + user2 + '"]').attr(val(total));
+        $('td[class="' + user2 + '"]').val(total);
         //var i = $(this).text();
 
        // if ($(this).attr('class') == i_tot)  {
