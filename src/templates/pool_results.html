@@ -56,6 +56,7 @@ $(document).ready(function() {
     });
     $.each(userpoints,  function(key, value) {
         var user = '.' + key + '_tot';
+        var user2 = key + '_tot';
         var total = value;
         var stuff = $(".bob_tot").val();
         $(user).val(total);
@@ -64,6 +65,7 @@ $(document).ready(function() {
        // if ($(this).attr('class') == i_tot)  {
            console.log("this one " + stuff);
            console.log("this one " + user);
+           console.log("this one " + user2);
            console.log("that one " + total);
        //     console.log("no tot val " +i);
        //     console.log("userpoints " + parseInt(userpoints[i]));
