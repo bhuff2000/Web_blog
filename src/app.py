@@ -10,7 +10,7 @@ from flask_wtf import FlaskForm, CSRFProtect
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, email, Regexp
 
-from bson.json_util import dumps, loads
+from bson.json_util import dumps, loads, ObjectId
 from src.common.database import Database
 from src.common.utils import Utils
 from src.forms.create_pool import CreatePool, SelectRace
@@ -586,7 +586,8 @@ def load_race_results():
             load_list.append(result)
         else:
             data_for_replace = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
-            obj_id_to_replace = data_for_replace["_id"]["$oid"]
+            obj_id_to_replace = str(data_for_replace["_id"]["$oid"])
+            query = {"_id": ObjectId("obj_id_to_replace")}
             Database.replace_one("results", data_for_replace, result)
             ignore_list.append(result)
 
