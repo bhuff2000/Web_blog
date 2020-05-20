@@ -585,8 +585,8 @@ def load_race_results():
             result.save_to_mongo()
             load_list.append(result)
         else:
-            obj_id_to_replace = (result["_id"])
-            query = {"_id": result._id}
+            obj_id_to_replace = (result._id)
+            query = {"_id": obj_id_to_replace}
             # stage_2_points, laps_led, laps_completed}
             query_replace_data = {"race_status": result.race_status, "start_pos": result.start_pos, "position": result.position,
                                   "drv_status": result.drv_status, "points": result.points, "bonus_points": result.bonus_points,
