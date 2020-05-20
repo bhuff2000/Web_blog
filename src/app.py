@@ -585,10 +585,14 @@ def load_race_results():
             result.save_to_mongo()
             load_list.append(result)
         else:
-            data_for_replace = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
-            obj_id_to_replace = str(data_for_replace["_id"]["$oid"])
-            query = {"_id": ObjectId("obj_id_to_replace")}
-            Database.replace_one("results", data_for_replace, result)
+            obj_id_to_replace = (result["_id"])
+            query = {"_id": result._id}
+            # stage_2_points, laps_led, laps_completed}
+            query_replace_data = {"race_status": result.race_status, "start_pos": result.start_pos, "position": result.position,
+                                  "drv_status": result.drv_status, "points": result.points, "bonus_points": result.bonus_points,
+                                  "penalty_points": result.penalty_points, "stage_1_points": result.stage_1_points,
+                                  "stage_2_points": result.stage_2_points, "laps_led": result.laps_led, "laps_completed": result.laps_completed}
+            Database.replace_one("results", query, query_replace_data)
             ignore_list.append(result)
 
     races = Database.find(collection="results", query={"race_id": race_id})

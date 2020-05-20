@@ -40,9 +40,9 @@
 
     </table>
     {% if results %}
-    <h2>Results Ignored for {{  results[0]['race_name']  }} </h2>
+    <h2>Results Replaced for {{  results[0]['race_name']  }} </h2>
     {% elif ignore_list %}
-    <h2>Results Ignored for {{  ignore_list[0]['race_name']  }} </h2>
+    <h2>Results Replaces for {{  ignore_list[0]['race_name']  }} </h2>
     {% else %}
     <h2>No new data from SportRadar</h2>
     {% endif %}

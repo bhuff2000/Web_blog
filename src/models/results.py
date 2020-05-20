@@ -1,15 +1,15 @@
 __author__ = 'behou'
 
 import json
+import uuid
 
 from src.common.database import Database
 
-__author__ = 'behou'
 
 class Results(object):
     def __init__(self, race_id, race_name, race_status, track_id, start_pos, position, drv_status, points, bonus_points,
                    penalty_points, stage_1_points, stage_2_points, laps_led, laps_completed, car_num, car_id,
-                   crew_chief, mfg, owner_id, team_id, drv_first, drv_last, drv_full, drv_id):
+                   crew_chief, mfg, owner_id, team_id, drv_first, drv_last, drv_full, drv_id, _id = None):
         self.race_id = race_id
         self.race_name = race_name
         self.race_status = race_status
@@ -34,6 +34,7 @@ class Results(object):
         self.drv_last = drv_last
         self.drv_full = drv_full
         self.drv_id = drv_id
+        self._id = uuid.uuid4().hex if _id is None else _id
 
     def json(self):
         return {
@@ -60,7 +61,8 @@ class Results(object):
             'drv_first': self.drv_first,
             'drv_last': self.drv_last,
             'drv_full': self.drv_full,
-            'drv_id': self.drv_id
+            'drv_id': self.drv_id,
+            '_id': self._id
          }
 
     def save_to_mongo(self):
