@@ -657,13 +657,13 @@ def interactive():
 
 @app.route('/test', methods=['POST', 'GET'])
 def test():
-    result_id = "5ec6a7f7d646cd000a1892f7"
+    result_id = "5ec5f4b93acf8b000bfe6ec3"
     obj_id_to_replace = (ObjectId(result_id))
     query = {"_id": obj_id_to_replace}
     # stage_2_points, laps_led, laps_completed}
-    query_replace_data = {"race_status": "cant say", "laps_led": 25, "start_pos": 30,
+    query_replace_data = {"$set": {"race_status": "cant say", "laps_led": 25, "start_pos": 30,
                           "position": 39, "drv_status": "hard on", "points": 25, "bonus_points": 1,
-                          "penalty_points": 1, "stage_1_points": 35, "stage_2_points": 22, "laps_completed": 45}
+                          "penalty_points": 1, "stage_1_points": 35, "stage_2_points": 22, "laps_completed": 45}}
     replace_dir = Database.replace_one("results", query, query_replace_data)
     print(str(dir(replace_dir)))
     print(replace_dir.raw_result)
