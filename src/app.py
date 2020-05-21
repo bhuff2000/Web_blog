@@ -588,7 +588,7 @@ def load_race_results():
         else:
             obj_id_to_replace = (ObjectId(result._id))
             query = {"_id": obj_id_to_replace}
-            print(str(result["position"])+ " - "+ str(result["drv_name"]))
+            print(str(result.position)+ " - "+ str(result.drv_full))
             # stage_2_points, laps_led, laps_completed}
             query_update_data = {"$set": {"race_status": result.race_status, "start_pos": result.start_pos, "position": result.position,
                                   "drv_status": result.drv_status, "points": result.points, "bonus_points": result.bonus_points,
