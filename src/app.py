@@ -587,9 +587,9 @@ def load_race_results():
             load_list.append(result)
         else:
             record = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
-            obj_id_to_replace = (record._id["$oid"])
+            obj_id_to_replace = (record._id)
             print(str(obj_id_to_replace))
-            query = {"_id": record._id}
+            query = {"_id": ObjectId(record._id)}
             print(str(result.position)+ " - "+ str(result.drv_full))
             print(str(record.position) + " - " + str(record.drv_full))
             # stage_2_points, laps_led, laps_completed}
