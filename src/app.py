@@ -664,7 +664,8 @@ def test():
     query_replace_data = {"$set": {"race_status": "cant say", "laps_led": 25, "start_pos": 30,
                           "position": 39, "drv_status": "hard on", "points": 25, "bonus_points": 1,
                           "penalty_points": 1, "stage_1_points": 35, "stage_2_points": 22, "laps_completed": 45}}
-    replace_dir = Database.replace_one("results", query, query_replace_data)
+    replace_dir = Database.update_one("results", query, query_replace_data)
+    print(str(dir(replace_dir.modified_count)))
     print(str(dir(replace_dir)))
     print(replace_dir.raw_result)
 
