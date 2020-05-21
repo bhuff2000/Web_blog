@@ -2,6 +2,7 @@
 {% block content %}
 <form method="post">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <a href="/nascar">Nascar Home</a>
 </form>
 <div class="container">
     <p>{{  text  }}</p><a href="/nascar/admin">Return to Nascar Admin</a>

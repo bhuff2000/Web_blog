@@ -592,7 +592,7 @@ def load_race_results():
                                   "drv_status": result.drv_status, "points": result.points, "bonus_points": result.bonus_points,
                                   "penalty_points": result.penalty_points, "stage_1_points": result.stage_1_points,
                                   "stage_2_points": result.stage_2_points,  "laps_completed": result.laps_completed}
-            replace_dir = Database.replace_one("results", query, query_replace_data)
+            replace_dir = Database.update_one("results", query, query_replace_data)
             print(str(dir(replace_dir)))
             print(replace_dir.raw_result)
             ignore_list.append(result)
