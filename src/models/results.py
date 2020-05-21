@@ -34,7 +34,7 @@ class Results(object):
         self.drv_last = drv_last
         self.drv_full = drv_full
         self.drv_id = drv_id
-        self._id = uuid.uuid4().hex if _id is None else _id
+        self._id = _id
 
     def json(self):
         return {
