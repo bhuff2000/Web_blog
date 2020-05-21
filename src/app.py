@@ -415,6 +415,7 @@ def nascar_pool_results(room_id):
     json_list = []
     for pick in pool_picks:
         json_list.append(pick.json())
+        print(pick["drv_full"] + " : " + pick["position"])
     print(type(pool_picks))
     sorted_pool_picks = sorted(json_list, key = lambda i: i["pool_pick_num"])
     print(sorted_pool_picks)
