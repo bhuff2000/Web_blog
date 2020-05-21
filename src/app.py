@@ -588,12 +588,12 @@ def load_race_results():
             obj_id_to_replace = (ObjectId(result._id))
             query = {"_id": obj_id_to_replace}
             # stage_2_points, laps_led, laps_completed}
-            query_replace_data = {"race_status": result.race_status, "laps_led": result.laps_led, "start_pos": result.start_pos, "position": result.position,
+            query_update_data = {"$set": {"race_status": result.race_status, "laps_led": result.laps_led, "start_pos": result.start_pos, "position": result.position,
                                   "drv_status": result.drv_status, "points": result.points, "bonus_points": result.bonus_points,
                                   "penalty_points": result.penalty_points, "stage_1_points": result.stage_1_points,
-                                  "stage_2_points": result.stage_2_points,  "laps_completed": result.laps_completed}
-            replace_dir = Database.update_one("results", query, query_replace_data)
-            print(str(dir(replace_dir)))
+                                  "stage_2_points": result.stage_2_points,  "laps_completed": result.laps_completed}}
+            replace_dir = Database.update_one("results", query, query_update_data)
+            print(str(dir(replace_dir.modified_count)))
             print(replace_dir.raw_result)
             ignore_list.append(result)
 
