@@ -594,6 +594,7 @@ def load_race_results():
                                   "stage_2_points": result.stage_2_points, "laps_led": result.laps_led, "laps_completed": result.laps_completed}
             replace_dir = Database.replace_one("results", query, query_replace_data)
             print(str(dir(replace_dir)))
+            print(replace_dir.raw_result)
             ignore_list.append(result)
 
     races = Database.find(collection="results", query={"race_id": race_id})
