@@ -36,7 +36,7 @@ class Results(object):
         self.drv_last = drv_last
         self.drv_full = drv_full
         self.drv_id = drv_id
-        self._id = ObjectId
+        self._id = ObjectId()
 
     def json(self):
         return {
