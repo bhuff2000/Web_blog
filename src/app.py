@@ -589,11 +589,11 @@ def load_race_results():
             record = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
             record_json = record.json()
             rec_json =result.json()
-            obj_id_to_replace = str(record_json["_id"])
+            obj_id_to_replace = record_json["_id"]
             #obj_id_to_replace = "5ec5f4b93acf8b000bfe6ec3"
             print(str(obj_id_to_replace))
             print(type(obj_id_to_replace))
-            query = {"_id": ObjectId(obj_id_to_replace)}
+            query = {"_id": record_json["_id"]}
             print(str(result.position)+ " - "+ str(result.drv_full))
             print(str(rec_json["position"]) + " - " + str(rec_json["drv_full"]))
             # stage_2_points, laps_led, laps_completed}
