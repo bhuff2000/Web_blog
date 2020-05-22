@@ -602,7 +602,8 @@ def load_race_results():
                                   "penalty_points": int(rec_json["penalty_points"]), "stage_1_points": int(rec_json["stage_1_points"]),
                                   "stage_2_points": int(rec_json["stage_2_points"]), "laps_led": int(rec_json["laps_led"]), "laps_completed": int(rec_json["laps_completed"])}}
 
-            replace_dir = Database.update_one("results", query, query_update_data)
+            replace_dir = Database.update_one("results", {"$and":
+                                     [{"race_id": test_race_id}, {"drv_id": test_drv_id},]}, query_update_data)
             print(str(dir(replace_dir.modified_count)))
             print(replace_dir.raw_result)
             ignore_list.append(result)
