@@ -595,10 +595,10 @@ def load_race_results():
             print(str(result.position)+ " - "+ str(result.drv_full))
             print(str(rec_json["position"]) + " - " + str(rec_json["drv_full"]))
             # stage_2_points, laps_led, laps_completed}
-            query_update_data = {"$set": {"race_status": rec_json["race_status"], "start_pos": rec_json["start_pos"], "position": rec_json["position"],
-                                  "drv_status": rec_json["drv_status"], "points": rec_json["points"], "bonus_points": rec_json["bonus_points"],
-                                  "penalty_points": rec_json["penalty_points"], "stage_1_points": rec_json["stage_1_points"],
-                                  "stage_2_points": rec_json["stage_2_points"], "laps_led": rec_json["laps_led"], "laps_completed": rec_json["laps_completed"]}}
+            query_update_data = {"$set": {"race_status": str(rec_json["race_status"]), "start_pos": int(rec_json["start_pos"]), "position": int(rec_json["position"]),
+                                  "drv_status": str(rec_json["drv_status"]), "points": int(rec_json["points"]), "bonus_points": int(rec_json["bonus_points"]),
+                                  "penalty_points": int(rec_json["penalty_points"]), "stage_1_points": int(rec_json["stage_1_points"]),
+                                  "stage_2_points": int(rec_json["stage_2_points"]), "laps_led": int(rec_json["laps_led"]), "laps_completed": int(rec_json["laps_completed"])}}
 
             replace_dir = Database.update_one("results", query, query_update_data)
             print(str(dir(replace_dir.modified_count)))
