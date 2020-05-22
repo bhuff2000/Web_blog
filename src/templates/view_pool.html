@@ -51,13 +51,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" id="pick_log_list">
             <p><b>Pick Log:</b></p>
             <ul id="pick_log">
                 <li>messages</li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" id="msg_log_list">
             <p><b>Chat:</b></p>
             <ul id="msg_list">
             <li>messages</li>
@@ -74,6 +74,11 @@
 <script>
 $(document).ready(function() {
     var socket = io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
+
+    $('#pick_log_list').onchange(function() {
+        $('#pick_log_list').scrollTop($('#pick_log_list').height());
+        console.log("pick_log_list function triggered")
+    });
 
     //socket.on('join room announcement', function(data) {
     //    console.log({{ username }});
@@ -202,9 +207,6 @@ $(document).ready(function() {
         //newNode.innerHTML = `<b>${data.username}</b> has left the room`;
         //document.getElementById('messages').appendChild(newNode);
     });
-
-    //let boob = $('#room_idA').val();
-    //console.log('this shit is: '+ boob);
 
 
     $('#driver_list-driver option').remove();
