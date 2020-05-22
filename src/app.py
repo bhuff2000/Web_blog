@@ -586,7 +586,7 @@ def load_race_results():
             result.save_to_mongo()
             load_list.append(result)
         else:
-            record = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
+            query = Results.get_by_race_and_drv_id(test_race_id, test_drv_id)
             record_json = record.json()
             rec_json =result.json()
             obj_id_to_replace = record_json["_id"]
