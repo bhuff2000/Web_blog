@@ -663,8 +663,8 @@ def test():
     obj_id_to_replace = (ObjectId(result_id))
     query = {"_id": obj_id_to_replace}
     # stage_2_points, laps_led, laps_completed}
-    query_replace_data = {"$set": {"race_status": "cant say", "laps_led": 25, "start_pos": 30,
-                          "position": 39, "drv_status": "hard on", "points": 25, "bonus_points": 1,
+    query_replace_data = {"$set": {"race_status": "pretty good", "laps_led": 25, "start_pos": 30,
+                          "position": 23, "drv_status": "hard on", "points": 25, "bonus_points": 1,
                           "penalty_points": 1, "stage_1_points": 35, "stage_2_points": 22, "laps_completed": 45}}
     replace_dir = Database.update_one("results", query, query_replace_data)
     print(str(dir(replace_dir.modified_count)))
