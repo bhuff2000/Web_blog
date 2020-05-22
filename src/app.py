@@ -590,6 +590,7 @@ def load_race_results():
             rec_json =record.json()
             obj_id_to_replace = str((record._id))
             print(str(obj_id_to_replace))
+            print(type(obj_id_to_replace))
             query = {"_id": ObjectId(obj_id_to_replace)}
             print(str(result.position)+ " - "+ str(result.drv_full))
             print(str(record.position) + " - " + str(record.drv_full))
