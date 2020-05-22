@@ -593,7 +593,7 @@ def load_race_results():
             print(type(obj_id_to_replace))
             query = {"_id": ObjectId(obj_id_to_replace)}
             print(str(result.position)+ " - "+ str(result.drv_full))
-            print(str(record.position) + " - " + str(record.drv_full))
+            print(str(rec_json["position"]) + " - " + str(rec_json["drv_full"]))
             # stage_2_points, laps_led, laps_completed}
             query_update_data = {"$set": {"race_status": rec_json["race_status"], "start_pos": rec_json["start_pos"], "position": rec_json["position"],
                                   "drv_status": rec_json["drv_status"], "points": rec_json["points"], "bonus_points": rec_json["bonus_points"],
