@@ -593,7 +593,7 @@ def load_race_results():
             #obj_id_to_replace = "5ec5f4b93acf8b000bfe6ec3"
             print(str(obj_id_to_replace))
             print(type(obj_id_to_replace))
-            query = {"_id": ObjectId(obj_id_to_replace)}
+            query = {"_id": obj_id_to_replace}
             print(str(result.position)+ " - "+ str(result.drv_full))
             print(str(rec_json["position"]) + " - " + str(rec_json["drv_full"]))
             # stage_2_points, laps_led, laps_completed}
