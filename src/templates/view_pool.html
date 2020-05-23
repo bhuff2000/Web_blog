@@ -193,7 +193,7 @@ $(document).ready(function() {
         //$('option[value='driver_id']').hide();
         $('option[value=' + driver_id +']').hide();
         //$('#pick_log_list').val(data['driver_pick']['pick_data']['next_pick']['username']);
-        $('li[id="' + data['driver_pick']['car_num' + '"]').focus();
+        $('li[id="' + data['driver_pick']['car_num'] + '"]').focus();
     });
 
     socket.on('join_room_announcement', function(data) {
