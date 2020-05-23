@@ -75,7 +75,7 @@
 $(document).ready(function() {
     var socket = io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
-    $('#pick_log_list').bind('change', function() {
+    $('#pick_log_list').change(function() {
         $('#pick_log_list').scrollTop($('#pick_log_list').height());
         console.log("pick_log_list function triggered")
     });
