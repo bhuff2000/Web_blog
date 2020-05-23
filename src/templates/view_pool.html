@@ -157,7 +157,7 @@ $(document).ready(function() {
     socket.on('receive message', function(data) {
         console.log(data);
         console.log("in receive socket");
-        $('#msg_list').append('<li><b>'+ data.username +': </b>' + data.message +'</li>');
+        $('#msg_list').append('<li tabindex="-1"><b>'+ data.username +': </b>' + data.message +'</li>');
         //const newNode = document.createElement('div');
         //newNode.innerHTML = `<b>${data.username}&nbsp;[$(data.created_at}]:&nbsp;</b> ${data.message}`;
         //document.getElementById('messages').appendChild(newNode);
@@ -184,8 +184,8 @@ $(document).ready(function() {
         var driver_id = data['driver_pick']['driver_id'];
         //let driver_id = "85c06960-3610-4eff-9ef2-18641b84c952";
         console.log(driver_id);
-        $('#pick_log').append('<li><b>'+ data['driver_pick']['car_num'] + ' - ' + data['driver_pick']['drv_full']
-         +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
+        $('#pick_log').append('<li id="' + data['driver_pick']['car_num']+'" tabindex="-1" ><b>'+ data['driver_pick']['car_num'] +
+            ' - ' + data['driver_pick']['drv_full'] +'</b> picked by ' + data['driver_pick']['username'] + '</li>');
         $('#pick_log').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username']+
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
