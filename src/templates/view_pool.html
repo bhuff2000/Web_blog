@@ -76,9 +76,14 @@ $(document).ready(function() {
     var socket = io.connect('http://' +document.domain + ':' + location.port, {transports: ['websocket']});
 
     $('#pick_log_list').change(function() {
-        $('#pick_log_list').scrollTop($('#pick_log_list').height());
+        //var elmt = document.getElementById("pick_log_list");
+        //elmt.scrollIntoView(false);
+        #$('#pick_log_list').scrollTop($('#pick_log_list').height());
         console.log("pick_log_list function triggered")
     });
+
+    var elmt = document.getElementById("pick_log_list");
+
 
     //socket.on('join room announcement', function(data) {
     //    console.log({{ username }});
@@ -187,6 +192,7 @@ $(document).ready(function() {
         $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']);
         //$('option[value='driver_id']').hide();
         $('option[value=' + driver_id +']').hide();
+        $('#pick_log_list).val(data['driver_pick']['pick_data']['next_pick']['username']);
 
     });
 
