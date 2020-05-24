@@ -414,7 +414,7 @@ def nascar_pool_results(room_id):
         else:
             position = 0
             Database.update_one("picks", {"$and": [{"room_id": room_id}, {"drv_full": drv_full}]},
-                                {"$set": {"position": position["position"]}})
+                                {"$set": {"position": position}})
 
     pool_picks = Draft_Picks.get_pool_picks(room_id)
     json_list = []
