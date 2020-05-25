@@ -88,7 +88,9 @@ $(document).ready(function() {
     var elmt = document.getElementById("pick_log_list");
 
     $('#next_pick_username').change(function(){
-        if ($('#next_pick_username').val() == $('#current_user').val()) {
+        var next_pick = $('#next_pick_username').val();
+        var current = $('#current_user').val();
+        if (next_pick == current) {
         $('#choose_driver').disabled = false;
         console.log('button enabled');
         } else { $('#choose_driver').disabled = true;
