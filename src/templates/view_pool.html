@@ -87,7 +87,7 @@ $(document).ready(function() {
 
     var elmt = document.getElementById("pick_log_list");
 
-    $('#next_pick_username').change(function(){
+    $('#next_pick_username').on('change', function(){
         var next_pick = $('#next_pick_username').val();
         var current = $('#current_user').val();
         if (next_pick == current) {
