@@ -50,7 +50,7 @@
                 {{  wtf.quick_form(form)  }}
                 <br>
                  <div>
-                    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" disabled>Choose Driver</button></a>
+                    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
                 </div>
             </div>
         </div>
@@ -90,9 +90,9 @@ $(document).ready(function() {
     $('#next_pick_username').change(function(){
         if ($('#next_pick_username').val() == $('#current_user').val()) {
         $('#choose_driver').disabled = false;
-        console.log('button enabled')
+        console.log('button enabled');
         } else { $('#choose_driver').disabled = true;
-        console.log('button disabled')
+        console.log('button disabled');
         }
     });
 
