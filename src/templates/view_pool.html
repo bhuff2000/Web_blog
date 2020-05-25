@@ -8,7 +8,7 @@
 <h3>{{  username  }}</h3>
 <form>
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
-<input type="hidden" id="pool_pick_num" name="pool_pick_num" value=1>
+<input type="hidden" id="pool_pick_num" name="pool_pick_num" value=None>
 <input type="hidden" id="next_pick_username" name="next_pick_username" value=None>
 <input type="hidden" id="current_user" name="current_user" value="{{ current_user.username  }}">
 <br>
@@ -178,6 +178,9 @@ $(document).ready(function() {
     socket.on('start_draft_annc', function(data) {
         console.log(data);
         console.log("in receive socket");
+        var first_pick = data.pick_list[0]['username']
+        $('#next_pick_name').value(first_pick);
+        $('#pool_pick_nun').value(1);
         $('#initial_message').remove();
         $('#pick_log').append('<li><b>'+ data.pick_list[0]['username'] +'</b> - picks first! </li>');
         $.each(data.pick_list, function() {
