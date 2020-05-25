@@ -179,8 +179,8 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive socket");
         var first_pick = data.pick_list[0]['username']
-        $('#next_pick_name').value(first_pick);
-        $('#pool_pick_nun').value(1);
+        $('#next_pick_name').val(first_pick);
+        $('#pool_pick_nun').val(1);
         $('#initial_message').remove();
         $('#pick_log').append('<li><b>'+ data.pick_list[0]['username'] +'</b> - picks first! </li>');
         $.each(data.pick_list, function() {
