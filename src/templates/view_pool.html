@@ -9,6 +9,7 @@
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
 <input type="hidden" id="pool_pick_num" name="pool_pick_num" value=1>
 <input type="hidden" id="next_pick_username" name="next_pick_username" value=None>
+<input type="hidden" id="current_user" name="current_user" value="{{ current_user.username  }}">
 <br>
 </div>
 <div class="container p-3 my-3 border border-primary">
@@ -47,7 +48,7 @@
                 {{  wtf.quick_form(form)  }}
                 <br>
                  <div>
-                    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" >Choose Driver</button></a>
+                    <a href="#"><button type="submit" id="choose_driver" class="btn btn-primary" disabled>Choose Driver</button></a>
                 </div>
             </div>
         </div>
@@ -83,6 +84,15 @@ $(document).ready(function() {
     });
 
     var elmt = document.getElementById("pick_log_list");
+
+    $('#next_pick_username').change(function(){
+        if ($('#next_pick_username).val() == $('#current_user').val()) {
+        $('#choose_driver').disabled = false;
+        console.log('button enabled')
+        } else { $('#choose_driver').disabled = true;
+        console.log('button disabled')
+        }
+    });
 
 
     //socket.on('join room announcement', function(data) {
