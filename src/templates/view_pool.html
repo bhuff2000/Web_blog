@@ -87,7 +87,7 @@ $(document).ready(function() {
 
     var elmt = document.getElementById("pick_log_list");
 
-    $('#next_pick_username').on('change', function(){
+    $('#next_pick_username').bind('change', function(){
         var next_pick = $('#next_pick_username').val();
         var current = $('#current_user').val();
         if (next_pick == current) {
@@ -181,7 +181,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive socket");
         var first_pick = data.pick_list[0]['username']
-        $('#next_pick_username').val('"' +first_pick +'"');
+        $('#next_pick_username').val('"' +first_pick +'"').trigger('change');
         $('#pool_pick_num').val("1");
         $('#initial_message').remove();
         $('#pick_log').append('<li><b>'+ data.pick_list[0]['username'] +'</b> - picks first! </li>');
