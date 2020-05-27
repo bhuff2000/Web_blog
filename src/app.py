@@ -325,6 +325,7 @@ def create_new_post(blog_id):
 
 @app.route('/nascar')
 @login_required
+@cross_origin()
 def nascar_template():
     #fuck_sakes = Sched_Event.find_by_year(2020)
     #print(str(fuck_sakes))
