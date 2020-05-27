@@ -87,17 +87,7 @@ $(document).ready(function() {
 
     var elmt = document.getElementById("pick_log_list");
 
-    //$("input[type='hidden']").bind("change", function() {
-    $('#next_pick_username').bind("change", function(){
-        var next_pick = $('#next_pick_username').val();
-        var current = $('#current_user').val();
-        if (next_pick == current) {
-        $('#choose_driver').disabled = false;
-        console.log('button enabled');
-        } else { $('#choose_driver').disabled = true;
-        console.log('button disabled');
-        }
-    });
+
 
 
     //socket.on('join room announcement', function(data) {
@@ -281,6 +271,19 @@ $(document).ready(function() {
                 });
 
     }
+
+    //$("input[type='hidden']").bind("change", function() {
+    $('#next_pick_username').bind("change", function(){
+        var next_pick = $('#next_pick_username').val();
+        var current = $('#current_user').val();
+        if (next_pick == current) {
+        $('#choose_driver').disabled = false;
+        console.log('button enabled');
+        } else { $('#choose_driver').disabled = true;
+        console.log('button disabled');
+        }
+    });
+
 
 }); //end ready
 </script>
