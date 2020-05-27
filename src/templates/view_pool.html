@@ -172,6 +172,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive socket");
         var first_pick = data.pick_list[0]['username']
+        $('#next_pick_username').focus();
         $('#next_pick_username').val('"' +first_pick +'"').trigger("change");
         //$('#next_pick_username').trigger("change");
         $('#pool_pick_num').val("1");
