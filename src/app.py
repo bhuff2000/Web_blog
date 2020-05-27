@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, make_response, jsoni
 from flask_socketio import SocketIO, emit, send, join_room, leave_room, rooms
 from flask_login import LoginManager, login_required, logout_user, current_user
 from flask_bootstrap import Bootstrap
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from datetime import datetime
 import logging
 from logging import StreamHandler
@@ -61,6 +61,7 @@ def add_headers(response):
 room_lst =[]
 
 @app.route('/')
+@cross_origin()
 def home_template():
     return render_template('home.html')
 
