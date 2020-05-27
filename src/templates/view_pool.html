@@ -8,8 +8,8 @@
 <h3>{{  username  }}</h3>
 <form>
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
-<input type="hidden" id="pool_pick_num" name="pool_pick_num" value=None>
-<input type="text" id="next_pick_username" name="next_pick_username" value=None>
+<input type="hidden" id="pool_pick_num" name="pool_pick_num" value="">
+<input type="text" id="next_pick_username" name="next_pick_username" value="">
 <input type="hidden" id="current_user" name="current_user" value="{{ current_user.username  }}">
 <br>
 </form>
@@ -198,7 +198,7 @@ $(document).ready(function() {
         $('#pick_log').append('<li><b>'+ data['driver_pick']['pick_data']['next_pick']['username']+
          '</b> picks next.</li>');
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
-        $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']);
+        $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']).trigger("change");
         //$('option[value='driver_id']').hide();
         $('option[value=' + driver_id +']').hide();
         //$('#pick_log_list').val(data['driver_pick']['pick_data']['next_pick']['username']);
@@ -273,7 +273,7 @@ $(document).ready(function() {
     }
 
     //$("input[type='hidden']").bind("change", function() {
-    $('#next_pick_username').bind("change", function(){
+    $('#next_pick_username').on("change", function(){
         var next_pick = $('#next_pick_username').val();
         var current = $('#current_user').val();
         if (next_pick == current) {
