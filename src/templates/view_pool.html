@@ -9,7 +9,7 @@
 <form>
 <input type="hidden" id="room_idA" name="room_idA" value="{{  room_data._id  }}">
 <input type="hidden" id="pool_pick_num" name="pool_pick_num" value="">
-<input type="text" id="next_pick_username" name="next_pick_username" value="">
+<input type="text" id="next_pick_username" tabindex="-1" name="next_pick_username" value="">
 <input type="hidden" id="current_user" name="current_user" value="{{ current_user.username  }}">
 <br>
 </form>
@@ -172,7 +172,7 @@ $(document).ready(function() {
         console.log(data);
         console.log("in receive socket");
         var first_pick = data.pick_list[0]['username']
-        $('#next_pick_username').focus();
+        $('input[id="next_pick_username"]').focus();
         $('#next_pick_username').val('"' +first_pick +'"').trigger("change");
         //$('#next_pick_username').trigger("change");
         $('#pool_pick_num').val("1");
