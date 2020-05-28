@@ -61,7 +61,7 @@ def add_headers(response):
 room_lst =[]
 
 @app.route('/')
-@cross_origin()
+@cross_origin(allow_headers=['Content-Type'])
 def home_template():
     return render_template('home.html')
 
@@ -189,6 +189,7 @@ def get_room_list():
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @app.route('/login', methods=['POST', 'GET'])
+@cross_origin(allow_headers=['Content-Type'])
 def login_template():
     form = LoginForm()
     email = form.email.data
@@ -210,6 +211,7 @@ def login_template():
 
 @app.route('/logout')
 @login_required
+@cross_origin(allow_headers=['Content-Type'])
 def logout():
     logout_user()
     flash('You have been logged out.')
@@ -226,6 +228,7 @@ def load_user(user_id):
 
 
 @app.route('/register', methods=['GET', 'POST'])
+@cross_origin(allow_headers=['Content-Type'])
 def register_template():
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -325,7 +328,7 @@ def create_new_post(blog_id):
 
 @app.route('/nascar')
 @login_required
-@cross_origin()
+@cross_origin(allow_headers=['Content-Type'])
 def nascar_template():
     #fuck_sakes = Sched_Event.find_by_year(2020)
     #print(str(fuck_sakes))
