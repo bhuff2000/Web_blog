@@ -36,6 +36,7 @@ app = Flask(__name__)
 app.config.from_object('src.config')
 app.secret_key = "jose"
 #CORS(app, resources={r"/behoughton.com/*": {"origins": "*"}} ,supports_credentials=False)
+app.config['CORS_HEADERS']='Content-Type'
 CORS(app)
 file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
