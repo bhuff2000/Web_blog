@@ -42,7 +42,7 @@ file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
 CORS(app, resources=r'/behoughton.com/*',origin=r'/behoughton.com/*')
-socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins=r'*//cdnjs.cloudflare.com/*')
+socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins=r'*behoughton.com/*')
 
 login_manager = LoginManager()
 login_manager.login_view = '/login'
