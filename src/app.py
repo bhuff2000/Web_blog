@@ -343,7 +343,7 @@ def nascar_template():
         print(draft['room_name'])
         race_name = room_data.race_name
         draft_list.append({'race_name': race_name, 'room_name': draft['room_name'], 'room_id': draft['room_id']})
-    return render_template('nascar_home.html', drafts=draft_list)
+    return render_template('nascar_home.html', drafts=draft_list), {'Content-Type': 'application/json'}
 
 
 
