@@ -41,7 +41,7 @@ app.secret_key = "jose"
 file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
-CORS(app, origins=r"www.behoughton.com", supports_credentials=True)
+cors=CORS(app, origins=r"www.behoughton.com", supports_credentials=True)
 #socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins='*')
 socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origin='www.behoughton.com' )
 login_manager = LoginManager()
