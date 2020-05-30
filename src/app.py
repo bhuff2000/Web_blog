@@ -34,6 +34,7 @@ from src.forms.register import RegistrationForm
 
 app = Flask(__name__)
 app.config.from_object('src.config')
+app.config['CORS_ORIGINS']="www.behoughton.com"
 app.secret_key = "jose"
 #CORS(app, resources={r"/behoughton.com/*": {"origins": r"/behoughton.com/*"}} )
 #app.config['CORS_HEADERS']='Content-Type'
@@ -41,7 +42,7 @@ app.secret_key = "jose"
 file_handler = StreamHandler()
 file_handler.setLevel(logging.INFO)
 app.logger.addHandler(file_handler)
-cors=CORS(app, origins=r"www.behoughton.com", supports_credentials=True)
+cors=CORS(app, origins="www.behoughton.com", supports_credentials=True)
 #socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins='*')
 socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origin='www.behoughton.com' )
 login_manager = LoginManager()
