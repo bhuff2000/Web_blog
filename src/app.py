@@ -40,9 +40,10 @@ app.secret_key = "jose"
 #CORS(app, resources={r"/behoughton.com/*": {"origins": r"/behoughton.com/*"}} )
 #app.config['CORS_HEADERS']='Content-Type'
 #CORS(app, resources=r'/behoughton.com/*',origin=r'/behoughton.com/*')
-root = logging.getLogger()
-root.addHandler(default_handler)
-app.logger.addHandler(default_handler)
+#root = logging.getLogger()
+#root.addHandler(default_handler)
+#app.logger.addHandler(default_handler)
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 CORS(app, origins="www.behoughton.com")
 #socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins='*')
 socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origin='www.behoughton.com' )
