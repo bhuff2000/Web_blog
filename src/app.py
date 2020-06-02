@@ -62,7 +62,7 @@ MYLOG = logging.getLogger(__name__)
 def add_headers(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    MYLOG.debug("headers" )
+    MYLOG.debug("headers " + response.headers.print)
     return response
 
 room_lst =[]
