@@ -34,7 +34,7 @@ from src.forms.register import RegistrationForm
 
 app = Flask(__name__)
 app.config.from_object('src.config')
-app.config['CORS_ORIGINS']="www.behoughton.com"
+app.config['CORS_ORIGINS']="www.behoughton.com/login"
 app.config['CORS_SEND_WILDCARD']=False
 app.secret_key = "jose"
 #CORS(app, resources={r"/behoughton.com/*": {"origins": r"/behoughton.com/*"}} )
@@ -44,7 +44,7 @@ app.secret_key = "jose"
 #root.addHandler(default_handler)
 #app.logger.addHandler(default_handler)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
-CORS(app, origins="www.behoughton.com")
+CORS(app, origins="www.behoughton.com/login")
 #socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins='*')
 socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origin='www.behoughton.com' )
 login_manager = LoginManager()
