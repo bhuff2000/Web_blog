@@ -54,7 +54,7 @@ Bootstrap(app)
 csrf = CSRFProtect()
 csrf.init_app(app)
 
-
+MYLOG = logging.getLogger(__name__)
 
 
 
@@ -62,6 +62,7 @@ csrf.init_app(app)
 def add_headers(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    MYLOG.debug("headers" )
     return response
 
 room_lst =[]
