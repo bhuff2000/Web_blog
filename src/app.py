@@ -75,7 +75,7 @@ def add_headers(response):
 
 room_lst =[]
 
-@app.route('/')
+@app.route('/',  methods=['GET', 'POST'])
 #@cross_origin(allow_headers=['Content-Type'])
 def home_template():
     return render_template('home.html')
