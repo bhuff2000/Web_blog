@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="69" column="50" lean-forward="true" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
+            <state relative-caret-position="317">
+              <caret line="63" column="199" selection-start-line="63" selection-start-column="199" selection-end-line="63" selection-end-column="199" />
               <folding>
                 <element signature="e#0#114#0" expanded="true" />
               </folding>
@@ -821,8 +821,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="69" column="50" lean-forward="true" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
+        <state relative-caret-position="317">
+          <caret line="63" column="199" selection-start-line="63" selection-start-column="199" selection-end-line="63" selection-end-column="199" />
           <folding>
             <element signature="e#0#114#0" expanded="true" />
           </folding>
