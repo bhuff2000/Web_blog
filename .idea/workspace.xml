@@ -17,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
-              <caret line="63" column="131" selection-start-line="63" selection-start-column="131" selection-end-line="63" selection-end-column="131" />
+              <caret line="63" column="132" selection-start-line="63" selection-start-column="132" selection-end-line="63" selection-end-column="132" />
               <folding>
                 <element signature="e#0#114#0" expanded="true" />
               </folding>
@@ -820,7 +820,7 @@
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
-          <caret line="63" column="131" selection-start-line="63" selection-start-column="131" selection-end-line="63" selection-end-column="131" />
+          <caret line="63" column="132" selection-start-line="63" selection-start-column="132" selection-end-line="63" selection-end-column="132" />
           <folding>
             <element signature="e#0#114#0" expanded="true" />
           </folding>
