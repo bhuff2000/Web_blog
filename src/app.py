@@ -61,9 +61,10 @@ MYLOG = logging.getLogger(__name__)
 @app.after_request
 def add_headers(response):
     response.headers.add('Access-Control-Allow-Origin', 'http://www.behoughton.com/*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization, X-Request-Id, X-Forwarded-For, X-Forwarded-Proto, X-Forwarded-Port, X-Request-Start')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization, X-Forwarded-For, X-Forwarded-Proto, X-Forwarded-Port, X-Request-Start')
     response.headers.add('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE')
     response.headers.add('Access-Control-Allow-Credentials', 'True')
+    response.headers.add('X-Request-id')
     MYLOG.debug("request headers " + str(request.headers))
     MYLOG.debug("response headers " + str(response.headers))
 
