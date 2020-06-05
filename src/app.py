@@ -34,8 +34,10 @@ from src.forms.register import RegistrationForm
 
 app = Flask(__name__)
 app.config.from_object('src.config')
-app.config['CORS_ORIGINS']="www.behoughton.com/login"
-app.config['CORS_SEND_WILDCARD']=False
+app.config['CORS_SUPPORTS_CREDENTIALS']=True
+app.config['CORS_AUTOMATIC_OPTIONS']=True
+app.config['CORS_ALLOW_HEADERS']=True
+app.config['CORS_EXPOSE_HEADERS']=True
 app.secret_key = "jose"
 #CORS(app, resources={r"/behoughton.com/*": {"origins": r"/behoughton.com/*"}} )
 #app.config['CORS_HEADERS']='Content-Type'
