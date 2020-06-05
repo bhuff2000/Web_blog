@@ -62,11 +62,11 @@ MYLOG = logging.getLogger(__name__)
 
 @app.after_request
 def add_headers(response):
-    response.headers.add('Access-Control-Allow-Origin', 'www.behoughton.com:13, http://www.behoughton.com/*, www.behoughton.com, http://www.behoughton.com/, http://www.behoughton.com/login/, http://www.behoughton.com/nascar/')
+    response.headers.add('Access-Control-Allow-Origin', 'www.behoughton.com:13, http://www.behoughton.com/*, www.behoughton.com, http://www.behoughton.com, http://www.behoughton.com/login/, http://www.behoughton.com/nascar/')
     #response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization, Upgrade-Insecure-Requests, Cookie, Cache-Control, User-Agent, Accept, Accept-Encoding, CUSTOM-ALLOWED-HEADER, Origin, X-Requested-With, x-api-key, X-LS-CORS-Template, X-LS-Auth_Token, X-LS-Auth-User-Token, X-LS-Sync-Result, X-LS-Sequence, token')
     response.headers.add('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, Age, Content-Encoding, Expires, Timing-Allow-Origin, ETag, Last-Modified, expect-ct, Strict-Transport-Security, cf-ray, served-in-seconds, cf-request-id, alt-svc, cf-cache-status, Connection, Vary, Server, Date, Content-Length, Set-Cookie, Upgrade-Insecure-Requests, Accept, User-Agent, Referer, Accept-Language, Accept-Encoding, X-Request-Id, X-Forwarded-For, X-Forwarded-Proto, X-Forwarded-Port, Via, Connect-Time, X-Request-Start, Total-Route-Time, Content-Type,Authorization, Cache-Control, CUSTOM-ALLOWED-HEADER, Origin, X-Requested-With, x-api-key, X-LS-CORS-Template, X-LS-Auth_Token, X-LS-Auth-User-Token, X-LS-Sync-Result, X-LS-Sequence, token')
     response.headers.add('Access-Control-Allow-Methods', 'GET, HEAD, POST, OPTIONS, PUT, PATCH, DELETE')
-    response.headers.add('Access-Control-Allow-Credentials', 'True')
+    #response.headers.add('Access-Control-Allow-Credentials', 'True')
     #response.headers.add('X-Forwarded-For', '108.236.43.12')
     #response.headers.add('X-Forwarded-Proto', 'http')
     #response.headers.add('X-Forwarded-Port', '80')
