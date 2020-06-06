@@ -108,7 +108,7 @@ $(document).ready(function() {
             username: "{{ username }}",
             room: "{{ room_data.room_name }}"
             });
-        var clients = socket.adapter.rooms[{{ room_data.room_name  }}];
+        var clients = socket.adapter.rooms;
         console.log(clients);
         });  // end socket connect
 
