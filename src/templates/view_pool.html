@@ -108,8 +108,8 @@ $(document).ready(function() {
             username: "{{ username }}",
             room: "{{ room_data.room_name }}"
             });
-        var clients = io.sockets.adapter.rooms['{{ room_data.room_name  }}'].sockets;
-        console.log(clients);
+        //var clients = io.sockets.adapter.rooms['{{ room_data.room_name  }}'].sockets;
+        //console.log(clients);
         });  // end socket connect
 
 
