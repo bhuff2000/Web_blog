@@ -48,7 +48,7 @@ app.secret_key = "jose"
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 CORS(app, origins="www.behoughton.com/login")
 #socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origins='*')
-socketio =SocketIO(app, logger=True, engineio_logger=True, cors_allowed_origin='www.behoughton.com' )
+socketio =SocketIO(app, logger=True, engineio_logger=True, always_connect=True, cors_allowed_origin='www.behoughton.com' )
 login_manager = LoginManager()
 login_manager.login_view = '/login'
 login_manager.init_app(app)
