@@ -107,6 +107,8 @@ $(document).ready(function() {
         socket.emit('join_room', {
             username: "{{ username }}",
             room: "{{ room_data.room_name }}"
+        var clients = io.sockets.adapter.rooms{'{{ room_data.room_name  }}'].sockets;
+        console.log(clients);
         });  // end socket connect
 
         //let message_input = document.getElementById('message_input');
