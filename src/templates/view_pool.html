@@ -108,7 +108,7 @@ $(document).ready(function() {
             username: "{{ username }}",
             room: "{{ room_data.room_name }}"
             });
-        var clients = socket.adapter.rooms['b68febeebd1a4defb4c3405b210a6725'].sockets;
+        var clients = io.sockets.adapter.rooms['b68febeebd1a4defb4c3405b210a6725'].sockets;
         console.log(clients);
         });  // end socket connect
 
