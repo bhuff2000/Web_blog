@@ -108,8 +108,6 @@ $(document).ready(function() {
             username: "{{ username }}",
             room: "{{ room_data.room_name }}"
             });
-        var clients = Object.keys(socket.rooms);
-        console.log(clients);
         });  // end socket connect
 
 
@@ -204,7 +202,7 @@ $(document).ready(function() {
         $('#pool_pick_num').val(data['driver_pick']['pick_data']['next_pick']['pool_pick_num']);
         $('#next_pick_username').val(data['driver_pick']['pick_data']['next_pick']['username']).trigger("change");
         //$('option[value='driver_id']').hide();
-        $('option[value=' + driver_id +']').hide();
+        $('option[value=' + driver_id +']').remove();
         //$('#pick_log_list').val(data['driver_pick']['pick_data']['next_pick']['username']);
         $('li[id="' + data['driver_pick']['car_num'] + '"]').focus();
     });
