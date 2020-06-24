@@ -347,8 +347,6 @@ def create_new_post(blog_id):
 @login_required
 #@cross_origin(allow_headers=['Content-Type'])
 def nascar_template():
-    #fuck_sakes = Sched_Event.find_by_year(2020)
-    #print(str(fuck_sakes))
     username = current_user.username
     print('user fing name ' + str(username))
     drafts = list(Room.get_by_username(username))
@@ -360,6 +358,23 @@ def nascar_template():
         race_name = room_data.race_name
         draft_list.append({'race_name': race_name, 'room_name': draft['room_name'], 'room_id': draft['room_id']})
     return render_template('nascar_home.html', drafts=draft_list)
+
+
+@app.route('/nascar/race_results')
+@login_required
+#@cross_origin(allow_headers=['Content-Type'])
+def nascar_race_results_template():
+    username = current_user.username
+    print('user fing name ' + str(username))
+    drafts = list(Room.get_by_username(username))
+    #print(drafts[0])
+    draft_list=[]
+    for draft in drafts:
+        room_data = Room.get_room_by_name(draft['room_name'])
+        print(draft['room_name'])
+        race_name = room_data.race_name
+        draft_list.append({'race_name': race_name, 'room_name': draft['room_name'], 'room_id': draft['room_id']})
+    return render_template('pool_results_home.html', drafts=draft_list)
 
 
 
