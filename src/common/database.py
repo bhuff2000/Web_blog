@@ -10,6 +10,7 @@ class Database(object):
     username = urllib.parse.quote_plus(USERNAME)
     password = urllib.parse.quote_plus(PASSWORD)
     URI = "mongodb+srv://{}:{}@npoolcluster.taks4.mongodb.net/heroku_m56h929h?retryWrites=true&w=majority6h929h".format(username, password)
+    print(URI)
     DATABASE = None
 
     @staticmethod
