@@ -4,12 +4,12 @@ import pymongo
 import urllib.parse
 
 class Database(object):
-    #URI = os.environ.get("DB_URI")
-    USERNAME = os.environ.get("DB_USERNAME")
-    PASSWORD = os.environ.get("DB_PASSWORD")
-    username = 'behoughton@yahoo.com'
-    password = '$araAbby38'
-    URI = urllib.parse.quote_plus("mongodb+srv://{}:{}@npoolcluster.taks4.mongodb.net/heroku_m56h929h?retryWrites=true&w=majority6h929h".format(username, password))
+    URI = os.environ.get(urllib.parse.quote_plus("DB_URI"))
+    #USERNAME = os.environ.get("DB_USERNAME")
+    #PASSWORD = os.environ.get("DB_PASSWORD")
+    #username = 'behoughton@yahoo.com'
+    #password = '$araAbby38'
+    #URI = urllib.parse.quote_plus("mongodb+srv://{}:{}@npoolcluster.taks4.mongodb.net/heroku_m56h929h?retryWrites=true&w=majority6h929h".format(username, password))
     print(URI)
     DATABASE = None
 
