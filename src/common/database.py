@@ -1,9 +1,15 @@
 import os
 
 import pymongo
+import urllib.parse
 
 class Database(object):
-    URI = os.environ.get("DB_URI")
+    #URI = os.environ.get("DB_URI")
+    USERNAME = os.environ.get("DB_USERNAME")
+    PASSWORD = os.environ.get("DB_PASSWORD")
+    username = urllib.parse.quote_plus(USERNAME)
+    password = urllib.parse.quote_plus(PASSWORD)
+    URI = "mongodb+srv://{}:{}@npoolcluster.taks4.mongodb.net/heroku_m56h929h?retryWrites=true&w=majority6h929h".format(username, password)
     DATABASE = None
 
     @staticmethod
