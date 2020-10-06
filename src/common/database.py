@@ -4,18 +4,18 @@ import pymongo
 import urllib.parse
 
 class Database(object):
-    UNPARSED_URI = os.environ.get("DB_URI")
+    URI = os.environ.get("DB_URI")
     #USERNAME = os.environ.get("DB_USERNAME")
     #PASSWORD = os.environ.get("DB_PASSWORD")
     #username = 'behoughton@yahoo.com'
     #password = '$araAbby38'
-    URI = urllib.parse.quote_plus(UNPARSED_URI)
+    #URI = urllib.parse.quote_plus(UNPARSED_URI)
     #print(URI)
     DATABASE = None
 
     @staticmethod
     def initialize():
-        client = pymongo.MongoClient(Database.UNPARSED_URI)
+        client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = client['heroku_m56h929h']
 
     @staticmethod
