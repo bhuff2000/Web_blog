@@ -1,6 +1,7 @@
 import os
 
 import pymongo
+
 import urllib.parse
 
 class Database(object):
@@ -18,6 +19,7 @@ class Database(object):
         client = pymongo.MongoClient(Database.URI)
         Database.DATABASE = client['heroku_m56h929h']
 
+        
     @staticmethod
     def insert(collection, data):
         Database.DATABASE[collection].insert(data)
