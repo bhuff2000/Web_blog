@@ -15,4 +15,4 @@ flask-cors==3.0.10
 dnspython==1.16.0
 pyOpenssl==20.0.1
 flask-pymongo==2.3.0
-eventlet==0.28.0
+eventlet==0.31.0
